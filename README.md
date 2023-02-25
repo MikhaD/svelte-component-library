@@ -1,1 +1,2 @@
-All my components in one place
+# Svelte Component Library
+A growing collection of all my reusable Svelte components and SVGs.

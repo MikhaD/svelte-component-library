@@ -4,13 +4,10 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"preview": "vite preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
-		"story:dev": "histoire dev",
-		"story:build": "histoire build",
-		"story:preview": "histoire preview"
+		"dev": "histoire dev",
+		"build": "histoire build",
+		"preview": "histoire preview"
 	},
 	"devDependencies": {
 		"histoire": "^0.15.8",
