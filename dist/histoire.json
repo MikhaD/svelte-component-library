@@ -1,0 +1,173 @@
+{
+  "stories": [
+    {
+      "id": "src-stories-glitch-story-svelte",
+      "title": "Glitch Text",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "bx:text",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/Glitch.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "components",
+        "Glitch Text"
+      ],
+      "virtual": false,
+      "markdownFile": {
+        "id": "src-stories-glitch-story-md",
+        "relativePath": "src/stories/Glitch.story.md",
+        "isRelatedToStory": true,
+        "frontmatter": {}
+      }
+    },
+    {
+      "id": "src-stories-svg-command-story-svelte",
+      "title": "Command",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "lucide:image",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/Command.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "SVG",
+        "Command"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-dilk-story-svelte",
+      "title": "Dilk",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "lucide:image",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/Dilk.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "SVG",
+        "Dilk"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-peacediscipline-story-svelte",
+      "title": "Peace Discipline",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "lucide:image",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/Peacediscipline.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "SVG",
+        "Peace Discipline"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-logo-flat-story-svelte",
+      "title": "Flat",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "mdi:cog",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/logo/Flat.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Logo",
+        "Flat"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-logo-logo-story-svelte",
+      "title": "Logo",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "mdi:cog",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/logo/Logo.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Logo",
+        "Logo"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    }
+  ],
+  "markdownFiles": [
+    {
+      "id": "src-stories-glitch-story-md",
+      "relativePath": "src/stories/Glitch.story.md",
+      "isRelatedToStory": true,
+      "frontmatter": {}
+    }
+  ]
+}
