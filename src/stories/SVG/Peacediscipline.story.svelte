@@ -42,7 +42,7 @@
 	`;
 </script>
 
-<Hst.Story title="SVG/Peace Discipline" icon="lucide:image" {source}>
+<Hst.Story title="SVGs/Peace Discipline" icon="lucide:image" {source}>
 	<svg viewBox="0 0 732 571" xmlns="http://www.w3.org/2000/svg">
 		<circle r="116" cx="548" cy="454" />
 		<circle r="46" cx="684" cy="349" />

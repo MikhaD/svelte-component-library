@@ -9,7 +9,7 @@
 	let flash_duration = 30;
 </script>
 
-<Hst.Story title="components/Glitch Text" icon="bx:text">
+<Hst.Story title="Components/Glitch Text" icon="bx:text">
 	<Test {text} {iteration_factor} {flash_duration} />
 	<svelte:fragment slot="controls">
 		<Hst.Text bind:value={text} title="Text" />
