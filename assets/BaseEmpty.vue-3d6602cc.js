@@ -1,4 +1,4 @@
-import { _ as _export_sfc } from "./MobileOverlay.vue2-6ac9c88e.js";
+import { _ as _export_sfc } from "./MobileOverlay.vue2-c94fe546.js";
 import { o as openBlock, e as createElementBlock, av as renderSlot } from "./vendor-9eff1242.js";
 const _sfc_main = {};
 const _hoisted_1 = { class: "histoire-base-empty htw-base-empty htw-flex htw-flex-col htw-items-center htw-justify-center htw-space-y-4 htw-py-12 htw-h-full htw-text-center htw-text-gray-400 htw-text-lg" };

@@ -20,7 +20,7 @@
       "relativePath": "src/stories/Glitch.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
-        "components",
+        "Components",
         "Glitch Text"
       ],
       "virtual": false,
@@ -51,7 +51,7 @@
       "relativePath": "src/stories/SVG/Command.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
-        "SVG",
+        "SVGs",
         "Command"
       ],
       "virtual": false,
@@ -77,8 +77,34 @@
       "relativePath": "src/stories/SVG/Dilk.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
-        "SVG",
+        "SVGs",
         "Dilk"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-maximize-story-svelte",
+      "title": "Maximize",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "lucide:image",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/Maximize.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "SVGs",
+        "Maximize"
       ],
       "virtual": false,
       "markdownFile": null
@@ -103,7 +129,7 @@
       "relativePath": "src/stories/SVG/Peacediscipline.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
-        "SVG",
+        "SVGs",
         "Peace Discipline"
       ],
       "virtual": false,
