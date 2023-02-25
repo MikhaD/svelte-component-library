@@ -1,12 +1,14 @@
 <script lang="ts">
 	export let text: string;
 	export let iteration_factor = 1;
+	export let flash_duration = 30;
 	$: display = text;
 	const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 	let interval: NodeJS.Timer;
 
 	function onMouseover() {
 		let iterations = 0;
+		clearInterval(interval);
 		interval = setInterval(() => {
 			let result = "";
 			for (let i = 0; i < text.length; ++i) {
@@ -25,7 +27,7 @@
 				clearInterval(interval);
 			}
 			iterations += 1;
-		}, 30);
+		}, flash_duration);
 	}
 </script>
 
@@ -33,7 +35,13 @@
 
 <style>
 	span {
-		font-family: Consolas, monospace;
+		font-family: monospace;
 		user-select: none;
+
+		background-color: black;
+		display: inline-block;
+		color: white;
+		padding: 0.5rem 1rem;
+		font-size: 2em;
 	}
 </style>
