@@ -1,0 +1,4 @@
+const __resolved__virtual_storySource_srcStoriesColorpickerStorySvelte = '<script lang="ts">\n	import type { Hst } from "@histoire/plugin-svelte";\n	import ColorPicker from "../lib/ColorPicker.svelte";\n\n	export let Hst: Hst;\n\n	let h = 0;\n	let w = 0;\n	let b = 0;\n	let max_w = 100;\n	let alpha = 100;\n<\/script>\n\n<Hst.Story title="Components/Color Picker" icon="ph:eyedropper-fill">\n	<ColorPicker bind:h bind:b bind:max_w bind:alpha />\n	<svelte:fragment slot="controls">\n		<Hst.Slider bind:value={h} title="Hue" min={0} max={360} />\n		<!-- <Hst.Slider bind:value={w} title="Whiteness" min={0} max={100} /> -->\n		<Hst.Slider bind:value={max_w} title="Max Whiteness" min={0} max={100} />\n		<Hst.Slider bind:value={b} title="Blackness" min={0} max={100} />\n		<Hst.Slider bind:value={alpha} title="Alpha" min={0} max={100} />\n	</svelte:fragment>\n</Hst.Story>\n';
+export {
+  __resolved__virtual_storySource_srcStoriesColorpickerStorySvelte as default
+};

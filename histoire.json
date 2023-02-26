@@ -1,6 +1,32 @@
 {
   "stories": [
     {
+      "id": "src-stories-colorpicker-story-svelte",
+      "title": "Color Picker",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "ph:eyedropper-fill",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/ColorPicker.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Color Picker"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-glitch-story-svelte",
       "title": "Glitch Text",
       "group": null,
@@ -136,6 +162,58 @@
       "markdownFile": null
     },
     {
+      "id": "src-stories-svg-logo-animated-story-svelte",
+      "title": "Animated",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "mdi:cog",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/logo/Animated.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Logo",
+        "Animated"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-logo-default-story-svelte",
+      "title": "Default",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "mdi:cog",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/logo/Default.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Logo",
+        "Default"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-svg-logo-flat-story-svelte",
       "title": "Flat",
       "group": null,
@@ -162,8 +240,8 @@
       "markdownFile": null
     },
     {
-      "id": "src-stories-svg-logo-logo-story-svelte",
-      "title": "Logo",
+      "id": "src-stories-svg-logo-infinitelyanimated-story-svelte",
+      "title": "Infinitely Animated",
       "group": null,
       "layout": {
         "type": "single",
@@ -178,11 +256,37 @@
           "title": "default"
         }
       ],
-      "relativePath": "src/stories/SVG/logo/Logo.story.svelte",
+      "relativePath": "src/stories/SVG/logo/InfinitelyAnimated.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
         "Logo",
-        "Logo"
+        "Infinitely Animated"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-logo-logowithname-story-svelte",
+      "title": "Logo with name",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "mdi:cog",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/logo/LogoWithName.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Logo",
+        "Logo with name"
       ],
       "virtual": false,
       "markdownFile": null
