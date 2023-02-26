@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Test from "../components/Glitch.svelte";
+	import Glitch from "../components/Glitch.svelte";
 	import type { Hst } from "@histoire/plugin-svelte";
 
 	export let Hst: Hst;
@@ -10,10 +10,10 @@
 </script>
 
 <Hst.Story title="Components/Glitch Text" icon="bx:text">
-	<Test {text} {iteration_factor} {flash_duration} />
+	<Glitch {text} {iteration_factor} {flash_duration} />
 	<svelte:fragment slot="controls">
 		<Hst.Text bind:value={text} title="Text" />
-		<Hst.Number bind:value={iteration_factor} title="Iteration Factor" />
-		<Hst.Number bind:value={flash_duration} title="Flash Duration" />
+		<Hst.Slider bind:value={iteration_factor} title="Iteration Factor" min={1} max={10} />
+		<Hst.Slider bind:value={flash_duration} title="Flash Duration" min={1} max={100} />
 	</svelte:fragment>
 </Hst.Story>

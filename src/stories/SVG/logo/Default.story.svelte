@@ -17,8 +17,8 @@
 	`;
 </script>
 
-<Hst.Story title="Logo/Logo" icon="mdi:cog" {source}>
-	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<Hst.Story title="Logo/Default" icon="mdi:cog" {source}>
+	<svg height="95vh" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
 		<mask id="cutout">
 			<rect x="0" y="0" width="100%" height="100%" fill="white" />
 			<path fill="#000" d="M0 -11l70 51c7 5 7 15 0 20l-70 51z" />
