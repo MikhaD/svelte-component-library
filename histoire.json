@@ -1,6 +1,32 @@
 {
   "stories": [
     {
+      "id": "src-stories-colorinput-story-svelte",
+      "title": "Color Input",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "typcn:input-checked",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/ColorInput.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Color Input"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-colorpicker-story-svelte",
       "title": "Color Picker",
       "group": null,
@@ -56,6 +82,87 @@
         "isRelatedToStory": true,
         "frontmatter": {}
       }
+    },
+    {
+      "id": "src-stories-burger-menus-cross-story-svelte",
+      "title": "Cross",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "material-symbols:menu",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/Burger Menus/Cross.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Burger Menus",
+        "Cross"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-burger-menus-foldin-story-svelte",
+      "title": "Fold in",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "material-symbols:menu",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/Burger Menus/FoldIn.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Burger Menus",
+        "Fold in"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-burger-menus-merge-story-svelte",
+      "title": "Merge",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "material-symbols:menu",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/Burger Menus/Merge.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Burger Menus",
+        "Merge"
+      ],
+      "virtual": false,
+      "markdownFile": null
     },
     {
       "id": "src-stories-svg-command-story-svelte",
