@@ -1,23 +1,21 @@
 <script lang="ts">
 	import type { Hst } from "@histoire/plugin-svelte";
-	import ColorPicker from "../lib/ColorPicker.svelte";
+	import ColorPicker from "../components/ColorPicker";
 
 	export let Hst: Hst;
 
-	let h = 0;
-	let w = 0;
-	let b = 0;
-	let max_w = 100;
-	let alpha = 100;
+	let colorType: ColorType = "hex";
+	let value = "#000000";
 </script>
 
 <Hst.Story title="Components/Color Picker" icon="ph:eyedropper-fill">
-	<ColorPicker bind:h bind:b bind:max_w bind:alpha />
+	<ColorPicker bind:colorType bind:value />
 	<svelte:fragment slot="controls">
-		<Hst.Slider bind:value={h} title="Hue" min={0} max={360} />
-		<!-- <Hst.Slider bind:value={w} title="Whiteness" min={0} max={100} /> -->
-		<Hst.Slider bind:value={max_w} title="Max Whiteness" min={0} max={100} />
-		<Hst.Slider bind:value={b} title="Blackness" min={0} max={100} />
-		<Hst.Slider bind:value={alpha} title="Alpha" min={0} max={100} />
+		<Hst.Select
+			title="Color Type"
+			options={["hex", "rgb", "hsl", "hwb"]}
+			bind:value={colorType}
+		/>
+		<Hst.Text title="Value" bind:value />
 	</svelte:fragment>
 </Hst.Story>
