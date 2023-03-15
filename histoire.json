@@ -84,6 +84,33 @@
       }
     },
     {
+      "id": "src-stories-burger-menus-circle-story-svelte",
+      "title": "Circle",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "material-symbols:menu",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/Burger Menus/Circle.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Burger Menus",
+        "Circle"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-burger-menus-cross-story-svelte",
       "title": "Cross",
       "group": null,
@@ -160,6 +187,59 @@
         "Components",
         "Burger Menus",
         "Merge"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-pause-morph-story-svelte",
+      "title": "Merge",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "material-symbols:pause-outline",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/Pause/Morph.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Pause",
+        "Merge"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-close-story-svelte",
+      "title": "Close",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "lucide:image",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/Close.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "SVGs",
+        "Close"
       ],
       "virtual": false,
       "markdownFile": null
@@ -264,6 +344,86 @@
       "treePath": [
         "SVGs",
         "Peace Discipline"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-warning-story-svelte",
+      "title": "Warning",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "lucide:image",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/Warning.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "SVGs",
+        "Warning"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-theme-toggles-rise-story-svelte",
+      "title": "Rise",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "material-symbols:light-mode",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/Theme Toggles/Rise.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Theme Toggles",
+        "Rise"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-theme-toggles-spin-story-svelte",
+      "title": "Spin",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "material-symbols:light-mode",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/Theme Toggles/Spin.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Theme Toggles",
+        "Spin"
       ],
       "virtual": false,
       "markdownFile": null
