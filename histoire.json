@@ -331,6 +331,62 @@
       "markdownFile": null
     },
     {
+      "id": "src-stories-components-loadinganimation-story-svelte",
+      "title": "Loading Animations",
+      "group": null,
+      "layout": {
+        "type": "grid"
+      },
+      "icon": "mingcute:loading-fill",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "src-stories-components-loadinganimation-story-svelte-0",
+          "title": "Grow",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loadinganimation-story-svelte-1",
+          "title": "Shrink",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loadinganimation-story-svelte-2",
+          "title": "Spin",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loadinganimation-story-svelte-3",
+          "title": "Oscillate",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loadinganimation-story-svelte-4",
+          "title": "Slide",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loadinganimation-story-svelte-5",
+          "title": "Slide Chase",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        }
+      ],
+      "relativePath": "src/stories/components/LoadingAnimation.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Loading Animations"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-components-pause-story-svelte",
       "title": "Pause",
       "group": null,
