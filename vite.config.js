@@ -3,9 +3,11 @@ import { HstSvelte } from '@histoire/plugin-svelte';
 import { svelte, vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { defaultColors } from 'histoire';
 
+const dev = process.argv.includes("dev");
+
 // https://vitejs.dev/config/
 export default defineConfig({
-	base: "/svelte-component-library/",
+	base: dev ? "" : "/svelte-component-library/",
 	plugins: [svelte({
 		preprocess: vitePreprocess(),
 	})],
