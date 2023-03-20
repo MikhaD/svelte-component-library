@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Hst } from "@histoire/plugin-svelte";
-	import ColorInput from "../components/ColorInput.svelte";
+	import ColorInput from "../../components/ColorInput.svelte";
 
 	export let Hst: Hst;
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Hst } from "@histoire/plugin-svelte";
-	import ColorPicker from "../components/ColorPicker";
+	import ColorPicker from "../../components/ColorPicker";
 
 	export let Hst: Hst;
 

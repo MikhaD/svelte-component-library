@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Glitch from "../components/Glitch.svelte";
+	import Glitch from "../../../components/Glitch.svelte";
 	import type { Hst } from "@histoire/plugin-svelte";
 
 	export let Hst: Hst;

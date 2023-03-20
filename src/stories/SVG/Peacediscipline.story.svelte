@@ -43,7 +43,7 @@
 </script>
 
 <Hst.Story title="SVGs/Peace Discipline" icon="lucide:image" {source}>
-	<svg viewBox="0 0 732 571" xmlns="http://www.w3.org/2000/svg">
+	<svg viewBox="0 0 732 571">
 		<circle r="116" cx="548" cy="454" />
 		<circle r="46" cx="684" cy="349" />
 		<circle r="32" cx="676" cy="260" />
