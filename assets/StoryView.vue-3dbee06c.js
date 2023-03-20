@@ -1,8 +1,8 @@
-import { b as useRoute, c as computed, d as defineComponent, u as useCssVars, a as unref, aD as toRefs, r as ref, o as openBlock, e as createElementBlock, f as createVNode, w as withCtx, I as Icon, n as normalizeClass, g as createBaseVNode, t as toDisplayString, i as defineStore, j as useStorage, aE as unindent, x as resolveDirective, y as withDirectives, aF as useRouter, aG as useResizeObserver, l as resolveComponent, q as createBlock, aH as Xg, h as createCommentVNode, G as normalizeStyle, aI as withModifiers, A as pushScopeId, B as popScopeId, k as watch, aJ as renderSlot, m as withKeys, z as createTextVNode, F as Fragment, p as renderList, J as onMounted, aK as vModelText, aL as onUnmounted, aM as VTooltip, aN as createStaticVNode, s as useEventListener, E as reactive, P as applyState, aO as toRaw, aB as mergeProps, aP as Dropdown, aQ as clone, aR as omit, aS as useTimeoutFn, aT as onClickOutside, v as isRef, aU as nextTick, aV as Zg, aW as zg, aX as jg, aY as Wg, aC as resolveDynamicComponent, aA as watchEffect, az as markRaw, aZ as shallowRef, a_ as getHighlighter, T as Transition, O as h, a$ as onBeforeUnmount } from "./vendor-4e25265d.js";
-import { u as useScrollOnActive, B as BaseListItemLink, _ as _export_sfc, a as useStoryStore, i as isMobile, c as BaseSplitPane, b as _sfc_main$y } from "./MobileOverlay.vue2-60ec3ed2.js";
-import { B as BaseEmpty } from "./BaseEmpty.vue-62004800.js";
-import { g as getContrastColor, _ as _sfc_main$x, b as SANDBOX_READY, E as EVENT_SEND, S as STATE_SYNC, t as toRawDeep, P as PREVIEW_SETTINGS_SYNC } from "./state-b2a06967.js";
-import { d as clientSupportPlugins, e as base, h as histoireConfig, i as isDark, _ as __vitePreload } from "./GenericMountStory.vue2-7f30481b.js";
+import { b as useRoute, c as computed, d as defineComponent, u as useCssVars, a as unref, aD as toRefs, r as ref, o as openBlock, e as createElementBlock, f as createVNode, w as withCtx, I as Icon, n as normalizeClass, g as createBaseVNode, t as toDisplayString, i as defineStore, j as useStorage, aE as unindent, x as resolveDirective, y as withDirectives, aF as useRouter, aG as useResizeObserver, l as resolveComponent, q as createBlock, aH as Xg, h as createCommentVNode, G as normalizeStyle, aI as withModifiers, A as pushScopeId, B as popScopeId, k as watch, aJ as renderSlot, m as withKeys, z as createTextVNode, F as Fragment, p as renderList, J as onMounted, aK as vModelText, aL as onUnmounted, aM as VTooltip, aN as createStaticVNode, s as useEventListener, E as reactive, P as applyState, aO as toRaw, aB as mergeProps, aP as Dropdown, aQ as clone, aR as omit, aS as useTimeoutFn, aT as onClickOutside, v as isRef, aU as nextTick, aV as Zg, aW as zg, aX as jg, aY as Wg, aC as resolveDynamicComponent, aA as watchEffect, az as markRaw, aZ as shallowRef, a_ as getHighlighter, T as Transition, O as h, a$ as onBeforeUnmount } from "./vendor-9261e5d2.js";
+import { u as useScrollOnActive, B as BaseListItemLink, _ as _export_sfc, a as useStoryStore, i as isMobile, c as BaseSplitPane, b as _sfc_main$y } from "./MobileOverlay.vue2-c3fba2d7.js";
+import { B as BaseEmpty } from "./BaseEmpty.vue-53dd8878.js";
+import { g as getContrastColor, _ as _sfc_main$x, b as SANDBOX_READY, E as EVENT_SEND, S as STATE_SYNC, t as toRawDeep, P as PREVIEW_SETTINGS_SYNC } from "./state-8fd938aa.js";
+import { d as clientSupportPlugins, e as base, h as histoireConfig, i as isDark, _ as __vitePreload } from "./GenericMountStory.vue2-91451200.js";
 function useCurrentVariantRoute(variant) {
   const route = useRoute();
   const isActive = computed(() => route.query.variantId === variant.value.id);
@@ -1783,7 +1783,7 @@ const _sfc_main$b = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const markdownFiles = reactive({ "src/stories/Glitch.story.md": () => __vitePreload(() => import("./__resolved__virtual_md_src-stories-glitch-story-md-a06709b5.js"), true ? [] : void 0) });
+const markdownFiles = reactive({ "src/stories/components/Glitch/Glitch.story.md": () => __vitePreload(() => import("./__resolved__virtual_md_src-stories-components-glitch-glitch-story-md-f667c368.js"), true ? [] : void 0) });
 const _hoisted_1$9 = ["innerHTML"];
 function useStoryDoc(story) {
   const renderedDoc = ref("");

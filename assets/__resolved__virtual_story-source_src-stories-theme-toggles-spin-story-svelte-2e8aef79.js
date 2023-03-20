@@ -1,4 +1,0 @@
-const __resolved__virtual_storySource_srcStoriesThemeTogglesSpinStorySvelte = '<script lang="ts">\n	import type { Hst } from "@histoire/plugin-svelte";\n	import ThemeToggle from "../../components/Theme Toggles/Spin.svelte";\n	export let Hst: Hst;\n\n	let light = false;\n	let size = 50;\n<\/script>\n\n<Hst.Story title="Components/Theme Toggles/Spin" icon="material-symbols:light-mode">\n	<div style:--size="{size}vw">\n		<ThemeToggle bind:light />\n	</div>\n\n	<svelte:fragment slot="controls">\n		<Hst.Checkbox title="Light Mode" bind:value={light} />\n		<Hst.Slider title="Size %" bind:value={size} min={1} max={100} />\n	</svelte:fragment>\n</Hst.Story>\n\n<style>\n	div {\n		width: var(--size);\n	}\n</style>\n';
-export {
-  __resolved__virtual_storySource_srcStoriesThemeTogglesSpinStorySvelte as default
-};

@@ -1,224 +1,6 @@
 {
   "stories": [
     {
-      "id": "src-stories-colorinput-story-svelte",
-      "title": "Color Input",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "typcn:input-checked",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/ColorInput.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Components",
-        "Color Input"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-colorpicker-story-svelte",
-      "title": "Color Picker",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "ph:eyedropper-fill",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/ColorPicker.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Components",
-        "Color Picker"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-glitch-story-svelte",
-      "title": "Glitch Text",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "bx:text",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/Glitch.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Components",
-        "Glitch Text"
-      ],
-      "virtual": false,
-      "markdownFile": {
-        "id": "src-stories-glitch-story-md",
-        "relativePath": "src/stories/Glitch.story.md",
-        "isRelatedToStory": true,
-        "frontmatter": {}
-      }
-    },
-    {
-      "id": "src-stories-burger-menus-circle-story-svelte",
-      "title": "Circle",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "material-symbols:menu",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/Burger Menus/Circle.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Components",
-        "Burger Menus",
-        "Circle"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-burger-menus-cross-story-svelte",
-      "title": "Cross",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "material-symbols:menu",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/Burger Menus/Cross.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Components",
-        "Burger Menus",
-        "Cross"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-burger-menus-foldin-story-svelte",
-      "title": "Fold in",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "material-symbols:menu",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/Burger Menus/FoldIn.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Components",
-        "Burger Menus",
-        "Fold in"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-burger-menus-merge-story-svelte",
-      "title": "Merge",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "material-symbols:menu",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/Burger Menus/Merge.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Components",
-        "Burger Menus",
-        "Merge"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-pause-morph-story-svelte",
-      "title": "Merge",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "material-symbols:pause-outline",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/Pause/Morph.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Components",
-        "Pause",
-        "Merge"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
       "id": "src-stories-svg-close-story-svelte",
       "title": "Close",
       "group": null,
@@ -226,7 +8,7 @@
         "type": "single",
         "iframe": true
       },
-      "icon": "lucide:image",
+      "icon": "ic:round-close",
       "iconColor": null,
       "docsOnly": false,
       "variants": [
@@ -252,7 +34,7 @@
         "type": "single",
         "iframe": true
       },
-      "icon": "lucide:image",
+      "icon": "ph:command",
       "iconColor": null,
       "docsOnly": false,
       "variants": [
@@ -297,6 +79,83 @@
       "markdownFile": null
     },
     {
+      "id": "src-stories-svg-download-story-svelte",
+      "title": "Download",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "tabler:cloud-download",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/SVG/Download.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "SVGs",
+        "Download"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-svg-logo-story-svelte",
+      "title": "Logo",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "mdi:cog",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "src-stories-svg-logo-story-svelte-0",
+          "title": "Default",
+          "icon": "mdi:cog",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-svg-logo-story-svelte-1",
+          "title": "Flat",
+          "icon": "mdi:cog",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-svg-logo-story-svelte-2",
+          "title": "Animated",
+          "icon": "mdi:cog",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-svg-logo-story-svelte-3",
+          "title": "Infinitely Animated",
+          "icon": "mdi:cog",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-svg-logo-story-svelte-4",
+          "title": "Animated With Name",
+          "icon": "mdi:cog",
+          "iconColor": null
+        }
+      ],
+      "relativePath": "src/stories/SVG/Logo.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Logo"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-svg-maximize-story-svelte",
       "title": "Maximize",
       "group": null,
@@ -304,7 +163,7 @@
         "type": "single",
         "iframe": true
       },
-      "icon": "lucide:image",
+      "icon": "tabler:maximize",
       "iconColor": null,
       "docsOnly": false,
       "variants": [
@@ -356,7 +215,7 @@
         "type": "single",
         "iframe": true
       },
-      "icon": "lucide:image",
+      "icon": "material-symbols:warning-outline-rounded",
       "iconColor": null,
       "docsOnly": false,
       "variants": [
@@ -375,41 +234,171 @@
       "markdownFile": null
     },
     {
-      "id": "src-stories-theme-toggles-rise-story-svelte",
-      "title": "Rise",
+      "id": "src-stories-components-burgermenu-story-svelte",
+      "title": "Burger Menu",
+      "group": null,
+      "layout": {
+        "type": "grid"
+      },
+      "icon": "material-symbols:menu",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "src-stories-components-burgermenu-story-svelte-0",
+          "title": "Circle",
+          "icon": "material-symbols:menu",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-burgermenu-story-svelte-1",
+          "title": "Cross",
+          "icon": "material-symbols:menu",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-burgermenu-story-svelte-2",
+          "title": "Fold In",
+          "icon": "material-symbols:menu",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-burgermenu-story-svelte-3",
+          "title": "Merge",
+          "icon": "material-symbols:menu",
+          "iconColor": null
+        }
+      ],
+      "relativePath": "src/stories/components/BurgerMenu.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Burger Menu"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-components-colorinput-story-svelte",
+      "title": "Color Input",
       "group": null,
       "layout": {
         "type": "single",
         "iframe": true
+      },
+      "icon": "typcn:input-checked",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/components/ColorInput.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Color Input"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-components-colorpicker-story-svelte",
+      "title": "Color Picker",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "ph:eyedropper-fill",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/components/ColorPicker.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Color Picker"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-components-pause-story-svelte",
+      "title": "Pause",
+      "group": null,
+      "layout": {
+        "type": "grid"
+      },
+      "icon": "material-symbols:pause-outline",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "src-stories-components-pause-story-svelte-0",
+          "title": "Circle",
+          "icon": "material-symbols:pause-outline",
+          "iconColor": null
+        }
+      ],
+      "relativePath": "src/stories/components/Pause.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Pause"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-components-themetoggle-story-svelte",
+      "title": "Theme Toggle",
+      "group": null,
+      "layout": {
+        "type": "grid"
       },
       "icon": "material-symbols:light-mode",
       "iconColor": null,
       "docsOnly": false,
       "variants": [
         {
-          "id": "_default",
-          "title": "default"
+          "id": "src-stories-components-themetoggle-story-svelte-0",
+          "title": "Spin",
+          "icon": "material-symbols:light-mode",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-themetoggle-story-svelte-1",
+          "title": "Rise",
+          "icon": "material-symbols:light-mode",
+          "iconColor": null
         }
       ],
-      "relativePath": "src/stories/Theme Toggles/Rise.story.svelte",
+      "relativePath": "src/stories/components/ThemeToggle.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
         "Components",
-        "Theme Toggles",
-        "Rise"
+        "Theme Toggle"
       ],
       "virtual": false,
       "markdownFile": null
     },
     {
-      "id": "src-stories-theme-toggles-spin-story-svelte",
-      "title": "Spin",
+      "id": "src-stories-components-glitch-glitch-story-svelte",
+      "title": "Glitch Text",
       "group": null,
       "layout": {
         "type": "single",
         "iframe": true
       },
-      "icon": "material-symbols:light-mode",
+      "icon": "bx:text",
       "iconColor": null,
       "docsOnly": false,
       "variants": [
@@ -418,151 +407,25 @@
           "title": "default"
         }
       ],
-      "relativePath": "src/stories/Theme Toggles/Spin.story.svelte",
+      "relativePath": "src/stories/components/Glitch/Glitch.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
         "Components",
-        "Theme Toggles",
-        "Spin"
+        "Glitch Text"
       ],
       "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-svg-logo-animated-story-svelte",
-      "title": "Animated",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "mdi:cog",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/SVG/logo/Animated.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Logo",
-        "Animated"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-svg-logo-default-story-svelte",
-      "title": "Default",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "mdi:cog",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/SVG/logo/Default.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Logo",
-        "Default"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-svg-logo-flat-story-svelte",
-      "title": "Flat",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "mdi:cog",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/SVG/logo/Flat.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Logo",
-        "Flat"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-svg-logo-infinitelyanimated-story-svelte",
-      "title": "Infinitely Animated",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "mdi:cog",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/SVG/logo/InfinitelyAnimated.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Logo",
-        "Infinitely Animated"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
-      "id": "src-stories-svg-logo-logowithname-story-svelte",
-      "title": "Logo with name",
-      "group": null,
-      "layout": {
-        "type": "single",
-        "iframe": true
-      },
-      "icon": "mdi:cog",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "_default",
-          "title": "default"
-        }
-      ],
-      "relativePath": "src/stories/SVG/logo/LogoWithName.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Logo",
-        "Logo with name"
-      ],
-      "virtual": false,
-      "markdownFile": null
+      "markdownFile": {
+        "id": "src-stories-components-glitch-glitch-story-md",
+        "relativePath": "src/stories/components/Glitch/Glitch.story.md",
+        "isRelatedToStory": true,
+        "frontmatter": {}
+      }
     }
   ],
   "markdownFiles": [
     {
-      "id": "src-stories-glitch-story-md",
-      "relativePath": "src/stories/Glitch.story.md",
+      "id": "src-stories-components-glitch-glitch-story-md",
+      "relativePath": "src/stories/components/Glitch/Glitch.story.md",
       "isRelatedToStory": true,
       "frontmatter": {}
     }
