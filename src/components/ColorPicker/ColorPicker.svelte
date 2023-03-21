@@ -7,7 +7,7 @@
 
 	export let value = "#888";
 	let color = Color.fromHEX(value);
-	$: value = color.hex;
+	$: value = color.hexa;
 
 	export let colorType: ColorType = "rgb";
 </script>

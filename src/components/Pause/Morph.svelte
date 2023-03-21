@@ -13,19 +13,24 @@
 	<path class="right" d="M42,0L58,0V64L42,64z" />
 </svg>
 
-<style>
+<style lang="scss">
 	svg {
 		cursor: pointer;
+		outline: none;
+		fill: currentcolor;
 	}
-	path {
-		transition: 0.4s;
+	@media (prefers-reduced-motion: no-preference) {
+		path {
+			transition: 0.4s;
+		}
 	}
 
-	svg.paused .left {
-		d: path("M6,0L32,16V48L6,64z");
-	}
-
-	svg.paused .right {
-		d: path("M32,16L58,32V32L32,48z");
+	svg.paused {
+		.left {
+			d: path("M6,0L32,16V48L6,64z");
+		}
+		.right {
+			d: path("M32,16L58,32V32L32,48z");
+		}
 	}
 </style>

@@ -19,6 +19,7 @@
 	}
 	path {
 		stroke-linecap: round;
+		stroke-linejoin: round;
 		d: path("M8 18L50 18L92 18M8 50H92M8 82L50 82L92 82");
 		stroke: currentcolor;
 		stroke-width: 16;
