@@ -10,7 +10,7 @@
 	let open = false;
 </script>
 
-<Hst.Story title="Components/Burger Menu" icon="material-symbols:menu" layout={{ type: "grid" }}>
+<Hst.Story title="Components/Burger Menus" icon="material-symbols:menu" layout={{ type: "grid" }}>
 	<Hst.Variant title="Circle" icon="material-symbols:menu">
 		<Circle bind:open />
 	</Hst.Variant>

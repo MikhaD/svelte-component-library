@@ -8,7 +8,7 @@
 </script>
 
 <Hst.Story
-	title="Components/Theme Toggle"
+	title="Components/Theme Toggles"
 	icon="material-symbols:light-mode"
 	layout={{ type: "grid" }}
 >
