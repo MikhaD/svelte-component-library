@@ -234,8 +234,8 @@
       "markdownFile": null
     },
     {
-      "id": "src-stories-components-burgermenu-story-svelte",
-      "title": "Burger Menu",
+      "id": "src-stories-components-burgermenus-story-svelte",
+      "title": "Burger Menus",
       "group": null,
       "layout": {
         "type": "grid"
@@ -245,35 +245,35 @@
       "docsOnly": false,
       "variants": [
         {
-          "id": "src-stories-components-burgermenu-story-svelte-0",
+          "id": "src-stories-components-burgermenus-story-svelte-0",
           "title": "Circle",
           "icon": "material-symbols:menu",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-burgermenu-story-svelte-1",
+          "id": "src-stories-components-burgermenus-story-svelte-1",
           "title": "Cross",
           "icon": "material-symbols:menu",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-burgermenu-story-svelte-2",
+          "id": "src-stories-components-burgermenus-story-svelte-2",
           "title": "Fold In",
           "icon": "material-symbols:menu",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-burgermenu-story-svelte-3",
+          "id": "src-stories-components-burgermenus-story-svelte-3",
           "title": "Merge",
           "icon": "material-symbols:menu",
           "iconColor": null
         }
       ],
-      "relativePath": "src/stories/components/BurgerMenu.story.svelte",
+      "relativePath": "src/stories/components/BurgerMenus.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
         "Components",
-        "Burger Menu"
+        "Burger Menus"
       ],
       "virtual": false,
       "markdownFile": null
@@ -399,8 +399,20 @@
       "variants": [
         {
           "id": "src-stories-components-pause-story-svelte-0",
-          "title": "Circle",
+          "title": "Morph",
           "icon": "material-symbols:pause-outline",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-pause-story-svelte-1",
+          "title": "Rotate",
+          "icon": "material-symbols:pause-outline",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-pause-story-svelte-2",
+          "title": "Rotate Circle",
+          "icon": "material-symbols:pause-circle",
           "iconColor": null
         }
       ],
@@ -414,8 +426,34 @@
       "markdownFile": null
     },
     {
-      "id": "src-stories-components-themetoggle-story-svelte",
-      "title": "Theme Toggle",
+      "id": "src-stories-components-sevensegment-story-svelte",
+      "title": "7 Segment",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "ri:number-8",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/components/SevenSegment.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "7 Segment"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-components-themetoggles-story-svelte",
+      "title": "Theme Toggles",
       "group": null,
       "layout": {
         "type": "grid"
@@ -425,23 +463,23 @@
       "docsOnly": false,
       "variants": [
         {
-          "id": "src-stories-components-themetoggle-story-svelte-0",
+          "id": "src-stories-components-themetoggles-story-svelte-0",
           "title": "Spin",
           "icon": "material-symbols:light-mode",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-themetoggle-story-svelte-1",
+          "id": "src-stories-components-themetoggles-story-svelte-1",
           "title": "Rise",
           "icon": "material-symbols:light-mode",
           "iconColor": null
         }
       ],
-      "relativePath": "src/stories/components/ThemeToggle.story.svelte",
+      "relativePath": "src/stories/components/ThemeToggles.story.svelte",
       "supportPluginId": "svelte3",
       "treePath": [
         "Components",
-        "Theme Toggle"
+        "Theme Toggles"
       ],
       "virtual": false,
       "markdownFile": null

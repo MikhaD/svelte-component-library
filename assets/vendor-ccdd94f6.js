@@ -11954,6 +11954,12 @@ function detach(node) {
     node.parentNode.removeChild(node);
   }
 }
+function destroy_each(iterations, detaching) {
+  for (let i2 = 0; i2 < iterations.length; i2 += 1) {
+    if (iterations[i2])
+      iterations[i2].d(detaching);
+  }
+}
 function element(name) {
   return document.createElement(name);
 }
@@ -11973,11 +11979,20 @@ function listen(node, event, handler, options) {
   node.addEventListener(event, handler, options);
   return () => node.removeEventListener(event, handler, options);
 }
+function self$1(fn2) {
+  return function(event) {
+    if (event.target === this)
+      fn2.call(this, event);
+  };
+}
 function attr(node, attribute, value) {
   if (value == null)
     node.removeAttribute(attribute);
   else if (node.getAttribute(attribute) !== value)
     node.setAttribute(attribute, value);
+}
+function xlink_attr(node, attribute, value) {
+  node.setAttributeNS("http://www.w3.org/1999/xlink", attribute, value);
 }
 function children(element2) {
   return Array.from(element2.childNodes);
@@ -12370,6 +12385,15 @@ function set_data_dev(text2, data) {
     return;
   dispatch_dev("SvelteDOMSetData", { node: text2, data });
   text2.data = data;
+}
+function validate_each_argument(arg) {
+  if (typeof arg !== "string" && !(arg && typeof arg === "object" && "length" in arg)) {
+    let msg = "{#each} only iterates over array-like objects.";
+    if (typeof Symbol === "function" && arg && Symbol.iterator in arg) {
+      msg += " You can use a spread to convert this iterable into an array.";
+    }
+    throw new Error(msg);
+  }
 }
 function validate_slots(name, slot, keys) {
   for (const slot_key of Object.keys(slot)) {
@@ -38701,7 +38725,7 @@ export {
   destroy_component as Z,
   validate_slots as _,
   unref as a,
-  onBeforeUnmount as a$,
+  jg as a$,
   attr_dev as a0,
   add_location as a1,
   insert_dev as a2,
@@ -38712,33 +38736,33 @@ export {
   element as a7,
   listen_dev as a8,
   update_slot_base as a9,
-  watchEffect as aA,
-  mergeProps as aB,
-  resolveDynamicComponent as aC,
-  toRefs as aD,
-  unindent as aE,
-  useRouter as aF,
-  useResizeObserver as aG,
-  Xg as aH,
-  withModifiers as aI,
-  renderSlot as aJ,
-  vModelText as aK,
-  onUnmounted as aL,
-  VTooltip as aM,
-  createStaticVNode as aN,
-  toRaw as aO,
-  Dropdown as aP,
-  clone as aQ,
-  omit as aR,
-  useTimeoutFn as aS,
-  onClickOutside as aT,
-  nextTick as aU,
-  Zg as aV,
-  zg as aW,
-  jg as aX,
-  Wg as aY,
-  shallowRef as aZ,
-  getHighlighter as a_,
+  createWebHashHistory as aA,
+  useDark as aB,
+  useToggle as aC,
+  markRaw as aD,
+  watchEffect as aE,
+  mergeProps as aF,
+  resolveDynamicComponent as aG,
+  toRefs as aH,
+  unindent as aI,
+  useRouter as aJ,
+  useResizeObserver as aK,
+  Xg as aL,
+  withModifiers as aM,
+  renderSlot as aN,
+  vModelText as aO,
+  onUnmounted as aP,
+  VTooltip as aQ,
+  createStaticVNode as aR,
+  toRaw as aS,
+  Dropdown as aT,
+  clone as aU,
+  omit as aV,
+  useTimeoutFn as aW,
+  onClickOutside as aX,
+  nextTick as aY,
+  Zg as aZ,
+  zg as a_,
   get_all_dirty_from_scope as aa,
   get_slot_changes as ab,
   bubble as ac,
@@ -38758,21 +38782,25 @@ export {
   group_outros as aq,
   check_outros as ar,
   select_value as as,
-  Logo_square as at,
-  createRouter as au,
-  createWebHistory as av,
-  createWebHashHistory as aw,
-  useDark as ax,
-  useToggle as ay,
-  markRaw as az,
+  self$1 as at,
+  xlink_attr as au,
+  validate_each_argument as av,
+  destroy_each as aw,
+  Logo_square as ax,
+  createRouter as ay,
+  createWebHistory as az,
   useRoute as b,
-  scrollIntoView as b0,
-  useMediaQuery as b1,
-  useFocus as b2,
-  refDebounced as b3,
-  flexsearch_bundleExports as b4,
-  client as b5,
-  index as b6,
+  Wg as b0,
+  shallowRef as b1,
+  getHighlighter as b2,
+  onBeforeUnmount as b3,
+  scrollIntoView as b4,
+  useMediaQuery as b5,
+  useFocus as b6,
+  refDebounced as b7,
+  flexsearch_bundleExports as b8,
+  client as b9,
+  index as ba,
   computed as c,
   defineComponent as d,
   createElementBlock as e,
