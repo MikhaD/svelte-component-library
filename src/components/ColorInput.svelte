@@ -2,20 +2,25 @@
 	import ColorPicker from "./ColorPicker";
 
 	export let value: string;
+	export let title: string;
 	let open = false;
+	let element: HTMLSpanElement;
 
-	$: value = value.startsWith("#") ? value.slice(1) : value;
+	$: value = value.startsWith("#") ? value : `#${value}`;
 </script>
 
 <span
+	bind:this={element}
 	class="container"
-	style:--color="#{value}"
-	on:click={() => (open = !open)}
-	on:keypress={() => (open = !open)}
+	style:--color={value}
 	tabindex="-1"
+	on:click|self={() => (open = !open)}
+	on:keydown|self={(e) => e.key === "Escape" && (open = false)}
+	on:blur={() => (open = false)}
 >
-	<slot />
-	<span class="input">
+	{title}
+	<!-- svelte-ignore a11y-click-events-have-key-events -->
+	<span class="input" on:click|self={() => (open = !open)}>
 		{#if open}
 			<div class="modal">
 				<ColorPicker bind:value />
@@ -27,9 +32,10 @@
 <style lang="scss">
 	.container {
 		display: flex;
-		gap: 0.3rem;
+		gap: 0.5rem;
 		align-items: center;
 		cursor: pointer;
+		padding: 0.5rem;
 	}
 	.input {
 		box-sizing: border-box;

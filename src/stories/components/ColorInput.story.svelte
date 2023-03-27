@@ -5,21 +5,21 @@
 	export let Hst: Hst;
 
 	let value = "#22D3EE";
-	let label = "Color";
+	let title = "Color";
 </script>
 
 <Hst.Story title="Components/Color Input" icon="typcn:input-checked">
 	<div>
-		<ColorInput bind:value>{label}</ColorInput>
+		<ColorInput bind:value bind:title />
 	</div>
 	<svelte:fragment slot="controls">
 		<Hst.Text title="Value" bind:value />
-		<Hst.Text title="Label" bind:value={label} />
+		<Hst.Text title="Title" bind:value={title} />
 	</svelte:fragment>
 </Hst.Story>
 
 <style>
 	div {
-		height: 90vh;
+		height: 100vh;
 	}
 </style>

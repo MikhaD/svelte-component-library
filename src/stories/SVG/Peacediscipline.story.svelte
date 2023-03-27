@@ -1,10 +1,12 @@
 <script lang="ts">
 	import type { Hst } from "@histoire/plugin-svelte";
+	import ColorInput from "../../components/ColorInput.svelte";
 
 	export let Hst: Hst;
 
+	let color = "#000";
 	let source = `
-<svg viewBox="0 0 732 571" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 732 571" xmlns="http://www.w3.org/2000/svg" fill="currentcolor">
 	<circle r="116" cx="548" cy="454" />
 	<circle r="46" cx="684" cy="349" />
 	<circle r="32" cx="676" cy="260" />
@@ -43,7 +45,7 @@
 </script>
 
 <Hst.Story title="SVGs/Peace Discipline" icon="lucide:image" {source}>
-	<svg viewBox="0 0 732 571">
+	<svg viewBox="0 0 732 571" fill={color}>
 		<circle r="116" cx="548" cy="454" />
 		<circle r="46" cx="684" cy="349" />
 		<circle r="32" cx="676" cy="260" />
@@ -78,4 +80,7 @@
 		<circle r="34" cx="463" cy="34" />
 		<circle r="14" cx="515" cy="68" />
 	</svg>
+	<svelte:fragment slot="controls">
+		<ColorInput title="Color" bind:value={color} />
+	</svelte:fragment>
 </Hst.Story>
