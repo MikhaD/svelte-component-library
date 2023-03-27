@@ -331,6 +331,40 @@
       "markdownFile": null
     },
     {
+      "id": "src-stories-components-input-story-svelte",
+      "title": "Input",
+      "group": null,
+      "layout": {
+        "type": "grid",
+        "width": "95%"
+      },
+      "icon": "iconoir:input-field",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "src-stories-components-input-story-svelte-0",
+          "title": "Google Style Input",
+          "icon": "iconoir:input-field",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-input-story-svelte-1",
+          "title": "LastPass Style Input",
+          "icon": "iconoir:input-field",
+          "iconColor": null
+        }
+      ],
+      "relativePath": "src/stories/components/Input.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Input"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-components-loadinganimation-story-svelte",
       "title": "Loading Animations",
       "group": null,
@@ -382,6 +416,32 @@
       "supportPluginId": "svelte3",
       "treePath": [
         "Loading Animations"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-components-mouseauracards-story-svelte",
+      "title": "Mouse Aura Cards",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "clarity:view-cards-line",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/components/MouseAuraCards.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Mouse Aura Cards"
       ],
       "virtual": false,
       "markdownFile": null
