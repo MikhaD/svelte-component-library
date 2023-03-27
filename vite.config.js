@@ -12,6 +12,7 @@ export default defineConfig({
 		preprocess: vitePreprocess(),
 	})],
 	histoire: {
+		setupFile: "/src/histoire.setup.ts",
 		plugins: [
 			HstSvelte(),
 		],

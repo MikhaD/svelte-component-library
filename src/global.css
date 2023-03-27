@@ -1,0 +1,17 @@
+:root {
+	/* font-size: 62.5%; */
+	height: 100%;
+
+	--fg-00: #fff;
+	--fg-01: #aaa;
+	--bg-00: #3f3f46;
+	--trans: 0.15s ease;
+	--red: #f00;
+}
+
+body {
+	/* font-size: 1.6rem; */
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}
