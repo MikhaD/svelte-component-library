@@ -365,62 +365,6 @@
       "markdownFile": null
     },
     {
-      "id": "src-stories-components-loadinganimation-story-svelte",
-      "title": "Loading Animations",
-      "group": null,
-      "layout": {
-        "type": "grid"
-      },
-      "icon": "mingcute:loading-fill",
-      "iconColor": null,
-      "docsOnly": false,
-      "variants": [
-        {
-          "id": "src-stories-components-loadinganimation-story-svelte-0",
-          "title": "Grow",
-          "icon": "mingcute:loading-fill",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loadinganimation-story-svelte-1",
-          "title": "Shrink",
-          "icon": "mingcute:loading-fill",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loadinganimation-story-svelte-2",
-          "title": "Spin",
-          "icon": "mingcute:loading-fill",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loadinganimation-story-svelte-3",
-          "title": "Oscillate",
-          "icon": "mingcute:loading-fill",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loadinganimation-story-svelte-4",
-          "title": "Slide",
-          "icon": "mingcute:loading-fill",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loadinganimation-story-svelte-5",
-          "title": "Slide Chase",
-          "icon": "mingcute:loading-fill",
-          "iconColor": null
-        }
-      ],
-      "relativePath": "src/stories/components/LoadingAnimation.story.svelte",
-      "supportPluginId": "svelte3",
-      "treePath": [
-        "Loading Animations"
-      ],
-      "virtual": false,
-      "markdownFile": null
-    },
-    {
       "id": "src-stories-components-mouseauracards-story-svelte",
       "title": "Mouse Aura Cards",
       "group": null,
@@ -574,12 +518,97 @@
         "isRelatedToStory": true,
         "frontmatter": {}
       }
+    },
+    {
+      "id": "src-stories-components-loading-animations-loadinganimation-story-svelte",
+      "title": "Loading Animations",
+      "group": null,
+      "layout": {
+        "type": "grid"
+      },
+      "icon": "mingcute:loading-fill",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-0",
+          "title": "Grow",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-1",
+          "title": "Shrink",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-2",
+          "title": "Spin",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-3",
+          "title": "Oscillate",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-4",
+          "title": "Slide",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-5",
+          "title": "Slide Chase",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-6",
+          "title": "Spin Circles",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-7",
+          "title": "Spin Glass",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-8",
+          "title": "Spin Glass",
+          "icon": "mingcute:loading-fill",
+          "iconColor": null
+        }
+      ],
+      "relativePath": "src/stories/components/Loading Animations/LoadingAnimation.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Loading Animations"
+      ],
+      "virtual": false,
+      "markdownFile": {
+        "id": "src-stories-components-loading-animations-loadinganimation-story-md",
+        "relativePath": "src/stories/components/Loading Animations/LoadingAnimation.story.md",
+        "isRelatedToStory": true,
+        "frontmatter": {}
+      }
     }
   ],
   "markdownFiles": [
     {
       "id": "src-stories-components-glitch-glitch-story-md",
       "relativePath": "src/stories/components/Glitch/Glitch.story.md",
+      "isRelatedToStory": true,
+      "frontmatter": {}
+    },
+    {
+      "id": "src-stories-components-loading-animations-loadinganimation-story-md",
+      "relativePath": "src/stories/components/Loading Animations/LoadingAnimation.story.md",
       "isRelatedToStory": true,
       "frontmatter": {}
     }
