@@ -4,7 +4,6 @@
 
 <style lang="scss">
 	.card {
-		--opacity: 0;
 		--glow-size: 300px;
 		border-radius: var(--br);
 		padding: 10px;
@@ -14,7 +13,7 @@
 		background-color: var(--histoire-contrast-color);
 		background-image: radial-gradient(
 			var(--glow-size) circle at var(--x) var(--y),
-			#fff3,
+			#fff4,
 			transparent 50%
 		);
 		&::before {
@@ -28,7 +27,7 @@
 		&::after {
 			content: "";
 			transition: opacity 0.5s;
-			opacity: var(--opacity);
+			opacity: 0;
 			position: absolute;
 			inset: 0;
 			border-radius: var(--br);
@@ -40,8 +39,10 @@
 			z-index: -1;
 		}
 		&:hover {
-			--opacity: 1;
-			--glow-size: 600px;
+			--glow-size: 700px;
+			&::after {
+				opacity: 1;
+			}
 			&::before {
 				inset: 2px;
 			}

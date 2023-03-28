@@ -20,7 +20,7 @@
 		</MAC.Card>
 		<MAC.Card>
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores laboriosam unde ea
-			totam!
+			totam eveniet corporis porro deleniti architecto dolorem sapiente!
 		</MAC.Card>
 		<MAC.Card>
 			<h3>test title 2</h3>
@@ -29,5 +29,6 @@
 				totam!
 			</p>
 		</MAC.Card>
+		<MAC.Card>Lorem ipsum dolor sit amet consectetur adipisicing elit.</MAC.Card>
 	</MAC.Container>
 </Hst.Story>

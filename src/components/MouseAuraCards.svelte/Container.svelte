@@ -13,7 +13,7 @@
 </script>
 
 <div class="container" bind:this={container} on:mousemove={onMouseMove}>
-	<slot />
+	<slot></slot>
 </div>
 
 <style lang="scss">
