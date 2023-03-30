@@ -1,10 +1,28 @@
 <script lang="ts">
+	/**
+	 * The speed of the animation in seconds.
+	 * @default 2
+	 */
 	export let speed = 2;
+	/**
+	 * The number of bars. Must be odd.
+	 *
+	 * Min: 1
+	 * @default 5
+	 */
 	export let count = 5;
+	$: count = Math.max(1, count) + (1 - (count % 2));
+	/**
+	 * The width of area that the bars are within in the center of the SVG.
+	 * @default 50
+	 */
 	export let width = 50;
+	/**
+	 * The width of the bars.
+	 * @default 6
+	 */
 	export let bar_width = 6;
 	// min of 1, must be odd
-	$: count = Math.max(1, count) + (1 - (count % 2));
 	$: gap = (100 - width) / 2;
 	$: delays = (count - 1) / 2;
 </script>

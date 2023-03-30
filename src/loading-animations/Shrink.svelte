@@ -1,5 +1,13 @@
 <script lang="ts">
+	/**
+	 * The speed of the animation in seconds.
+	 * @default 2
+	 */
 	export let speed = 2;
+	/**
+	 * Whether the animation should play in reverse.
+	 * @default false
+	 */
 	export let reverse = false;
 </script>
 

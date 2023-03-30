@@ -1,6 +1,22 @@
 <script lang="ts">
+	/**
+	 * The speed of the animation in seconds.
+	 * @default 3
+	 */
 	export let speed = 3;
+	/**
+	 * The value to scale down to when transforming into a circle.
+	 *
+	 * Min: 0.1, Max: 1
+	 * @default 0.25
+	 */
 	export let scale = 0.25;
+	$: scale = Math.max(0.1, Math.min(1, scale));
+	/**
+	 * The width of the border.
+	 *
+	 * @default 0
+	 */
 	export let border_width = 0;
 </script>
 

@@ -1,10 +1,34 @@
 <script lang="ts">
+	/**
+	 * The number of circles in each row.
+	 *
+	 * Min: 1
+	 * @default 10
+	 */
 	export let count = 10;
+	/**
+	 * The starting radius of the circles in the top row, and the destination radius of the the
+	 * circles in the bottom row.
+	 * @default 4
+	 */
 	export let r = 4;
-	console.log(r);
+	/**
+	 * The starting radius of the circles in the bottom row, and the destination radius of the the
+	 * circles in the top row.
+	 * @default r / 1.75
+	 */
 	export let r2 = r / 1.75;
+	/**
+	 * The gap between the top and bottom rows.
+	 * @default 36
+	 */
 	export let height = 36;
+	/**
+	 * The speed of the animation in seconds.
+	 * @default 1
+	 */
 	export let speed = 1;
+	$: count = Math.max(1, count);
 	$: delay = speed / 5;
 </script>
 

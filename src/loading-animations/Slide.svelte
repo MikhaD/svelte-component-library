@@ -1,8 +1,17 @@
 <script lang="ts">
+	/**
+	 * The speed of the animation in seconds.
+	 * @default 4
+	 */
 	export let speed = 4;
+	/**
+	 * Whether the animation should play in reverse.
+	 * @default false
+	 */
+	export let reverse = false;
 </script>
 
-<svg viewBox="0 0 100 100" fill="currentcolor" style:--speed="{speed}s">
+<svg viewBox="0 0 100 100" fill="currentcolor" style:--speed="{speed}s" class:reverse>
 	<defs>
 		<g id="rect">
 			<path d="M33.33 0.5L66.66 20.5L66.66 30.5L33.33 10.5L33.33 0.5Z" fill-opacity="0.4" />
@@ -11,17 +20,19 @@
 			<path d="M33.33 50.5L66.66 30.5V20.5L33.33 40.5V50.5Z" />
 		</g>
 	</defs>
-	<use id="a" href="#rect" />
-	<use id="b" href="#rect" />
+	<use class="a" href="#rect" />
+	<use class="b" href="#rect" />
 </svg>
 
 <style>
-	#a {
+	.a {
 		animation: slide var(--speed) ease infinite;
 	}
-
-	#b {
+	.b {
 		animation: slide2 var(--speed) ease infinite;
+	}
+	.reverse use {
+		animation-direction: reverse;
 	}
 
 	@keyframes slide {

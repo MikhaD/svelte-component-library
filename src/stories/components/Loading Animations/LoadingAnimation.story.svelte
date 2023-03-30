@@ -32,13 +32,16 @@
 	let oscillate_bar_width = 6;
 
 	let slide_speed = 4;
+	let slide_reverse = false;
 
 	let spinCircles_speed = 1;
 
 	let spinGlass_speed = 1;
 	let spinGlass_rotations = 3;
+	let spinGlass_reverse = false;
 
 	let dualBalls_speed = 1;
+	let dualBalls_reverse = false;
 
 	let dna_count = 10;
 	let dna_r = 4;
@@ -93,16 +96,22 @@
 		</svelte:fragment>
 	</Hst.Variant>
 	<Hst.Variant title="DualBalls" icon="ic:baseline-circle">
-		<DualBalls />
+		<DualBalls bind:speed={dualBalls_speed} bind:reverse={dualBalls_reverse} />
 		<svelte:fragment slot="controls">
 			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dualBalls_speed} />
+			<Hst.Checkbox title="Reverse" bind:value={dualBalls_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 	<Hst.Variant title="Spin Glass" icon="ph:hourglass-fill">
-		<SpinGlass bind:rotations={spinGlass_rotations} bind:speed={spinGlass_speed} />
+		<SpinGlass
+			bind:rotations={spinGlass_rotations}
+			bind:speed={spinGlass_speed}
+			bind:reverse={spinGlass_reverse}
+		/>
 		<svelte:fragment slot="controls">
 			<Hst.Slider title="Rotations" min={1} max={10} bind:value={spinGlass_rotations} />
 			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={spinGlass_speed} />
+			<Hst.Checkbox title="Reverse" bind:value={spinGlass_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 	<Hst.Variant title="Spin Circles" icon="ic:baseline-circle">
@@ -126,9 +135,10 @@
 		</svelte:fragment>
 	</Hst.Variant>
 	<Hst.Variant title="Slide" icon="teenyicons:layers-subtract-outline">
-		<Slide bind:speed={slide_speed} />
+		<Slide bind:speed={slide_speed} bind:reverse={slide_reverse} />
 		<svelte:fragment slot="controls">
 			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={slide_speed} />
+			<Hst.Checkbox title="Reverse" bind:value={slide_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 	<Hst.Variant title="Grow" icon="gg:extension">

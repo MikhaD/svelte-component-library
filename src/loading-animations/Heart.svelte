@@ -1,4 +1,8 @@
 <script lang="ts">
+	/**
+	 * The speed of the animation in seconds.
+	 * @default 1
+	 */
 	export let speed = 1;
 </script>
 

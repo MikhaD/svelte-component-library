@@ -1,9 +1,25 @@
 <script lang="ts">
+	/**
+	 * The number of slices in the pie.
+	 *
+	 * Min: 2
+	 * @default 8
+	 */
 	export let count = 8;
+	$: count = Math.max(2, count);
+	/**
+	 * The speed of the animation in seconds.
+	 * @default 1
+	 */
 	export let speed = 1;
+	/**
+	 * The value to scale each slice down by.
+	 *
+	 * Min: 0.1, Max: 0.9
+	 * @default 0.5
+	 */
 	export let scale = 0.5;
 	$: scale = Math.min(Math.max(0.1, scale), 0.9);
-	$: count = Math.max(2, count);
 
 	$: x = Math.sin((2 * Math.PI) / count) * 50;
 	$: y = 50 - Math.cos((2 * Math.PI) / count) * 50;
