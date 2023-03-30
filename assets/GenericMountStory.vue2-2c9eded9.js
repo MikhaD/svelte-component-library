@@ -35,7 +35,7 @@ var __privateMethod = (obj, member, method) => {
   return method;
 };
 var _r, _g, _b, _calculateHue, calculateHue_fn, _h, _s, _l, _h2, _s2, _v, _a;
-import { S as SvelteComponentDev, Q as init, R as safe_not_equal, U as dispatch_dev, V as validate_slots, W as element, X as attr_dev, Y as add_location, Z as insert_dev, _ as listen_dev, $ as prop_dev, a0 as noop, a1 as detach_dev, a2 as run_all, a3 as text, a4 as append_dev, a5 as set_data_dev, a6 as toggle_class, a7 as set_style, a8 as binding_callbacks, a9 as bind, aa as space, ab as create_component, ac as add_render_callback, ad as mount_component, ae as select_option, af as group_outros, ag as transition_out, ah as check_outros, ai as transition_in, aj as add_flush_callback, ak as destroy_component, al as select_value, am as self, an as svg_element, ao as create_slot, ap as update_slot_base, aq as get_all_dirty_from_scope, ar as get_slot_changes, as as bubble, at as empty, au as createEventDispatcher, av as xlink_attr, aw as validate_each_argument, ax as destroy_each, ay as set_input_value, az as to_number, aA as globals, aB as Logo_square, aC as createRouter, aD as createWebHistory, aE as createWebHashHistory, aF as useDark, aG as useToggle, k as watch, aH as markRaw, E as reactive, d as defineComponent, r as ref, aI as watchEffect, o as openBlock, q as createBlock, aJ as mergeProps, aK as resolveDynamicComponent, h as createCommentVNode } from "./vendor-ba02dffa.js";
+import { S as SvelteComponentDev, Q as init, R as safe_not_equal, U as dispatch_dev, V as validate_slots, W as element, X as attr_dev, Y as add_location, Z as insert_dev, _ as listen_dev, $ as prop_dev, a0 as noop, a1 as detach_dev, a2 as run_all, a3 as text, a4 as append_dev, a5 as set_data_dev, a6 as toggle_class, a7 as set_style, a8 as binding_callbacks, a9 as bind, aa as space, ab as create_component, ac as add_render_callback, ad as mount_component, ae as select_option, af as group_outros, ag as transition_out, ah as check_outros, ai as transition_in, aj as add_flush_callback, ak as destroy_component, al as select_value, am as self, an as svg_element, ao as create_slot, ap as update_slot_base, aq as get_all_dirty_from_scope, ar as get_slot_changes, as as bubble, at as empty, au as createEventDispatcher, av as xlink_attr, aw as validate_each_argument, ax as destroy_each, ay as set_input_value, az as to_number, aA as Logo_square, aB as createRouter, aC as createWebHistory, aD as createWebHashHistory, aE as useDark, aF as useToggle, k as watch, aG as markRaw, E as reactive, d as defineComponent, r as ref, aH as watchEffect, o as openBlock, q as createBlock, aI as mergeProps, aJ as resolveDynamicComponent, h as createCommentVNode } from "./vendor-9cc9f24f.js";
 const scriptRel = "modulepreload";
 const assetsURL = function(dep) {
   return "/svelte-component-library/" + dep;
@@ -13509,7 +13509,6 @@ class Range extends SvelteComponentDev {
   }
 }
 const DNA_svelte_svelte_type_style_lang = "";
-const { console: console_1 } = globals;
 const file$b = "src/loading-animations/DNA.svelte";
 function get_each_context$2(ctx, list, i) {
   const child_ctx = ctx.slice();
@@ -13540,7 +13539,7 @@ function create_each_block$2(ctx) {
         ctx[5] * /*i*/
         ctx[9] + "s"
       );
-      add_location(circle0, file$b, 21, 3, 469);
+      add_location(circle0, file$b, 22, 3, 486);
       attr_dev(circle1, "cx", circle1_cx_value = /*gap*/
       ctx[7]);
       attr_dev(circle1, "class", "bottom s-7QWBfYnXqF98");
@@ -13551,7 +13550,7 @@ function create_each_block$2(ctx) {
         ctx[5] * /*i*/
         ctx[9] + "s"
       );
-      add_location(circle1, file$b, 22, 3, 542);
+      add_location(circle1, file$b, 23, 3, 559);
     },
     m: function mount(target, anchor) {
       insert_dev(target, circle0, anchor);
@@ -13600,7 +13599,7 @@ function create_each_block$2(ctx) {
     block,
     id: create_each_block$2.name,
     type: "each",
-    source: "(20:2) {#each new Array(count) as _, i}",
+    source: "(21:2) {#each new Array(count) as _, i}",
     ctx
   });
   return block;
@@ -13664,7 +13663,7 @@ function create_key_block$2(ctx) {
     block,
     id: create_key_block$2.name,
     type: "key",
-    source: "(19:1) {#key count}",
+    source: "(20:1) {#key count}",
     ctx
   });
   return block;
@@ -13696,7 +13695,7 @@ function create_fragment$c(ctx) {
       set_style(svg, "--top", style___top);
       set_style(svg, "--bottom", style___bottom);
       set_style(svg, "--speed", style___speed);
-      add_location(svg, file$b, 10, 0, 182);
+      add_location(svg, file$b, 11, 0, 199);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13765,14 +13764,13 @@ function instance$c($$self, $$props, $$invalidate) {
   validate_slots("DNA", slots, []);
   let { count = 10 } = $$props;
   let { r = 4 } = $$props;
-  console.log(r);
   let { r2 = r / 1.75 } = $$props;
   let { height = 36 } = $$props;
   let { speed = 1 } = $$props;
   const writable_props = ["count", "r", "r2", "height", "speed"];
   Object.keys($$props).forEach((key2) => {
     if (!~writable_props.indexOf(key2) && key2.slice(0, 2) !== "$$" && key2 !== "slot")
-      console_1.warn(`<DNA> was created with unknown prop '${key2}'`);
+      console.warn(`<DNA> was created with unknown prop '${key2}'`);
   });
   $$self.$$set = ($$props2) => {
     if ("count" in $$props2)
@@ -13805,6 +13803,10 @@ function instance$c($$self, $$props, $$invalidate) {
     $$self.$inject_state($$props.$$inject);
   }
   $$self.$$.update = () => {
+    if ($$self.$$.dirty & /*count*/
+    1) {
+      $$invalidate(0, count = Math.max(1, count));
+    }
     if ($$self.$$.dirty & /*speed*/
     16) {
       $$invalidate(5, delay = speed / 5);
@@ -13876,12 +13878,18 @@ function create_fragment$b(ctx) {
       t = space();
       span1 = element("span");
       attr_dev(span0, "class", "right s-CiWtR4yewo-P");
-      add_location(span0, file$a, 5, 1, 164);
+      add_location(span0, file$a, 6, 1, 206);
       attr_dev(span1, "class", "left s-CiWtR4yewo-P");
-      add_location(span1, file$a, 6, 1, 188);
+      add_location(span1, file$a, 7, 1, 230);
       attr_dev(div, "class", "s-CiWtR4yewo-P");
+      toggle_class(
+        div,
+        "reverse",
+        /*reverse*/
+        ctx[1]
+      );
       set_style(div, "--speed", style___speed);
-      add_location(div, file$a, 4, 0, 132);
+      add_location(div, file$a, 5, 0, 160);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -13893,6 +13901,15 @@ function create_fragment$b(ctx) {
       append_dev(div, span1);
     },
     p: function update(ctx2, [dirty]) {
+      if (dirty & /*reverse*/
+      2) {
+        toggle_class(
+          div,
+          "reverse",
+          /*reverse*/
+          ctx2[1]
+        );
+      }
       if (dirty & /*speed*/
       1 && style___speed !== (style___speed = `${/*speed*/
       ctx2[0]}s`)) {
@@ -13919,7 +13936,8 @@ function instance$b($$self, $$props, $$invalidate) {
   let { $$slots: slots = {}, $$scope } = $$props;
   validate_slots("DualBalls", slots, []);
   let { speed = 1 } = $$props;
-  const writable_props = ["speed"];
+  let { reverse = false } = $$props;
+  const writable_props = ["speed", "reverse"];
   Object.keys($$props).forEach((key2) => {
     if (!~writable_props.indexOf(key2) && key2.slice(0, 2) !== "$$" && key2 !== "slot")
       console.warn(`<DualBalls> was created with unknown prop '${key2}'`);
@@ -13927,21 +13945,25 @@ function instance$b($$self, $$props, $$invalidate) {
   $$self.$$set = ($$props2) => {
     if ("speed" in $$props2)
       $$invalidate(0, speed = $$props2.speed);
+    if ("reverse" in $$props2)
+      $$invalidate(1, reverse = $$props2.reverse);
   };
-  $$self.$capture_state = () => ({ speed });
+  $$self.$capture_state = () => ({ speed, reverse });
   $$self.$inject_state = ($$props2) => {
     if ("speed" in $$props2)
       $$invalidate(0, speed = $$props2.speed);
+    if ("reverse" in $$props2)
+      $$invalidate(1, reverse = $$props2.reverse);
   };
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
   }
-  return [speed];
+  return [speed, reverse];
 }
 class DualBalls extends SvelteComponentDev {
   constructor(options) {
     super(options);
-    init(this, options, instance$b, create_fragment$b, safe_not_equal, { speed: 0 });
+    init(this, options, instance$b, create_fragment$b, safe_not_equal, { speed: 0, reverse: 1 });
     dispatch_dev("SvelteRegisterComponent", {
       component: this,
       tagName: "DualBalls",
@@ -13953,6 +13975,12 @@ class DualBalls extends SvelteComponentDev {
     throw new Error("<DualBalls>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
   }
   set speed(value) {
+    throw new Error("<DualBalls>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+  }
+  get reverse() {
+    throw new Error("<DualBalls>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+  }
+  set reverse(value) {
     throw new Error("<DualBalls>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
   }
 }
@@ -14990,13 +15018,13 @@ function instance$6($$self, $$props, $$invalidate) {
     $$self.$inject_state($$props.$$inject);
   }
   $$self.$$.update = () => {
-    if ($$self.$$.dirty & /*scale*/
-    2) {
-      $$invalidate(1, scale = Math.min(Math.max(0.1, scale), 0.9));
-    }
     if ($$self.$$.dirty & /*count*/
     1) {
       $$invalidate(0, count = Math.max(2, count));
+    }
+    if ($$self.$$.dirty & /*scale*/
+    2) {
+      $$invalidate(1, scale = Math.min(Math.max(0.1, scale), 0.9));
     }
     if ($$self.$$.dirty & /*count*/
     1) {
@@ -15200,29 +15228,34 @@ function create_fragment$4(ctx) {
       use1 = svg_element("use");
       attr_dev(path0, "d", "M33.33 0.5L66.66 20.5L66.66 30.5L33.33 10.5L33.33 0.5Z");
       attr_dev(path0, "fill-opacity", "0.4");
-      add_location(path0, file$3, 6, 3, 151);
+      add_location(path0, file$3, 7, 3, 193);
       attr_dev(path1, "d", "M0 30.5L33.33 10.5V0.5L0 20.5V30.5Z");
-      add_location(path1, file$3, 7, 3, 241);
+      add_location(path1, file$3, 8, 3, 283);
       attr_dev(path2, "d", "M0 20.5L33.33 40.5L33.33 50.5L0 30.5L0 20.5Z");
       attr_dev(path2, "fill-opacity", "0.4");
-      add_location(path2, file$3, 8, 3, 293);
+      add_location(path2, file$3, 9, 3, 335);
       attr_dev(path3, "d", "M33.33 50.5L66.66 30.5V20.5L33.33 40.5V50.5Z");
-      add_location(path3, file$3, 9, 3, 373);
+      add_location(path3, file$3, 10, 3, 415);
       attr_dev(g, "id", "rect");
-      add_location(g, file$3, 5, 2, 134);
-      add_location(defs, file$3, 4, 1, 125);
-      attr_dev(use0, "id", "a");
+      add_location(g, file$3, 6, 2, 176);
+      add_location(defs, file$3, 5, 1, 167);
+      attr_dev(use0, "class", "a s-LizT1KLC5pZN");
       attr_dev(use0, "href", "#rect");
-      attr_dev(use0, "class", "s-LizT1KLC5pZN");
-      add_location(use0, file$3, 12, 1, 448);
-      attr_dev(use1, "id", "b");
+      add_location(use0, file$3, 13, 1, 490);
+      attr_dev(use1, "class", "b s-LizT1KLC5pZN");
       attr_dev(use1, "href", "#rect");
-      attr_dev(use1, "class", "s-LizT1KLC5pZN");
-      add_location(use1, file$3, 13, 1, 477);
+      add_location(use1, file$3, 14, 1, 522);
       attr_dev(svg, "viewBox", "0 0 100 100");
       attr_dev(svg, "fill", "currentcolor");
+      attr_dev(svg, "class", "s-LizT1KLC5pZN");
+      toggle_class(
+        svg,
+        "reverse",
+        /*reverse*/
+        ctx[1]
+      );
       set_style(svg, "--speed", style___speed);
-      add_location(svg, file$3, 3, 0, 51);
+      add_location(svg, file$3, 4, 0, 79);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -15239,6 +15272,15 @@ function create_fragment$4(ctx) {
       append_dev(svg, use1);
     },
     p: function update(ctx2, [dirty]) {
+      if (dirty & /*reverse*/
+      2) {
+        toggle_class(
+          svg,
+          "reverse",
+          /*reverse*/
+          ctx2[1]
+        );
+      }
       if (dirty & /*speed*/
       1 && style___speed !== (style___speed = `${/*speed*/
       ctx2[0]}s`)) {
@@ -15265,7 +15307,8 @@ function instance$4($$self, $$props, $$invalidate) {
   let { $$slots: slots = {}, $$scope } = $$props;
   validate_slots("Slide", slots, []);
   let { speed = 4 } = $$props;
-  const writable_props = ["speed"];
+  let { reverse = false } = $$props;
+  const writable_props = ["speed", "reverse"];
   Object.keys($$props).forEach((key2) => {
     if (!~writable_props.indexOf(key2) && key2.slice(0, 2) !== "$$" && key2 !== "slot")
       console.warn(`<Slide> was created with unknown prop '${key2}'`);
@@ -15273,21 +15316,25 @@ function instance$4($$self, $$props, $$invalidate) {
   $$self.$$set = ($$props2) => {
     if ("speed" in $$props2)
       $$invalidate(0, speed = $$props2.speed);
+    if ("reverse" in $$props2)
+      $$invalidate(1, reverse = $$props2.reverse);
   };
-  $$self.$capture_state = () => ({ speed });
+  $$self.$capture_state = () => ({ speed, reverse });
   $$self.$inject_state = ($$props2) => {
     if ("speed" in $$props2)
       $$invalidate(0, speed = $$props2.speed);
+    if ("reverse" in $$props2)
+      $$invalidate(1, reverse = $$props2.reverse);
   };
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
   }
-  return [speed];
+  return [speed, reverse];
 }
 class Slide extends SvelteComponentDev {
   constructor(options) {
     super(options);
-    init(this, options, instance$4, create_fragment$4, safe_not_equal, { speed: 0 });
+    init(this, options, instance$4, create_fragment$4, safe_not_equal, { speed: 0, reverse: 1 });
     dispatch_dev("SvelteRegisterComponent", {
       component: this,
       tagName: "Slide",
@@ -15301,6 +15348,12 @@ class Slide extends SvelteComponentDev {
   set speed(value) {
     throw new Error("<Slide>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
   }
+  get reverse() {
+    throw new Error("<Slide>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+  }
+  set reverse(value) {
+    throw new Error("<Slide>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+  }
 }
 const Spin_svelte_svelte_type_style_lang = "";
 const file$2 = "src/loading-animations/Spin.svelte";
@@ -15309,7 +15362,7 @@ function create_fragment$3(ctx) {
   let rect0;
   let rect1;
   let style___speed = `${/*speed*/
-  ctx[0]}s`;
+  ctx[1]}s`;
   let style___stroke = `${/*border_width*/
   ctx[2]}px`;
   const block = {
@@ -15322,23 +15375,23 @@ function create_fragment$3(ctx) {
       attr_dev(rect0, "y", "15");
       attr_dev(rect0, "width", "70");
       attr_dev(rect0, "height", "70");
-      add_location(rect0, file$2, 11, 1, 220);
+      add_location(rect0, file$2, 13, 1, 268);
       attr_dev(rect1, "class", "left s-E06QqMFOUiPA");
       attr_dev(rect1, "x", "15");
       attr_dev(rect1, "y", "15");
       attr_dev(rect1, "width", "70");
       attr_dev(rect1, "height", "70");
-      add_location(rect1, file$2, 12, 1, 281);
+      add_location(rect1, file$2, 14, 1, 329);
       attr_dev(svg, "viewBox", "0 0 100 100");
       set_style(svg, "--speed", style___speed);
       set_style(
         svg,
         "--scale",
         /*scale*/
-        ctx[1]
+        ctx[0]
       );
       set_style(svg, "--stroke", style___stroke);
-      add_location(svg, file$2, 5, 0, 105);
+      add_location(svg, file$2, 7, 0, 153);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -15350,17 +15403,17 @@ function create_fragment$3(ctx) {
     },
     p: function update(ctx2, [dirty]) {
       if (dirty & /*speed*/
-      1 && style___speed !== (style___speed = `${/*speed*/
-      ctx2[0]}s`)) {
+      2 && style___speed !== (style___speed = `${/*speed*/
+      ctx2[1]}s`)) {
         set_style(svg, "--speed", style___speed);
       }
       if (dirty & /*scale*/
-      2) {
+      1) {
         set_style(
           svg,
           "--scale",
           /*scale*/
-          ctx2[1]
+          ctx2[0]
         );
       }
       if (dirty & /*border_width*/
@@ -15398,30 +15451,36 @@ function instance$3($$self, $$props, $$invalidate) {
   });
   $$self.$$set = ($$props2) => {
     if ("speed" in $$props2)
-      $$invalidate(0, speed = $$props2.speed);
+      $$invalidate(1, speed = $$props2.speed);
     if ("scale" in $$props2)
-      $$invalidate(1, scale = $$props2.scale);
+      $$invalidate(0, scale = $$props2.scale);
     if ("border_width" in $$props2)
       $$invalidate(2, border_width = $$props2.border_width);
   };
   $$self.$capture_state = () => ({ speed, scale, border_width });
   $$self.$inject_state = ($$props2) => {
     if ("speed" in $$props2)
-      $$invalidate(0, speed = $$props2.speed);
+      $$invalidate(1, speed = $$props2.speed);
     if ("scale" in $$props2)
-      $$invalidate(1, scale = $$props2.scale);
+      $$invalidate(0, scale = $$props2.scale);
     if ("border_width" in $$props2)
       $$invalidate(2, border_width = $$props2.border_width);
   };
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
   }
-  return [speed, scale, border_width];
+  $$self.$$.update = () => {
+    if ($$self.$$.dirty & /*scale*/
+    1) {
+      $$invalidate(0, scale = Math.max(0.1, Math.min(1, scale)));
+    }
+  };
+  return [scale, speed, border_width];
 }
 class Spin2 extends SvelteComponentDev {
   constructor(options) {
     super(options);
-    init(this, options, instance$3, create_fragment$3, safe_not_equal, { speed: 0, scale: 1, border_width: 2 });
+    init(this, options, instance$3, create_fragment$3, safe_not_equal, { speed: 1, scale: 0, border_width: 2 });
     dispatch_dev("SvelteRegisterComponent", {
       component: this,
       tagName: "Spin",
@@ -15566,8 +15625,15 @@ function create_fragment$1(ctx) {
       path = svg_element("path");
       attr_dev(path, "d", "M50 0v100a50 50 0 0050-50H0a50 50 0 0150-50z");
       attr_dev(path, "class", "s-tgqx5wfiLXO3");
-      add_location(path, file, 5, 1, 161);
+      add_location(path, file, 6, 1, 203);
       attr_dev(svg, "viewBox", "0 0 100 100");
+      attr_dev(svg, "class", "s-tgqx5wfiLXO3");
+      toggle_class(
+        svg,
+        "reverse",
+        /*reverse*/
+        ctx[2]
+      );
       set_style(svg, "--speed", style___speed);
       set_style(
         svg,
@@ -15575,7 +15641,7 @@ function create_fragment$1(ctx) {
         /*rotations*/
         ctx[1]
       );
-      add_location(svg, file, 4, 0, 77);
+      add_location(svg, file, 5, 0, 105);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -15585,6 +15651,15 @@ function create_fragment$1(ctx) {
       append_dev(svg, path);
     },
     p: function update(ctx2, [dirty]) {
+      if (dirty & /*reverse*/
+      4) {
+        toggle_class(
+          svg,
+          "reverse",
+          /*reverse*/
+          ctx2[2]
+        );
+      }
       if (dirty & /*speed*/
       1 && style___speed !== (style___speed = `${/*speed*/
       ctx2[0]}s`)) {
@@ -15621,7 +15696,8 @@ function instance$1($$self, $$props, $$invalidate) {
   validate_slots("SpinGlass", slots, []);
   let { speed = 1 } = $$props;
   let { rotations = 3 } = $$props;
-  const writable_props = ["speed", "rotations"];
+  let { reverse = false } = $$props;
+  const writable_props = ["speed", "rotations", "reverse"];
   Object.keys($$props).forEach((key2) => {
     if (!~writable_props.indexOf(key2) && key2.slice(0, 2) !== "$$" && key2 !== "slot")
       console.warn(`<SpinGlass> was created with unknown prop '${key2}'`);
@@ -15631,23 +15707,27 @@ function instance$1($$self, $$props, $$invalidate) {
       $$invalidate(0, speed = $$props2.speed);
     if ("rotations" in $$props2)
       $$invalidate(1, rotations = $$props2.rotations);
+    if ("reverse" in $$props2)
+      $$invalidate(2, reverse = $$props2.reverse);
   };
-  $$self.$capture_state = () => ({ speed, rotations });
+  $$self.$capture_state = () => ({ speed, rotations, reverse });
   $$self.$inject_state = ($$props2) => {
     if ("speed" in $$props2)
       $$invalidate(0, speed = $$props2.speed);
     if ("rotations" in $$props2)
       $$invalidate(1, rotations = $$props2.rotations);
+    if ("reverse" in $$props2)
+      $$invalidate(2, reverse = $$props2.reverse);
   };
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
   }
-  return [speed, rotations];
+  return [speed, rotations, reverse];
 }
 class SpinGlass extends SvelteComponentDev {
   constructor(options) {
     super(options);
-    init(this, options, instance$1, create_fragment$1, safe_not_equal, { speed: 0, rotations: 1 });
+    init(this, options, instance$1, create_fragment$1, safe_not_equal, { speed: 0, rotations: 1, reverse: 2 });
     dispatch_dev("SvelteRegisterComponent", {
       component: this,
       tagName: "SpinGlass",
@@ -15667,21 +15747,27 @@ class SpinGlass extends SvelteComponentDev {
   set rotations(value) {
     throw new Error("<SpinGlass>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
   }
+  get reverse() {
+    throw new Error("<SpinGlass>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+  }
+  set reverse(value) {
+    throw new Error("<SpinGlass>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+  }
 }
 function create_default_slot_12(ctx) {
   let hourglass;
   let updating_speed;
   let current;
   function hourglass_speed_binding(value) {
-    ctx[28](value);
+    ctx[31](value);
   }
   let hourglass_props = {};
   if (
     /*hourglass_speed*/
-    ctx[26] !== void 0
+    ctx[29] !== void 0
   ) {
     hourglass_props.speed = /*hourglass_speed*/
-    ctx[26];
+    ctx[29];
   }
   hourglass = new Hourglass({ props: hourglass_props, $$inline: true });
   binding_callbacks.push(() => bind(hourglass, "speed", hourglass_speed_binding));
@@ -15696,10 +15782,10 @@ function create_default_slot_12(ctx) {
     p: function update(ctx2, dirty) {
       const hourglass_changes = {};
       if (!updating_speed && dirty[0] & /*hourglass_speed*/
-      67108864) {
+      536870912) {
         updating_speed = true;
         hourglass_changes.speed = /*hourglass_speed*/
-        ctx2[26];
+        ctx2[29];
         add_flush_callback(() => updating_speed = false);
       }
       hourglass.$set(hourglass_changes);
@@ -15722,7 +15808,7 @@ function create_default_slot_12(ctx) {
     block,
     id: create_default_slot_12.name,
     type: "slot",
-    source: '(44:1) <Hst.Variant title=\\"Hourglass\\" icon=\\"ic:round-hourglass-bottom\\">',
+    source: '(47:1) <Hst.Variant title=\\"Hourglass\\" icon=\\"ic:round-hourglass-bottom\\">',
     ctx
   });
   return block;
@@ -15732,7 +15818,7 @@ function create_controls_slot_11(ctx) {
   let updating_value;
   let current;
   function range_value_binding(value) {
-    ctx[27](value);
+    ctx[30](value);
   }
   let range_props = {
     title: "Speed",
@@ -15742,10 +15828,10 @@ function create_controls_slot_11(ctx) {
   };
   if (
     /*hourglass_speed*/
-    ctx[26] !== void 0
+    ctx[29] !== void 0
   ) {
     range_props.value = /*hourglass_speed*/
-    ctx[26];
+    ctx[29];
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding));
@@ -15760,10 +15846,10 @@ function create_controls_slot_11(ctx) {
     p: function update(ctx2, dirty) {
       const range_changes = {};
       if (!updating_value && dirty[0] & /*hourglass_speed*/
-      67108864) {
+      536870912) {
         updating_value = true;
         range_changes.value = /*hourglass_speed*/
-        ctx2[26];
+        ctx2[29];
         add_flush_callback(() => updating_value = false);
       }
       range.$set(range_changes);
@@ -15786,7 +15872,7 @@ function create_controls_slot_11(ctx) {
     block,
     id: create_controls_slot_11.name,
     type: "slot",
-    source: '(46:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(49:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -15796,15 +15882,15 @@ function create_default_slot_11(ctx) {
   let updating_speed;
   let current;
   function heart_speed_binding(value) {
-    ctx[30](value);
+    ctx[33](value);
   }
   let heart_props = {};
   if (
     /*heart_speed*/
-    ctx[25] !== void 0
+    ctx[28] !== void 0
   ) {
     heart_props.speed = /*heart_speed*/
-    ctx[25];
+    ctx[28];
   }
   heart = new Heart({ props: heart_props, $$inline: true });
   binding_callbacks.push(() => bind(heart, "speed", heart_speed_binding));
@@ -15819,10 +15905,10 @@ function create_default_slot_11(ctx) {
     p: function update(ctx2, dirty) {
       const heart_changes = {};
       if (!updating_speed && dirty[0] & /*heart_speed*/
-      33554432) {
+      268435456) {
         updating_speed = true;
         heart_changes.speed = /*heart_speed*/
-        ctx2[25];
+        ctx2[28];
         add_flush_callback(() => updating_speed = false);
       }
       heart.$set(heart_changes);
@@ -15845,7 +15931,7 @@ function create_default_slot_11(ctx) {
     block,
     id: create_default_slot_11.name,
     type: "slot",
-    source: '(50:1) <Hst.Variant title=\\"Heart\\" icon=\\"material-symbols:favorite\\">',
+    source: '(53:1) <Hst.Variant title=\\"Heart\\" icon=\\"material-symbols:favorite\\">',
     ctx
   });
   return block;
@@ -15855,7 +15941,7 @@ function create_controls_slot_10(ctx) {
   let updating_value;
   let current;
   function range_value_binding_1(value) {
-    ctx[29](value);
+    ctx[32](value);
   }
   let range_props = {
     title: "Speed",
@@ -15865,10 +15951,10 @@ function create_controls_slot_10(ctx) {
   };
   if (
     /*heart_speed*/
-    ctx[25] !== void 0
+    ctx[28] !== void 0
   ) {
     range_props.value = /*heart_speed*/
-    ctx[25];
+    ctx[28];
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding_1));
@@ -15883,10 +15969,10 @@ function create_controls_slot_10(ctx) {
     p: function update(ctx2, dirty) {
       const range_changes = {};
       if (!updating_value && dirty[0] & /*heart_speed*/
-      33554432) {
+      268435456) {
         updating_value = true;
         range_changes.value = /*heart_speed*/
-        ctx2[25];
+        ctx2[28];
         add_flush_callback(() => updating_value = false);
       }
       range.$set(range_changes);
@@ -15909,7 +15995,7 @@ function create_controls_slot_10(ctx) {
     block,
     id: create_controls_slot_10.name,
     type: "slot",
-    source: '(52:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(55:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -15921,35 +16007,35 @@ function create_default_slot_10(ctx) {
   let updating_scale;
   let current;
   function pie_count_binding(value) {
-    ctx[34](value);
+    ctx[37](value);
   }
   function pie_speed_binding(value) {
-    ctx[35](value);
+    ctx[38](value);
   }
   function pie_scale_binding(value) {
-    ctx[36](value);
+    ctx[39](value);
   }
   let pie_props = {};
   if (
     /*pie_count*/
-    ctx[22] !== void 0
+    ctx[25] !== void 0
   ) {
     pie_props.count = /*pie_count*/
-    ctx[22];
+    ctx[25];
   }
   if (
     /*pie_speed*/
-    ctx[23] !== void 0
+    ctx[26] !== void 0
   ) {
     pie_props.speed = /*pie_speed*/
-    ctx[23];
+    ctx[26];
   }
   if (
     /*pie_scale*/
-    ctx[24] !== void 0
+    ctx[27] !== void 0
   ) {
     pie_props.scale = /*pie_scale*/
-    ctx[24];
+    ctx[27];
   }
   pie = new Pie({ props: pie_props, $$inline: true });
   binding_callbacks.push(() => bind(pie, "count", pie_count_binding));
@@ -15966,24 +16052,24 @@ function create_default_slot_10(ctx) {
     p: function update(ctx2, dirty) {
       const pie_changes = {};
       if (!updating_count && dirty[0] & /*pie_count*/
-      4194304) {
+      33554432) {
         updating_count = true;
         pie_changes.count = /*pie_count*/
-        ctx2[22];
+        ctx2[25];
         add_flush_callback(() => updating_count = false);
       }
       if (!updating_speed && dirty[0] & /*pie_speed*/
-      8388608) {
+      67108864) {
         updating_speed = true;
         pie_changes.speed = /*pie_speed*/
-        ctx2[23];
+        ctx2[26];
         add_flush_callback(() => updating_speed = false);
       }
       if (!updating_scale && dirty[0] & /*pie_scale*/
-      16777216) {
+      134217728) {
         updating_scale = true;
         pie_changes.scale = /*pie_scale*/
-        ctx2[24];
+        ctx2[27];
         add_flush_callback(() => updating_scale = false);
       }
       pie.$set(pie_changes);
@@ -16006,7 +16092,7 @@ function create_default_slot_10(ctx) {
     block,
     id: create_default_slot_10.name,
     type: "slot",
-    source: '(56:1) <Hst.Variant title=\\"Pie\\" icon=\\"game-icons:swirled-shell\\">',
+    source: '(59:1) <Hst.Variant title=\\"Pie\\" icon=\\"game-icons:swirled-shell\\">',
     ctx
   });
   return block;
@@ -16022,21 +16108,21 @@ function create_controls_slot_9(ctx) {
   let updating_value_2;
   let current;
   function hst_slider_value_binding(value) {
-    ctx[31](value);
+    ctx[34](value);
   }
   let hst_slider_props = { title: "Count", min: 2, max: 50 };
   if (
     /*pie_count*/
-    ctx[22] !== void 0
+    ctx[25] !== void 0
   ) {
     hst_slider_props.value = /*pie_count*/
-    ctx[22];
+    ctx[25];
   }
   hst_slider = new /*Hst*/
   ctx[0].Slider({ props: hst_slider_props, $$inline: true });
   binding_callbacks.push(() => bind(hst_slider, "value", hst_slider_value_binding));
   function range0_value_binding(value) {
-    ctx[32](value);
+    ctx[35](value);
   }
   let range0_props = {
     title: "Speed",
@@ -16046,15 +16132,15 @@ function create_controls_slot_9(ctx) {
   };
   if (
     /*pie_speed*/
-    ctx[23] !== void 0
+    ctx[26] !== void 0
   ) {
     range0_props.value = /*pie_speed*/
-    ctx[23];
+    ctx[26];
   }
   range0 = new Range({ props: range0_props, $$inline: true });
   binding_callbacks.push(() => bind(range0, "value", range0_value_binding));
   function range1_value_binding(value) {
-    ctx[33](value);
+    ctx[36](value);
   }
   let range1_props = {
     title: "Scale",
@@ -16064,10 +16150,10 @@ function create_controls_slot_9(ctx) {
   };
   if (
     /*pie_scale*/
-    ctx[24] !== void 0
+    ctx[27] !== void 0
   ) {
     range1_props.value = /*pie_scale*/
-    ctx[24];
+    ctx[27];
   }
   range1 = new Range({ props: range1_props, $$inline: true });
   binding_callbacks.push(() => bind(range1, "value", range1_value_binding));
@@ -16090,28 +16176,28 @@ function create_controls_slot_9(ctx) {
     p: function update(ctx2, dirty) {
       const hst_slider_changes = {};
       if (!updating_value && dirty[0] & /*pie_count*/
-      4194304) {
+      33554432) {
         updating_value = true;
         hst_slider_changes.value = /*pie_count*/
-        ctx2[22];
+        ctx2[25];
         add_flush_callback(() => updating_value = false);
       }
       hst_slider.$set(hst_slider_changes);
       const range0_changes = {};
       if (!updating_value_1 && dirty[0] & /*pie_speed*/
-      8388608) {
+      67108864) {
         updating_value_1 = true;
         range0_changes.value = /*pie_speed*/
-        ctx2[23];
+        ctx2[26];
         add_flush_callback(() => updating_value_1 = false);
       }
       range0.$set(range0_changes);
       const range1_changes = {};
       if (!updating_value_2 && dirty[0] & /*pie_scale*/
-      16777216) {
+      134217728) {
         updating_value_2 = true;
         range1_changes.value = /*pie_scale*/
-        ctx2[24];
+        ctx2[27];
         add_flush_callback(() => updating_value_2 = false);
       }
       range1.$set(range1_changes);
@@ -16144,7 +16230,7 @@ function create_controls_slot_9(ctx) {
     block,
     id: create_controls_slot_9.name,
     type: "slot",
-    source: '(58:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(61:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -16158,55 +16244,55 @@ function create_default_slot_9(ctx) {
   let updating_speed;
   let current;
   function dna_count_binding(value) {
-    ctx[42](value);
-  }
-  function dna_r_binding(value) {
-    ctx[43](value);
-  }
-  function dna_r2_binding(value) {
-    ctx[44](value);
-  }
-  function dna_height_binding(value) {
     ctx[45](value);
   }
-  function dna_speed_binding(value) {
+  function dna_r_binding(value) {
     ctx[46](value);
+  }
+  function dna_r2_binding(value) {
+    ctx[47](value);
+  }
+  function dna_height_binding(value) {
+    ctx[48](value);
+  }
+  function dna_speed_binding(value) {
+    ctx[49](value);
   }
   let dna_props = {};
   if (
     /*dna_count*/
-    ctx[17] !== void 0
-  ) {
-    dna_props.count = /*dna_count*/
-    ctx[17];
-  }
-  if (
-    /*dna_r*/
-    ctx[18] !== void 0
-  ) {
-    dna_props.r = /*dna_r*/
-    ctx[18];
-  }
-  if (
-    /*dna_r2*/
-    ctx[19] !== void 0
-  ) {
-    dna_props.r2 = /*dna_r2*/
-    ctx[19];
-  }
-  if (
-    /*dna_height*/
     ctx[20] !== void 0
   ) {
-    dna_props.height = /*dna_height*/
+    dna_props.count = /*dna_count*/
     ctx[20];
   }
   if (
-    /*dna_speed*/
+    /*dna_r*/
     ctx[21] !== void 0
   ) {
-    dna_props.speed = /*dna_speed*/
+    dna_props.r = /*dna_r*/
     ctx[21];
+  }
+  if (
+    /*dna_r2*/
+    ctx[22] !== void 0
+  ) {
+    dna_props.r2 = /*dna_r2*/
+    ctx[22];
+  }
+  if (
+    /*dna_height*/
+    ctx[23] !== void 0
+  ) {
+    dna_props.height = /*dna_height*/
+    ctx[23];
+  }
+  if (
+    /*dna_speed*/
+    ctx[24] !== void 0
+  ) {
+    dna_props.speed = /*dna_speed*/
+    ctx[24];
   }
   dna = new DNA({ props: dna_props, $$inline: true });
   binding_callbacks.push(() => bind(dna, "count", dna_count_binding));
@@ -16225,38 +16311,38 @@ function create_default_slot_9(ctx) {
     p: function update(ctx2, dirty) {
       const dna_changes = {};
       if (!updating_count && dirty[0] & /*dna_count*/
-      131072) {
+      1048576) {
         updating_count = true;
         dna_changes.count = /*dna_count*/
-        ctx2[17];
+        ctx2[20];
         add_flush_callback(() => updating_count = false);
       }
       if (!updating_r && dirty[0] & /*dna_r*/
-      262144) {
+      2097152) {
         updating_r = true;
         dna_changes.r = /*dna_r*/
-        ctx2[18];
+        ctx2[21];
         add_flush_callback(() => updating_r = false);
       }
       if (!updating_r2 && dirty[0] & /*dna_r2*/
-      524288) {
+      4194304) {
         updating_r2 = true;
         dna_changes.r2 = /*dna_r2*/
-        ctx2[19];
+        ctx2[22];
         add_flush_callback(() => updating_r2 = false);
       }
       if (!updating_height && dirty[0] & /*dna_height*/
-      1048576) {
+      8388608) {
         updating_height = true;
         dna_changes.height = /*dna_height*/
-        ctx2[20];
+        ctx2[23];
         add_flush_callback(() => updating_height = false);
       }
       if (!updating_speed && dirty[0] & /*dna_speed*/
-      2097152) {
+      16777216) {
         updating_speed = true;
         dna_changes.speed = /*dna_speed*/
-        ctx2[21];
+        ctx2[24];
         add_flush_callback(() => updating_speed = false);
       }
       dna.$set(dna_changes);
@@ -16279,7 +16365,7 @@ function create_default_slot_9(ctx) {
     block,
     id: create_default_slot_9.name,
     type: "slot",
-    source: '(64:1) <Hst.Variant title=\\"DNA\\" icon=\\"tabler:dna\\">',
+    source: '(67:1) <Hst.Variant title=\\"DNA\\" icon=\\"tabler:dna\\">',
     ctx
   });
   return block;
@@ -16301,63 +16387,63 @@ function create_controls_slot_8(ctx) {
   let updating_value_4;
   let current;
   function hst_slider0_value_binding(value) {
-    ctx[37](value);
+    ctx[40](value);
   }
   let hst_slider0_props = { title: "Count", min: 1, max: 50 };
   if (
     /*dna_count*/
-    ctx[17] !== void 0
+    ctx[20] !== void 0
   ) {
     hst_slider0_props.value = /*dna_count*/
-    ctx[17];
+    ctx[20];
   }
   hst_slider0 = new /*Hst*/
   ctx[0].Slider({ props: hst_slider0_props, $$inline: true });
   binding_callbacks.push(() => bind(hst_slider0, "value", hst_slider0_value_binding));
   function hst_slider1_value_binding(value) {
-    ctx[38](value);
+    ctx[41](value);
   }
   let hst_slider1_props = { title: "Height", min: 0, max: 100 };
   if (
     /*dna_height*/
-    ctx[20] !== void 0
+    ctx[23] !== void 0
   ) {
     hst_slider1_props.value = /*dna_height*/
-    ctx[20];
+    ctx[23];
   }
   hst_slider1 = new /*Hst*/
   ctx[0].Slider({ props: hst_slider1_props, $$inline: true });
   binding_callbacks.push(() => bind(hst_slider1, "value", hst_slider1_value_binding));
   function hst_slider2_value_binding(value) {
-    ctx[39](value);
+    ctx[42](value);
   }
   let hst_slider2_props = { title: "Radius from", min: 1, max: 10 };
   if (
     /*dna_r*/
-    ctx[18] !== void 0
+    ctx[21] !== void 0
   ) {
     hst_slider2_props.value = /*dna_r*/
-    ctx[18];
+    ctx[21];
   }
   hst_slider2 = new /*Hst*/
   ctx[0].Slider({ props: hst_slider2_props, $$inline: true });
   binding_callbacks.push(() => bind(hst_slider2, "value", hst_slider2_value_binding));
   function hst_slider3_value_binding(value) {
-    ctx[40](value);
+    ctx[43](value);
   }
   let hst_slider3_props = { title: "Radius to", min: 1, max: 10 };
   if (
     /*dna_r2*/
-    ctx[19] !== void 0
+    ctx[22] !== void 0
   ) {
     hst_slider3_props.value = /*dna_r2*/
-    ctx[19];
+    ctx[22];
   }
   hst_slider3 = new /*Hst*/
   ctx[0].Slider({ props: hst_slider3_props, $$inline: true });
   binding_callbacks.push(() => bind(hst_slider3, "value", hst_slider3_value_binding));
   function range_value_binding_2(value) {
-    ctx[41](value);
+    ctx[44](value);
   }
   let range_props = {
     title: "Speed",
@@ -16367,10 +16453,10 @@ function create_controls_slot_8(ctx) {
   };
   if (
     /*dna_speed*/
-    ctx[21] !== void 0
+    ctx[24] !== void 0
   ) {
     range_props.value = /*dna_speed*/
-    ctx[21];
+    ctx[24];
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding_2));
@@ -16401,46 +16487,46 @@ function create_controls_slot_8(ctx) {
     p: function update(ctx2, dirty) {
       const hst_slider0_changes = {};
       if (!updating_value && dirty[0] & /*dna_count*/
-      131072) {
+      1048576) {
         updating_value = true;
         hst_slider0_changes.value = /*dna_count*/
-        ctx2[17];
+        ctx2[20];
         add_flush_callback(() => updating_value = false);
       }
       hst_slider0.$set(hst_slider0_changes);
       const hst_slider1_changes = {};
       if (!updating_value_1 && dirty[0] & /*dna_height*/
-      1048576) {
+      8388608) {
         updating_value_1 = true;
         hst_slider1_changes.value = /*dna_height*/
-        ctx2[20];
+        ctx2[23];
         add_flush_callback(() => updating_value_1 = false);
       }
       hst_slider1.$set(hst_slider1_changes);
       const hst_slider2_changes = {};
       if (!updating_value_2 && dirty[0] & /*dna_r*/
-      262144) {
+      2097152) {
         updating_value_2 = true;
         hst_slider2_changes.value = /*dna_r*/
-        ctx2[18];
+        ctx2[21];
         add_flush_callback(() => updating_value_2 = false);
       }
       hst_slider2.$set(hst_slider2_changes);
       const hst_slider3_changes = {};
       if (!updating_value_3 && dirty[0] & /*dna_r2*/
-      524288) {
+      4194304) {
         updating_value_3 = true;
         hst_slider3_changes.value = /*dna_r2*/
-        ctx2[19];
+        ctx2[22];
         add_flush_callback(() => updating_value_3 = false);
       }
       hst_slider3.$set(hst_slider3_changes);
       const range_changes = {};
       if (!updating_value_4 && dirty[0] & /*dna_speed*/
-      2097152) {
+      16777216) {
         updating_value_4 = true;
         range_changes.value = /*dna_speed*/
-        ctx2[21];
+        ctx2[24];
         add_flush_callback(() => updating_value_4 = false);
       }
       range.$set(range_changes);
@@ -16483,15 +16569,40 @@ function create_controls_slot_8(ctx) {
     block,
     id: create_controls_slot_8.name,
     type: "slot",
-    source: '(72:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(75:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
 }
 function create_default_slot_8(ctx) {
   let dualballs;
+  let updating_speed;
+  let updating_reverse;
   let current;
-  dualballs = new DualBalls({ $$inline: true });
+  function dualballs_speed_binding(value) {
+    ctx[52](value);
+  }
+  function dualballs_reverse_binding(value) {
+    ctx[53](value);
+  }
+  let dualballs_props = {};
+  if (
+    /*dualBalls_speed*/
+    ctx[18] !== void 0
+  ) {
+    dualballs_props.speed = /*dualBalls_speed*/
+    ctx[18];
+  }
+  if (
+    /*dualBalls_reverse*/
+    ctx[19] !== void 0
+  ) {
+    dualballs_props.reverse = /*dualBalls_reverse*/
+    ctx[19];
+  }
+  dualballs = new DualBalls({ props: dualballs_props, $$inline: true });
+  binding_callbacks.push(() => bind(dualballs, "speed", dualballs_speed_binding));
+  binding_callbacks.push(() => bind(dualballs, "reverse", dualballs_reverse_binding));
   const block = {
     c: function create() {
       create_component(dualballs.$$.fragment);
@@ -16499,6 +16610,24 @@ function create_default_slot_8(ctx) {
     m: function mount(target, anchor) {
       mount_component(dualballs, target, anchor);
       current = true;
+    },
+    p: function update(ctx2, dirty) {
+      const dualballs_changes = {};
+      if (!updating_speed && dirty[0] & /*dualBalls_speed*/
+      262144) {
+        updating_speed = true;
+        dualballs_changes.speed = /*dualBalls_speed*/
+        ctx2[18];
+        add_flush_callback(() => updating_speed = false);
+      }
+      if (!updating_reverse && dirty[0] & /*dualBalls_reverse*/
+      524288) {
+        updating_reverse = true;
+        dualballs_changes.reverse = /*dualBalls_reverse*/
+        ctx2[19];
+        add_flush_callback(() => updating_reverse = false);
+      }
+      dualballs.$set(dualballs_changes);
     },
     i: function intro(local) {
       if (current)
@@ -16518,7 +16647,7 @@ function create_default_slot_8(ctx) {
     block,
     id: create_default_slot_8.name,
     type: "slot",
-    source: '(80:1) <Hst.Variant title=\\"DualBalls\\" icon=\\"ic:baseline-circle\\">',
+    source: '(83:1) <Hst.Variant title=\\"DualBalls\\" icon=\\"ic:baseline-circle\\">',
     ctx
   });
   return block;
@@ -16526,9 +16655,12 @@ function create_default_slot_8(ctx) {
 function create_controls_slot_7(ctx) {
   let range;
   let updating_value;
+  let t;
+  let hst_checkbox;
+  let updating_value_1;
   let current;
   function range_value_binding_3(value) {
-    ctx[47](value);
+    ctx[50](value);
   }
   let range_props = {
     title: "Speed",
@@ -16538,51 +16670,86 @@ function create_controls_slot_7(ctx) {
   };
   if (
     /*dualBalls_speed*/
-    ctx[16] !== void 0
+    ctx[18] !== void 0
   ) {
     range_props.value = /*dualBalls_speed*/
-    ctx[16];
+    ctx[18];
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding_3));
+  function hst_checkbox_value_binding(value) {
+    ctx[51](value);
+  }
+  let hst_checkbox_props = { title: "Reverse" };
+  if (
+    /*dualBalls_reverse*/
+    ctx[19] !== void 0
+  ) {
+    hst_checkbox_props.value = /*dualBalls_reverse*/
+    ctx[19];
+  }
+  hst_checkbox = new /*Hst*/
+  ctx[0].Checkbox({
+    props: hst_checkbox_props,
+    $$inline: true
+  });
+  binding_callbacks.push(() => bind(hst_checkbox, "value", hst_checkbox_value_binding));
   const block = {
     c: function create() {
       create_component(range.$$.fragment);
+      t = space();
+      create_component(hst_checkbox.$$.fragment);
     },
     m: function mount(target, anchor) {
       mount_component(range, target, anchor);
+      insert_dev(target, t, anchor);
+      mount_component(hst_checkbox, target, anchor);
       current = true;
     },
     p: function update(ctx2, dirty) {
       const range_changes = {};
       if (!updating_value && dirty[0] & /*dualBalls_speed*/
-      65536) {
+      262144) {
         updating_value = true;
         range_changes.value = /*dualBalls_speed*/
-        ctx2[16];
+        ctx2[18];
         add_flush_callback(() => updating_value = false);
       }
       range.$set(range_changes);
+      const hst_checkbox_changes = {};
+      if (!updating_value_1 && dirty[0] & /*dualBalls_reverse*/
+      524288) {
+        updating_value_1 = true;
+        hst_checkbox_changes.value = /*dualBalls_reverse*/
+        ctx2[19];
+        add_flush_callback(() => updating_value_1 = false);
+      }
+      hst_checkbox.$set(hst_checkbox_changes);
     },
     i: function intro(local) {
       if (current)
         return;
       transition_in(range.$$.fragment, local);
+      transition_in(hst_checkbox.$$.fragment, local);
       current = true;
     },
     o: function outro(local) {
       transition_out(range.$$.fragment, local);
+      transition_out(hst_checkbox.$$.fragment, local);
       current = false;
     },
     d: function destroy(detaching) {
       destroy_component(range, detaching);
+      if (detaching)
+        detach_dev(t);
+      destroy_component(hst_checkbox, detaching);
     }
   };
   dispatch_dev("SvelteRegisterBlock", {
     block,
     id: create_controls_slot_7.name,
     type: "slot",
-    source: '(82:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(85:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -16591,31 +16758,43 @@ function create_default_slot_7(ctx) {
   let spinglass;
   let updating_rotations;
   let updating_speed;
+  let updating_reverse;
   let current;
   function spinglass_rotations_binding(value) {
-    ctx[50](value);
+    ctx[57](value);
   }
   function spinglass_speed_binding(value) {
-    ctx[51](value);
+    ctx[58](value);
+  }
+  function spinglass_reverse_binding(value) {
+    ctx[59](value);
   }
   let spinglass_props = {};
   if (
     /*spinGlass_rotations*/
-    ctx[15] !== void 0
+    ctx[16] !== void 0
   ) {
     spinglass_props.rotations = /*spinGlass_rotations*/
-    ctx[15];
+    ctx[16];
   }
   if (
     /*spinGlass_speed*/
-    ctx[14] !== void 0
+    ctx[15] !== void 0
   ) {
     spinglass_props.speed = /*spinGlass_speed*/
-    ctx[14];
+    ctx[15];
+  }
+  if (
+    /*spinGlass_reverse*/
+    ctx[17] !== void 0
+  ) {
+    spinglass_props.reverse = /*spinGlass_reverse*/
+    ctx[17];
   }
   spinglass = new SpinGlass({ props: spinglass_props, $$inline: true });
   binding_callbacks.push(() => bind(spinglass, "rotations", spinglass_rotations_binding));
   binding_callbacks.push(() => bind(spinglass, "speed", spinglass_speed_binding));
+  binding_callbacks.push(() => bind(spinglass, "reverse", spinglass_reverse_binding));
   const block = {
     c: function create() {
       create_component(spinglass.$$.fragment);
@@ -16627,18 +16806,25 @@ function create_default_slot_7(ctx) {
     p: function update(ctx2, dirty) {
       const spinglass_changes = {};
       if (!updating_rotations && dirty[0] & /*spinGlass_rotations*/
-      32768) {
+      65536) {
         updating_rotations = true;
         spinglass_changes.rotations = /*spinGlass_rotations*/
-        ctx2[15];
+        ctx2[16];
         add_flush_callback(() => updating_rotations = false);
       }
       if (!updating_speed && dirty[0] & /*spinGlass_speed*/
-      16384) {
+      32768) {
         updating_speed = true;
         spinglass_changes.speed = /*spinGlass_speed*/
-        ctx2[14];
+        ctx2[15];
         add_flush_callback(() => updating_speed = false);
+      }
+      if (!updating_reverse && dirty[0] & /*spinGlass_reverse*/
+      131072) {
+        updating_reverse = true;
+        spinglass_changes.reverse = /*spinGlass_reverse*/
+        ctx2[17];
+        add_flush_callback(() => updating_reverse = false);
       }
       spinglass.$set(spinglass_changes);
     },
@@ -16660,7 +16846,7 @@ function create_default_slot_7(ctx) {
     block,
     id: create_default_slot_7.name,
     type: "slot",
-    source: '(86:1) <Hst.Variant title=\\"Spin Glass\\" icon=\\"ph:hourglass-fill\\">',
+    source: '(90:1) <Hst.Variant title=\\"Spin Glass\\" icon=\\"ph:hourglass-fill\\">',
     ctx
   });
   return block;
@@ -16668,26 +16854,29 @@ function create_default_slot_7(ctx) {
 function create_controls_slot_6(ctx) {
   let hst_slider;
   let updating_value;
-  let t;
+  let t0;
   let range;
   let updating_value_1;
+  let t1;
+  let hst_checkbox;
+  let updating_value_2;
   let current;
   function hst_slider_value_binding_1(value) {
-    ctx[48](value);
+    ctx[54](value);
   }
   let hst_slider_props = { title: "Rotations", min: 1, max: 10 };
   if (
     /*spinGlass_rotations*/
-    ctx[15] !== void 0
+    ctx[16] !== void 0
   ) {
     hst_slider_props.value = /*spinGlass_rotations*/
-    ctx[15];
+    ctx[16];
   }
   hst_slider = new /*Hst*/
   ctx[0].Slider({ props: hst_slider_props, $$inline: true });
   binding_callbacks.push(() => bind(hst_slider, "value", hst_slider_value_binding_1));
   function range_value_binding_4(value) {
-    ctx[49](value);
+    ctx[55](value);
   }
   let range_props = {
     title: "Speed",
@@ -16697,69 +16886,104 @@ function create_controls_slot_6(ctx) {
   };
   if (
     /*spinGlass_speed*/
-    ctx[14] !== void 0
+    ctx[15] !== void 0
   ) {
     range_props.value = /*spinGlass_speed*/
-    ctx[14];
+    ctx[15];
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding_4));
+  function hst_checkbox_value_binding_1(value) {
+    ctx[56](value);
+  }
+  let hst_checkbox_props = { title: "Reverse" };
+  if (
+    /*spinGlass_reverse*/
+    ctx[17] !== void 0
+  ) {
+    hst_checkbox_props.value = /*spinGlass_reverse*/
+    ctx[17];
+  }
+  hst_checkbox = new /*Hst*/
+  ctx[0].Checkbox({
+    props: hst_checkbox_props,
+    $$inline: true
+  });
+  binding_callbacks.push(() => bind(hst_checkbox, "value", hst_checkbox_value_binding_1));
   const block = {
     c: function create() {
       create_component(hst_slider.$$.fragment);
-      t = space();
+      t0 = space();
       create_component(range.$$.fragment);
+      t1 = space();
+      create_component(hst_checkbox.$$.fragment);
     },
     m: function mount(target, anchor) {
       mount_component(hst_slider, target, anchor);
-      insert_dev(target, t, anchor);
+      insert_dev(target, t0, anchor);
       mount_component(range, target, anchor);
+      insert_dev(target, t1, anchor);
+      mount_component(hst_checkbox, target, anchor);
       current = true;
     },
     p: function update(ctx2, dirty) {
       const hst_slider_changes = {};
       if (!updating_value && dirty[0] & /*spinGlass_rotations*/
-      32768) {
+      65536) {
         updating_value = true;
         hst_slider_changes.value = /*spinGlass_rotations*/
-        ctx2[15];
+        ctx2[16];
         add_flush_callback(() => updating_value = false);
       }
       hst_slider.$set(hst_slider_changes);
       const range_changes = {};
       if (!updating_value_1 && dirty[0] & /*spinGlass_speed*/
-      16384) {
+      32768) {
         updating_value_1 = true;
         range_changes.value = /*spinGlass_speed*/
-        ctx2[14];
+        ctx2[15];
         add_flush_callback(() => updating_value_1 = false);
       }
       range.$set(range_changes);
+      const hst_checkbox_changes = {};
+      if (!updating_value_2 && dirty[0] & /*spinGlass_reverse*/
+      131072) {
+        updating_value_2 = true;
+        hst_checkbox_changes.value = /*spinGlass_reverse*/
+        ctx2[17];
+        add_flush_callback(() => updating_value_2 = false);
+      }
+      hst_checkbox.$set(hst_checkbox_changes);
     },
     i: function intro(local) {
       if (current)
         return;
       transition_in(hst_slider.$$.fragment, local);
       transition_in(range.$$.fragment, local);
+      transition_in(hst_checkbox.$$.fragment, local);
       current = true;
     },
     o: function outro(local) {
       transition_out(hst_slider.$$.fragment, local);
       transition_out(range.$$.fragment, local);
+      transition_out(hst_checkbox.$$.fragment, local);
       current = false;
     },
     d: function destroy(detaching) {
       destroy_component(hst_slider, detaching);
       if (detaching)
-        detach_dev(t);
+        detach_dev(t0);
       destroy_component(range, detaching);
+      if (detaching)
+        detach_dev(t1);
+      destroy_component(hst_checkbox, detaching);
     }
   };
   dispatch_dev("SvelteRegisterBlock", {
     block,
     id: create_controls_slot_6.name,
     type: "slot",
-    source: '(88:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(96:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -16769,15 +16993,15 @@ function create_default_slot_6(ctx) {
   let updating_speed;
   let current;
   function spincircles_speed_binding(value) {
-    ctx[53](value);
+    ctx[61](value);
   }
   let spincircles_props = {};
   if (
     /*spinCircles_speed*/
-    ctx[13] !== void 0
+    ctx[14] !== void 0
   ) {
     spincircles_props.speed = /*spinCircles_speed*/
-    ctx[13];
+    ctx[14];
   }
   spincircles = new SpinCircles({ props: spincircles_props, $$inline: true });
   binding_callbacks.push(() => bind(spincircles, "speed", spincircles_speed_binding));
@@ -16792,10 +17016,10 @@ function create_default_slot_6(ctx) {
     p: function update(ctx2, dirty) {
       const spincircles_changes = {};
       if (!updating_speed && dirty[0] & /*spinCircles_speed*/
-      8192) {
+      16384) {
         updating_speed = true;
         spincircles_changes.speed = /*spinCircles_speed*/
-        ctx2[13];
+        ctx2[14];
         add_flush_callback(() => updating_speed = false);
       }
       spincircles.$set(spincircles_changes);
@@ -16818,7 +17042,7 @@ function create_default_slot_6(ctx) {
     block,
     id: create_default_slot_6.name,
     type: "slot",
-    source: '(93:1) <Hst.Variant title=\\"Spin Circles\\" icon=\\"ic:baseline-circle\\">',
+    source: '(102:1) <Hst.Variant title=\\"Spin Circles\\" icon=\\"ic:baseline-circle\\">',
     ctx
   });
   return block;
@@ -16828,7 +17052,7 @@ function create_controls_slot_5(ctx) {
   let updating_value;
   let current;
   function range_value_binding_5(value) {
-    ctx[52](value);
+    ctx[60](value);
   }
   let range_props = {
     title: "Speed",
@@ -16838,10 +17062,10 @@ function create_controls_slot_5(ctx) {
   };
   if (
     /*spinCircles_speed*/
-    ctx[13] !== void 0
+    ctx[14] !== void 0
   ) {
     range_props.value = /*spinCircles_speed*/
-    ctx[13];
+    ctx[14];
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding_5));
@@ -16856,10 +17080,10 @@ function create_controls_slot_5(ctx) {
     p: function update(ctx2, dirty) {
       const range_changes = {};
       if (!updating_value && dirty[0] & /*spinCircles_speed*/
-      8192) {
+      16384) {
         updating_value = true;
         range_changes.value = /*spinCircles_speed*/
-        ctx2[13];
+        ctx2[14];
         add_flush_callback(() => updating_value = false);
       }
       range.$set(range_changes);
@@ -16882,7 +17106,7 @@ function create_controls_slot_5(ctx) {
     block,
     id: create_controls_slot_5.name,
     type: "slot",
-    source: '(95:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(104:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -16895,16 +17119,16 @@ function create_default_slot_5(ctx) {
   let updating_bar_width;
   let current;
   function oscillate_speed_binding(value) {
-    ctx[58](value);
+    ctx[66](value);
   }
   function oscillate_count_binding(value) {
-    ctx[59](value);
+    ctx[67](value);
   }
   function oscillate_width_binding(value) {
-    ctx[60](value);
+    ctx[68](value);
   }
   function oscillate_bar_width_binding(value) {
-    ctx[61](value);
+    ctx[69](value);
   }
   let oscillate_props = {};
   if (
@@ -16998,7 +17222,7 @@ function create_default_slot_5(ctx) {
     block,
     id: create_default_slot_5.name,
     type: "slot",
-    source: '(99:1) <Hst.Variant title=\\"Oscillate\\" icon=\\"cil:audio-spectrum\\">',
+    source: '(108:1) <Hst.Variant title=\\"Oscillate\\" icon=\\"cil:audio-spectrum\\">',
     ctx
   });
   return block;
@@ -17017,7 +17241,7 @@ function create_controls_slot_4(ctx) {
   let updating_value_3;
   let current;
   function range0_value_binding_1(value) {
-    ctx[54](value);
+    ctx[62](value);
   }
   let range0_props = { title: "Count", min: 1, max: 21, step: 2 };
   if (
@@ -17030,7 +17254,7 @@ function create_controls_slot_4(ctx) {
   range0 = new Range({ props: range0_props, $$inline: true });
   binding_callbacks.push(() => bind(range0, "value", range0_value_binding_1));
   function range1_value_binding_1(value) {
-    ctx[55](value);
+    ctx[63](value);
   }
   let range1_props = {
     title: "Speed",
@@ -17048,7 +17272,7 @@ function create_controls_slot_4(ctx) {
   range1 = new Range({ props: range1_props, $$inline: true });
   binding_callbacks.push(() => bind(range1, "value", range1_value_binding_1));
   function hst_slider0_value_binding_1(value) {
-    ctx[56](value);
+    ctx[64](value);
   }
   let hst_slider0_props = { title: "Width", min: 1, max: 100 };
   if (
@@ -17062,7 +17286,7 @@ function create_controls_slot_4(ctx) {
   ctx[0].Slider({ props: hst_slider0_props, $$inline: true });
   binding_callbacks.push(() => bind(hst_slider0, "value", hst_slider0_value_binding_1));
   function hst_slider1_value_binding_1(value) {
-    ctx[57](value);
+    ctx[65](value);
   }
   let hst_slider1_props = { title: "Bar Width", min: 2, max: 12 };
   if (
@@ -17166,7 +17390,7 @@ function create_controls_slot_4(ctx) {
     block,
     id: create_controls_slot_4.name,
     type: "slot",
-    source: '(106:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(115:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -17174,9 +17398,13 @@ function create_controls_slot_4(ctx) {
 function create_default_slot_4(ctx) {
   let slide;
   let updating_speed;
+  let updating_reverse;
   let current;
   function slide_speed_binding(value) {
-    ctx[63](value);
+    ctx[72](value);
+  }
+  function slide_reverse_binding(value) {
+    ctx[73](value);
   }
   let slide_props = {};
   if (
@@ -17186,8 +17414,16 @@ function create_default_slot_4(ctx) {
     slide_props.speed = /*slide_speed*/
     ctx[12];
   }
+  if (
+    /*slide_reverse*/
+    ctx[13] !== void 0
+  ) {
+    slide_props.reverse = /*slide_reverse*/
+    ctx[13];
+  }
   slide = new Slide({ props: slide_props, $$inline: true });
   binding_callbacks.push(() => bind(slide, "speed", slide_speed_binding));
+  binding_callbacks.push(() => bind(slide, "reverse", slide_reverse_binding));
   const block = {
     c: function create() {
       create_component(slide.$$.fragment);
@@ -17204,6 +17440,13 @@ function create_default_slot_4(ctx) {
         slide_changes.speed = /*slide_speed*/
         ctx2[12];
         add_flush_callback(() => updating_speed = false);
+      }
+      if (!updating_reverse && dirty[0] & /*slide_reverse*/
+      8192) {
+        updating_reverse = true;
+        slide_changes.reverse = /*slide_reverse*/
+        ctx2[13];
+        add_flush_callback(() => updating_reverse = false);
       }
       slide.$set(slide_changes);
     },
@@ -17225,7 +17468,7 @@ function create_default_slot_4(ctx) {
     block,
     id: create_default_slot_4.name,
     type: "slot",
-    source: '(113:1) <Hst.Variant title=\\"Slide\\" icon=\\"teenyicons:layers-subtract-outline\\">',
+    source: '(122:1) <Hst.Variant title=\\"Slide\\" icon=\\"teenyicons:layers-subtract-outline\\">',
     ctx
   });
   return block;
@@ -17233,9 +17476,12 @@ function create_default_slot_4(ctx) {
 function create_controls_slot_3(ctx) {
   let range;
   let updating_value;
+  let t;
+  let hst_checkbox;
+  let updating_value_1;
   let current;
   function range_value_binding_6(value) {
-    ctx[62](value);
+    ctx[70](value);
   }
   let range_props = {
     title: "Speed",
@@ -17252,12 +17498,33 @@ function create_controls_slot_3(ctx) {
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding_6));
+  function hst_checkbox_value_binding_2(value) {
+    ctx[71](value);
+  }
+  let hst_checkbox_props = { title: "Reverse" };
+  if (
+    /*slide_reverse*/
+    ctx[13] !== void 0
+  ) {
+    hst_checkbox_props.value = /*slide_reverse*/
+    ctx[13];
+  }
+  hst_checkbox = new /*Hst*/
+  ctx[0].Checkbox({
+    props: hst_checkbox_props,
+    $$inline: true
+  });
+  binding_callbacks.push(() => bind(hst_checkbox, "value", hst_checkbox_value_binding_2));
   const block = {
     c: function create() {
       create_component(range.$$.fragment);
+      t = space();
+      create_component(hst_checkbox.$$.fragment);
     },
     m: function mount(target, anchor) {
       mount_component(range, target, anchor);
+      insert_dev(target, t, anchor);
+      mount_component(hst_checkbox, target, anchor);
       current = true;
     },
     p: function update(ctx2, dirty) {
@@ -17270,26 +17537,40 @@ function create_controls_slot_3(ctx) {
         add_flush_callback(() => updating_value = false);
       }
       range.$set(range_changes);
+      const hst_checkbox_changes = {};
+      if (!updating_value_1 && dirty[0] & /*slide_reverse*/
+      8192) {
+        updating_value_1 = true;
+        hst_checkbox_changes.value = /*slide_reverse*/
+        ctx2[13];
+        add_flush_callback(() => updating_value_1 = false);
+      }
+      hst_checkbox.$set(hst_checkbox_changes);
     },
     i: function intro(local) {
       if (current)
         return;
       transition_in(range.$$.fragment, local);
+      transition_in(hst_checkbox.$$.fragment, local);
       current = true;
     },
     o: function outro(local) {
       transition_out(range.$$.fragment, local);
+      transition_out(hst_checkbox.$$.fragment, local);
       current = false;
     },
     d: function destroy(detaching) {
       destroy_component(range, detaching);
+      if (detaching)
+        detach_dev(t);
+      destroy_component(hst_checkbox, detaching);
     }
   };
   dispatch_dev("SvelteRegisterBlock", {
     block,
     id: create_controls_slot_3.name,
     type: "slot",
-    source: '(115:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(124:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -17300,10 +17581,10 @@ function create_default_slot_3(ctx) {
   let updating_reverse;
   let current;
   function grow_speed_binding(value) {
-    ctx[66](value);
+    ctx[76](value);
   }
   function grow_reverse_binding(value) {
-    ctx[67](value);
+    ctx[77](value);
   }
   let grow_props = {};
   if (
@@ -17367,7 +17648,7 @@ function create_default_slot_3(ctx) {
     block,
     id: create_default_slot_3.name,
     type: "slot",
-    source: '(119:1) <Hst.Variant title=\\"Grow\\" icon=\\"gg:extension\\">',
+    source: '(129:1) <Hst.Variant title=\\"Grow\\" icon=\\"gg:extension\\">',
     ctx
   });
   return block;
@@ -17380,7 +17661,7 @@ function create_controls_slot_2(ctx) {
   let updating_value_1;
   let current;
   function range_value_binding_7(value) {
-    ctx[64](value);
+    ctx[74](value);
   }
   let range_props = {
     title: "Speed",
@@ -17397,8 +17678,8 @@ function create_controls_slot_2(ctx) {
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding_7));
-  function hst_checkbox_value_binding(value) {
-    ctx[65](value);
+  function hst_checkbox_value_binding_3(value) {
+    ctx[75](value);
   }
   let hst_checkbox_props = { title: "Reverse" };
   if (
@@ -17413,7 +17694,7 @@ function create_controls_slot_2(ctx) {
     props: hst_checkbox_props,
     $$inline: true
   });
-  binding_callbacks.push(() => bind(hst_checkbox, "value", hst_checkbox_value_binding));
+  binding_callbacks.push(() => bind(hst_checkbox, "value", hst_checkbox_value_binding_3));
   const block = {
     c: function create() {
       create_component(range.$$.fragment);
@@ -17469,7 +17750,7 @@ function create_controls_slot_2(ctx) {
     block,
     id: create_controls_slot_2.name,
     type: "slot",
-    source: '(121:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(131:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -17480,10 +17761,10 @@ function create_default_slot_2(ctx) {
   let updating_reverse;
   let current;
   function shrink_speed_binding(value) {
-    ctx[70](value);
+    ctx[80](value);
   }
   function shrink_reverse_binding(value) {
-    ctx[71](value);
+    ctx[81](value);
   }
   let shrink_props = {};
   if (
@@ -17547,7 +17828,7 @@ function create_default_slot_2(ctx) {
     block,
     id: create_default_slot_2.name,
     type: "slot",
-    source: '(126:1) <Hst.Variant title=\\"Shrink\\" icon=\\"gg:extension\\">',
+    source: '(136:1) <Hst.Variant title=\\"Shrink\\" icon=\\"gg:extension\\">',
     ctx
   });
   return block;
@@ -17560,7 +17841,7 @@ function create_controls_slot_1(ctx) {
   let updating_value_1;
   let current;
   function range_value_binding_8(value) {
-    ctx[68](value);
+    ctx[78](value);
   }
   let range_props = {
     title: "Speed",
@@ -17577,8 +17858,8 @@ function create_controls_slot_1(ctx) {
   }
   range = new Range({ props: range_props, $$inline: true });
   binding_callbacks.push(() => bind(range, "value", range_value_binding_8));
-  function hst_checkbox_value_binding_1(value) {
-    ctx[69](value);
+  function hst_checkbox_value_binding_4(value) {
+    ctx[79](value);
   }
   let hst_checkbox_props = { title: "Reverse" };
   if (
@@ -17593,7 +17874,7 @@ function create_controls_slot_1(ctx) {
     props: hst_checkbox_props,
     $$inline: true
   });
-  binding_callbacks.push(() => bind(hst_checkbox, "value", hst_checkbox_value_binding_1));
+  binding_callbacks.push(() => bind(hst_checkbox, "value", hst_checkbox_value_binding_4));
   const block = {
     c: function create() {
       create_component(range.$$.fragment);
@@ -17649,7 +17930,7 @@ function create_controls_slot_1(ctx) {
     block,
     id: create_controls_slot_1.name,
     type: "slot",
-    source: '(128:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(138:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -17661,13 +17942,13 @@ function create_default_slot_1(ctx) {
   let updating_border_width;
   let current;
   function spin_scale_binding(value) {
-    ctx[75](value);
+    ctx[85](value);
   }
   function spin_speed_binding(value) {
-    ctx[76](value);
+    ctx[86](value);
   }
   function spin_border_width_binding(value) {
-    ctx[77](value);
+    ctx[87](value);
   }
   let spin_props = {};
   if (
@@ -17746,7 +18027,7 @@ function create_default_slot_1(ctx) {
     block,
     id: create_default_slot_1.name,
     type: "slot",
-    source: '(133:1) <Hst.Variant title=\\"Spin\\" icon=\\"mdi:square-circle\\">',
+    source: '(143:1) <Hst.Variant title=\\"Spin\\" icon=\\"mdi:square-circle\\">',
     ctx
   });
   return block;
@@ -17762,7 +18043,7 @@ function create_controls_slot(ctx) {
   let updating_value_2;
   let current;
   function range0_value_binding_2(value) {
-    ctx[72](value);
+    ctx[82](value);
   }
   let range0_props = {
     title: "Speed",
@@ -17780,7 +18061,7 @@ function create_controls_slot(ctx) {
   range0 = new Range({ props: range0_props, $$inline: true });
   binding_callbacks.push(() => bind(range0, "value", range0_value_binding_2));
   function range1_value_binding_2(value) {
-    ctx[73](value);
+    ctx[83](value);
   }
   let range1_props = {
     title: "Scale",
@@ -17798,7 +18079,7 @@ function create_controls_slot(ctx) {
   range1 = new Range({ props: range1_props, $$inline: true });
   binding_callbacks.push(() => bind(range1, "value", range1_value_binding_2));
   function hst_slider_value_binding_2(value) {
-    ctx[74](value);
+    ctx[84](value);
   }
   let hst_slider_props = { title: "Border Width", min: 0, max: 10 };
   if (
@@ -17884,7 +18165,7 @@ function create_controls_slot(ctx) {
     block,
     id: create_controls_slot.name,
     type: "slot",
-    source: '(139:2) <svelte:fragment slot=\\"controls\\">',
+    source: '(149:2) <svelte:fragment slot=\\"controls\\">',
     ctx
   });
   return block;
@@ -18125,85 +18406,85 @@ function create_default_slot(ctx) {
     p: function update(ctx2, dirty) {
       const hst_variant0_changes = {};
       if (dirty[0] & /*hourglass_speed*/
-      67108864 | dirty[2] & /*$$scope*/
-      65536) {
+      536870912 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_variant0_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant0.$set(hst_variant0_changes);
       const hst_variant1_changes = {};
       if (dirty[0] & /*heart_speed*/
-      33554432 | dirty[2] & /*$$scope*/
-      65536) {
+      268435456 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_variant1_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant1.$set(hst_variant1_changes);
       const hst_variant2_changes = {};
       if (dirty[0] & /*pie_scale, pie_speed, pie_count*/
-      29360128 | dirty[2] & /*$$scope*/
-      65536) {
+      234881024 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_variant2_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant2.$set(hst_variant2_changes);
       const hst_variant3_changes = {};
       if (dirty[0] & /*dna_speed, dna_r2, dna_r, dna_height, dna_count*/
-      4063232 | dirty[2] & /*$$scope*/
-      65536) {
+      32505856 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_variant3_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant3.$set(hst_variant3_changes);
       const hst_variant4_changes = {};
-      if (dirty[0] & /*dualBalls_speed*/
-      65536 | dirty[2] & /*$$scope*/
-      65536) {
+      if (dirty[0] & /*dualBalls_reverse, dualBalls_speed*/
+      786432 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_variant4_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant4.$set(hst_variant4_changes);
       const hst_variant5_changes = {};
-      if (dirty[0] & /*spinGlass_speed, spinGlass_rotations*/
-      49152 | dirty[2] & /*$$scope*/
-      65536) {
+      if (dirty[0] & /*spinGlass_reverse, spinGlass_speed, spinGlass_rotations*/
+      229376 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_variant5_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant5.$set(hst_variant5_changes);
       const hst_variant6_changes = {};
       if (dirty[0] & /*spinCircles_speed*/
-      8192 | dirty[2] & /*$$scope*/
-      65536) {
+      16384 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_variant6_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant6.$set(hst_variant6_changes);
       const hst_variant7_changes = {};
       if (dirty[0] & /*oscillate_bar_width, oscillate_width, oscillate_speed, oscillate_count*/
       3840 | dirty[2] & /*$$scope*/
-      65536) {
+      67108864) {
         hst_variant7_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant7.$set(hst_variant7_changes);
       const hst_variant8_changes = {};
-      if (dirty[0] & /*slide_speed*/
-      4096 | dirty[2] & /*$$scope*/
-      65536) {
+      if (dirty[0] & /*slide_reverse, slide_speed*/
+      12288 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_variant8_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant8.$set(hst_variant8_changes);
       const hst_variant9_changes = {};
       if (dirty[0] & /*grow_reverse, grow_speed*/
       6 | dirty[2] & /*$$scope*/
-      65536) {
+      67108864) {
         hst_variant9_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant9.$set(hst_variant9_changes);
       const hst_variant10_changes = {};
       if (dirty[0] & /*shrink_reverse, shrink_speed*/
       24 | dirty[2] & /*$$scope*/
-      65536) {
+      67108864) {
         hst_variant10_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant10.$set(hst_variant10_changes);
       const hst_variant11_changes = {};
       if (dirty[0] & /*spin_border_width, spin_scale, spin_speed*/
       224 | dirty[2] & /*$$scope*/
-      65536) {
+      67108864) {
         hst_variant11_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_variant11.$set(hst_variant11_changes);
@@ -18281,7 +18562,7 @@ function create_default_slot(ctx) {
     block,
     id: create_default_slot.name,
     type: "slot",
-    source: '(43:0) <Hst.Story title=\\"Loading Animations\\" icon=\\"mingcute:loading-fill\\" layout={{ type: \\"grid\\" }}>',
+    source: '(46:0) <Hst.Story title=\\"Loading Animations\\" icon=\\"mingcute:loading-fill\\" layout={{ type: \\"grid\\" }}>',
     ctx
   });
   return block;
@@ -18313,9 +18594,9 @@ function create_fragment(ctx) {
     },
     p: function update(ctx2, dirty) {
       const hst_story_changes = {};
-      if (dirty[0] & /*spin_border_width, spin_scale, spin_speed, shrink_reverse, shrink_speed, grow_reverse, grow_speed, slide_speed, oscillate_bar_width, oscillate_width, oscillate_speed, oscillate_count, spinCircles_speed, spinGlass_speed, spinGlass_rotations, dualBalls_speed, dna_speed, dna_r2, dna_r, dna_height, dna_count, pie_scale, pie_speed, pie_count, heart_speed, hourglass_speed*/
-      134217726 | dirty[2] & /*$$scope*/
-      65536) {
+      if (dirty[0] & /*spin_border_width, spin_scale, spin_speed, shrink_reverse, shrink_speed, grow_reverse, grow_speed, slide_reverse, slide_speed, oscillate_bar_width, oscillate_width, oscillate_speed, oscillate_count, spinCircles_speed, spinGlass_reverse, spinGlass_speed, spinGlass_rotations, dualBalls_reverse, dualBalls_speed, dna_speed, dna_r2, dna_r, dna_height, dna_count, pie_scale, pie_speed, pie_count, heart_speed, hourglass_speed*/
+      1073741822 | dirty[2] & /*$$scope*/
+      67108864) {
         hst_story_changes.$$scope = { dirty, ctx: ctx2 };
       }
       hst_story.$set(hst_story_changes);
@@ -18359,10 +18640,13 @@ function instance($$self, $$props, $$invalidate) {
   let oscillate_width = 50;
   let oscillate_bar_width = 6;
   let slide_speed = 4;
+  let slide_reverse = false;
   let spinCircles_speed = 1;
   let spinGlass_speed = 1;
   let spinGlass_rotations = 3;
+  let spinGlass_reverse = false;
   let dualBalls_speed = 1;
+  let dualBalls_reverse = false;
   let dna_count = 10;
   let dna_r = 4;
   let dna_r2 = 2;
@@ -18385,111 +18669,131 @@ function instance($$self, $$props, $$invalidate) {
   });
   function range_value_binding(value) {
     hourglass_speed = value;
-    $$invalidate(26, hourglass_speed);
+    $$invalidate(29, hourglass_speed);
   }
   function hourglass_speed_binding(value) {
     hourglass_speed = value;
-    $$invalidate(26, hourglass_speed);
+    $$invalidate(29, hourglass_speed);
   }
   function range_value_binding_1(value) {
     heart_speed = value;
-    $$invalidate(25, heart_speed);
+    $$invalidate(28, heart_speed);
   }
   function heart_speed_binding(value) {
     heart_speed = value;
-    $$invalidate(25, heart_speed);
+    $$invalidate(28, heart_speed);
   }
   function hst_slider_value_binding(value) {
     pie_count = value;
-    $$invalidate(22, pie_count);
+    $$invalidate(25, pie_count);
   }
   function range0_value_binding(value) {
     pie_speed = value;
-    $$invalidate(23, pie_speed);
+    $$invalidate(26, pie_speed);
   }
   function range1_value_binding(value) {
     pie_scale = value;
-    $$invalidate(24, pie_scale);
+    $$invalidate(27, pie_scale);
   }
   function pie_count_binding(value) {
     pie_count = value;
-    $$invalidate(22, pie_count);
+    $$invalidate(25, pie_count);
   }
   function pie_speed_binding(value) {
     pie_speed = value;
-    $$invalidate(23, pie_speed);
+    $$invalidate(26, pie_speed);
   }
   function pie_scale_binding(value) {
     pie_scale = value;
-    $$invalidate(24, pie_scale);
+    $$invalidate(27, pie_scale);
   }
   function hst_slider0_value_binding(value) {
     dna_count = value;
-    $$invalidate(17, dna_count);
+    $$invalidate(20, dna_count);
   }
   function hst_slider1_value_binding(value) {
     dna_height = value;
-    $$invalidate(20, dna_height);
+    $$invalidate(23, dna_height);
   }
   function hst_slider2_value_binding(value) {
     dna_r = value;
-    $$invalidate(18, dna_r);
+    $$invalidate(21, dna_r);
   }
   function hst_slider3_value_binding(value) {
     dna_r2 = value;
-    $$invalidate(19, dna_r2);
+    $$invalidate(22, dna_r2);
   }
   function range_value_binding_2(value) {
     dna_speed = value;
-    $$invalidate(21, dna_speed);
+    $$invalidate(24, dna_speed);
   }
   function dna_count_binding(value) {
     dna_count = value;
-    $$invalidate(17, dna_count);
+    $$invalidate(20, dna_count);
   }
   function dna_r_binding(value) {
     dna_r = value;
-    $$invalidate(18, dna_r);
+    $$invalidate(21, dna_r);
   }
   function dna_r2_binding(value) {
     dna_r2 = value;
-    $$invalidate(19, dna_r2);
+    $$invalidate(22, dna_r2);
   }
   function dna_height_binding(value) {
     dna_height = value;
-    $$invalidate(20, dna_height);
+    $$invalidate(23, dna_height);
   }
   function dna_speed_binding(value) {
     dna_speed = value;
-    $$invalidate(21, dna_speed);
+    $$invalidate(24, dna_speed);
   }
   function range_value_binding_3(value) {
     dualBalls_speed = value;
-    $$invalidate(16, dualBalls_speed);
+    $$invalidate(18, dualBalls_speed);
+  }
+  function hst_checkbox_value_binding(value) {
+    dualBalls_reverse = value;
+    $$invalidate(19, dualBalls_reverse);
+  }
+  function dualballs_speed_binding(value) {
+    dualBalls_speed = value;
+    $$invalidate(18, dualBalls_speed);
+  }
+  function dualballs_reverse_binding(value) {
+    dualBalls_reverse = value;
+    $$invalidate(19, dualBalls_reverse);
   }
   function hst_slider_value_binding_1(value) {
     spinGlass_rotations = value;
-    $$invalidate(15, spinGlass_rotations);
+    $$invalidate(16, spinGlass_rotations);
   }
   function range_value_binding_4(value) {
     spinGlass_speed = value;
-    $$invalidate(14, spinGlass_speed);
+    $$invalidate(15, spinGlass_speed);
+  }
+  function hst_checkbox_value_binding_1(value) {
+    spinGlass_reverse = value;
+    $$invalidate(17, spinGlass_reverse);
   }
   function spinglass_rotations_binding(value) {
     spinGlass_rotations = value;
-    $$invalidate(15, spinGlass_rotations);
+    $$invalidate(16, spinGlass_rotations);
   }
   function spinglass_speed_binding(value) {
     spinGlass_speed = value;
-    $$invalidate(14, spinGlass_speed);
+    $$invalidate(15, spinGlass_speed);
+  }
+  function spinglass_reverse_binding(value) {
+    spinGlass_reverse = value;
+    $$invalidate(17, spinGlass_reverse);
   }
   function range_value_binding_5(value) {
     spinCircles_speed = value;
-    $$invalidate(13, spinCircles_speed);
+    $$invalidate(14, spinCircles_speed);
   }
   function spincircles_speed_binding(value) {
     spinCircles_speed = value;
-    $$invalidate(13, spinCircles_speed);
+    $$invalidate(14, spinCircles_speed);
   }
   function range0_value_binding_1(value) {
     oscillate_count = value;
@@ -18527,15 +18831,23 @@ function instance($$self, $$props, $$invalidate) {
     slide_speed = value;
     $$invalidate(12, slide_speed);
   }
+  function hst_checkbox_value_binding_2(value) {
+    slide_reverse = value;
+    $$invalidate(13, slide_reverse);
+  }
   function slide_speed_binding(value) {
     slide_speed = value;
     $$invalidate(12, slide_speed);
+  }
+  function slide_reverse_binding(value) {
+    slide_reverse = value;
+    $$invalidate(13, slide_reverse);
   }
   function range_value_binding_7(value) {
     grow_speed = value;
     $$invalidate(1, grow_speed);
   }
-  function hst_checkbox_value_binding(value) {
+  function hst_checkbox_value_binding_3(value) {
     grow_reverse = value;
     $$invalidate(2, grow_reverse);
   }
@@ -18551,7 +18863,7 @@ function instance($$self, $$props, $$invalidate) {
     shrink_speed = value;
     $$invalidate(3, shrink_speed);
   }
-  function hst_checkbox_value_binding_1(value) {
+  function hst_checkbox_value_binding_4(value) {
     shrink_reverse = value;
     $$invalidate(4, shrink_reverse);
   }
@@ -18618,10 +18930,13 @@ function instance($$self, $$props, $$invalidate) {
     oscillate_width,
     oscillate_bar_width,
     slide_speed,
+    slide_reverse,
     spinCircles_speed,
     spinGlass_speed,
     spinGlass_rotations,
+    spinGlass_reverse,
     dualBalls_speed,
+    dualBalls_reverse,
     dna_count,
     dna_r,
     dna_r2,
@@ -18660,34 +18975,40 @@ function instance($$self, $$props, $$invalidate) {
       $$invalidate(11, oscillate_bar_width = $$props2.oscillate_bar_width);
     if ("slide_speed" in $$props2)
       $$invalidate(12, slide_speed = $$props2.slide_speed);
+    if ("slide_reverse" in $$props2)
+      $$invalidate(13, slide_reverse = $$props2.slide_reverse);
     if ("spinCircles_speed" in $$props2)
-      $$invalidate(13, spinCircles_speed = $$props2.spinCircles_speed);
+      $$invalidate(14, spinCircles_speed = $$props2.spinCircles_speed);
     if ("spinGlass_speed" in $$props2)
-      $$invalidate(14, spinGlass_speed = $$props2.spinGlass_speed);
+      $$invalidate(15, spinGlass_speed = $$props2.spinGlass_speed);
     if ("spinGlass_rotations" in $$props2)
-      $$invalidate(15, spinGlass_rotations = $$props2.spinGlass_rotations);
+      $$invalidate(16, spinGlass_rotations = $$props2.spinGlass_rotations);
+    if ("spinGlass_reverse" in $$props2)
+      $$invalidate(17, spinGlass_reverse = $$props2.spinGlass_reverse);
     if ("dualBalls_speed" in $$props2)
-      $$invalidate(16, dualBalls_speed = $$props2.dualBalls_speed);
+      $$invalidate(18, dualBalls_speed = $$props2.dualBalls_speed);
+    if ("dualBalls_reverse" in $$props2)
+      $$invalidate(19, dualBalls_reverse = $$props2.dualBalls_reverse);
     if ("dna_count" in $$props2)
-      $$invalidate(17, dna_count = $$props2.dna_count);
+      $$invalidate(20, dna_count = $$props2.dna_count);
     if ("dna_r" in $$props2)
-      $$invalidate(18, dna_r = $$props2.dna_r);
+      $$invalidate(21, dna_r = $$props2.dna_r);
     if ("dna_r2" in $$props2)
-      $$invalidate(19, dna_r2 = $$props2.dna_r2);
+      $$invalidate(22, dna_r2 = $$props2.dna_r2);
     if ("dna_height" in $$props2)
-      $$invalidate(20, dna_height = $$props2.dna_height);
+      $$invalidate(23, dna_height = $$props2.dna_height);
     if ("dna_speed" in $$props2)
-      $$invalidate(21, dna_speed = $$props2.dna_speed);
+      $$invalidate(24, dna_speed = $$props2.dna_speed);
     if ("pie_count" in $$props2)
-      $$invalidate(22, pie_count = $$props2.pie_count);
+      $$invalidate(25, pie_count = $$props2.pie_count);
     if ("pie_speed" in $$props2)
-      $$invalidate(23, pie_speed = $$props2.pie_speed);
+      $$invalidate(26, pie_speed = $$props2.pie_speed);
     if ("pie_scale" in $$props2)
-      $$invalidate(24, pie_scale = $$props2.pie_scale);
+      $$invalidate(27, pie_scale = $$props2.pie_scale);
     if ("heart_speed" in $$props2)
-      $$invalidate(25, heart_speed = $$props2.heart_speed);
+      $$invalidate(28, heart_speed = $$props2.heart_speed);
     if ("hourglass_speed" in $$props2)
-      $$invalidate(26, hourglass_speed = $$props2.hourglass_speed);
+      $$invalidate(29, hourglass_speed = $$props2.hourglass_speed);
   };
   if ($$props && "$$inject" in $$props) {
     $$self.$inject_state($$props.$$inject);
@@ -18706,10 +19027,13 @@ function instance($$self, $$props, $$invalidate) {
     oscillate_width,
     oscillate_bar_width,
     slide_speed,
+    slide_reverse,
     spinCircles_speed,
     spinGlass_speed,
     spinGlass_rotations,
+    spinGlass_reverse,
     dualBalls_speed,
+    dualBalls_reverse,
     dna_count,
     dna_r,
     dna_r2,
@@ -18741,10 +19065,15 @@ function instance($$self, $$props, $$invalidate) {
     dna_height_binding,
     dna_speed_binding,
     range_value_binding_3,
+    hst_checkbox_value_binding,
+    dualballs_speed_binding,
+    dualballs_reverse_binding,
     hst_slider_value_binding_1,
     range_value_binding_4,
+    hst_checkbox_value_binding_1,
     spinglass_rotations_binding,
     spinglass_speed_binding,
+    spinglass_reverse_binding,
     range_value_binding_5,
     spincircles_speed_binding,
     range0_value_binding_1,
@@ -18756,13 +19085,15 @@ function instance($$self, $$props, $$invalidate) {
     oscillate_width_binding,
     oscillate_bar_width_binding,
     range_value_binding_6,
+    hst_checkbox_value_binding_2,
     slide_speed_binding,
+    slide_reverse_binding,
     range_value_binding_7,
-    hst_checkbox_value_binding,
+    hst_checkbox_value_binding_3,
     grow_speed_binding,
     grow_reverse_binding,
     range_value_binding_8,
-    hst_checkbox_value_binding_1,
+    hst_checkbox_value_binding_4,
     shrink_speed_binding,
     shrink_reverse_binding,
     range0_value_binding_2,
@@ -18809,7 +19140,7 @@ let files = [
   { "id": "src-stories-components-sevensegment-story-svelte", "path": ["Components", "7 Segment"], "filePath": "src/stories/components/SevenSegment.story.svelte", "story": { "id": "src-stories-components-sevensegment-story-svelte", "title": "7 Segment", "group": null, "layout": { "type": "single", "iframe": true }, "icon": "ri:number-8", "iconColor": null, "docsOnly": false, "variants": [{ "id": "_default", "title": "default" }] }, "supportPluginId": "svelte3", "index": 14, component: SevenSegment_story, source: () => __vitePreload(() => import("./__resolved__virtual_story-source_src-stories-components-sevensegment-story-svelte-d48db634.js"), true ? [] : void 0) },
   { "id": "src-stories-components-themetoggles-story-svelte", "path": ["Components", "Theme Toggles"], "filePath": "src/stories/components/ThemeToggles.story.svelte", "story": { "id": "src-stories-components-themetoggles-story-svelte", "title": "Theme Toggles", "group": null, "layout": { "type": "grid" }, "icon": "material-symbols:light-mode", "iconColor": null, "docsOnly": false, "variants": [{ "id": "src-stories-components-themetoggles-story-svelte-0", "title": "Spin", "icon": "material-symbols:light-mode", "iconColor": null }, { "id": "src-stories-components-themetoggles-story-svelte-1", "title": "Rise", "icon": "material-symbols:light-mode", "iconColor": null }] }, "supportPluginId": "svelte3", "index": 15, component: ThemeToggles_story, source: () => __vitePreload(() => import("./__resolved__virtual_story-source_src-stories-components-themetoggles-story-svelte-2ae9082d.js"), true ? [] : void 0) },
   { "id": "src-stories-components-glitch-glitch-story-svelte", "path": ["Components", "Glitch Text"], "filePath": "src/stories/components/Glitch/Glitch.story.svelte", "story": { "id": "src-stories-components-glitch-glitch-story-svelte", "title": "Glitch Text", "group": null, "layout": { "type": "single", "iframe": true }, "icon": "bx:text", "iconColor": null, "docsOnly": false, "variants": [{ "id": "_default", "title": "default" }] }, "supportPluginId": "svelte3", "docsFilePath": "src/stories/components/Glitch/Glitch.story.md", "index": 16, component: Glitch_story, source: () => __vitePreload(() => import("./__resolved__virtual_story-source_src-stories-components-glitch-glitch-story-svelte-1ea25b53.js"), true ? [] : void 0) },
-  { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte", "path": ["Loading Animations"], "filePath": "src/stories/components/Loading Animations/LoadingAnimation.story.svelte", "story": { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte", "title": "Loading Animations", "group": null, "layout": { "type": "grid" }, "icon": "mingcute:loading-fill", "iconColor": null, "docsOnly": false, "variants": [{ "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-0", "title": "Hourglass", "icon": "ic:round-hourglass-bottom", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-1", "title": "Heart", "icon": "material-symbols:favorite", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-2", "title": "Pie", "icon": "game-icons:swirled-shell", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-3", "title": "DNA", "icon": "tabler:dna", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-4", "title": "DualBalls", "icon": "ic:baseline-circle", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-5", "title": "Spin Glass", "icon": "ph:hourglass-fill", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-6", "title": "Spin Circles", "icon": "ic:baseline-circle", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-7", "title": "Oscillate", "icon": "cil:audio-spectrum", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-8", "title": "Slide", "icon": "teenyicons:layers-subtract-outline", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-9", "title": "Grow", "icon": "gg:extension", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-10", "title": "Shrink", "icon": "gg:extension", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-11", "title": "Spin", "icon": "mdi:square-circle", "iconColor": null }] }, "supportPluginId": "svelte3", "docsFilePath": "src/stories/components/Loading Animations/LoadingAnimation.story.md", "index": 17, component: LoadingAnimation_story, source: () => __vitePreload(() => import("./__resolved__virtual_story-source_src-stories-components-loading-animations-loadinganimation-story-svelte-3ecc05d8.js"), true ? [] : void 0) }
+  { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte", "path": ["Loading Animations"], "filePath": "src/stories/components/Loading Animations/LoadingAnimation.story.svelte", "story": { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte", "title": "Loading Animations", "group": null, "layout": { "type": "grid" }, "icon": "mingcute:loading-fill", "iconColor": null, "docsOnly": false, "variants": [{ "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-0", "title": "Hourglass", "icon": "ic:round-hourglass-bottom", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-1", "title": "Heart", "icon": "material-symbols:favorite", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-2", "title": "Pie", "icon": "game-icons:swirled-shell", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-3", "title": "DNA", "icon": "tabler:dna", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-4", "title": "DualBalls", "icon": "ic:baseline-circle", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-5", "title": "Spin Glass", "icon": "ph:hourglass-fill", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-6", "title": "Spin Circles", "icon": "ic:baseline-circle", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-7", "title": "Oscillate", "icon": "cil:audio-spectrum", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-8", "title": "Slide", "icon": "teenyicons:layers-subtract-outline", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-9", "title": "Grow", "icon": "gg:extension", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-10", "title": "Shrink", "icon": "gg:extension", "iconColor": null }, { "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-11", "title": "Spin", "icon": "mdi:square-circle", "iconColor": null }] }, "supportPluginId": "svelte3", "docsFilePath": "src/stories/components/Loading Animations/LoadingAnimation.story.md", "index": 17, component: LoadingAnimation_story, source: () => __vitePreload(() => import("./__resolved__virtual_story-source_src-stories-components-loading-animations-loadinganimation-story-svelte-e0f401a9.js"), true ? [] : void 0) }
 ];
 let tree = [{ "title": "Components", "children": [{ "title": "7 Segment", "index": 14 }, { "title": "Burger Menus", "index": 8 }, { "title": "Color Input", "index": 9 }, { "title": "Color Picker", "index": 10 }, { "title": "Glitch Text", "index": 16 }, { "title": "Input", "index": 11 }, { "title": "Mouse Aura Cards", "index": 12 }, { "title": "Pause", "index": 13 }, { "title": "Theme Toggles", "index": 15 }] }, { "title": "Loading Animations", "index": 17 }, { "title": "Logo", "index": 4 }, { "title": "SVGs", "children": [{ "title": "Close", "index": 0 }, { "title": "Command", "index": 1 }, { "title": "Dilk", "index": 2 }, { "title": "Download", "index": 3 }, { "title": "Maximize", "index": 5 }, { "title": "Peace Discipline", "index": 6 }, { "title": "Warning", "index": 7 }] }];
 const Logo_light = "/svelte-component-library/img/logo-black.svg";
@@ -18834,12 +19165,12 @@ const router = createRouter({
     {
       path: "/",
       name: "home",
-      component: () => __vitePreload(() => import("./HomeView.vue-baa7f3d0.js"), true ? ["assets/HomeView.vue-baa7f3d0.js","assets/vendor-ba02dffa.js"] : void 0)
+      component: () => __vitePreload(() => import("./HomeView.vue-9b7e35bc.js"), true ? ["assets/HomeView.vue-9b7e35bc.js","assets/vendor-9cc9f24f.js"] : void 0)
     },
     {
       path: "/story/:storyId",
       name: "story",
-      component: () => __vitePreload(() => import("./StoryView.vue-7e127389.js"), true ? ["assets/StoryView.vue-7e127389.js","assets/vendor-ba02dffa.js","assets/MobileOverlay.vue2-2f6f94a6.js","assets/BaseEmpty.vue-a18678c7.js","assets/state-2ae96206.js"] : void 0)
+      component: () => __vitePreload(() => import("./StoryView.vue-8229c683.js"), true ? ["assets/StoryView.vue-8229c683.js","assets/vendor-9cc9f24f.js","assets/MobileOverlay.vue2-f5806ac2.js","assets/BaseEmpty.vue-c5bad8ea.js","assets/state-b55e2a49.js"] : void 0)
     }
   ]
 });
@@ -18929,8 +19260,8 @@ function mapVariant(variant, existingVariant) {
   return result;
 }
 const clientSupportPlugins = {
-  "vanilla": () => __vitePreload(() => import("./vendor-ba02dffa.js").then((n) => n.bd), true ? [] : void 0),
-  "svelte3": () => __vitePreload(() => import("./vendor-ba02dffa.js").then((n) => n.be), true ? [] : void 0)
+  "vanilla": () => __vitePreload(() => import("./vendor-9cc9f24f.js").then((n) => n.bc), true ? [] : void 0),
+  "svelte3": () => __vitePreload(() => import("./vendor-9cc9f24f.js").then((n) => n.bd), true ? [] : void 0)
 };
 const __default__ = {
   inheritAttrs: false
