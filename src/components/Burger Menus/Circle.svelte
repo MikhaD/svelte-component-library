@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let open = false;
+	export let speed = 0.5;
 </script>
 
 <svg
@@ -7,6 +8,7 @@
 	viewBox="0 0 100 100"
 	on:click={() => (open = !open)}
 	on:keypress={() => (open = !open)}
+	style:--speed="{speed}s"
 >
 	<path class:open />
 </svg>
@@ -29,7 +31,7 @@
 	}
 	@media (prefers-reduced-motion: no-preference) {
 		path {
-			transition: 0.2s;
+			transition: var(--speed);
 		}
 	}
 </style>
