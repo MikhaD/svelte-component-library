@@ -1,4 +1,8 @@
-<svg viewBox="0 0 100 100" fill="currentcolor">
+<script lang="ts">
+	export let speed = 4;
+</script>
+
+<svg viewBox="0 0 100 100" fill="currentcolor" style:--speed="{speed}s">
 	<defs>
 		<g id="rect">
 			<path d="M33.33 0.5L66.66 20.5L66.66 30.5L33.33 10.5L33.33 0.5Z" fill-opacity="0.4" />
@@ -13,11 +17,11 @@
 
 <style>
 	#a {
-		animation: slide 4s ease infinite;
+		animation: slide var(--speed) ease infinite;
 	}
 
 	#b {
-		animation: slide2 4s ease infinite;
+		animation: slide2 var(--speed) ease infinite;
 	}
 
 	@keyframes slide {

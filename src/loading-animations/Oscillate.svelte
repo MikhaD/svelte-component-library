@@ -1,18 +1,40 @@
-<svg viewBox="0 0 100 100" fill="currentcolor">
-	<rect class="c" x="24" />
-	<rect class="b" x="35" />
-	<rect x="47" />
-	<rect class="b" x="59" />
-	<rect class="c" x="70" />
+<script lang="ts">
+	export let speed = 2;
+	export let count = 5;
+	export let width = 50;
+	export let bar_width = 6;
+	// min of 1, must be odd
+	$: count = Math.max(1, count) + (1 - (count % 2));
+	$: gap = (100 - width) / 2;
+	$: delays = (count - 1) / 2;
+</script>
+
+<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--bar-width="{bar_width}px">
+	{#key count}
+		{#each Array(delays) as _, i}
+			<rect
+				x={gap - bar_width / 2 + (width / (count - 1)) * i}
+				style="animation-delay: {(speed / 2) * ((delays - i) / delays)}s"
+			/>
+		{/each}
+		<rect x={50 - bar_width / 2} />
+		{#each Array(delays) as _, i}
+			<rect
+				x={100 - gap - bar_width / 2 - (width / (count - 1)) * i}
+				style="animation-delay: {(speed / 2) * ((delays - i) / delays)}s"
+			/>
+		{/each}
+	{/key}
 </svg>
 
 <style>
 	rect {
-		rx: 3px;
-		width: 6px;
+		rx: calc(var(--bar-width) / 2);
+		width: var(--bar-width);
 		height: 10px;
+		fill: currentcolor;
 		transform: translateY(45px);
-		animation: oscillate 2s ease-in-out infinite;
+		animation: oscillate var(--speed) ease-in-out infinite;
 	}
 	.b {
 		animation-delay: 0.5s;

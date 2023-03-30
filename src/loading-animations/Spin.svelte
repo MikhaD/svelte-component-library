@@ -1,19 +1,31 @@
-<svg viewBox="0 0 100 100" fill="currentcolor">
-	<rect class="right" x="10" y="10" width="80" height="80" />
-	<rect class="left" x="10" y="10" width="80" height="80" />
+<script lang="ts">
+	export let speed = 3;
+	export let scale = 0.25;
+	export let border_width = 0;
+</script>
+
+<svg
+	viewBox="0 0 100 100"
+	style:--speed="{speed}s"
+	style:--scale={scale}
+	style:--stroke="{border_width}px"
+>
+	<rect class="right" x="15" y="15" width="70" height="70" />
+	<rect class="left" x="15" y="15" width="70" height="70" />
 </svg>
 
 <style>
 	rect {
-		transform-box: fill-box;
+		fill: currentcolor;
 		transform-origin: center;
+		stroke: var(--accent-00, teal);
+		stroke-width: var(--stroke);
 	}
-
 	.right {
-		animation: right 3s ease-in-out infinite;
+		animation: right var(--speed) ease-in-out infinite alternate;
 	}
 	.left {
-		animation: left 3s ease-in-out infinite;
+		animation: left var(--speed) ease-in-out infinite alternate;
 	}
 
 	@keyframes right {
@@ -25,17 +37,10 @@
 		25% {
 			rx: 0;
 		}
-		50% {
-			rx: 50%;
-			scale: 0.25;
-		}
-		75% {
-			rx: 0;
-		}
 		100% {
-			scale: 1;
-			rx: 0;
-			rotate: 720deg;
+			rx: 50%;
+			scale: var(--scale);
+			rotate: 360deg;
 		}
 	}
 	@keyframes left {
@@ -47,17 +52,10 @@
 		25% {
 			rx: 0;
 		}
-		50% {
-			rx: 50%;
-			scale: 0.25;
-		}
-		75% {
-			rx: 0;
-		}
 		100% {
-			scale: 1;
-			rx: 0;
-			rotate: -720deg;
+			rx: 50%;
+			scale: var(--scale);
+			rotate: -360deg;
 		}
 	}
 </style>

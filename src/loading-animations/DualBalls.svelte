@@ -1,29 +1,70 @@
-<svg viewBox="0 0 100 100">
-	<circle class="left" r="25" cx="25" cy="50" fill="currentcolor" />
-	<circle class="right" r="25" cx="25" cy="50" fill="teal" />
-</svg>
+<!-- Can't use SVG for this one because z-index doesn't work on svg elements -->
+<script lang="ts">
+	export let speed = 1;
+</script>
+
+<div style:--speed="{speed}s">
+	<span class="right" />
+	<span class="left" />
+</div>
 
 <style lang="scss">
-	circle {
-		transform-origin: center;
-		animation: left-right 1s alternate-reverse infinite linear;
+	div {
+		height: 100%;
+		aspect-ratio: 1;
+		position: relative;
+	}
+	span {
+		display: block;
+		position: absolute;
+		border-radius: 50%;
+		width: 50%;
+		height: 50%;
+		top: 25%;
 	}
 	.left {
-		z-index: 1;
+		background-color: currentcolor;
+		animation: left-right var(--speed) infinite linear;
 	}
 	.right {
-		rotate: 180deg;
-		z-index: -1;
+		background-color: var(--accent-00, teal);
+		animation: right-left var(--speed) infinite linear;
 	}
 	@keyframes left-right {
 		0% {
-			cx: 25px;
+			left: 25%;
+		}
+		25% {
+			left: 0;
 		}
 		50% {
-			cx: 50px;
+			left: 25%;
+		}
+		75% {
+			left: 50%;
 		}
 		100% {
-			cx: 75px;
+			left: 25%;
+		}
+	}
+	@keyframes right-left {
+		0% {
+			left: 25%;
+			z-index: 1;
+		}
+		25% {
+			left: 50%;
+		}
+		50% {
+			left: 25%;
+			z-index: 0;
+		}
+		75% {
+			left: 0;
+		}
+		100% {
+			z-index: 1;
+			left: 25%;
 		}
 	}
 </style>

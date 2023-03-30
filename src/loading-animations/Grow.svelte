@@ -1,26 +1,40 @@
-<svg viewBox="0 0 100 100" fill="currentcolor">
-	<path class="one" d="M50,0 l50,0 l0,50 l-50,0z" />
-	<path class="two" d="M0,0 l50,0 l0,50 l-50,0z" />
-	<path class="three" d="M50,50 l50,0 l0,50 l-50,0z" />
-	<path class="four" d="M0,50 l50,0 l0,50 l-50,0z" />
+<script lang="ts">
+	export let speed = 2;
+	export let reverse = false;
+</script>
+
+<svg viewBox="0 0 100 100" style:--speed="{speed}s" class:reverse>
+	<path class="a" d="M50,0 l50,0 l0,50 l-50,0z" />
+	<path class="b" d="M0,0 l50,0 l0,50 l-50,0z" />
+	<path class="c" d="M50,50 l50,0 l0,50 l-50,0z" />
+	<path class="d" d="M0,50 l50,0 l0,50 l-50,0z" />
 </svg>
 
 <style>
-	.one {
-		animation: one 2s ease-in-out infinite;
+	path {
+		fill: currentcolor;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		animation-duration: var(--speed);
 	}
-	.two {
-		animation: two 2s ease-in-out infinite;
+	.a {
+		animation-name: a;
 	}
-	.three {
-		animation: three 2s ease-in-out infinite;
+	.b {
+		animation-name: b;
 	}
-	.four {
+	.c {
+		animation-name: c;
+	}
+	.d {
+		animation-name: d;
 		transform-origin: bottom left;
-		animation: four 2s ease-in-out infinite;
+	}
+	.reverse path {
+		animation-direction: reverse;
 	}
 
-	@keyframes one {
+	@keyframes a {
 		0% {
 			transform: translateY(0px);
 		}
@@ -29,7 +43,7 @@
 			transform: translateY(-100px);
 		}
 	}
-	@keyframes two {
+	@keyframes b {
 		0%,
 		20% {
 			transform: translateY(0px);
@@ -39,7 +53,7 @@
 			transform: translateY(-100px);
 		}
 	}
-	@keyframes three {
+	@keyframes c {
 		0%,
 		40% {
 			transform: translateY(0px);
@@ -49,7 +63,7 @@
 			transform: translateY(-100px);
 		}
 	}
-	@keyframes four {
+	@keyframes d {
 		0%,
 		60% {
 			transform: scale(1);

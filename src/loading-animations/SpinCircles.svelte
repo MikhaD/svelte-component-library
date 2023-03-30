@@ -1,4 +1,8 @@
-<svg viewBox="0 0 100 100" fill="currentcolor">
+<script lang="ts">
+	export let speed = 1;
+</script>
+
+<svg viewBox="0 0 100 100" fill="currentcolor" style:--speed="{speed}s">
 	<g>
 		<circle class="top" r="10" cx="50" cy="90" />
 		<circle class="bottom" r="10" cx="50" cy="90" />
@@ -8,14 +12,14 @@
 <style lang="scss">
 	g {
 		transform-origin: center;
-		animation: rotate 1s linear infinite;
+		animation: rotate var(--speed) linear infinite;
 	}
 	.bottom {
 		rotate: 180deg;
 	}
 	circle {
 		transform-origin: center;
-		animation: up-down 2s alternate-reverse infinite ease-in-out;
+		animation: up-down calc(var(--speed) * 2) alternate-reverse infinite ease-in-out;
 	}
 	@keyframes up-down {
 		0% {
