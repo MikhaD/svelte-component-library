@@ -7,7 +7,11 @@
 	let value = 12345.6789;
 </script>
 
-<Hst.Story title="Components/7 Segment" icon="ri:number-8">
+<Hst.Story
+	title="Components/7 Segment"
+	icon="ri:number-8"
+	layout={{ type: "single", iframe: false }}
+>
 	<div>
 		<Display bind:value />
 	</div>

@@ -51,14 +51,45 @@
 
 	let heart_speed = 1.5;
 
+	let heartOutline_speed = 2;
+	let heartOutline_reverse = false;
+
 	let hourglass_speed = 1;
+
+	let rotateOne_speed = 1;
+	let rotateOne_count = 12;
+	let rotateOne_width = 10;
+	let rotateOne_length = 25;
 </script>
 
 <Hst.Story title="Loading Animations" icon="mingcute:loading-fill" layout={{ type: "grid" }}>
+	<Hst.Variant title="Rotate 1" icon="ic:round-hourglass-bottom">
+		<Loading.RotateOne
+			bind:speed={rotateOne_speed}
+			bind:count={rotateOne_count}
+			bind:width={rotateOne_width}
+			bind:length={rotateOne_length}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={1} max={25} bind:value={rotateOne_count} />
+			<Hst.Slider title="Width" min={1} max={50} bind:value={rotateOne_width} />
+			<Hst.Slider title="Length" min={1} max={50} bind:value={rotateOne_length} />
+			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={rotateOne_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
 	<Hst.Variant title="Hourglass" icon="ic:round-hourglass-bottom">
 		<Loading.Hourglass bind:speed={hourglass_speed} />
 		<svelte:fragment slot="controls">
 			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={hourglass_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Heart Outline" icon="material-symbols:favorite">
+		<Loading.HeartOutline bind:speed={heartOutline_speed} bind:reverse={heartOutline_reverse} />
+		<svelte:fragment slot="controls">
+			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={heartOutline_speed} />
+			<Hst.Checkbox title="Reverse" bind:value={heartOutline_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 

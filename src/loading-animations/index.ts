@@ -10,6 +10,8 @@ import DNA from "./DNA.svelte";
 import Pie from "./Pie.svelte";
 import Heart from "./Heart.svelte";
 import Hourglass from "./Hourglass.svelte";
+import HeartOutline from "./HeartOutline.svelte";
+import RotateOne from "./RotateOne.svelte";
 
 export default {
 	Spin,
@@ -24,4 +26,6 @@ export default {
 	Pie,
 	Heart,
 	Hourglass,
+	HeartOutline,
+	RotateOne,
 };
