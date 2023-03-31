@@ -54,12 +54,6 @@
 		transform: translateY(45px);
 		animation: oscillate var(--speed) ease-in-out infinite;
 	}
-	.b {
-		animation-delay: 0.5s;
-	}
-	.c {
-		animation-delay: 1s;
-	}
 	@keyframes oscillate {
 		0%,
 		100% {

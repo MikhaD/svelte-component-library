@@ -20,19 +20,24 @@
 	 */
 	export let scale = 0.5;
 	$: scale = Math.min(Math.max(0.1, scale), 0.9);
+	/**
+	 * Whether the animation should play in reverse.
+	 * @default false
+	 */
+	export let reverse = false;
 
 	$: x = Math.sin((2 * Math.PI) / count) * 50;
 	$: y = 50 - Math.cos((2 * Math.PI) / count) * 50;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--scale={scale}>
+<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--scale={scale} class:reverse>
 	{#key count}
 		{#each Array(count) as _, i}
 			<path
 				d="M50 0a50 50 0 01 {x} {y}L50 50"
 				style:rotate="{(360 / count) * i}deg"
-				style="animation-delay: {(speed / count) * i}s; filter: hue-rotate({(360 / count) *
-					i}deg)"
+				style:filter="hue-rotate({(360 / count) * i}deg)"
+				style="animation-delay: {(speed / count) * i}s"
 			/>
 		{/each}
 	{/key}
@@ -43,6 +48,9 @@
 		fill: var(--accent-00, teal);
 		transform-origin: center;
 		animation: snap var(--speed) infinite linear;
+	}
+	.reverse path {
+		animation-direction: reverse;
 	}
 	@keyframes snap {
 		to {

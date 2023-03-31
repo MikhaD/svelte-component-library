@@ -24,7 +24,12 @@
 	let oscillate_width = 50;
 	let oscillate_bar_width = 6;
 
+	let spinCircles_count = 2;
+	let spinCircles_merge = 0.9;
+	let spinCircles_r = 10;
+	let spinCircles_r2 = 15;
 	let spinCircles_speed = 1;
+	let spinCircles_reverse = false;
 
 	let spinGlass_speed = 1;
 	let spinGlass_rotations = 3;
@@ -42,6 +47,7 @@
 	let pie_count = 8;
 	let pie_speed = 1;
 	let pie_scale = 0.5;
+	let pie_reverse = false;
 
 	let heart_speed = 1.5;
 
@@ -64,11 +70,17 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Pie" icon="game-icons:swirled-shell">
-		<Loading.Pie bind:count={pie_count} bind:speed={pie_speed} bind:scale={pie_scale} />
+		<Loading.Pie
+			bind:count={pie_count}
+			bind:speed={pie_speed}
+			bind:scale={pie_scale}
+			bind:reverse={pie_reverse}
+		/>
 		<svelte:fragment slot="controls">
 			<Hst.Slider title="Count" min={2} max={50} bind:value={pie_count} />
 			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={pie_speed} />
 			<Range title="Scale" min={0.1} max={0.9} step={0.1} bind:value={pie_scale} />
+			<Hst.Checkbox title="Reverse" bind:value={pie_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 
@@ -111,9 +123,21 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Spin Circles" icon="ic:baseline-circle">
-		<Loading.SpinCircles bind:speed={spinCircles_speed} />
+		<Loading.SpinCircles
+			bind:speed={spinCircles_speed}
+			bind:count={spinCircles_count}
+			bind:merge={spinCircles_merge}
+			bind:r={spinCircles_r}
+			bind:r2={spinCircles_r2}
+			bind:reverse={spinCircles_reverse}
+		/>
 		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={1} max={15} bind:value={spinCircles_count} />
+			<Hst.Slider title="Radius from" min={1} max={20} bind:value={spinCircles_r} />
+			<Hst.Slider title="Radius to" min={1} max={20} bind:value={spinCircles_r2} />
 			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={spinCircles_speed} />
+			<Range title="Merge Factor" min={0} max={1} step={0.1} bind:value={spinCircles_merge} />
+			<Hst.Checkbox title="Reverse" bind:value={spinCircles_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 
