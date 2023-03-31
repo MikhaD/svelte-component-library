@@ -8,18 +8,14 @@
 	let title = "Color";
 </script>
 
-<Hst.Story title="Components/Color Input" icon="typcn:input-checked">
-	<div>
-		<ColorInput bind:value bind:title />
-	</div>
+<Hst.Story
+	title="Components/Color Input"
+	icon="typcn:input-checked"
+	layout={{ type: "single", iframe: false }}
+>
+	<ColorInput bind:value bind:title />
 	<svelte:fragment slot="controls">
 		<Hst.Text title="Value" bind:value />
 		<Hst.Text title="Title" bind:value={title} />
 	</svelte:fragment>
 </Hst.Story>
-
-<style>
-	div {
-		height: 100vh;
-	}
-</style>

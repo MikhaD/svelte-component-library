@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { toggleDark } from "histoire/client";
+
 	export let light = false;
+	$: toggleDark(!light);
 </script>
 
 <svg
@@ -30,11 +33,11 @@
 	}
 
 	path {
-		fill: #000;
+		fill: currentcolor;
 	}
 
 	circle {
-		stroke: #000;
+		stroke: currentcolor;
 		stroke-width: 2;
 	}
 

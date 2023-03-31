@@ -46,7 +46,6 @@
 		position: relative;
 		&::before {
 			content: "";
-			box-sizing: border-box;
 			position: absolute;
 			height: 0.7rem;
 			aspect-ratio: 1;

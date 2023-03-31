@@ -38,7 +38,6 @@
 		padding: 0.5rem;
 	}
 	.input {
-		box-sizing: border-box;
 		border: solid 1px currentcolor;
 		border-radius: 0.25rem;
 		background-color: var(--color);

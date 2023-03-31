@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 :root {
 	/* font-size: 62.5%; */
 	height: 100%;
@@ -8,6 +14,7 @@
 	--trans: 0.15s ease;
 	--red: #f00;
 	--accent-00: #06B6D4;
+	--accent-01: #0891B2;
 }
 
 body {

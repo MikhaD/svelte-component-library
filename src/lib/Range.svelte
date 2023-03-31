@@ -13,7 +13,7 @@
 	<span
 		class="htw-w-28 htw-whitespace-nowrap htw-text-ellipsis htw-overflow-hidden htw-shrink-0 v-popper--has-tooltip"
 	>
-		{title} ({value})
+		{title}: {value}
 	</span>
 	<span class="htw-grow htw-max-w-full htw-flex htw-items-center htw-gap-1">
 		<span class="htw-block htw-grow htw-max-w-full">

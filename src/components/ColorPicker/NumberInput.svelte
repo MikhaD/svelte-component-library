@@ -65,7 +65,6 @@
 		padding: 0.25rem;
 		border: none;
 		outline: none;
-		box-sizing: border-box;
 	}
 	.input {
 		position: relative;

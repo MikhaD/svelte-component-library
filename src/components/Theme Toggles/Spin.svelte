@@ -1,5 +1,8 @@
 <script lang="ts">
+	import { toggleDark } from "histoire/client";
+
 	export let light = false;
+	$: toggleDark(!light);
 </script>
 
 <svg
@@ -9,19 +12,20 @@
 	on:click={() => (light = !light)}
 	on:keypress={() => (light = !light)}
 >
-	<path d="M12.94 0.9A9 9 0 1 0 12.94 17.1c6.75 -3.37 6.75 -12.83 0 -16.2z" />
 	<circle class="a" cx="9" cy="1" r="1" />
 	<circle class="b" cx="15.93" cy="5" r="1" />
 	<circle class="c" cx="15.93" cy="13" r="1" />
 	<circle class="d" cx="9" cy="17" r="1" />
 	<circle class="e" cx="2.07" cy="13" r="1" />
 	<circle class="f" cx="2.07" cy="5" r="1" />
+	<path d="M12.94 0.9A9 9 0 1 0 12.94 17.1c6.75 -3.37 6.75 -12.83 0 -16.2z" />
 </svg>
 
 <style>
 	svg {
 		cursor: pointer;
 		outline: transparent;
+		fill: currentcolor;
 	}
 	path {
 		transition: 0.8s;

@@ -53,7 +53,6 @@
 			background-image: linear-gradient(to right, var(--bg));
 		}
 		&::after {
-			box-sizing: border-box;
 			content: "";
 			position: absolute;
 			height: 100%;
