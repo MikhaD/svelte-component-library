@@ -10,6 +10,7 @@
 <script lang="ts">
 	export let value: string;
 	export let label: string;
+	export let variant: "google" | "lastpass" = "google";
 	export let max_length: number = Infinity;
 	export let autocomplete: string = "off";
 	export let pattern: RegExp = /.*/;
@@ -35,7 +36,11 @@
 	}
 </script>
 
-<span class:contents={value.length > 0} class:invalid={!valid(value) && value.length > 0}>
+<span
+	class:contents={value.length > 0}
+	class:invalid={!valid(value) && value.length > 0}
+	class={variant}
+>
 	<input
 		type="text"
 		{id}
@@ -52,45 +57,30 @@
 <style lang="scss">
 	span {
 		display: inline-block;
-		box-sizing: border-box;
 		position: relative;
 		color: var(--fg-00);
 		padding-top: 0.5em;
 	}
 	input {
 		background-color: transparent;
-		border-radius: 0.25rem;
-		border: solid var(--fg-01) 1px;
-		padding: 0.5em;
-		outline: none;
+		transition: border var(--trans);
 		color: inherit;
 		font: inherit;
-		transition: border var(--trans);
+		outline: none;
+		width: 100%;
 	}
 	label {
+		transition: var(--trans);
 		position: absolute;
 		color: var(--fg-01);
-		left: 0.5em;
 		top: 1em;
-		padding-right: 1ch;
-		transition: var(--trans);
-		background-color: var(--bg-00);
 	}
-
 	span:focus-within {
 		label {
 			color: inherit;
 		}
 		input {
 			border-color: currentcolor;
-		}
-	}
-	span.contents,
-	span:focus-within {
-		label {
-			font-size: 0.7em;
-			transform: translateY(-75%);
-			padding-left: 0.5ch;
 		}
 	}
 	span.contents input:invalid {
@@ -105,6 +95,58 @@
 		}
 		input {
 			border-color: var(--red);
+		}
+	}
+	//   _____                   _
+	//  |  __ \                 | |
+	//  | |  \/ ___   ___   __ _| | ___
+	//  | | __ / _ \ / _ \ / _` | |/ _ \
+	//  | |_\ \ (_) | (_) | (_| | |  __/
+	//   \____/\___/ \___/ \__, |_|\___|
+	//                      __/ |
+	//                     |___/
+	.google {
+		input {
+			border-radius: 0.25rem;
+			border: solid var(--fg-01) 1px;
+			padding: 0.5em;
+		}
+		label {
+			left: 0.5em;
+			padding-right: 1ch;
+			background-color: var(--bg-00);
+		}
+		&.contents,
+		&:focus-within {
+			label {
+				font-size: 0.7em;
+				transform: translateY(-75%);
+				padding-left: 0.5ch;
+			}
+		}
+	}
+	//   _               _  ______
+	//  | |             | | | ___ \
+	//  | |     __ _ ___| |_| |_/ /_ _ ___ ___
+	//  | |    / _` / __| __|  __/ _` / __/ __|
+	//  | |___| (_| \__ \ |_| | | (_| \__ \__ \
+	//  \_____/\__,_|___/\__\_|  \__,_|___/___/
+	//
+	//
+	.lastpass {
+		input {
+			border-bottom: solid var(--fg-01) 1px;
+			padding-block: 0.5em;
+		}
+		label {
+			left: 0;
+		}
+		&.contents,
+		&:focus-within {
+			label {
+				font-size: 0.8em;
+				transform: translateY(-100%);
+			}
 		}
 	}
 </style>

@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Hst } from "@histoire/plugin-svelte";
-	import GoogleInput from "../../components/Inputs/GoogleInput.svelte";
-	import LastPassInput from "../../components/Inputs/LastPassInput.svelte";
+	import Input from "../../components/Input.svelte";
 
 	export let Hst: Hst;
 
@@ -17,7 +16,6 @@
 	} catch {
 		pattern = /^.*$/;
 	}
-
 	const autocomplete_options = {
 		off: "off",
 		on: "on",
@@ -82,10 +80,24 @@
 	layout={{ type: "grid", width: "95%" }}
 >
 	<Hst.Variant title="Google Style Input" icon="iconoir:input-field">
-		<GoogleInput bind:value bind:label bind:max_length bind:autocomplete bind:pattern />
+		<Input
+			variant="google"
+			bind:value
+			bind:label
+			bind:max_length
+			bind:autocomplete
+			bind:pattern
+		/>
 	</Hst.Variant>
 	<Hst.Variant title="LastPass Style Input" icon="iconoir:input-field">
-		<LastPassInput bind:value bind:label bind:max_length bind:autocomplete bind:pattern />
+		<Input
+			variant="lastpass"
+			bind:value
+			bind:label
+			bind:max_length
+			bind:autocomplete
+			bind:pattern
+		/>
 	</Hst.Variant>
 	<svelte:fragment slot="controls">
 		<Hst.Text title="Label" bind:value={label} />
