@@ -1594,14 +1594,14 @@ function queuePostFlushCb(cb) {
   }
   queueFlush();
 }
-function flushPreFlushCbs(seen, i2 = isFlushing ? flushIndex + 1 : 0) {
+function flushPreFlushCbs(seen2, i2 = isFlushing ? flushIndex + 1 : 0) {
   {
-    seen = seen || /* @__PURE__ */ new Map();
+    seen2 = seen2 || /* @__PURE__ */ new Map();
   }
   for (; i2 < queue.length; i2++) {
     const cb = queue[i2];
     if (cb && cb.pre) {
-      if (checkRecursiveUpdates(seen, cb)) {
+      if (checkRecursiveUpdates(seen2, cb)) {
         continue;
       }
       queue.splice(i2, 1);
@@ -1610,7 +1610,7 @@ function flushPreFlushCbs(seen, i2 = isFlushing ? flushIndex + 1 : 0) {
     }
   }
 }
-function flushPostFlushCbs(seen) {
+function flushPostFlushCbs(seen2) {
   if (pendingPostFlushCbs.length) {
     const deduped = [...new Set(pendingPostFlushCbs)];
     pendingPostFlushCbs.length = 0;
@@ -1620,11 +1620,11 @@ function flushPostFlushCbs(seen) {
     }
     activePostFlushCbs = deduped;
     {
-      seen = seen || /* @__PURE__ */ new Map();
+      seen2 = seen2 || /* @__PURE__ */ new Map();
     }
     activePostFlushCbs.sort((a2, b3) => getId(a2) - getId(b3));
     for (postFlushIndex = 0; postFlushIndex < activePostFlushCbs.length; postFlushIndex++) {
-      if (checkRecursiveUpdates(seen, activePostFlushCbs[postFlushIndex])) {
+      if (checkRecursiveUpdates(seen2, activePostFlushCbs[postFlushIndex])) {
         continue;
       }
       activePostFlushCbs[postFlushIndex]();
@@ -1644,14 +1644,14 @@ const comparator = (a2, b3) => {
   }
   return diff;
 };
-function flushJobs(seen) {
+function flushJobs(seen2) {
   isFlushPending = false;
   isFlushing = true;
   {
-    seen = seen || /* @__PURE__ */ new Map();
+    seen2 = seen2 || /* @__PURE__ */ new Map();
   }
   queue.sort(comparator);
-  const check = (job) => checkRecursiveUpdates(seen, job);
+  const check = (job) => checkRecursiveUpdates(seen2, job);
   try {
     for (flushIndex = 0; flushIndex < queue.length; flushIndex++) {
       const job = queue[flushIndex];
@@ -1670,26 +1670,26 @@ function flushJobs(seen) {
   } finally {
     flushIndex = 0;
     queue.length = 0;
-    flushPostFlushCbs(seen);
+    flushPostFlushCbs(seen2);
     isFlushing = false;
     currentFlushPromise = null;
     if (queue.length || pendingPostFlushCbs.length) {
-      flushJobs(seen);
+      flushJobs(seen2);
     }
   }
 }
-function checkRecursiveUpdates(seen, fn2) {
-  if (!seen.has(fn2)) {
-    seen.set(fn2, 1);
+function checkRecursiveUpdates(seen2, fn2) {
+  if (!seen2.has(fn2)) {
+    seen2.set(fn2, 1);
   } else {
-    const count2 = seen.get(fn2);
+    const count2 = seen2.get(fn2);
     if (count2 > RECURSION_LIMIT) {
       const instance = fn2.ownerInstance;
       const componentName = instance && getComponentName(instance.type);
       warn$2(`Maximum recursive updates exceeded${componentName ? ` in component <${componentName}>` : ``}. This means you have a reactive effect that is mutating its own dependencies and thus recursively triggering itself. Possible sources include component template, render function, updated hook or watcher source function.`);
       return true;
     } else {
-      seen.set(fn2, count2 + 1);
+      seen2.set(fn2, count2 + 1);
     }
   }
 }
@@ -2522,31 +2522,31 @@ function createPathGetter(ctx, path) {
     return cur;
   };
 }
-function traverse(value, seen) {
+function traverse(value, seen2) {
   if (!isObject(value) || value[
     "__v_skip"
     /* ReactiveFlags.SKIP */
   ]) {
     return value;
   }
-  seen = seen || /* @__PURE__ */ new Set();
-  if (seen.has(value)) {
+  seen2 = seen2 || /* @__PURE__ */ new Set();
+  if (seen2.has(value)) {
     return value;
   }
-  seen.add(value);
+  seen2.add(value);
   if (isRef(value)) {
-    traverse(value.value, seen);
+    traverse(value.value, seen2);
   } else if (isArray$1(value)) {
     for (let i2 = 0; i2 < value.length; i2++) {
-      traverse(value[i2], seen);
+      traverse(value[i2], seen2);
     }
   } else if (isSet(value) || isMap(value)) {
     value.forEach((v2) => {
-      traverse(v2, seen);
+      traverse(v2, seen2);
     });
   } else if (isPlainObject$1(value)) {
     for (const key in value) {
-      traverse(value[key], seen);
+      traverse(value[key], seen2);
     }
   }
   return value;
@@ -10067,7 +10067,7 @@ function assign$2(to2, from) {
     }
   }
 }
-const config$1 = {
+const config$2 = {
   disabled: false,
   distance: 5,
   skidding: 0,
@@ -10115,16 +10115,16 @@ const config$1 = {
   }
 };
 function getDefaultConfig(theme, key) {
-  let themeConfig = config$1.themes[theme] || {};
+  let themeConfig = config$2.themes[theme] || {};
   let value;
   do {
     value = themeConfig[key];
     if (typeof value === "undefined") {
       if (themeConfig.$extend) {
-        themeConfig = config$1.themes[themeConfig.$extend] || {};
+        themeConfig = config$2.themes[themeConfig.$extend] || {};
       } else {
         themeConfig = null;
-        value = config$1[key];
+        value = config$2[key];
       }
     } else {
       themeConfig = null;
@@ -10134,11 +10134,11 @@ function getDefaultConfig(theme, key) {
 }
 function getThemeClasses(theme) {
   const result = [theme];
-  let themeConfig = config$1.themes[theme] || {};
+  let themeConfig = config$2.themes[theme] || {};
   do {
     if (themeConfig.$extend && !themeConfig.$resetCss) {
       result.push(themeConfig.$extend);
-      themeConfig = config$1.themes[themeConfig.$extend] || {};
+      themeConfig = config$2.themes[themeConfig.$extend] || {};
     } else {
       themeConfig = null;
     }
@@ -10147,11 +10147,11 @@ function getThemeClasses(theme) {
 }
 function getAllParentThemes(theme) {
   const result = [theme];
-  let themeConfig = config$1.themes[theme] || {};
+  let themeConfig = config$2.themes[theme] || {};
   do {
     if (themeConfig.$extend) {
       result.push(themeConfig.$extend);
-      themeConfig = config$1.themes[themeConfig.$extend] || {};
+      themeConfig = config$2.themes[themeConfig.$extend] || {};
     } else {
       themeConfig = null;
     }
@@ -11835,7 +11835,7 @@ function install(app, options2 = {}) {
   if (app.$_vTooltipInstalled)
     return;
   app.$_vTooltipInstalled = true;
-  assign$2(config$1, options2);
+  assign$2(config$2, options2);
   app.directive("tooltip", PrivateVTooltip);
   app.directive("close-popper", PrivateVClosePopper);
   app.component("VTooltip", _sfc_main$1);
@@ -11845,7 +11845,51 @@ function install(app, options2 = {}) {
 const plugin = {
   version: "2.0.0-beta.20",
   install,
-  options: config$1
+  options: config$2
+};
+const scriptRel = "modulepreload";
+const assetsURL = function(dep) {
+  return "/svelte-component-library/" + dep;
+};
+const seen = {};
+const __vitePreload = function preload(baseModule, deps, importerUrl) {
+  if (!deps || deps.length === 0) {
+    return baseModule();
+  }
+  const links = document.getElementsByTagName("link");
+  return Promise.all(deps.map((dep) => {
+    dep = assetsURL(dep);
+    if (dep in seen)
+      return;
+    seen[dep] = true;
+    const isCss = dep.endsWith(".css");
+    const cssSelector = isCss ? '[rel="stylesheet"]' : "";
+    const isBaseRelative = !!importerUrl;
+    if (isBaseRelative) {
+      for (let i2 = links.length - 1; i2 >= 0; i2--) {
+        const link2 = links[i2];
+        if (link2.href === dep && (!isCss || link2.rel === "stylesheet")) {
+          return;
+        }
+      }
+    } else if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
+      return;
+    }
+    const link = document.createElement("link");
+    link.rel = isCss ? "stylesheet" : scriptRel;
+    if (!isCss) {
+      link.as = "script";
+      link.crossOrigin = "";
+    }
+    link.href = dep;
+    document.head.appendChild(link);
+    if (isCss) {
+      return new Promise((res, rej) => {
+        link.addEventListener("load", res);
+        link.addEventListener("error", () => rej(new Error(`Unable to preload CSS for ${dep}`)));
+      });
+    }
+  })).then(() => baseModule());
 };
 function noop$2() {
 }
@@ -11873,6 +11917,14 @@ function is_function(thing) {
 }
 function safe_not_equal(a2, b3) {
   return a2 != a2 ? b3 == b3 : a2 !== b3 || (a2 && typeof a2 === "object" || typeof a2 === "function");
+}
+let src_url_equal_anchor;
+function src_url_equal(element_src, url) {
+  if (!src_url_equal_anchor) {
+    src_url_equal_anchor = document.createElement("a");
+  }
+  src_url_equal_anchor.href = url;
+  return element_src === src_url_equal_anchor.href;
 }
 function is_empty(obj) {
   return Object.keys(obj).length === 0;
@@ -11942,6 +11994,9 @@ function compute_slots(slots) {
     result[key] = true;
   }
   return result;
+}
+function null_to_empty(value) {
+  return value == null ? "" : value;
 }
 function append(target, node) {
   target.appendChild(node);
@@ -12426,6 +12481,991 @@ class SvelteComponentDev extends SvelteComponent {
   $inject_state() {
   }
 }
+var _a$1;
+const isClient = typeof window !== "undefined";
+const isDef = (val) => typeof val !== "undefined";
+const isFunction = (val) => typeof val === "function";
+const isString = (val) => typeof val === "string";
+const noop$1 = () => {
+};
+isClient && ((_a$1 = window == null ? void 0 : window.navigator) == null ? void 0 : _a$1.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
+function resolveUnref(r2) {
+  return typeof r2 === "function" ? r2() : unref(r2);
+}
+function createFilterWrapper(filter, fn2) {
+  function wrapper(...args) {
+    return new Promise((resolve2, reject) => {
+      Promise.resolve(filter(() => fn2.apply(this, args), { fn: fn2, thisArg: this, args })).then(resolve2).catch(reject);
+    });
+  }
+  return wrapper;
+}
+const bypassFilter = (invoke) => {
+  return invoke();
+};
+function debounceFilter(ms2, options = {}) {
+  let timer;
+  let maxTimer;
+  let lastRejector = noop$1;
+  const _clearTimeout = (timer2) => {
+    clearTimeout(timer2);
+    lastRejector();
+    lastRejector = noop$1;
+  };
+  const filter = (invoke) => {
+    const duration = resolveUnref(ms2);
+    const maxDuration = resolveUnref(options.maxWait);
+    if (timer)
+      _clearTimeout(timer);
+    if (duration <= 0 || maxDuration !== void 0 && maxDuration <= 0) {
+      if (maxTimer) {
+        _clearTimeout(maxTimer);
+        maxTimer = null;
+      }
+      return Promise.resolve(invoke());
+    }
+    return new Promise((resolve2, reject) => {
+      lastRejector = options.rejectOnCancel ? reject : resolve2;
+      if (maxDuration && !maxTimer) {
+        maxTimer = setTimeout(() => {
+          if (timer)
+            _clearTimeout(timer);
+          maxTimer = null;
+          resolve2(invoke());
+        }, maxDuration);
+      }
+      timer = setTimeout(() => {
+        if (maxTimer)
+          _clearTimeout(maxTimer);
+        maxTimer = null;
+        resolve2(invoke());
+      }, duration);
+    });
+  };
+  return filter;
+}
+function pausableFilter(extendFilter = bypassFilter) {
+  const isActive = ref(true);
+  function pause() {
+    isActive.value = false;
+  }
+  function resume() {
+    isActive.value = true;
+  }
+  const eventFilter = (...args) => {
+    if (isActive.value)
+      extendFilter(...args);
+  };
+  return { isActive: readonly(isActive), pause, resume, eventFilter };
+}
+function identity(arg) {
+  return arg;
+}
+function computedWithControl(source, fn2) {
+  let v2 = void 0;
+  let track2;
+  let trigger2;
+  const dirty = ref(true);
+  const update2 = () => {
+    dirty.value = true;
+    trigger2();
+  };
+  watch(source, update2, { flush: "sync" });
+  const get2 = isFunction(fn2) ? fn2 : fn2.get;
+  const set2 = isFunction(fn2) ? void 0 : fn2.set;
+  const result = customRef((_track, _trigger) => {
+    track2 = _track;
+    trigger2 = _trigger;
+    return {
+      get() {
+        if (dirty.value) {
+          v2 = get2();
+          dirty.value = false;
+        }
+        track2();
+        return v2;
+      },
+      set(v22) {
+        set2 == null ? void 0 : set2(v22);
+      }
+    };
+  });
+  if (Object.isExtensible(result))
+    result.trigger = update2;
+  return result;
+}
+function tryOnScopeDispose(fn2) {
+  if (getCurrentScope()) {
+    onScopeDispose(fn2);
+    return true;
+  }
+  return false;
+}
+function useDebounceFn(fn2, ms2 = 200, options = {}) {
+  return createFilterWrapper(debounceFilter(ms2, options), fn2);
+}
+function refDebounced(value, ms2 = 200, options = {}) {
+  const debounced = ref(value.value);
+  const updater = useDebounceFn(() => {
+    debounced.value = value.value;
+  }, ms2, options);
+  watch(value, () => updater());
+  return debounced;
+}
+function resolveRef(r2) {
+  return typeof r2 === "function" ? computed(r2) : ref(r2);
+}
+function tryOnMounted(fn2, sync = true) {
+  if (getCurrentInstance())
+    onMounted(fn2);
+  else if (sync)
+    fn2();
+  else
+    nextTick(fn2);
+}
+function useTimeoutFn(cb, interval, options = {}) {
+  const {
+    immediate = true
+  } = options;
+  const isPending = ref(false);
+  let timer = null;
+  function clear2() {
+    if (timer) {
+      clearTimeout(timer);
+      timer = null;
+    }
+  }
+  function stop() {
+    isPending.value = false;
+    clear2();
+  }
+  function start(...args) {
+    clear2();
+    isPending.value = true;
+    timer = setTimeout(() => {
+      isPending.value = false;
+      timer = null;
+      cb(...args);
+    }, resolveUnref(interval));
+  }
+  if (immediate) {
+    isPending.value = true;
+    if (isClient)
+      start();
+  }
+  tryOnScopeDispose(stop);
+  return {
+    isPending: readonly(isPending),
+    start,
+    stop
+  };
+}
+function useToggle(initialValue = false, options = {}) {
+  const {
+    truthyValue = true,
+    falsyValue = false
+  } = options;
+  const valueIsRef = isRef(initialValue);
+  const _value = ref(initialValue);
+  function toggle(value) {
+    if (arguments.length) {
+      _value.value = value;
+      return _value.value;
+    } else {
+      const truthy = resolveUnref(truthyValue);
+      _value.value = _value.value === truthy ? resolveUnref(falsyValue) : truthy;
+      return _value.value;
+    }
+  }
+  if (valueIsRef)
+    return toggle;
+  else
+    return [_value, toggle];
+}
+var __getOwnPropSymbols$6$1 = Object.getOwnPropertySymbols;
+var __hasOwnProp$6$1 = Object.prototype.hasOwnProperty;
+var __propIsEnum$6$1 = Object.prototype.propertyIsEnumerable;
+var __objRest$5 = (source, exclude) => {
+  var target = {};
+  for (var prop in source)
+    if (__hasOwnProp$6$1.call(source, prop) && exclude.indexOf(prop) < 0)
+      target[prop] = source[prop];
+  if (source != null && __getOwnPropSymbols$6$1)
+    for (var prop of __getOwnPropSymbols$6$1(source)) {
+      if (exclude.indexOf(prop) < 0 && __propIsEnum$6$1.call(source, prop))
+        target[prop] = source[prop];
+    }
+  return target;
+};
+function watchWithFilter(source, cb, options = {}) {
+  const _a2 = options, {
+    eventFilter = bypassFilter
+  } = _a2, watchOptions = __objRest$5(_a2, [
+    "eventFilter"
+  ]);
+  return watch(source, createFilterWrapper(eventFilter, cb), watchOptions);
+}
+var __defProp$2$1 = Object.defineProperty;
+var __defProps$2$1 = Object.defineProperties;
+var __getOwnPropDescs$2$1 = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols$2$1 = Object.getOwnPropertySymbols;
+var __hasOwnProp$2$1 = Object.prototype.hasOwnProperty;
+var __propIsEnum$2$1 = Object.prototype.propertyIsEnumerable;
+var __defNormalProp$2$1 = (obj, key, value) => key in obj ? __defProp$2$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues$2$1 = (a2, b3) => {
+  for (var prop in b3 || (b3 = {}))
+    if (__hasOwnProp$2$1.call(b3, prop))
+      __defNormalProp$2$1(a2, prop, b3[prop]);
+  if (__getOwnPropSymbols$2$1)
+    for (var prop of __getOwnPropSymbols$2$1(b3)) {
+      if (__propIsEnum$2$1.call(b3, prop))
+        __defNormalProp$2$1(a2, prop, b3[prop]);
+    }
+  return a2;
+};
+var __spreadProps$2$1 = (a2, b3) => __defProps$2$1(a2, __getOwnPropDescs$2$1(b3));
+var __objRest$1$1 = (source, exclude) => {
+  var target = {};
+  for (var prop in source)
+    if (__hasOwnProp$2$1.call(source, prop) && exclude.indexOf(prop) < 0)
+      target[prop] = source[prop];
+  if (source != null && __getOwnPropSymbols$2$1)
+    for (var prop of __getOwnPropSymbols$2$1(source)) {
+      if (exclude.indexOf(prop) < 0 && __propIsEnum$2$1.call(source, prop))
+        target[prop] = source[prop];
+    }
+  return target;
+};
+function watchPausable(source, cb, options = {}) {
+  const _a2 = options, {
+    eventFilter: filter
+  } = _a2, watchOptions = __objRest$1$1(_a2, [
+    "eventFilter"
+  ]);
+  const { eventFilter, pause, resume, isActive } = pausableFilter(filter);
+  const stop = watchWithFilter(source, cb, __spreadProps$2$1(__spreadValues$2$1({}, watchOptions), {
+    eventFilter
+  }));
+  return { stop, pause, resume, isActive };
+}
+function unrefElement(elRef) {
+  var _a2;
+  const plain = resolveUnref(elRef);
+  return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
+}
+const defaultWindow = isClient ? window : void 0;
+const defaultDocument = isClient ? window.document : void 0;
+const defaultNavigator = isClient ? window.navigator : void 0;
+function useEventListener(...args) {
+  let target;
+  let events;
+  let listeners;
+  let options;
+  if (isString(args[0]) || Array.isArray(args[0])) {
+    [events, listeners, options] = args;
+    target = defaultWindow;
+  } else {
+    [target, events, listeners, options] = args;
+  }
+  if (!target)
+    return noop$1;
+  if (!Array.isArray(events))
+    events = [events];
+  if (!Array.isArray(listeners))
+    listeners = [listeners];
+  const cleanups = [];
+  const cleanup = () => {
+    cleanups.forEach((fn2) => fn2());
+    cleanups.length = 0;
+  };
+  const register = (el2, event, listener) => {
+    el2.addEventListener(event, listener, options);
+    return () => el2.removeEventListener(event, listener, options);
+  };
+  const stopWatch = watch(() => unrefElement(target), (el2) => {
+    cleanup();
+    if (!el2)
+      return;
+    cleanups.push(...events.flatMap((event) => {
+      return listeners.map((listener) => register(el2, event, listener));
+    }));
+  }, { immediate: true, flush: "post" });
+  const stop = () => {
+    stopWatch();
+    cleanup();
+  };
+  tryOnScopeDispose(stop);
+  return stop;
+}
+function onClickOutside(target, handler, options = {}) {
+  const { window: window2 = defaultWindow, ignore = [], capture = true, detectIframe = false } = options;
+  if (!window2)
+    return;
+  let shouldListen = true;
+  let fallback;
+  const shouldIgnore = (event) => {
+    return ignore.some((target2) => {
+      if (typeof target2 === "string") {
+        return Array.from(window2.document.querySelectorAll(target2)).some((el2) => el2 === event.target || event.composedPath().includes(el2));
+      } else {
+        const el2 = unrefElement(target2);
+        return el2 && (event.target === el2 || event.composedPath().includes(el2));
+      }
+    });
+  };
+  const listener = (event) => {
+    window2.clearTimeout(fallback);
+    const el2 = unrefElement(target);
+    if (!el2 || el2 === event.target || event.composedPath().includes(el2))
+      return;
+    if (event.detail === 0)
+      shouldListen = !shouldIgnore(event);
+    if (!shouldListen) {
+      shouldListen = true;
+      return;
+    }
+    handler(event);
+  };
+  const cleanup = [
+    useEventListener(window2, "click", listener, { passive: true, capture }),
+    useEventListener(window2, "pointerdown", (e2) => {
+      const el2 = unrefElement(target);
+      if (el2)
+        shouldListen = !e2.composedPath().includes(el2) && !shouldIgnore(e2);
+    }, { passive: true }),
+    useEventListener(window2, "pointerup", (e2) => {
+      if (e2.button === 0) {
+        const path = e2.composedPath();
+        e2.composedPath = () => path;
+        fallback = window2.setTimeout(() => listener(e2), 50);
+      }
+    }, { passive: true }),
+    detectIframe && useEventListener(window2, "blur", (event) => {
+      var _a2;
+      const el2 = unrefElement(target);
+      if (((_a2 = window2.document.activeElement) == null ? void 0 : _a2.tagName) === "IFRAME" && !(el2 == null ? void 0 : el2.contains(window2.document.activeElement)))
+        handler(event);
+    })
+  ].filter(Boolean);
+  const stop = () => cleanup.forEach((fn2) => fn2());
+  return stop;
+}
+function useActiveElement(options = {}) {
+  var _a2;
+  const { window: window2 = defaultWindow } = options;
+  const document2 = (_a2 = options.document) != null ? _a2 : window2 == null ? void 0 : window2.document;
+  const activeElement = computedWithControl(() => null, () => document2 == null ? void 0 : document2.activeElement);
+  if (window2) {
+    useEventListener(window2, "blur", (event) => {
+      if (event.relatedTarget !== null)
+        return;
+      activeElement.trigger();
+    }, true);
+    useEventListener(window2, "focus", activeElement.trigger, true);
+  }
+  return activeElement;
+}
+function useSupported(callback, sync = false) {
+  const isSupported2 = ref();
+  const update2 = () => isSupported2.value = Boolean(callback());
+  update2();
+  tryOnMounted(update2, sync);
+  return isSupported2;
+}
+function useMediaQuery(query, options = {}) {
+  const { window: window2 = defaultWindow } = options;
+  const isSupported2 = useSupported(() => window2 && "matchMedia" in window2 && typeof window2.matchMedia === "function");
+  let mediaQuery;
+  const matches2 = ref(false);
+  const cleanup = () => {
+    if (!mediaQuery)
+      return;
+    if ("removeEventListener" in mediaQuery)
+      mediaQuery.removeEventListener("change", update2);
+    else
+      mediaQuery.removeListener(update2);
+  };
+  const update2 = () => {
+    if (!isSupported2.value)
+      return;
+    cleanup();
+    mediaQuery = window2.matchMedia(resolveRef(query).value);
+    matches2.value = mediaQuery.matches;
+    if ("addEventListener" in mediaQuery)
+      mediaQuery.addEventListener("change", update2);
+    else
+      mediaQuery.addListener(update2);
+  };
+  watchEffect(update2);
+  tryOnScopeDispose(() => cleanup());
+  return matches2;
+}
+function useClipboard(options = {}) {
+  const {
+    navigator: navigator2 = defaultNavigator,
+    read: read2 = false,
+    source,
+    copiedDuring = 1500,
+    legacy = false
+  } = options;
+  const events = ["copy", "cut"];
+  const isClipboardApiSupported = useSupported(() => navigator2 && "clipboard" in navigator2);
+  const isSupported2 = computed(() => isClipboardApiSupported.value || legacy);
+  const text2 = ref("");
+  const copied = ref(false);
+  const timeout = useTimeoutFn(() => copied.value = false, copiedDuring);
+  function updateText() {
+    if (isClipboardApiSupported.value) {
+      navigator2.clipboard.readText().then((value) => {
+        text2.value = value;
+      });
+    } else {
+      text2.value = legacyRead();
+    }
+  }
+  if (isSupported2.value && read2) {
+    for (const event of events)
+      useEventListener(event, updateText);
+  }
+  async function copy(value = resolveUnref(source)) {
+    if (isSupported2.value && value != null) {
+      if (isClipboardApiSupported.value)
+        await navigator2.clipboard.writeText(value);
+      else
+        legacyCopy(value);
+      text2.value = value;
+      copied.value = true;
+      timeout.start();
+    }
+  }
+  function legacyCopy(value) {
+    const ta2 = document.createElement("textarea");
+    ta2.value = value != null ? value : "";
+    ta2.style.position = "absolute";
+    ta2.style.opacity = "0";
+    document.body.appendChild(ta2);
+    ta2.select();
+    document.execCommand("copy");
+    ta2.remove();
+  }
+  function legacyRead() {
+    var _a2, _b, _c2;
+    return (_c2 = (_b = (_a2 = document == null ? void 0 : document.getSelection) == null ? void 0 : _a2.call(document)) == null ? void 0 : _b.toString()) != null ? _c2 : "";
+  }
+  return {
+    isSupported: isSupported2,
+    text: text2,
+    copied,
+    copy
+  };
+}
+const _global = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+const globalKey = "__vueuse_ssr_handlers__";
+_global[globalKey] = _global[globalKey] || {};
+const handlers = _global[globalKey];
+function getSSRHandler(key, fallback) {
+  return handlers[key] || fallback;
+}
+function guessSerializerType(rawInit) {
+  return rawInit == null ? "any" : rawInit instanceof Set ? "set" : rawInit instanceof Map ? "map" : rawInit instanceof Date ? "date" : typeof rawInit === "boolean" ? "boolean" : typeof rawInit === "string" ? "string" : typeof rawInit === "object" ? "object" : !Number.isNaN(rawInit) ? "number" : "any";
+}
+var __defProp$j = Object.defineProperty;
+var __getOwnPropSymbols$l = Object.getOwnPropertySymbols;
+var __hasOwnProp$l = Object.prototype.hasOwnProperty;
+var __propIsEnum$l = Object.prototype.propertyIsEnumerable;
+var __defNormalProp$j = (obj, key, value) => key in obj ? __defProp$j(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues$j = (a2, b3) => {
+  for (var prop in b3 || (b3 = {}))
+    if (__hasOwnProp$l.call(b3, prop))
+      __defNormalProp$j(a2, prop, b3[prop]);
+  if (__getOwnPropSymbols$l)
+    for (var prop of __getOwnPropSymbols$l(b3)) {
+      if (__propIsEnum$l.call(b3, prop))
+        __defNormalProp$j(a2, prop, b3[prop]);
+    }
+  return a2;
+};
+const StorageSerializers = {
+  boolean: {
+    read: (v2) => v2 === "true",
+    write: (v2) => String(v2)
+  },
+  object: {
+    read: (v2) => JSON.parse(v2),
+    write: (v2) => JSON.stringify(v2)
+  },
+  number: {
+    read: (v2) => Number.parseFloat(v2),
+    write: (v2) => String(v2)
+  },
+  any: {
+    read: (v2) => v2,
+    write: (v2) => String(v2)
+  },
+  string: {
+    read: (v2) => v2,
+    write: (v2) => String(v2)
+  },
+  map: {
+    read: (v2) => new Map(JSON.parse(v2)),
+    write: (v2) => JSON.stringify(Array.from(v2.entries()))
+  },
+  set: {
+    read: (v2) => new Set(JSON.parse(v2)),
+    write: (v2) => JSON.stringify(Array.from(v2))
+  },
+  date: {
+    read: (v2) => new Date(v2),
+    write: (v2) => v2.toISOString()
+  }
+};
+function useStorage(key, defaults2, storage2, options = {}) {
+  var _a2;
+  const {
+    flush: flush2 = "pre",
+    deep = true,
+    listenToStorageChanges = true,
+    writeDefaults = true,
+    mergeDefaults = false,
+    shallow,
+    window: window2 = defaultWindow,
+    eventFilter,
+    onError = (e2) => {
+      console.error(e2);
+    }
+  } = options;
+  const data = (shallow ? shallowRef : ref)(defaults2);
+  if (!storage2) {
+    try {
+      storage2 = getSSRHandler("getDefaultStorage", () => {
+        var _a22;
+        return (_a22 = defaultWindow) == null ? void 0 : _a22.localStorage;
+      })();
+    } catch (e2) {
+      onError(e2);
+    }
+  }
+  if (!storage2)
+    return data;
+  const rawInit = resolveUnref(defaults2);
+  const type = guessSerializerType(rawInit);
+  const serializer = (_a2 = options.serializer) != null ? _a2 : StorageSerializers[type];
+  const { pause: pauseWatch, resume: resumeWatch } = watchPausable(data, () => write(data.value), { flush: flush2, deep, eventFilter });
+  if (window2 && listenToStorageChanges)
+    useEventListener(window2, "storage", update2);
+  update2();
+  return data;
+  function write(v2) {
+    try {
+      if (v2 == null) {
+        storage2.removeItem(key);
+      } else {
+        const serialized = serializer.write(v2);
+        const oldValue = storage2.getItem(key);
+        if (oldValue !== serialized) {
+          storage2.setItem(key, serialized);
+          if (window2) {
+            window2 == null ? void 0 : window2.dispatchEvent(new StorageEvent("storage", {
+              key,
+              oldValue,
+              newValue: serialized,
+              storageArea: storage2
+            }));
+          }
+        }
+      }
+    } catch (e2) {
+      onError(e2);
+    }
+  }
+  function read2(event) {
+    const rawValue = event ? event.newValue : storage2.getItem(key);
+    if (rawValue == null) {
+      if (writeDefaults && rawInit !== null)
+        storage2.setItem(key, serializer.write(rawInit));
+      return rawInit;
+    } else if (!event && mergeDefaults) {
+      const value = serializer.read(rawValue);
+      if (isFunction(mergeDefaults))
+        return mergeDefaults(value, rawInit);
+      else if (type === "object" && !Array.isArray(value))
+        return __spreadValues$j(__spreadValues$j({}, rawInit), value);
+      return value;
+    } else if (typeof rawValue !== "string") {
+      return rawValue;
+    } else {
+      return serializer.read(rawValue);
+    }
+  }
+  function update2(event) {
+    if (event && event.storageArea !== storage2)
+      return;
+    if (event && event.key == null) {
+      data.value = rawInit;
+      return;
+    }
+    if (event && event.key !== key)
+      return;
+    pauseWatch();
+    try {
+      data.value = read2(event);
+    } catch (e2) {
+      onError(e2);
+    } finally {
+      if (event)
+        nextTick(resumeWatch);
+      else
+        resumeWatch();
+    }
+  }
+}
+function usePreferredDark(options) {
+  return useMediaQuery("(prefers-color-scheme: dark)", options);
+}
+var __defProp$i = Object.defineProperty;
+var __getOwnPropSymbols$k = Object.getOwnPropertySymbols;
+var __hasOwnProp$k = Object.prototype.hasOwnProperty;
+var __propIsEnum$k = Object.prototype.propertyIsEnumerable;
+var __defNormalProp$i = (obj, key, value) => key in obj ? __defProp$i(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues$i = (a2, b3) => {
+  for (var prop in b3 || (b3 = {}))
+    if (__hasOwnProp$k.call(b3, prop))
+      __defNormalProp$i(a2, prop, b3[prop]);
+  if (__getOwnPropSymbols$k)
+    for (var prop of __getOwnPropSymbols$k(b3)) {
+      if (__propIsEnum$k.call(b3, prop))
+        __defNormalProp$i(a2, prop, b3[prop]);
+    }
+  return a2;
+};
+function useColorMode(options = {}) {
+  const {
+    selector = "html",
+    attribute = "class",
+    initialValue = "auto",
+    window: window2 = defaultWindow,
+    storage: storage2,
+    storageKey = "vueuse-color-scheme",
+    listenToStorageChanges = true,
+    storageRef,
+    emitAuto
+  } = options;
+  const modes = __spreadValues$i({
+    auto: "",
+    light: "light",
+    dark: "dark"
+  }, options.modes || {});
+  const preferredDark = usePreferredDark({ window: window2 });
+  const preferredMode = computed(() => preferredDark.value ? "dark" : "light");
+  const store = storageRef || (storageKey == null ? ref(initialValue) : useStorage(storageKey, initialValue, storage2, { window: window2, listenToStorageChanges }));
+  const state = computed({
+    get() {
+      return store.value === "auto" && !emitAuto ? preferredMode.value : store.value;
+    },
+    set(v2) {
+      store.value = v2;
+    }
+  });
+  const updateHTMLAttrs = getSSRHandler("updateHTMLAttrs", (selector2, attribute2, value) => {
+    const el2 = window2 == null ? void 0 : window2.document.querySelector(selector2);
+    if (!el2)
+      return;
+    if (attribute2 === "class") {
+      const current = value.split(/\s/g);
+      Object.values(modes).flatMap((i2) => (i2 || "").split(/\s/g)).filter(Boolean).forEach((v2) => {
+        if (current.includes(v2))
+          el2.classList.add(v2);
+        else
+          el2.classList.remove(v2);
+      });
+    } else {
+      el2.setAttribute(attribute2, value);
+    }
+  });
+  function defaultOnChanged(mode) {
+    var _a2;
+    const resolvedMode = mode === "auto" ? preferredMode.value : mode;
+    updateHTMLAttrs(selector, attribute, (_a2 = modes[resolvedMode]) != null ? _a2 : resolvedMode);
+  }
+  function onChanged(mode) {
+    if (options.onChanged)
+      options.onChanged(mode, defaultOnChanged);
+    else
+      defaultOnChanged(mode);
+  }
+  watch(state, onChanged, { flush: "post", immediate: true });
+  if (emitAuto)
+    watch(preferredMode, () => onChanged(state.value), { flush: "post" });
+  tryOnMounted(() => onChanged(state.value));
+  return state;
+}
+var __defProp$h = Object.defineProperty;
+var __defProps$7 = Object.defineProperties;
+var __getOwnPropDescs$7 = Object.getOwnPropertyDescriptors;
+var __getOwnPropSymbols$j = Object.getOwnPropertySymbols;
+var __hasOwnProp$j = Object.prototype.hasOwnProperty;
+var __propIsEnum$j = Object.prototype.propertyIsEnumerable;
+var __defNormalProp$h = (obj, key, value) => key in obj ? __defProp$h(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues$h = (a2, b3) => {
+  for (var prop in b3 || (b3 = {}))
+    if (__hasOwnProp$j.call(b3, prop))
+      __defNormalProp$h(a2, prop, b3[prop]);
+  if (__getOwnPropSymbols$j)
+    for (var prop of __getOwnPropSymbols$j(b3)) {
+      if (__propIsEnum$j.call(b3, prop))
+        __defNormalProp$h(a2, prop, b3[prop]);
+    }
+  return a2;
+};
+var __spreadProps$7 = (a2, b3) => __defProps$7(a2, __getOwnPropDescs$7(b3));
+function useDark(options = {}) {
+  const {
+    valueDark = "dark",
+    valueLight = "",
+    window: window2 = defaultWindow
+  } = options;
+  const mode = useColorMode(__spreadProps$7(__spreadValues$h({}, options), {
+    onChanged: (mode2, defaultHandler) => {
+      var _a2;
+      if (options.onChanged)
+        (_a2 = options.onChanged) == null ? void 0 : _a2.call(options, mode2 === "dark");
+      else
+        defaultHandler(mode2);
+    },
+    modes: {
+      dark: valueDark,
+      light: valueLight
+    }
+  }));
+  const preferredDark = usePreferredDark({ window: window2 });
+  const isDark2 = computed({
+    get() {
+      return mode.value === "dark";
+    },
+    set(v2) {
+      if (v2 === preferredDark.value)
+        mode.value = "auto";
+      else
+        mode.value = v2 ? "dark" : "light";
+    }
+  });
+  return isDark2;
+}
+var __getOwnPropSymbols$f = Object.getOwnPropertySymbols;
+var __hasOwnProp$f = Object.prototype.hasOwnProperty;
+var __propIsEnum$f = Object.prototype.propertyIsEnumerable;
+var __objRest$2 = (source, exclude) => {
+  var target = {};
+  for (var prop in source)
+    if (__hasOwnProp$f.call(source, prop) && exclude.indexOf(prop) < 0)
+      target[prop] = source[prop];
+  if (source != null && __getOwnPropSymbols$f)
+    for (var prop of __getOwnPropSymbols$f(source)) {
+      if (exclude.indexOf(prop) < 0 && __propIsEnum$f.call(source, prop))
+        target[prop] = source[prop];
+    }
+  return target;
+};
+function useResizeObserver(target, callback, options = {}) {
+  const _a2 = options, { window: window2 = defaultWindow } = _a2, observerOptions = __objRest$2(_a2, ["window"]);
+  let observer;
+  const isSupported2 = useSupported(() => window2 && "ResizeObserver" in window2);
+  const cleanup = () => {
+    if (observer) {
+      observer.disconnect();
+      observer = void 0;
+    }
+  };
+  const stopWatch = watch(() => unrefElement(target), (el2) => {
+    cleanup();
+    if (isSupported2.value && window2 && el2) {
+      observer = new ResizeObserver(callback);
+      observer.observe(el2, observerOptions);
+    }
+  }, { immediate: true, flush: "post" });
+  const stop = () => {
+    cleanup();
+    stopWatch();
+  };
+  tryOnScopeDispose(stop);
+  return {
+    isSupported: isSupported2,
+    stop
+  };
+}
+function useFocus(target, options = {}) {
+  const { initialValue = false } = options;
+  const activeElement = useActiveElement(options);
+  const targetElement = computed(() => unrefElement(target));
+  const focused = computed({
+    get() {
+      return isDef(activeElement.value) && isDef(targetElement.value) && activeElement.value === targetElement.value;
+    },
+    set(value) {
+      var _a2, _b;
+      if (!value && focused.value)
+        (_a2 = targetElement.value) == null ? void 0 : _a2.blur();
+      if (value && !focused.value)
+        (_b = targetElement.value) == null ? void 0 : _b.focus();
+    }
+  });
+  watch(targetElement, () => {
+    focused.value = initialValue;
+  }, { immediate: true, flush: "post" });
+  return { focused };
+}
+var __getOwnPropSymbols$7 = Object.getOwnPropertySymbols;
+var __hasOwnProp$7 = Object.prototype.hasOwnProperty;
+var __propIsEnum$7 = Object.prototype.propertyIsEnumerable;
+var __objRest$1 = (source, exclude) => {
+  var target = {};
+  for (var prop in source)
+    if (__hasOwnProp$7.call(source, prop) && exclude.indexOf(prop) < 0)
+      target[prop] = source[prop];
+  if (source != null && __getOwnPropSymbols$7)
+    for (var prop of __getOwnPropSymbols$7(source)) {
+      if (exclude.indexOf(prop) < 0 && __propIsEnum$7.call(source, prop))
+        target[prop] = source[prop];
+    }
+  return target;
+};
+function useMutationObserver(target, callback, options = {}) {
+  const _a2 = options, { window: window2 = defaultWindow } = _a2, mutationOptions = __objRest$1(_a2, ["window"]);
+  let observer;
+  const isSupported2 = useSupported(() => window2 && "MutationObserver" in window2);
+  const cleanup = () => {
+    if (observer) {
+      observer.disconnect();
+      observer = void 0;
+    }
+  };
+  const stopWatch = watch(() => unrefElement(target), (el2) => {
+    cleanup();
+    if (isSupported2.value && window2 && el2) {
+      observer = new MutationObserver(callback);
+      observer.observe(el2, mutationOptions);
+    }
+  }, { immediate: true });
+  const stop = () => {
+    cleanup();
+    stopWatch();
+  };
+  tryOnScopeDispose(stop);
+  return {
+    isSupported: isSupported2,
+    stop
+  };
+}
+var SwipeDirection;
+(function(SwipeDirection2) {
+  SwipeDirection2["UP"] = "UP";
+  SwipeDirection2["RIGHT"] = "RIGHT";
+  SwipeDirection2["DOWN"] = "DOWN";
+  SwipeDirection2["LEFT"] = "LEFT";
+  SwipeDirection2["NONE"] = "NONE";
+})(SwipeDirection || (SwipeDirection = {}));
+function useTitle(newTitle = null, options = {}) {
+  var _a2, _b;
+  const {
+    document: document2 = defaultDocument
+  } = options;
+  const title = resolveRef((_a2 = newTitle != null ? newTitle : document2 == null ? void 0 : document2.title) != null ? _a2 : null);
+  const isReadonly2 = newTitle && isFunction(newTitle);
+  function format(t2) {
+    if (!("titleTemplate" in options))
+      return t2;
+    const template = options.titleTemplate || "%s";
+    return isFunction(template) ? template(t2) : unref(template).replace(/%s/g, t2);
+  }
+  watch(title, (t2, o) => {
+    if (t2 !== o && document2)
+      document2.title = format(isString(t2) ? t2 : "");
+  }, { immediate: true });
+  if (options.observe && !options.titleTemplate && document2 && !isReadonly2) {
+    useMutationObserver((_b = document2.head) == null ? void 0 : _b.querySelector("title"), () => {
+      if (document2 && document2.title !== title.value)
+        title.value = format(document2.title);
+    }, { childList: true });
+  }
+  return title;
+}
+var __defProp = Object.defineProperty;
+var __getOwnPropSymbols = Object.getOwnPropertySymbols;
+var __hasOwnProp = Object.prototype.hasOwnProperty;
+var __propIsEnum = Object.prototype.propertyIsEnumerable;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __spreadValues = (a2, b3) => {
+  for (var prop in b3 || (b3 = {}))
+    if (__hasOwnProp.call(b3, prop))
+      __defNormalProp(a2, prop, b3[prop]);
+  if (__getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(b3)) {
+      if (__propIsEnum.call(b3, prop))
+        __defNormalProp(a2, prop, b3[prop]);
+    }
+  return a2;
+};
+const _TransitionPresets = {
+  easeInSine: [0.12, 0, 0.39, 0],
+  easeOutSine: [0.61, 1, 0.88, 1],
+  easeInOutSine: [0.37, 0, 0.63, 1],
+  easeInQuad: [0.11, 0, 0.5, 0],
+  easeOutQuad: [0.5, 1, 0.89, 1],
+  easeInOutQuad: [0.45, 0, 0.55, 1],
+  easeInCubic: [0.32, 0, 0.67, 0],
+  easeOutCubic: [0.33, 1, 0.68, 1],
+  easeInOutCubic: [0.65, 0, 0.35, 1],
+  easeInQuart: [0.5, 0, 0.75, 0],
+  easeOutQuart: [0.25, 1, 0.5, 1],
+  easeInOutQuart: [0.76, 0, 0.24, 1],
+  easeInQuint: [0.64, 0, 0.78, 0],
+  easeOutQuint: [0.22, 1, 0.36, 1],
+  easeInOutQuint: [0.83, 0, 0.17, 1],
+  easeInExpo: [0.7, 0, 0.84, 0],
+  easeOutExpo: [0.16, 1, 0.3, 1],
+  easeInOutExpo: [0.87, 0, 0.13, 1],
+  easeInCirc: [0.55, 0, 1, 0.45],
+  easeOutCirc: [0, 0.55, 0.45, 1],
+  easeInOutCirc: [0.85, 0, 0.15, 1],
+  easeInBack: [0.36, 0, 0.66, -0.56],
+  easeOutBack: [0.34, 1.56, 0.64, 1],
+  easeInOutBack: [0.68, -0.6, 0.32, 1.6]
+};
+__spreadValues({
+  linear: identity
+}, _TransitionPresets);
+const Logo_square = "/svelte-component-library/assets/histoire-svelte-e093dabf.svg";
+const Logo_light = "/svelte-component-library/img/logo-black.svg";
+const Logo_dark = "/svelte-component-library/img/logo-white.svg";
+const config$1 = { "plugins": [{ "name": "builtin:tailwind-tokens" }, { "name": "builtin:vanilla-support", "supportPlugin": { "id": "vanilla", "moduleName": "/home/runner/work/svelte-component-library/svelte-component-library/node_modules/histoire/dist/node/builtin-plugins/vanilla-support", "setupFn": "setupVanilla" } }, { "name": "@histoire/plugin-svelte", "supportPlugin": { "id": "svelte3", "moduleName": "@histoire/plugin-svelte", "setupFn": "setupSvelte3" }, "commands": [{ "id": "histoire:plugin-svelte:generate-story", "label": "Generate Svelte 3 story from component", "icon": "https://svelte.dev/favicon.png", "searchText": "generate create", "clientSetupFile": "@histoire/plugin-svelte/dist/commands/generate-story.client.js" }] }], "outDir": "/home/runner/work/svelte-component-library/svelte-component-library/.histoire/dist", "storyMatch": ["**/*.story.vue", "**/*.story.svelte"], "storyIgnored": ["**/node_modules/**", "**/dist/**"], "supportMatch": [{ "id": "vanilla", "patterns": ["**/*.js"], "pluginIds": ["vanilla"] }, { "id": "svelte", "patterns": ["**/*.svelte"], "pluginIds": ["svelte3"] }], "tree": { "file": "title", "order": "asc" }, "theme": { "title": "Mikha's Components", "colors": { "primary": { "50": "#ecfeff", "100": "#cffafe", "200": "#a5f3fc", "300": "#67e8f9", "400": "#22d3ee", "500": "#06b6d4", "600": "#0891b2", "700": "#0e7490", "800": "#155e75", "900": "#164e63" }, "gray": { "50": "#fafafa", "100": "#f4f4f5", "200": "#e4e4e7", "300": "#d4d4d8", "400": "#a1a1aa", "500": "#71717a", "600": "#52525b", "700": "#3f3f46", "750": "#323238", "800": "#27272a", "850": "#1f1f21", "900": "#18181b", "950": "#101012" } }, "defaultColorScheme": "auto", "storeColorScheme": true, "darkClass": "dark", "logo": { "square": "@histoire/plugin-svelte/assets/histoire-svelte.svg", "light": "/img/logo-black.svg", "dark": "/img/logo-white.svg" }, "favicon": "/img/favicon.svg", "logoHref": "https://github.com/MikhaD" }, "responsivePresets": [{ "label": "Mobile (Small)", "width": 320, "height": 560 }, { "label": "Mobile (Medium)", "width": 360, "height": 640 }, { "label": "Mobile (Large)", "width": 414, "height": 896 }, { "label": "Tablet", "width": 768, "height": 1024 }, { "label": "Laptop (Small)", "width": 1024, "height": null }, { "label": "Laptop (Large)", "width": 1366, "height": null }, { "label": "Desktop", "width": 1920, "height": null }, { "label": "4K", "width": 3840, "height": null }], "backgroundPresets": [{ "label": "Transparent", "color": "transparent", "contrastColor": "#333" }, { "label": "White", "color": "#fff", "contrastColor": "#333" }, { "label": "Light gray", "color": "#aaa", "contrastColor": "#000" }, { "label": "Dark gray", "color": "#333", "contrastColor": "#fff" }, { "label": "Black", "color": "#000", "contrastColor": "#eee" }], "sandboxDarkClass": "dark", "routerMode": "history", "build": { "excludeFromVendorsChunk": [] }, "viteIgnorePlugins": ["vite-plugin-sveltekit-compile"], "setupFile": "/src/histoire.setup.ts" };
+const logos = { square: Logo_square, light: Logo_light, dark: Logo_dark };
+const histoireConfig = config$1;
+const customLogos = logos;
+const isDark = useDark({
+  valueDark: "htw-dark",
+  initialValue: histoireConfig.theme.defaultColorScheme,
+  storageKey: "histoire-color-scheme",
+  storage: histoireConfig.theme.storeColorScheme ? localStorage : sessionStorage
+});
+const toggleDark = useToggle(isDark);
+function applyDarkToControls() {
+  var _a2;
+  (_a2 = window.__hst_controls_dark) == null ? void 0 : _a2.forEach((ref2) => {
+    ref2.value = isDark.value;
+  });
+}
+watch(isDark, () => {
+  applyDarkToControls();
+}, {
+  immediate: true
+});
+window.__hst_controls_dark_ready = () => {
+  applyDarkToControls();
+};
+const STATE_SYNC = "__histoire:state-sync";
+const SANDBOX_READY = "__histoire:sandbox-ready";
+const EVENT_SEND = "__histoire:event";
+const PREVIEW_SETTINGS_SYNC = "__histoire:preview-settings-sync";
 const matchName = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const iconDefaults = Object.freeze({
   left: 0,
@@ -14124,10 +15164,10 @@ if (typeof document !== "undefined" && typeof window !== "undefined") {
   loadCache();
   const _window2 = window;
   if (_window2.IconifyPreload !== void 0) {
-    const preload = _window2.IconifyPreload;
+    const preload2 = _window2.IconifyPreload;
     const err = "Invalid IconifyPreload syntax.";
-    if (typeof preload === "object" && preload !== null) {
-      (preload instanceof Array ? preload : [preload]).forEach((item) => {
+    if (typeof preload2 === "object" && preload2 !== null) {
+      (preload2 instanceof Array ? preload2 : [preload2]).forEach((item) => {
         try {
           if (
             // Check if item is an object and not null/array
@@ -14274,7 +15314,7 @@ function applyToParams(fn2, params) {
   }
   return newParams;
 }
-const noop$1 = () => {
+const noop = () => {
 };
 const isArray = Array.isArray;
 function warn(msg) {
@@ -15116,7 +16156,7 @@ function createRouterMatcher(routes, globalOptions) {
     }
     return originalMatcher ? () => {
       removeRoute(originalMatcher);
-    } : noop$1;
+    } : noop;
   }
   function removeRoute(matcherRef) {
     if (isRouteName(matcherRef)) {
@@ -15564,7 +16604,7 @@ function useLink(props) {
       return router[unref(props.replace) ? "replace" : "push"](
         unref(props.to)
         // avoid uncaught errors are they are logged anyway
-      ).catch(noop$1);
+      ).catch(noop);
     }
     return Promise.resolve();
   }
@@ -16513,7 +17553,7 @@ ${JSON.stringify(newTargetLocation, null, 2)}
       const toLocation = resolve2(to2);
       const shouldRedirect = handleRedirectRecord(toLocation);
       if (shouldRedirect) {
-        pushWithRedirect(assign(shouldRedirect, { replace: true }), toLocation).catch(noop$1);
+        pushWithRedirect(assign(shouldRedirect, { replace: true }), toLocation).catch(noop);
         return;
       }
       pendingLocation = toLocation;
@@ -16546,7 +17586,7 @@ ${JSON.stringify(newTargetLocation, null, 2)}
             ) && !info.delta && info.type === NavigationType.pop) {
               routerHistory.go(-1, false);
             }
-          }).catch(noop$1);
+          }).catch(noop);
           return Promise.reject();
         }
         if (info.delta) {
@@ -16578,7 +17618,7 @@ ${JSON.stringify(newTargetLocation, null, 2)}
           }
         }
         triggerAfterEach(toLocation, from, failure);
-      }).catch(noop$1);
+      }).catch(noop);
     });
   }
   let readyHandlers = useCallbacks();
@@ -16822,960 +17862,6 @@ function scrollIntoView(target, options) {
   var computeOptions = getOptions(options);
   return defaultBehavior(i(target, computeOptions), computeOptions.behavior);
 }
-var _a$1;
-const isClient = typeof window !== "undefined";
-const isDef = (val) => typeof val !== "undefined";
-const isFunction = (val) => typeof val === "function";
-const isString = (val) => typeof val === "string";
-const noop = () => {
-};
-isClient && ((_a$1 = window == null ? void 0 : window.navigator) == null ? void 0 : _a$1.userAgent) && /iP(ad|hone|od)/.test(window.navigator.userAgent);
-function resolveUnref(r2) {
-  return typeof r2 === "function" ? r2() : unref(r2);
-}
-function createFilterWrapper(filter, fn2) {
-  function wrapper(...args) {
-    return new Promise((resolve2, reject) => {
-      Promise.resolve(filter(() => fn2.apply(this, args), { fn: fn2, thisArg: this, args })).then(resolve2).catch(reject);
-    });
-  }
-  return wrapper;
-}
-const bypassFilter = (invoke) => {
-  return invoke();
-};
-function debounceFilter(ms2, options = {}) {
-  let timer;
-  let maxTimer;
-  let lastRejector = noop;
-  const _clearTimeout = (timer2) => {
-    clearTimeout(timer2);
-    lastRejector();
-    lastRejector = noop;
-  };
-  const filter = (invoke) => {
-    const duration = resolveUnref(ms2);
-    const maxDuration = resolveUnref(options.maxWait);
-    if (timer)
-      _clearTimeout(timer);
-    if (duration <= 0 || maxDuration !== void 0 && maxDuration <= 0) {
-      if (maxTimer) {
-        _clearTimeout(maxTimer);
-        maxTimer = null;
-      }
-      return Promise.resolve(invoke());
-    }
-    return new Promise((resolve2, reject) => {
-      lastRejector = options.rejectOnCancel ? reject : resolve2;
-      if (maxDuration && !maxTimer) {
-        maxTimer = setTimeout(() => {
-          if (timer)
-            _clearTimeout(timer);
-          maxTimer = null;
-          resolve2(invoke());
-        }, maxDuration);
-      }
-      timer = setTimeout(() => {
-        if (maxTimer)
-          _clearTimeout(maxTimer);
-        maxTimer = null;
-        resolve2(invoke());
-      }, duration);
-    });
-  };
-  return filter;
-}
-function pausableFilter(extendFilter = bypassFilter) {
-  const isActive = ref(true);
-  function pause() {
-    isActive.value = false;
-  }
-  function resume() {
-    isActive.value = true;
-  }
-  const eventFilter = (...args) => {
-    if (isActive.value)
-      extendFilter(...args);
-  };
-  return { isActive: readonly(isActive), pause, resume, eventFilter };
-}
-function identity(arg) {
-  return arg;
-}
-function computedWithControl(source, fn2) {
-  let v2 = void 0;
-  let track2;
-  let trigger2;
-  const dirty = ref(true);
-  const update2 = () => {
-    dirty.value = true;
-    trigger2();
-  };
-  watch(source, update2, { flush: "sync" });
-  const get2 = isFunction(fn2) ? fn2 : fn2.get;
-  const set2 = isFunction(fn2) ? void 0 : fn2.set;
-  const result = customRef((_track, _trigger) => {
-    track2 = _track;
-    trigger2 = _trigger;
-    return {
-      get() {
-        if (dirty.value) {
-          v2 = get2();
-          dirty.value = false;
-        }
-        track2();
-        return v2;
-      },
-      set(v22) {
-        set2 == null ? void 0 : set2(v22);
-      }
-    };
-  });
-  if (Object.isExtensible(result))
-    result.trigger = update2;
-  return result;
-}
-function tryOnScopeDispose(fn2) {
-  if (getCurrentScope()) {
-    onScopeDispose(fn2);
-    return true;
-  }
-  return false;
-}
-function useDebounceFn(fn2, ms2 = 200, options = {}) {
-  return createFilterWrapper(debounceFilter(ms2, options), fn2);
-}
-function refDebounced(value, ms2 = 200, options = {}) {
-  const debounced = ref(value.value);
-  const updater = useDebounceFn(() => {
-    debounced.value = value.value;
-  }, ms2, options);
-  watch(value, () => updater());
-  return debounced;
-}
-function resolveRef(r2) {
-  return typeof r2 === "function" ? computed(r2) : ref(r2);
-}
-function tryOnMounted(fn2, sync = true) {
-  if (getCurrentInstance())
-    onMounted(fn2);
-  else if (sync)
-    fn2();
-  else
-    nextTick(fn2);
-}
-function useTimeoutFn(cb, interval, options = {}) {
-  const {
-    immediate = true
-  } = options;
-  const isPending = ref(false);
-  let timer = null;
-  function clear2() {
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
-    }
-  }
-  function stop() {
-    isPending.value = false;
-    clear2();
-  }
-  function start(...args) {
-    clear2();
-    isPending.value = true;
-    timer = setTimeout(() => {
-      isPending.value = false;
-      timer = null;
-      cb(...args);
-    }, resolveUnref(interval));
-  }
-  if (immediate) {
-    isPending.value = true;
-    if (isClient)
-      start();
-  }
-  tryOnScopeDispose(stop);
-  return {
-    isPending: readonly(isPending),
-    start,
-    stop
-  };
-}
-function useToggle(initialValue = false, options = {}) {
-  const {
-    truthyValue = true,
-    falsyValue = false
-  } = options;
-  const valueIsRef = isRef(initialValue);
-  const _value = ref(initialValue);
-  function toggle(value) {
-    if (arguments.length) {
-      _value.value = value;
-      return _value.value;
-    } else {
-      const truthy = resolveUnref(truthyValue);
-      _value.value = _value.value === truthy ? resolveUnref(falsyValue) : truthy;
-      return _value.value;
-    }
-  }
-  if (valueIsRef)
-    return toggle;
-  else
-    return [_value, toggle];
-}
-var __getOwnPropSymbols$6$1 = Object.getOwnPropertySymbols;
-var __hasOwnProp$6$1 = Object.prototype.hasOwnProperty;
-var __propIsEnum$6$1 = Object.prototype.propertyIsEnumerable;
-var __objRest$5 = (source, exclude) => {
-  var target = {};
-  for (var prop in source)
-    if (__hasOwnProp$6$1.call(source, prop) && exclude.indexOf(prop) < 0)
-      target[prop] = source[prop];
-  if (source != null && __getOwnPropSymbols$6$1)
-    for (var prop of __getOwnPropSymbols$6$1(source)) {
-      if (exclude.indexOf(prop) < 0 && __propIsEnum$6$1.call(source, prop))
-        target[prop] = source[prop];
-    }
-  return target;
-};
-function watchWithFilter(source, cb, options = {}) {
-  const _a2 = options, {
-    eventFilter = bypassFilter
-  } = _a2, watchOptions = __objRest$5(_a2, [
-    "eventFilter"
-  ]);
-  return watch(source, createFilterWrapper(eventFilter, cb), watchOptions);
-}
-var __defProp$2$1 = Object.defineProperty;
-var __defProps$2$1 = Object.defineProperties;
-var __getOwnPropDescs$2$1 = Object.getOwnPropertyDescriptors;
-var __getOwnPropSymbols$2$1 = Object.getOwnPropertySymbols;
-var __hasOwnProp$2$1 = Object.prototype.hasOwnProperty;
-var __propIsEnum$2$1 = Object.prototype.propertyIsEnumerable;
-var __defNormalProp$2$1 = (obj, key, value) => key in obj ? __defProp$2$1(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues$2$1 = (a2, b3) => {
-  for (var prop in b3 || (b3 = {}))
-    if (__hasOwnProp$2$1.call(b3, prop))
-      __defNormalProp$2$1(a2, prop, b3[prop]);
-  if (__getOwnPropSymbols$2$1)
-    for (var prop of __getOwnPropSymbols$2$1(b3)) {
-      if (__propIsEnum$2$1.call(b3, prop))
-        __defNormalProp$2$1(a2, prop, b3[prop]);
-    }
-  return a2;
-};
-var __spreadProps$2$1 = (a2, b3) => __defProps$2$1(a2, __getOwnPropDescs$2$1(b3));
-var __objRest$1$1 = (source, exclude) => {
-  var target = {};
-  for (var prop in source)
-    if (__hasOwnProp$2$1.call(source, prop) && exclude.indexOf(prop) < 0)
-      target[prop] = source[prop];
-  if (source != null && __getOwnPropSymbols$2$1)
-    for (var prop of __getOwnPropSymbols$2$1(source)) {
-      if (exclude.indexOf(prop) < 0 && __propIsEnum$2$1.call(source, prop))
-        target[prop] = source[prop];
-    }
-  return target;
-};
-function watchPausable(source, cb, options = {}) {
-  const _a2 = options, {
-    eventFilter: filter
-  } = _a2, watchOptions = __objRest$1$1(_a2, [
-    "eventFilter"
-  ]);
-  const { eventFilter, pause, resume, isActive } = pausableFilter(filter);
-  const stop = watchWithFilter(source, cb, __spreadProps$2$1(__spreadValues$2$1({}, watchOptions), {
-    eventFilter
-  }));
-  return { stop, pause, resume, isActive };
-}
-function unrefElement(elRef) {
-  var _a2;
-  const plain = resolveUnref(elRef);
-  return (_a2 = plain == null ? void 0 : plain.$el) != null ? _a2 : plain;
-}
-const defaultWindow = isClient ? window : void 0;
-const defaultDocument = isClient ? window.document : void 0;
-const defaultNavigator = isClient ? window.navigator : void 0;
-function useEventListener(...args) {
-  let target;
-  let events;
-  let listeners;
-  let options;
-  if (isString(args[0]) || Array.isArray(args[0])) {
-    [events, listeners, options] = args;
-    target = defaultWindow;
-  } else {
-    [target, events, listeners, options] = args;
-  }
-  if (!target)
-    return noop;
-  if (!Array.isArray(events))
-    events = [events];
-  if (!Array.isArray(listeners))
-    listeners = [listeners];
-  const cleanups = [];
-  const cleanup = () => {
-    cleanups.forEach((fn2) => fn2());
-    cleanups.length = 0;
-  };
-  const register = (el2, event, listener) => {
-    el2.addEventListener(event, listener, options);
-    return () => el2.removeEventListener(event, listener, options);
-  };
-  const stopWatch = watch(() => unrefElement(target), (el2) => {
-    cleanup();
-    if (!el2)
-      return;
-    cleanups.push(...events.flatMap((event) => {
-      return listeners.map((listener) => register(el2, event, listener));
-    }));
-  }, { immediate: true, flush: "post" });
-  const stop = () => {
-    stopWatch();
-    cleanup();
-  };
-  tryOnScopeDispose(stop);
-  return stop;
-}
-function onClickOutside(target, handler, options = {}) {
-  const { window: window2 = defaultWindow, ignore = [], capture = true, detectIframe = false } = options;
-  if (!window2)
-    return;
-  let shouldListen = true;
-  let fallback;
-  const shouldIgnore = (event) => {
-    return ignore.some((target2) => {
-      if (typeof target2 === "string") {
-        return Array.from(window2.document.querySelectorAll(target2)).some((el2) => el2 === event.target || event.composedPath().includes(el2));
-      } else {
-        const el2 = unrefElement(target2);
-        return el2 && (event.target === el2 || event.composedPath().includes(el2));
-      }
-    });
-  };
-  const listener = (event) => {
-    window2.clearTimeout(fallback);
-    const el2 = unrefElement(target);
-    if (!el2 || el2 === event.target || event.composedPath().includes(el2))
-      return;
-    if (event.detail === 0)
-      shouldListen = !shouldIgnore(event);
-    if (!shouldListen) {
-      shouldListen = true;
-      return;
-    }
-    handler(event);
-  };
-  const cleanup = [
-    useEventListener(window2, "click", listener, { passive: true, capture }),
-    useEventListener(window2, "pointerdown", (e2) => {
-      const el2 = unrefElement(target);
-      if (el2)
-        shouldListen = !e2.composedPath().includes(el2) && !shouldIgnore(e2);
-    }, { passive: true }),
-    useEventListener(window2, "pointerup", (e2) => {
-      if (e2.button === 0) {
-        const path = e2.composedPath();
-        e2.composedPath = () => path;
-        fallback = window2.setTimeout(() => listener(e2), 50);
-      }
-    }, { passive: true }),
-    detectIframe && useEventListener(window2, "blur", (event) => {
-      var _a2;
-      const el2 = unrefElement(target);
-      if (((_a2 = window2.document.activeElement) == null ? void 0 : _a2.tagName) === "IFRAME" && !(el2 == null ? void 0 : el2.contains(window2.document.activeElement)))
-        handler(event);
-    })
-  ].filter(Boolean);
-  const stop = () => cleanup.forEach((fn2) => fn2());
-  return stop;
-}
-function useActiveElement(options = {}) {
-  var _a2;
-  const { window: window2 = defaultWindow } = options;
-  const document2 = (_a2 = options.document) != null ? _a2 : window2 == null ? void 0 : window2.document;
-  const activeElement = computedWithControl(() => null, () => document2 == null ? void 0 : document2.activeElement);
-  if (window2) {
-    useEventListener(window2, "blur", (event) => {
-      if (event.relatedTarget !== null)
-        return;
-      activeElement.trigger();
-    }, true);
-    useEventListener(window2, "focus", activeElement.trigger, true);
-  }
-  return activeElement;
-}
-function useSupported(callback, sync = false) {
-  const isSupported2 = ref();
-  const update2 = () => isSupported2.value = Boolean(callback());
-  update2();
-  tryOnMounted(update2, sync);
-  return isSupported2;
-}
-function useMediaQuery(query, options = {}) {
-  const { window: window2 = defaultWindow } = options;
-  const isSupported2 = useSupported(() => window2 && "matchMedia" in window2 && typeof window2.matchMedia === "function");
-  let mediaQuery;
-  const matches2 = ref(false);
-  const cleanup = () => {
-    if (!mediaQuery)
-      return;
-    if ("removeEventListener" in mediaQuery)
-      mediaQuery.removeEventListener("change", update2);
-    else
-      mediaQuery.removeListener(update2);
-  };
-  const update2 = () => {
-    if (!isSupported2.value)
-      return;
-    cleanup();
-    mediaQuery = window2.matchMedia(resolveRef(query).value);
-    matches2.value = mediaQuery.matches;
-    if ("addEventListener" in mediaQuery)
-      mediaQuery.addEventListener("change", update2);
-    else
-      mediaQuery.addListener(update2);
-  };
-  watchEffect(update2);
-  tryOnScopeDispose(() => cleanup());
-  return matches2;
-}
-function useClipboard(options = {}) {
-  const {
-    navigator: navigator2 = defaultNavigator,
-    read: read2 = false,
-    source,
-    copiedDuring = 1500,
-    legacy = false
-  } = options;
-  const events = ["copy", "cut"];
-  const isClipboardApiSupported = useSupported(() => navigator2 && "clipboard" in navigator2);
-  const isSupported2 = computed(() => isClipboardApiSupported.value || legacy);
-  const text2 = ref("");
-  const copied = ref(false);
-  const timeout = useTimeoutFn(() => copied.value = false, copiedDuring);
-  function updateText() {
-    if (isClipboardApiSupported.value) {
-      navigator2.clipboard.readText().then((value) => {
-        text2.value = value;
-      });
-    } else {
-      text2.value = legacyRead();
-    }
-  }
-  if (isSupported2.value && read2) {
-    for (const event of events)
-      useEventListener(event, updateText);
-  }
-  async function copy(value = resolveUnref(source)) {
-    if (isSupported2.value && value != null) {
-      if (isClipboardApiSupported.value)
-        await navigator2.clipboard.writeText(value);
-      else
-        legacyCopy(value);
-      text2.value = value;
-      copied.value = true;
-      timeout.start();
-    }
-  }
-  function legacyCopy(value) {
-    const ta2 = document.createElement("textarea");
-    ta2.value = value != null ? value : "";
-    ta2.style.position = "absolute";
-    ta2.style.opacity = "0";
-    document.body.appendChild(ta2);
-    ta2.select();
-    document.execCommand("copy");
-    ta2.remove();
-  }
-  function legacyRead() {
-    var _a2, _b, _c2;
-    return (_c2 = (_b = (_a2 = document == null ? void 0 : document.getSelection) == null ? void 0 : _a2.call(document)) == null ? void 0 : _b.toString()) != null ? _c2 : "";
-  }
-  return {
-    isSupported: isSupported2,
-    text: text2,
-    copied,
-    copy
-  };
-}
-const _global = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-const globalKey = "__vueuse_ssr_handlers__";
-_global[globalKey] = _global[globalKey] || {};
-const handlers = _global[globalKey];
-function getSSRHandler(key, fallback) {
-  return handlers[key] || fallback;
-}
-function guessSerializerType(rawInit) {
-  return rawInit == null ? "any" : rawInit instanceof Set ? "set" : rawInit instanceof Map ? "map" : rawInit instanceof Date ? "date" : typeof rawInit === "boolean" ? "boolean" : typeof rawInit === "string" ? "string" : typeof rawInit === "object" ? "object" : !Number.isNaN(rawInit) ? "number" : "any";
-}
-var __defProp$j = Object.defineProperty;
-var __getOwnPropSymbols$l = Object.getOwnPropertySymbols;
-var __hasOwnProp$l = Object.prototype.hasOwnProperty;
-var __propIsEnum$l = Object.prototype.propertyIsEnumerable;
-var __defNormalProp$j = (obj, key, value) => key in obj ? __defProp$j(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues$j = (a2, b3) => {
-  for (var prop in b3 || (b3 = {}))
-    if (__hasOwnProp$l.call(b3, prop))
-      __defNormalProp$j(a2, prop, b3[prop]);
-  if (__getOwnPropSymbols$l)
-    for (var prop of __getOwnPropSymbols$l(b3)) {
-      if (__propIsEnum$l.call(b3, prop))
-        __defNormalProp$j(a2, prop, b3[prop]);
-    }
-  return a2;
-};
-const StorageSerializers = {
-  boolean: {
-    read: (v2) => v2 === "true",
-    write: (v2) => String(v2)
-  },
-  object: {
-    read: (v2) => JSON.parse(v2),
-    write: (v2) => JSON.stringify(v2)
-  },
-  number: {
-    read: (v2) => Number.parseFloat(v2),
-    write: (v2) => String(v2)
-  },
-  any: {
-    read: (v2) => v2,
-    write: (v2) => String(v2)
-  },
-  string: {
-    read: (v2) => v2,
-    write: (v2) => String(v2)
-  },
-  map: {
-    read: (v2) => new Map(JSON.parse(v2)),
-    write: (v2) => JSON.stringify(Array.from(v2.entries()))
-  },
-  set: {
-    read: (v2) => new Set(JSON.parse(v2)),
-    write: (v2) => JSON.stringify(Array.from(v2))
-  },
-  date: {
-    read: (v2) => new Date(v2),
-    write: (v2) => v2.toISOString()
-  }
-};
-function useStorage(key, defaults2, storage2, options = {}) {
-  var _a2;
-  const {
-    flush: flush2 = "pre",
-    deep = true,
-    listenToStorageChanges = true,
-    writeDefaults = true,
-    mergeDefaults = false,
-    shallow,
-    window: window2 = defaultWindow,
-    eventFilter,
-    onError = (e2) => {
-      console.error(e2);
-    }
-  } = options;
-  const data = (shallow ? shallowRef : ref)(defaults2);
-  if (!storage2) {
-    try {
-      storage2 = getSSRHandler("getDefaultStorage", () => {
-        var _a22;
-        return (_a22 = defaultWindow) == null ? void 0 : _a22.localStorage;
-      })();
-    } catch (e2) {
-      onError(e2);
-    }
-  }
-  if (!storage2)
-    return data;
-  const rawInit = resolveUnref(defaults2);
-  const type = guessSerializerType(rawInit);
-  const serializer = (_a2 = options.serializer) != null ? _a2 : StorageSerializers[type];
-  const { pause: pauseWatch, resume: resumeWatch } = watchPausable(data, () => write(data.value), { flush: flush2, deep, eventFilter });
-  if (window2 && listenToStorageChanges)
-    useEventListener(window2, "storage", update2);
-  update2();
-  return data;
-  function write(v2) {
-    try {
-      if (v2 == null) {
-        storage2.removeItem(key);
-      } else {
-        const serialized = serializer.write(v2);
-        const oldValue = storage2.getItem(key);
-        if (oldValue !== serialized) {
-          storage2.setItem(key, serialized);
-          if (window2) {
-            window2 == null ? void 0 : window2.dispatchEvent(new StorageEvent("storage", {
-              key,
-              oldValue,
-              newValue: serialized,
-              storageArea: storage2
-            }));
-          }
-        }
-      }
-    } catch (e2) {
-      onError(e2);
-    }
-  }
-  function read2(event) {
-    const rawValue = event ? event.newValue : storage2.getItem(key);
-    if (rawValue == null) {
-      if (writeDefaults && rawInit !== null)
-        storage2.setItem(key, serializer.write(rawInit));
-      return rawInit;
-    } else if (!event && mergeDefaults) {
-      const value = serializer.read(rawValue);
-      if (isFunction(mergeDefaults))
-        return mergeDefaults(value, rawInit);
-      else if (type === "object" && !Array.isArray(value))
-        return __spreadValues$j(__spreadValues$j({}, rawInit), value);
-      return value;
-    } else if (typeof rawValue !== "string") {
-      return rawValue;
-    } else {
-      return serializer.read(rawValue);
-    }
-  }
-  function update2(event) {
-    if (event && event.storageArea !== storage2)
-      return;
-    if (event && event.key == null) {
-      data.value = rawInit;
-      return;
-    }
-    if (event && event.key !== key)
-      return;
-    pauseWatch();
-    try {
-      data.value = read2(event);
-    } catch (e2) {
-      onError(e2);
-    } finally {
-      if (event)
-        nextTick(resumeWatch);
-      else
-        resumeWatch();
-    }
-  }
-}
-function usePreferredDark(options) {
-  return useMediaQuery("(prefers-color-scheme: dark)", options);
-}
-var __defProp$i = Object.defineProperty;
-var __getOwnPropSymbols$k = Object.getOwnPropertySymbols;
-var __hasOwnProp$k = Object.prototype.hasOwnProperty;
-var __propIsEnum$k = Object.prototype.propertyIsEnumerable;
-var __defNormalProp$i = (obj, key, value) => key in obj ? __defProp$i(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues$i = (a2, b3) => {
-  for (var prop in b3 || (b3 = {}))
-    if (__hasOwnProp$k.call(b3, prop))
-      __defNormalProp$i(a2, prop, b3[prop]);
-  if (__getOwnPropSymbols$k)
-    for (var prop of __getOwnPropSymbols$k(b3)) {
-      if (__propIsEnum$k.call(b3, prop))
-        __defNormalProp$i(a2, prop, b3[prop]);
-    }
-  return a2;
-};
-function useColorMode(options = {}) {
-  const {
-    selector = "html",
-    attribute = "class",
-    initialValue = "auto",
-    window: window2 = defaultWindow,
-    storage: storage2,
-    storageKey = "vueuse-color-scheme",
-    listenToStorageChanges = true,
-    storageRef,
-    emitAuto
-  } = options;
-  const modes = __spreadValues$i({
-    auto: "",
-    light: "light",
-    dark: "dark"
-  }, options.modes || {});
-  const preferredDark = usePreferredDark({ window: window2 });
-  const preferredMode = computed(() => preferredDark.value ? "dark" : "light");
-  const store = storageRef || (storageKey == null ? ref(initialValue) : useStorage(storageKey, initialValue, storage2, { window: window2, listenToStorageChanges }));
-  const state = computed({
-    get() {
-      return store.value === "auto" && !emitAuto ? preferredMode.value : store.value;
-    },
-    set(v2) {
-      store.value = v2;
-    }
-  });
-  const updateHTMLAttrs = getSSRHandler("updateHTMLAttrs", (selector2, attribute2, value) => {
-    const el2 = window2 == null ? void 0 : window2.document.querySelector(selector2);
-    if (!el2)
-      return;
-    if (attribute2 === "class") {
-      const current = value.split(/\s/g);
-      Object.values(modes).flatMap((i2) => (i2 || "").split(/\s/g)).filter(Boolean).forEach((v2) => {
-        if (current.includes(v2))
-          el2.classList.add(v2);
-        else
-          el2.classList.remove(v2);
-      });
-    } else {
-      el2.setAttribute(attribute2, value);
-    }
-  });
-  function defaultOnChanged(mode) {
-    var _a2;
-    const resolvedMode = mode === "auto" ? preferredMode.value : mode;
-    updateHTMLAttrs(selector, attribute, (_a2 = modes[resolvedMode]) != null ? _a2 : resolvedMode);
-  }
-  function onChanged(mode) {
-    if (options.onChanged)
-      options.onChanged(mode, defaultOnChanged);
-    else
-      defaultOnChanged(mode);
-  }
-  watch(state, onChanged, { flush: "post", immediate: true });
-  if (emitAuto)
-    watch(preferredMode, () => onChanged(state.value), { flush: "post" });
-  tryOnMounted(() => onChanged(state.value));
-  return state;
-}
-var __defProp$h = Object.defineProperty;
-var __defProps$7 = Object.defineProperties;
-var __getOwnPropDescs$7 = Object.getOwnPropertyDescriptors;
-var __getOwnPropSymbols$j = Object.getOwnPropertySymbols;
-var __hasOwnProp$j = Object.prototype.hasOwnProperty;
-var __propIsEnum$j = Object.prototype.propertyIsEnumerable;
-var __defNormalProp$h = (obj, key, value) => key in obj ? __defProp$h(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues$h = (a2, b3) => {
-  for (var prop in b3 || (b3 = {}))
-    if (__hasOwnProp$j.call(b3, prop))
-      __defNormalProp$h(a2, prop, b3[prop]);
-  if (__getOwnPropSymbols$j)
-    for (var prop of __getOwnPropSymbols$j(b3)) {
-      if (__propIsEnum$j.call(b3, prop))
-        __defNormalProp$h(a2, prop, b3[prop]);
-    }
-  return a2;
-};
-var __spreadProps$7 = (a2, b3) => __defProps$7(a2, __getOwnPropDescs$7(b3));
-function useDark(options = {}) {
-  const {
-    valueDark = "dark",
-    valueLight = "",
-    window: window2 = defaultWindow
-  } = options;
-  const mode = useColorMode(__spreadProps$7(__spreadValues$h({}, options), {
-    onChanged: (mode2, defaultHandler) => {
-      var _a2;
-      if (options.onChanged)
-        (_a2 = options.onChanged) == null ? void 0 : _a2.call(options, mode2 === "dark");
-      else
-        defaultHandler(mode2);
-    },
-    modes: {
-      dark: valueDark,
-      light: valueLight
-    }
-  }));
-  const preferredDark = usePreferredDark({ window: window2 });
-  const isDark = computed({
-    get() {
-      return mode.value === "dark";
-    },
-    set(v2) {
-      if (v2 === preferredDark.value)
-        mode.value = "auto";
-      else
-        mode.value = v2 ? "dark" : "light";
-    }
-  });
-  return isDark;
-}
-var __getOwnPropSymbols$f = Object.getOwnPropertySymbols;
-var __hasOwnProp$f = Object.prototype.hasOwnProperty;
-var __propIsEnum$f = Object.prototype.propertyIsEnumerable;
-var __objRest$2 = (source, exclude) => {
-  var target = {};
-  for (var prop in source)
-    if (__hasOwnProp$f.call(source, prop) && exclude.indexOf(prop) < 0)
-      target[prop] = source[prop];
-  if (source != null && __getOwnPropSymbols$f)
-    for (var prop of __getOwnPropSymbols$f(source)) {
-      if (exclude.indexOf(prop) < 0 && __propIsEnum$f.call(source, prop))
-        target[prop] = source[prop];
-    }
-  return target;
-};
-function useResizeObserver(target, callback, options = {}) {
-  const _a2 = options, { window: window2 = defaultWindow } = _a2, observerOptions = __objRest$2(_a2, ["window"]);
-  let observer;
-  const isSupported2 = useSupported(() => window2 && "ResizeObserver" in window2);
-  const cleanup = () => {
-    if (observer) {
-      observer.disconnect();
-      observer = void 0;
-    }
-  };
-  const stopWatch = watch(() => unrefElement(target), (el2) => {
-    cleanup();
-    if (isSupported2.value && window2 && el2) {
-      observer = new ResizeObserver(callback);
-      observer.observe(el2, observerOptions);
-    }
-  }, { immediate: true, flush: "post" });
-  const stop = () => {
-    cleanup();
-    stopWatch();
-  };
-  tryOnScopeDispose(stop);
-  return {
-    isSupported: isSupported2,
-    stop
-  };
-}
-function useFocus(target, options = {}) {
-  const { initialValue = false } = options;
-  const activeElement = useActiveElement(options);
-  const targetElement = computed(() => unrefElement(target));
-  const focused = computed({
-    get() {
-      return isDef(activeElement.value) && isDef(targetElement.value) && activeElement.value === targetElement.value;
-    },
-    set(value) {
-      var _a2, _b;
-      if (!value && focused.value)
-        (_a2 = targetElement.value) == null ? void 0 : _a2.blur();
-      if (value && !focused.value)
-        (_b = targetElement.value) == null ? void 0 : _b.focus();
-    }
-  });
-  watch(targetElement, () => {
-    focused.value = initialValue;
-  }, { immediate: true, flush: "post" });
-  return { focused };
-}
-var __getOwnPropSymbols$7 = Object.getOwnPropertySymbols;
-var __hasOwnProp$7 = Object.prototype.hasOwnProperty;
-var __propIsEnum$7 = Object.prototype.propertyIsEnumerable;
-var __objRest$1 = (source, exclude) => {
-  var target = {};
-  for (var prop in source)
-    if (__hasOwnProp$7.call(source, prop) && exclude.indexOf(prop) < 0)
-      target[prop] = source[prop];
-  if (source != null && __getOwnPropSymbols$7)
-    for (var prop of __getOwnPropSymbols$7(source)) {
-      if (exclude.indexOf(prop) < 0 && __propIsEnum$7.call(source, prop))
-        target[prop] = source[prop];
-    }
-  return target;
-};
-function useMutationObserver(target, callback, options = {}) {
-  const _a2 = options, { window: window2 = defaultWindow } = _a2, mutationOptions = __objRest$1(_a2, ["window"]);
-  let observer;
-  const isSupported2 = useSupported(() => window2 && "MutationObserver" in window2);
-  const cleanup = () => {
-    if (observer) {
-      observer.disconnect();
-      observer = void 0;
-    }
-  };
-  const stopWatch = watch(() => unrefElement(target), (el2) => {
-    cleanup();
-    if (isSupported2.value && window2 && el2) {
-      observer = new MutationObserver(callback);
-      observer.observe(el2, mutationOptions);
-    }
-  }, { immediate: true });
-  const stop = () => {
-    cleanup();
-    stopWatch();
-  };
-  tryOnScopeDispose(stop);
-  return {
-    isSupported: isSupported2,
-    stop
-  };
-}
-var SwipeDirection;
-(function(SwipeDirection2) {
-  SwipeDirection2["UP"] = "UP";
-  SwipeDirection2["RIGHT"] = "RIGHT";
-  SwipeDirection2["DOWN"] = "DOWN";
-  SwipeDirection2["LEFT"] = "LEFT";
-  SwipeDirection2["NONE"] = "NONE";
-})(SwipeDirection || (SwipeDirection = {}));
-function useTitle(newTitle = null, options = {}) {
-  var _a2, _b;
-  const {
-    document: document2 = defaultDocument
-  } = options;
-  const title = resolveRef((_a2 = newTitle != null ? newTitle : document2 == null ? void 0 : document2.title) != null ? _a2 : null);
-  const isReadonly2 = newTitle && isFunction(newTitle);
-  function format(t2) {
-    if (!("titleTemplate" in options))
-      return t2;
-    const template = options.titleTemplate || "%s";
-    return isFunction(template) ? template(t2) : unref(template).replace(/%s/g, t2);
-  }
-  watch(title, (t2, o) => {
-    if (t2 !== o && document2)
-      document2.title = format(isString(t2) ? t2 : "");
-  }, { immediate: true });
-  if (options.observe && !options.titleTemplate && document2 && !isReadonly2) {
-    useMutationObserver((_b = document2.head) == null ? void 0 : _b.querySelector("title"), () => {
-      if (document2 && document2.title !== title.value)
-        title.value = format(document2.title);
-    }, { childList: true });
-  }
-  return title;
-}
-var __defProp = Object.defineProperty;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a2, b3) => {
-  for (var prop in b3 || (b3 = {}))
-    if (__hasOwnProp.call(b3, prop))
-      __defNormalProp(a2, prop, b3[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b3)) {
-      if (__propIsEnum.call(b3, prop))
-        __defNormalProp(a2, prop, b3[prop]);
-    }
-  return a2;
-};
-const _TransitionPresets = {
-  easeInSine: [0.12, 0, 0.39, 0],
-  easeOutSine: [0.61, 1, 0.88, 1],
-  easeInOutSine: [0.37, 0, 0.63, 1],
-  easeInQuad: [0.11, 0, 0.5, 0],
-  easeOutQuad: [0.5, 1, 0.89, 1],
-  easeInOutQuad: [0.45, 0, 0.55, 1],
-  easeInCubic: [0.32, 0, 0.67, 0],
-  easeOutCubic: [0.33, 1, 0.68, 1],
-  easeInOutCubic: [0.65, 0, 0.35, 1],
-  easeInQuart: [0.5, 0, 0.75, 0],
-  easeOutQuart: [0.25, 1, 0.5, 1],
-  easeInOutQuart: [0.76, 0, 0.24, 1],
-  easeInQuint: [0.64, 0, 0.78, 0],
-  easeOutQuint: [0.22, 1, 0.36, 1],
-  easeInOutQuint: [0.83, 0, 0.17, 1],
-  easeInExpo: [0.7, 0, 0.84, 0],
-  easeOutExpo: [0.16, 1, 0.3, 1],
-  easeInOutExpo: [0.87, 0, 0.13, 1],
-  easeInCirc: [0.55, 0, 1, 0.45],
-  easeOutCirc: [0, 0.55, 0.45, 1],
-  easeInOutCirc: [0.85, 0, 0.15, 1],
-  easeInBack: [0.36, 0, 0.66, -0.56],
-  easeOutBack: [0.34, 1.56, 0.64, 1],
-  easeInOutBack: [0.68, -0.6, 0.32, 1.6]
-};
-__spreadValues({
-  linear: identity
-}, _TransitionPresets);
-const Logo_square = "/svelte-component-library/assets/histoire-svelte-e093dabf.svg";
 function unindent(code) {
   const lines = code.split("\n");
   let indentLevel = -1;
@@ -38700,114 +38786,122 @@ const index = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePropert
   generateSourceCode: e
 }, Symbol.toStringTag, { value: "Module" }));
 export {
-  prop_dev as $,
-  pushScopeId as A,
-  popScopeId as B,
-  defineAsyncComponent as C,
-  vShow as D,
-  reactive as E,
+  safe_not_equal as $,
+  resolveDirective as A,
+  withDirectives as B,
+  toggleDark as C,
+  createTextVNode as D,
+  pushScopeId as E,
   Fragment as F,
-  normalizeStyle as G,
-  useTitle as H,
+  popScopeId as G,
+  defineAsyncComponent as H,
   Icon as I,
-  onMounted as J,
-  createApp as K,
-  createPinia as L,
-  plugin as M,
-  parseQuery as N,
-  h$1 as O,
-  applyState as P,
-  init as Q,
-  safe_not_equal as R,
-  SvelteComponentDev as S,
+  vShow as J,
+  reactive as K,
+  normalizeStyle as L,
+  useTitle as M,
+  onMounted as N,
+  createApp as O,
+  createPinia as P,
+  plugin as Q,
+  parseQuery as R,
+  STATE_SYNC as S,
   Transition as T,
-  dispatch_dev as U,
-  validate_slots as V,
-  element as W,
-  attr_dev as X,
-  add_location as Y,
-  insert_dev as Z,
-  listen_dev as _,
+  PREVIEW_SETTINGS_SYNC as U,
+  h$1 as V,
+  SANDBOX_READY as W,
+  applyState as X,
+  SvelteComponentDev as Y,
+  init as Z,
+  __vitePreload as _,
   unref as a,
-  nextTick as a$,
-  noop$2 as a0,
-  detach_dev as a1,
-  run_all as a2,
-  text as a3,
-  append_dev as a4,
-  set_data_dev as a5,
-  toggle_class as a6,
-  set_style as a7,
-  binding_callbacks as a8,
-  bind as a9,
-  Logo_square as aA,
-  createRouter as aB,
-  createWebHistory as aC,
-  createWebHashHistory as aD,
-  useDark as aE,
-  useToggle as aF,
-  markRaw as aG,
-  watchEffect as aH,
-  mergeProps as aI,
-  resolveDynamicComponent as aJ,
-  toRefs as aK,
-  unindent as aL,
-  useRouter as aM,
-  useResizeObserver as aN,
-  Xg as aO,
-  withModifiers as aP,
-  renderSlot as aQ,
-  vModelText as aR,
-  onUnmounted as aS,
-  VTooltip as aT,
-  createStaticVNode as aU,
-  toRaw as aV,
-  Dropdown as aW,
-  clone as aX,
-  omit as aY,
-  useTimeoutFn as aZ,
-  onClickOutside as a_,
-  space as aa,
-  create_component as ab,
-  add_render_callback as ac,
-  mount_component as ad,
-  select_option as ae,
-  group_outros as af,
-  transition_out as ag,
-  check_outros as ah,
-  transition_in as ai,
-  add_flush_callback as aj,
-  destroy_component as ak,
-  select_value as al,
-  self$1 as am,
-  svg_element as an,
-  create_slot as ao,
-  update_slot_base as ap,
-  get_all_dirty_from_scope as aq,
-  get_slot_changes as ar,
-  bubble as as,
-  empty as at,
-  createEventDispatcher as au,
-  xlink_attr as av,
-  validate_each_argument as aw,
-  destroy_each as ax,
-  set_input_value as ay,
-  to_number as az,
+  createStaticVNode as a$,
+  dispatch_dev as a0,
+  validate_slots as a1,
+  element as a2,
+  attr_dev as a3,
+  add_location as a4,
+  insert_dev as a5,
+  listen_dev as a6,
+  prop_dev as a7,
+  noop$2 as a8,
+  detach_dev as a9,
+  bubble as aA,
+  empty as aB,
+  set_input_value as aC,
+  to_number as aD,
+  createEventDispatcher as aE,
+  null_to_empty as aF,
+  src_url_equal as aG,
+  xlink_attr as aH,
+  validate_each_argument as aI,
+  destroy_each as aJ,
+  createRouter as aK,
+  createWebHistory as aL,
+  createWebHashHistory as aM,
+  markRaw as aN,
+  watchEffect as aO,
+  mergeProps as aP,
+  resolveDynamicComponent as aQ,
+  toRefs as aR,
+  unindent as aS,
+  useRouter as aT,
+  useResizeObserver as aU,
+  Xg as aV,
+  withModifiers as aW,
+  renderSlot as aX,
+  vModelText as aY,
+  onUnmounted as aZ,
+  VTooltip as a_,
+  run_all as aa,
+  text as ab,
+  append_dev as ac,
+  set_data_dev as ad,
+  toggle_class as ae,
+  set_style as af,
+  binding_callbacks as ag,
+  bind as ah,
+  space as ai,
+  create_component as aj,
+  add_render_callback as ak,
+  mount_component as al,
+  select_option as am,
+  group_outros as an,
+  transition_out as ao,
+  check_outros as ap,
+  transition_in as aq,
+  add_flush_callback as ar,
+  destroy_component as as,
+  select_value as at,
+  self$1 as au,
+  svg_element as av,
+  create_slot as aw,
+  update_slot_base as ax,
+  get_all_dirty_from_scope as ay,
+  get_slot_changes as az,
   useRoute as b,
-  Zg as b0,
-  zg as b1,
-  jg as b2,
-  Wg as b3,
-  shallowRef as b4,
-  getHighlighter as b5,
-  onBeforeUnmount as b6,
-  scrollIntoView as b7,
-  useMediaQuery as b8,
-  useFocus as b9,
-  refDebounced as ba,
-  flexsearch_bundleExports as bb,
-  client as bc,
-  index as bd,
+  EVENT_SEND as b0,
+  toRaw as b1,
+  Dropdown as b2,
+  clone as b3,
+  omit as b4,
+  useTimeoutFn as b5,
+  onClickOutside as b6,
+  nextTick as b7,
+  Zg as b8,
+  zg as b9,
+  jg as ba,
+  Wg as bb,
+  shallowRef as bc,
+  getHighlighter as bd,
+  onBeforeUnmount as be,
+  scrollIntoView as bf,
+  useMediaQuery as bg,
+  useFocus as bh,
+  refDebounced as bi,
+  flexsearch_bundleExports as bj,
+  client as bk,
+  index as bl,
   computed as c,
   defineComponent as d,
   createElementBlock as e,
@@ -38824,12 +38918,12 @@ export {
   renderList as p,
   createBlock as q,
   ref as r,
-  useEventListener as s,
+  isDark as s,
   toDisplayString as t,
   useCssVars as u,
-  isRef as v,
+  histoireConfig as v,
   withCtx as w,
-  resolveDirective as x,
-  withDirectives as y,
-  createTextVNode as z
+  customLogos as x,
+  useEventListener as y,
+  isRef as z
 };

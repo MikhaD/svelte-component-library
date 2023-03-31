@@ -1,6 +1,6 @@
-import { d as defineComponent, u as useCssVars, a as unref, c as computed, b as useRoute, r as ref, o as openBlock, e as createElementBlock, f as createVNode, w as withCtx, g as createBaseVNode, I as Icon, n as normalizeClass, t as toDisplayString, h as createCommentVNode, i as defineStore, j as useStorage, k as watch, l as resolveComponent, m as withKeys, F as Fragment, p as renderList, q as createBlock, s as useEventListener, v as isRef, x as resolveDirective, y as withDirectives, z as createTextVNode, A as pushScopeId, B as popScopeId, C as defineAsyncComponent, D as vShow, E as reactive, G as normalizeStyle, T as Transition, H as useTitle, J as onMounted, K as createApp, L as createPinia, M as plugin } from "./vendor-9cc9f24f.js";
-import { i as isDark, h as histoireConfig, c as customLogos, t as toggleDark, r as router, _ as __vitePreload, f as files, m as mapFile, a as tree, b as _sfc_main$c } from "./GenericMountStory.vue2-2c9eded9.js";
-import { u as useScrollOnActive, B as BaseListItemLink, _ as _export_sfc, a as useStoryStore, b as _sfc_main$b, i as isMobile, c as BaseSplitPane } from "./MobileOverlay.vue2-f5806ac2.js";
+import { d as defineComponent, u as useCssVars, a as unref, c as computed, b as useRoute, r as ref, o as openBlock, e as createElementBlock, f as createVNode, w as withCtx, g as createBaseVNode, I as Icon, n as normalizeClass, t as toDisplayString, h as createCommentVNode, i as defineStore, j as useStorage, k as watch, l as resolveComponent, m as withKeys, F as Fragment, p as renderList, q as createBlock, s as isDark, v as histoireConfig, x as customLogos, y as useEventListener, z as isRef, A as resolveDirective, B as withDirectives, C as toggleDark, D as createTextVNode, E as pushScopeId, G as popScopeId, H as defineAsyncComponent, J as vShow, _ as __vitePreload, K as reactive, L as normalizeStyle, T as Transition, M as useTitle, N as onMounted, O as createApp, P as createPinia, Q as plugin } from "./vendor-2d92fb2a.js";
+import { r as router, f as files, m as mapFile, t as tree, _ as _sfc_main$c } from "./GenericMountStory.vue2-58fa7051.js";
+import { u as useScrollOnActive, B as BaseListItemLink, _ as _export_sfc, a as useStoryStore, b as _sfc_main$b, i as isMobile, c as BaseSplitPane } from "./MobileOverlay.vue2-e9398eb8.js";
 const style$1 = "";
 const style = "";
 const __resolved__virtual_$histoireTheme = "";
@@ -610,7 +610,7 @@ const _sfc_main$2 = /* @__PURE__ */ defineComponent({
   },
   setup(__props, { emit }) {
     const SearchPane = defineAsyncComponent({
-      loader: () => __vitePreload(() => import("./SearchPane.vue-1205b45a.js"), true ? ["assets/SearchPane.vue-1205b45a.js","assets/GenericMountStory.vue2-2c9eded9.js","assets/vendor-9cc9f24f.js","assets/MobileOverlay.vue2-f5806ac2.js","assets/BaseEmpty.vue-c5bad8ea.js"] : void 0),
+      loader: () => __vitePreload(() => import("./SearchPane.vue-580da522.js"), true ? ["assets/SearchPane.vue-580da522.js","assets/vendor-2d92fb2a.js","assets/MobileOverlay.vue2-e9398eb8.js","assets/GenericMountStory.vue2-58fa7051.js","assets/BaseEmpty.vue-44d30ec4.js"] : void 0),
       loadingComponent: _sfc_main$3,
       delay: 0
     });

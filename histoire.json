@@ -267,6 +267,12 @@
           "title": "Merge",
           "icon": "material-symbols:menu",
           "iconColor": null
+        },
+        {
+          "id": "src-stories-components-burgermenus-story-svelte-4",
+          "title": "Merge Cross",
+          "icon": "material-symbols:menu",
+          "iconColor": null
         }
       ],
       "relativePath": "src/stories/components/BurgerMenus.story.svelte",
@@ -284,7 +290,7 @@
       "group": null,
       "layout": {
         "type": "single",
-        "iframe": true
+        "iframe": false
       },
       "icon": "typcn:input-checked",
       "iconColor": null,
@@ -326,6 +332,32 @@
       "treePath": [
         "Components",
         "Color Picker"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-components-flipcard-story-svelte",
+      "title": "Flip Card",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": false
+      },
+      "icon": "mdi:card-text-outline",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/components/FlipCard.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Flip Card"
       ],
       "virtual": false,
       "markdownFile": null
@@ -425,6 +457,32 @@
       "treePath": [
         "Components",
         "Pause"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
+      "id": "src-stories-components-paymentform-story-svelte",
+      "title": "Payment Form",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": false
+      },
+      "icon": "bi:credit-card-2-front",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/components/PaymentForm.story.svelte",
+      "supportPluginId": "svelte3",
+      "treePath": [
+        "Components",
+        "Payment Form"
       ],
       "virtual": false,
       "markdownFile": null

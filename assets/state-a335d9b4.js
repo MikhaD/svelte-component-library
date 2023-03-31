@@ -1,5 +1,5 @@
-import { d as clientSupportPlugins, h as histoireConfig } from "./GenericMountStory.vue2-2c9eded9.js";
-import { d as defineComponent, r as ref, aH as watchEffect, aG as markRaw, o as openBlock, q as createBlock, aI as mergeProps, aJ as resolveDynamicComponent, h as createCommentVNode, E as reactive, v as isRef, a as unref } from "./vendor-9cc9f24f.js";
+import { c as clientSupportPlugins } from "./GenericMountStory.vue2-58fa7051.js";
+import { d as defineComponent, r as ref, aO as watchEffect, aN as markRaw, o as openBlock, q as createBlock, aP as mergeProps, aQ as resolveDynamicComponent, h as createCommentVNode, K as reactive, v as histoireConfig, z as isRef, a as unref } from "./vendor-2d92fb2a.js";
 const __default__ = {
   inheritAttrs: false
 };
@@ -34,10 +34,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const STATE_SYNC = "__histoire:state-sync";
-const SANDBOX_READY = "__histoire:sandbox-ready";
-const EVENT_SEND = "__histoire:event";
-const PREVIEW_SETTINGS_SYNC = "__histoire:preview-settings-sync";
 const receivedSettings = reactive({});
 function applyPreviewSettings(settings) {
   Object.assign(receivedSettings, settings);
@@ -89,12 +85,8 @@ const toRawObject = (obj, target, clean = false, seen = /* @__PURE__ */ new Weak
   });
 };
 export {
-  EVENT_SEND as E,
-  PREVIEW_SETTINGS_SYNC as P,
-  STATE_SYNC as S,
   _sfc_main as _,
   applyPreviewSettings as a,
-  SANDBOX_READY as b,
   getContrastColor as g,
   toRawDeep as t
 };
