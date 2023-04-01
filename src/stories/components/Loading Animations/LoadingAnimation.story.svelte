@@ -60,10 +60,64 @@
 	let rotateOne_count = 12;
 	let rotateOne_width = 10;
 	let rotateOne_length = 25;
+
+	let clock_speed = 1;
+
+	let blockWave_speed = 2;
+	let blockWave_count = 4;
+
+	let blockShuffle_speed = 2;
+	let blockShuffle_count = 3;
+	let blockShuffle_br = 10;
+
+	let dotSlide_speed = 0.5;
+	let dotSlide_r = 15;
+	let dotSlide_reverse = false;
 </script>
 
 <Hst.Story title="Loading Animations" icon="mingcute:loading-fill" layout={{ type: "grid" }}>
-	<Hst.Variant title="Rotate 1" icon="ic:round-hourglass-bottom">
+	<Hst.Variant title="Dot Slide" icon="ion:more">
+		<Loading.DotSlide
+			bind:speed={dotSlide_speed}
+			bind:r={dotSlide_r}
+			bind:reverse={dotSlide_reverse}
+		/>
+		<svelte:fragment slot="controls">
+			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dotSlide_speed} />
+			<Range title="Radius" min={1} max={20} step={0.5} bind:value={dotSlide_r} />
+			<Hst.Checkbox title="Reverse" bind:value={dotSlide_reverse} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Block Shuffle" icon="zondicons:view-tile">
+		<Loading.BlockShuffle
+			bind:speed={blockShuffle_speed}
+			bind:count={blockShuffle_count}
+			bind:border_radius={blockShuffle_br}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={1} max={3} bind:value={blockShuffle_count} />
+			<Hst.Slider title="Border Radius %" min={0} max={50} bind:value={blockShuffle_br} />
+			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={blockShuffle_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Block Wave" icon="fe:tiled">
+		<Loading.BlockWave bind:speed={blockWave_speed} bind:count={blockWave_count} />
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={1} max={10} bind:value={blockWave_count} />
+			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={blockWave_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Clock" icon="ic:baseline-access-time">
+		<Loading.Clock bind:speed={clock_speed} />
+		<svelte:fragment slot="controls">
+			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={clock_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Rotate 1" icon="ph:circle-dashed-bold">
 		<Loading.RotateOne
 			bind:speed={rotateOne_speed}
 			bind:count={rotateOne_count}

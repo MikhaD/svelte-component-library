@@ -12,6 +12,10 @@ import Heart from "./Heart.svelte";
 import Hourglass from "./Hourglass.svelte";
 import HeartOutline from "./HeartOutline.svelte";
 import RotateOne from "./RotateOne.svelte";
+import Clock from "./Clock.svelte";
+import BlockWave from "./BlockWave.svelte";
+import BlockShuffle from "./BlockShuffle.svelte";
+import DotSlide from "./DotSlide.svelte";
 
 export default {
 	Spin,
@@ -28,4 +32,8 @@ export default {
 	Hourglass,
 	HeartOutline,
 	RotateOne,
+	Clock,
+	BlockWave,
+	BlockShuffle,
+	DotSlide,
 };
