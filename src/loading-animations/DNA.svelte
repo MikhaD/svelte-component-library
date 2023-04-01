@@ -29,7 +29,7 @@
 	 */
 	export let speed = 1;
 	$: count = Math.max(1, count);
-	$: delay = speed / 5;
+	$: delay = (2 * speed) / count;
 </script>
 
 <svg
@@ -43,8 +43,8 @@
 	{#key count}
 		{#each new Array(count) as _, i}
 			{@const gap = 100 - (100 / (count + 1)) * (i + 1)}
-			<circle cx={gap} class="top" style="animation-delay: {delay * i}s" />
-			<circle cx={gap} class="bottom" style="animation-delay: {delay * i}s" />
+			<circle cx={gap} class="top" style="animation-delay: -{delay * (count - i)}s" />
+			<circle cx={gap} class="bottom" style="animation-delay: -{delay * (count - i)}s" />
 		{/each}
 	{/key}
 </svg>

@@ -9,7 +9,7 @@
 	$: count = Math.max(1, count);
 	/**
 	 * The speed of the animation in seconds.
-	 * @default 1
+	 * @default 2
 	 */
 	export let speed = 2;
 	/**

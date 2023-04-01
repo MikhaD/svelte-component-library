@@ -37,7 +37,7 @@
 				d="M50 0a50 50 0 01 {x} {y}L50 50"
 				style:rotate="{(360 / count) * i}deg"
 				style:filter="hue-rotate({(360 / count) * i}deg)"
-				style="animation-delay: {(speed / count) * i}s"
+				style="animation-delay: -{speed - (speed / count) * i}s"
 			/>
 		{/each}
 	{/key}
