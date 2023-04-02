@@ -73,9 +73,29 @@
 	let dotSlide_speed = 0.5;
 	let dotSlide_r = 15;
 	let dotSlide_reverse = false;
+
+	let dotSpin_count = 2;
+	let dotSpin_speed = 1;
+	let dotSpin_reverse = false;
+	let dotSpin_r = 15;
 </script>
 
 <Hst.Story title="Loading Animations" icon="mingcute:loading-fill" layout={{ type: "grid" }}>
+	<Hst.Variant title="Dot Spin" icon="ion:more">
+		<Loading.DotSpin
+			bind:count={dotSpin_count}
+			bind:speed={dotSpin_speed}
+			bind:reverse={dotSpin_reverse}
+			bind:r={dotSpin_r}
+		/>
+		<svelte:fragment slot="controls">
+			<Range title="Count" min={2} max={12} step={2} bind:value={dotSpin_count} />
+			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dotSpin_speed} />
+			<Range title="Radius" min={1} max={20} step={0.5} bind:value={dotSpin_r} />
+			<Hst.Checkbox title="Reverse" bind:value={dotSpin_reverse} />
+		</svelte:fragment>
+	</Hst.Variant>
+
 	<Hst.Variant title="Dot Slide" icon="ion:more">
 		<Loading.DotSlide
 			bind:speed={dotSlide_speed}
@@ -105,7 +125,7 @@
 	<Hst.Variant title="Block Wave" icon="fe:tiled">
 		<Loading.BlockWave bind:speed={blockWave_speed} bind:count={blockWave_count} />
 		<svelte:fragment slot="controls">
-			<Hst.Slider title="Count" min={1} max={10} bind:value={blockWave_count} />
+			<Hst.Slider title="Count" min={1} max={15} bind:value={blockWave_count} />
 			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={blockWave_speed} />
 		</svelte:fragment>
 	</Hst.Variant>

@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { each } from "svelte/internal";
-
 	/**
 	 * The speed of the animation in seconds.
 	 * @default 1

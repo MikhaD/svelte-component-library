@@ -1,6 +1,6 @@
 <script lang="ts">
 	/**
-	 * The number of spinning circles.
+	 * The number of bars.
 	 *
 	 * Min: 1
 	 * @default 2

@@ -16,6 +16,7 @@ import Clock from "./Clock.svelte";
 import BlockWave from "./BlockWave.svelte";
 import BlockShuffle from "./BlockShuffle.svelte";
 import DotSlide from "./DotSlide.svelte";
+import DotSpin from "./DotSpin.svelte";
 
 export default {
 	Spin,
@@ -36,4 +37,5 @@ export default {
 	BlockWave,
 	BlockShuffle,
 	DotSlide,
+	DotSpin,
 };
