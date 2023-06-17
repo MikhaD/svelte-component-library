@@ -17,6 +17,7 @@ import BlockWave from "./BlockWave.svelte";
 import BlockShuffle from "./BlockShuffle.svelte";
 import DotSlide from "./DotSlide.svelte";
 import DotSpin from "./DotSpin.svelte";
+import DotWave from "./DotWave.svelte";
 
 export default {
 	Spin,
@@ -38,4 +39,5 @@ export default {
 	BlockShuffle,
 	DotSlide,
 	DotSpin,
+	DotWave,
 };

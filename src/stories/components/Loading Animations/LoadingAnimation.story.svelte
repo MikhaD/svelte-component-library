@@ -78,9 +78,29 @@
 	let dotSpin_speed = 1;
 	let dotSpin_reverse = false;
 	let dotSpin_r = 15;
+
+	let dotWave_count = 2;
+	let dotWave_speed = 1;
+	let dotWave_r = 15;
+	let dotWave_reverse = true;
 </script>
 
 <Hst.Story title="Loading Animations" icon="mingcute:loading-fill" layout={{ type: "grid" }}>
+	<Hst.Variant title="Dot Spin" icon="ion:more">
+		<Loading.DotWave
+			bind:reverse={dotWave_reverse}
+			bind:count={dotWave_count}
+			bind:speed={dotWave_speed}
+			bind:r={dotWave_r}
+		/>
+		<svelte:fragment slot="controls">
+			<Range title="Count" min={2} max={12} step={2} bind:value={dotWave_count} />
+			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dotWave_speed} />
+			<Range title="Radius" min={1} max={20} step={0.5} bind:value={dotWave_r} />
+			<Hst.Checkbox title="Reverse" bind:value={dotWave_reverse} />
+		</svelte:fragment>
+	</Hst.Variant>
+
 	<Hst.Variant title="Dot Spin" icon="ion:more">
 		<Loading.DotSpin
 			bind:count={dotSpin_count}
