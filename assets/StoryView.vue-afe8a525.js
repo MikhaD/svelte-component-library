@@ -1,8 +1,8 @@
-import { i as defineStore, K as reactive, r as ref, k as watch, b as useRoute, c as computed, d as defineComponent, u as useCssVars, a as unref, aS as toRefs, o as openBlock, e as createElementBlock, f as createVNode, w as withCtx, I as Icon, n as normalizeClass, g as createBaseVNode, t as toDisplayString, j as useStorage, aT as unindent, A as resolveDirective, B as withDirectives, aU as useRouter, aV as useResizeObserver, v as histoireConfig, l as resolveComponent, q as createBlock, aW as Xg, h as createCommentVNode, L as normalizeStyle, s as isDark, aX as withModifiers, E as pushScopeId, G as popScopeId, aY as renderSlot, m as withKeys, D as createTextVNode, F as Fragment, p as renderList, N as onMounted, aZ as vModelText, a_ as onUnmounted, a$ as VTooltip, b0 as createStaticVNode, y as useEventListener, W as SANDBOX_READY, b1 as EVENT_SEND, S as STATE_SYNC, X as applyState, U as PREVIEW_SETTINGS_SYNC, b2 as toRaw, aQ as mergeProps, b3 as Dropdown, b4 as clone, b5 as omit, b6 as useTimeoutFn, b7 as onClickOutside, z as isRef, b8 as nextTick, b9 as Zg, ba as zg, bb as jg, bc as Wg, aR as resolveDynamicComponent, _ as __vitePreload, aP as watchEffect, aO as markRaw, bd as shallowRef, be as getHighlighter, T as Transition, V as h, bf as onBeforeUnmount } from "./vendor-c329194f.js";
-import { a as useStoryStore, u as useScrollOnActive, B as BaseListItemLink, _ as _export_sfc, i as isMobile, c as BaseSplitPane, b as _sfc_main$y } from "./MobileOverlay.vue2-c3fdfa22.js";
-import { B as BaseEmpty } from "./BaseEmpty.vue-e1287a54.js";
-import { g as getContrastColor, _ as _sfc_main$x, t as toRawDeep } from "./state-ecfccb12.js";
-import { c as clientSupportPlugins, b as base } from "./GenericMountStory.vue2-a4a7ca64.js";
+import { i as defineStore, K as reactive, r as ref, k as watch, b as useRoute, c as computed, d as defineComponent, u as useCssVars, a as unref, aS as toRefs, o as openBlock, e as createElementBlock, f as createVNode, w as withCtx, I as Icon, n as normalizeClass, g as createBaseVNode, t as toDisplayString, j as useStorage, aT as unindent, A as resolveDirective, B as withDirectives, aU as useRouter, aV as useResizeObserver, v as histoireConfig, l as resolveComponent, q as createBlock, aW as Xg, h as createCommentVNode, L as normalizeStyle, s as isDark, aX as withModifiers, E as pushScopeId, G as popScopeId, aY as renderSlot, m as withKeys, D as createTextVNode, F as Fragment, p as renderList, N as onMounted, aZ as vModelText, a_ as onUnmounted, a$ as VTooltip, b0 as createStaticVNode, y as useEventListener, W as SANDBOX_READY, b1 as EVENT_SEND, S as STATE_SYNC, X as applyState, U as PREVIEW_SETTINGS_SYNC, b2 as toRaw, aQ as mergeProps, b3 as Dropdown, b4 as clone, b5 as omit, b6 as useTimeoutFn, b7 as onClickOutside, z as isRef, b8 as nextTick, b9 as Zg, ba as zg, bb as jg, bc as Wg, aR as resolveDynamicComponent, _ as __vitePreload, aP as watchEffect, aO as markRaw, bd as shallowRef, be as getHighlighter, T as Transition, V as h, bf as onBeforeUnmount } from "./vendor-26cb3ca3.js";
+import { a as useStoryStore, u as useScrollOnActive, B as BaseListItemLink, _ as _export_sfc, i as isMobile, c as BaseSplitPane, b as _sfc_main$y } from "./MobileOverlay.vue2-05040767.js";
+import { B as BaseEmpty } from "./BaseEmpty.vue-8b91d8da.js";
+import { g as getContrastColor, _ as _sfc_main$x, t as toRawDeep } from "./state-8dbc0321.js";
+import { c as clientSupportPlugins, b as base } from "./GenericMountStory.vue2-e9273e88.js";
 const useEventsStore = defineStore("events", () => {
   const storyStore = useStoryStore();
   const events = reactive([]);
@@ -1482,7 +1482,7 @@ const _sfc_main$e = /* @__PURE__ */ defineComponent({
     const canEdit = computed(() => selectedOption.value !== DEFAULT_ID);
     const isEditing = ref(false);
     async function createPreset() {
-      const id = new Date().getTime().toString();
+      const id = (/* @__PURE__ */ new Date()).getTime().toString();
       presetStates.value.set(id, { state: clone(omit(toRawDeep(props.variant.state), omitKeys)), label: "New preset" });
       selectedOption.value = id;
       isEditing.value = true;
@@ -1861,7 +1861,7 @@ const _sfc_main$a = /* @__PURE__ */ defineComponent({
       await nextTick();
       const hash = getHash();
       if (hash) {
-        const anchor = document.querySelector(hash);
+        const anchor = document.querySelector(decodeURIComponent(hash));
         if (anchor) {
           anchor.scrollIntoView();
           return;
