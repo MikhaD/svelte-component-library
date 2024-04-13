@@ -7,6 +7,7 @@
 
 <svg
 	viewBox="0 0 18 18"
+	role="button"
 	class:light
 	tabindex="-1"
 	on:click={() => (light = !light)}

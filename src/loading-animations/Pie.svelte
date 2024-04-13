@@ -33,10 +33,11 @@
 <svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--scale={scale} class:reverse>
 	{#key count}
 		{#each Array(count) as _, i}
+			{@const rotation = (360 / count) * i}
 			<path
 				d="M50 0a50 50 0 01 {x} {y}L50 50"
-				style:rotate="{(360 / count) * i}deg"
-				style:filter="hue-rotate({(360 / count) * i}deg)"
+				style:rotate="{rotation}deg"
+				style:filter="hue-rotate({rotation}deg)"
 				style="animation-delay: -{speed - (speed / count) * i}s"
 			/>
 		{/each}

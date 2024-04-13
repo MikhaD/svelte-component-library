@@ -12,7 +12,7 @@
 	}
 </script>
 
-<div class="container" bind:this={container} on:mousemove={onMouseMove}>
+<div class="container" bind:this={container} on:mousemove={onMouseMove} role="region">
 	<slot />
 </div>
 

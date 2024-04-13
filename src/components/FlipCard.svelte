@@ -1,15 +1,9 @@
 <script lang="ts">
-	/**
-	 * Whether the card is flipped or not.
-	 */
+	/** Whether the card is flipped or not. */
 	export let flipped: boolean;
-	/**
-	 * The axis to flip the card across.
-	 */
+	/** The axis to flip the card across. */
 	export let axis: "x" | "y" = "x";
-	/**
-	 * The speed of the flip animation in seconds.
-	 */
+	/** The speed of the flip animation in seconds. */
 	export let speed = 2;
 </script>
 

@@ -28,7 +28,10 @@
 
 <svelte:window on:mouseup={selectEnd} on:mousemove={selectMove} />
 
+<!-- svelte-ignore a11y-role-has-required-aria-props -->
 <div
+	role="slider"
+	tabindex="-1"
 	class="select-wb"
 	style:--hue={h}
 	style:--saturation="{x}%"

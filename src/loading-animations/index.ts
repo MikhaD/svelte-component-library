@@ -1,43 +1,19 @@
-import Spin from "./Spin.svelte";
-import Shrink from "./Shrink.svelte";
-import Grow from "./Grow.svelte";
-import Slide from "./Slide.svelte";
-import Oscillate from "./Oscillate.svelte";
-import SpinCircles from "./SpinCircles.svelte";
-import SpinGlass from "./SpinGlass.svelte";
-import DualBalls from "./DualBalls.svelte";
-import DNA from "./DNA.svelte";
-import Pie from "./Pie.svelte";
-import Heart from "./Heart.svelte";
-import Hourglass from "./Hourglass.svelte";
-import HeartOutline from "./HeartOutline.svelte";
-import RotateOne from "./RotateOne.svelte";
-import Clock from "./Clock.svelte";
-import BlockWave from "./BlockWave.svelte";
-import BlockShuffle from "./BlockShuffle.svelte";
-import DotSlide from "./DotSlide.svelte";
-import DotSpin from "./DotSpin.svelte";
-import DotWave from "./DotWave.svelte";
-
-export default {
-	Spin,
-	Shrink,
-	Grow,
-	Slide,
-	Oscillate,
-	SpinCircles,
-	SpinGlass,
-	DualBalls,
-	DNA,
-	Pie,
-	Heart,
-	Hourglass,
-	HeartOutline,
-	RotateOne,
-	Clock,
-	BlockWave,
-	BlockShuffle,
-	DotSlide,
-	DotSpin,
-	DotWave,
-};
+export { default as Spin } from "./Spin.svelte";
+export { default as Shrink } from "./Shrink.svelte";
+export { default as Grow } from "./Grow.svelte";
+export { default as Slide } from "./Slide.svelte";
+export { default as Oscillate } from "./Oscillate.svelte";
+export { default as SpinCircles } from "./SpinCircles.svelte";
+export { default as SpinGlass } from "./SpinGlass.svelte";
+export { default as DualBalls } from "./DualBalls.svelte";
+export { default as DNA } from "./DNA.svelte";
+export { default as Pie } from "./Pie.svelte";
+export { default as Heart } from "./Heart.svelte";
+export { default as Hourglass } from "./Hourglass.svelte";
+export { default as HeartOutline } from "./HeartOutline.svelte";
+export { default as RotateOne } from "./RotateOne.svelte";
+export { default as Clock } from "./Clock.svelte";
+export { default as BlockWave } from "./BlockWave.svelte";
+export { default as BlockShuffle } from "./BlockShuffle.svelte";
+export { default as DotSlide } from "./DotSlide.svelte";
+export { default as DotSpin } from "./DotSpin.svelte";

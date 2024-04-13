@@ -4,6 +4,7 @@
 
 <svg
 	viewBox="0 0 64 64"
+	role="button"
 	class:paused
 	tabindex="-1"
 	on:click={() => (paused = !paused)}

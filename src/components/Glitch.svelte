@@ -4,7 +4,7 @@
 	export let flash_duration = 30;
 	$: display = text;
 	const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-	let interval: NodeJS.Timer;
+	let interval: NodeJS.Timeout;
 
 	function onMouseover() {
 		let iterations = 0;
@@ -31,6 +31,7 @@
 	}
 </script>
 
+<!-- svelte-ignore a11y-no-static-element-interactions -->
 <span on:mouseover={onMouseover} on:focus={onMouseover}>{display}</span>
 
 <style>

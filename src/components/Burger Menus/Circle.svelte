@@ -4,6 +4,7 @@
 </script>
 
 <svg
+	role="button"
 	tabindex="-1"
 	viewBox="0 0 100 100"
 	on:click={() => (open = !open)}

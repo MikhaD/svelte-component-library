@@ -10,6 +10,13 @@ export default defineConfig({
 	base: dev ? "" : "/svelte-component-library/",
 	plugins: [svelte({
 		preprocess: vitePreprocess(),
+		// Prevent vscode svelte plugin from showing warnings for using Hst.<component>
+		onwarn: (warning, handler) => {
+			if (warning.code === "reactive-component") {
+				return;
+			};
+			handler(warning);
+		}
 	})],
 	histoire: {
 		setupFile: "/src/histoire.setup.ts",
@@ -23,7 +30,7 @@ export default defineConfig({
 				dark: "/img/logo-white.svg",
 			},
 			favicon: "/img/favicon.svg",
-			logoHref: "https://github.com/MikhaD",
+			logoHref: "https://mikha.dev",
 			colors: {
 				primary: {
 					50: '#ecfeff',

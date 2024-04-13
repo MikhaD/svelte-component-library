@@ -4,6 +4,7 @@
 </script>
 
 <svg
+	role="button"
 	tabindex="-1"
 	viewBox="0 0 100 100"
 	on:click={() => (open = !open)}
@@ -23,7 +24,9 @@
 		rx: 8px;
 		fill: currentcolor;
 		transform-origin: center;
-		transition: y var(--speed) var(--speed), rotate var(--speed);
+		transition:
+			y var(--speed) var(--speed),
+			rotate var(--speed);
 	}
 	.b {
 		transition: opacity 0s var(--speed);
@@ -32,7 +35,9 @@
 		svg.open {
 			.a,
 			.c {
-				transition: y var(--speed), rotate var(--speed) var(--speed);
+				transition:
+					y var(--speed),
+					rotate var(--speed) var(--speed);
 				y: 42px;
 			}
 			.a {

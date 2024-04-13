@@ -1,13 +1,5 @@
-import Circle from "./Circle.svelte";
-import Cross from "./Cross.svelte";
-import FoldIn from "./FoldIn.svelte";
-import Merge from "./Merge.svelte";
-import MergeCross from "./MergeCross.svelte";
-
-export default {
-	Circle,
-	Cross,
-	FoldIn,
-	Merge,
-	MergeCross,
-};
+export { default as Circle } from "./Circle.svelte";
+export { default as Cross } from "./Cross.svelte";
+export { default as FoldIn } from "./FoldIn.svelte";
+export { default as Merge } from "./Merge.svelte";
+export { default as MergeCross } from "./MergeCross.svelte";

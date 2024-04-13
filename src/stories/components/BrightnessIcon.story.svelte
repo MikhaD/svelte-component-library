@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { Hst } from "@histoire/plugin-svelte";
 	import BrightnessIcon from "../../components/BrightnessIcon.svelte";
-	import Range from "../../lib/Range.svelte";
 
 	export let Hst: Hst;
 
@@ -17,6 +16,6 @@
 	<BrightnessIcon bind:value bind:rays />
 	<svelte:fragment slot="controls">
 		<Hst.Slider title="Rays" min={1} max={16} bind:value={rays} />
-		<Range title="Brightness" min={0} max={100} bind:value />
+		<Hst.Slider title="Brightness" min={0} max={100} bind:value />
 	</svelte:fragment>
 </Hst.Story>

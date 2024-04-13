@@ -10,7 +10,5 @@
 	icon="bi:credit-card-2-front"
 	layout={{ type: "single", iframe: false }}
 >
-	<div>
-		<PaymentForm />
-	</div>
+	<PaymentForm />
 </Hst.Story>

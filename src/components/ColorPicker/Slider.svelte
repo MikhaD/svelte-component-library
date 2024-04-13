@@ -26,6 +26,9 @@
 
 <svelte:window on:mouseup={selectEnd} on:mousemove={selectMove} />
 <div
+	role="slider"
+	aria-valuenow={value}
+	tabindex="0"
 	class="slider"
 	class:checker
 	style:--bg={bg}

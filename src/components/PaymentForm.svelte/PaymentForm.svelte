@@ -48,7 +48,7 @@
 		num: number | string,
 		sections: number = 3,
 		minChars: number = 0,
-		fillChar: string = "-"
+		fillChar: string = "-",
 	): string {
 		const result = [];
 		let str = num.toString();
@@ -169,14 +169,14 @@
 											validateMonth(month),
 											Infinity,
 											2,
-											"•"
+											"•",
 										)}</span
 									>/<span class="year"
 										>{formatNumber(
 											year.slice(-2, year.length),
 											Infinity,
 											2,
-											"•"
+											"•",
 										)}</span
 									>
 								</span>
@@ -317,7 +317,7 @@
 	}
 	.card-number {
 		text-align: center;
-		font-size: 26px;
+		font-size: 23px;
 		letter-spacing: 2px;
 	}
 	.back,
@@ -370,6 +370,7 @@
 	.expiry {
 		display: flex;
 		gap: 10px;
+		align-self: flex-start;
 	}
 	.valid-thru {
 		font-size: 9px;

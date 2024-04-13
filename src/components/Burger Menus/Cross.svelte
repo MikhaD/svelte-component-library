@@ -1,14 +1,26 @@
+<script context="module">
+	export const DIRECTION = {
+		LEFT: 0,
+		UP: 90,
+		RIGHT: 180,
+		DOWN: 270,
+	};
+</script>
+
 <script lang="ts">
 	export let open = false;
 	export let speed = 0.5;
+	export let direction = DIRECTION.LEFT;
 </script>
 
 <svg
+	role="button"
 	tabindex="-1"
 	viewBox="0 0 100 100"
 	on:click={() => (open = !open)}
 	on:keypress={() => (open = !open)}
 	style:--speed="{speed}s"
+	style:--direction="{direction}deg"
 >
 	<path class:open />
 </svg>
@@ -18,6 +30,7 @@
 		cursor: pointer;
 		fill: none;
 		outline: transparent;
+		transform: rotate(var(--direction));
 	}
 	path {
 		stroke-linecap: round;

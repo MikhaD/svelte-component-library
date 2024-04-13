@@ -1,8 +1,7 @@
 <script lang="ts">
 	import type { Hst } from "@histoire/plugin-svelte";
-	import Range from "../../../lib/Range.svelte";
 
-	import Loading from "../../../loading-animations";
+	import * as Loading from "../../../loading-animations";
 
 	export let Hst: Hst;
 
@@ -78,122 +77,9 @@
 	let dotSpin_speed = 1;
 	let dotSpin_reverse = false;
 	let dotSpin_r = 15;
-
-	let dotWave_count = 2;
-	let dotWave_speed = 1;
-	let dotWave_r = 15;
-	let dotWave_reverse = true;
 </script>
 
 <Hst.Story title="Loading Animations" icon="mingcute:loading-fill" layout={{ type: "grid" }}>
-	<Hst.Variant title="Dot Spin" icon="ion:more">
-		<Loading.DotWave
-			bind:reverse={dotWave_reverse}
-			bind:count={dotWave_count}
-			bind:speed={dotWave_speed}
-			bind:r={dotWave_r}
-		/>
-		<svelte:fragment slot="controls">
-			<Range title="Count" min={2} max={12} step={2} bind:value={dotWave_count} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dotWave_speed} />
-			<Range title="Radius" min={1} max={20} step={0.5} bind:value={dotWave_r} />
-			<Hst.Checkbox title="Reverse" bind:value={dotWave_reverse} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Dot Spin" icon="ion:more">
-		<Loading.DotSpin
-			bind:count={dotSpin_count}
-			bind:speed={dotSpin_speed}
-			bind:reverse={dotSpin_reverse}
-			bind:r={dotSpin_r}
-		/>
-		<svelte:fragment slot="controls">
-			<Range title="Count" min={2} max={12} step={2} bind:value={dotSpin_count} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dotSpin_speed} />
-			<Range title="Radius" min={1} max={20} step={0.5} bind:value={dotSpin_r} />
-			<Hst.Checkbox title="Reverse" bind:value={dotSpin_reverse} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Dot Slide" icon="ion:more">
-		<Loading.DotSlide
-			bind:speed={dotSlide_speed}
-			bind:r={dotSlide_r}
-			bind:reverse={dotSlide_reverse}
-		/>
-		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dotSlide_speed} />
-			<Range title="Radius" min={1} max={20} step={0.5} bind:value={dotSlide_r} />
-			<Hst.Checkbox title="Reverse" bind:value={dotSlide_reverse} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Block Shuffle" icon="zondicons:view-tile">
-		<Loading.BlockShuffle
-			bind:speed={blockShuffle_speed}
-			bind:count={blockShuffle_count}
-			bind:border_radius={blockShuffle_br}
-		/>
-		<svelte:fragment slot="controls">
-			<Hst.Slider title="Count" min={1} max={3} bind:value={blockShuffle_count} />
-			<Hst.Slider title="Border Radius %" min={0} max={50} bind:value={blockShuffle_br} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={blockShuffle_speed} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Block Wave" icon="fe:tiled">
-		<Loading.BlockWave bind:speed={blockWave_speed} bind:count={blockWave_count} />
-		<svelte:fragment slot="controls">
-			<Hst.Slider title="Count" min={1} max={15} bind:value={blockWave_count} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={blockWave_speed} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Clock" icon="ic:baseline-access-time">
-		<Loading.Clock bind:speed={clock_speed} />
-		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={clock_speed} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Rotate 1" icon="ph:circle-dashed-bold">
-		<Loading.RotateOne
-			bind:speed={rotateOne_speed}
-			bind:count={rotateOne_count}
-			bind:width={rotateOne_width}
-			bind:length={rotateOne_length}
-		/>
-		<svelte:fragment slot="controls">
-			<Hst.Slider title="Count" min={1} max={25} bind:value={rotateOne_count} />
-			<Hst.Slider title="Width" min={1} max={50} bind:value={rotateOne_width} />
-			<Hst.Slider title="Length" min={1} max={50} bind:value={rotateOne_length} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={rotateOne_speed} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Hourglass" icon="ic:round-hourglass-bottom">
-		<Loading.Hourglass bind:speed={hourglass_speed} />
-		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={hourglass_speed} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Heart Outline" icon="material-symbols:favorite">
-		<Loading.HeartOutline bind:speed={heartOutline_speed} bind:reverse={heartOutline_reverse} />
-		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={heartOutline_speed} />
-			<Hst.Checkbox title="Reverse" bind:value={heartOutline_reverse} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Heart" icon="material-symbols:favorite">
-		<Loading.Heart bind:speed={heart_speed} />
-		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={heart_speed} />
-		</svelte:fragment>
-	</Hst.Variant>
-
 	<Hst.Variant title="Pie" icon="game-icons:swirled-shell">
 		<Loading.Pie
 			bind:count={pie_count}
@@ -203,8 +89,8 @@
 		/>
 		<svelte:fragment slot="controls">
 			<Hst.Slider title="Count" min={2} max={50} bind:value={pie_count} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={pie_speed} />
-			<Range title="Scale" min={0.1} max={0.9} step={0.1} bind:value={pie_scale} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={pie_speed} />
+			<Hst.Slider title="Scale" min={0.1} max={0.9} step={0.1} bind:value={pie_scale} />
 			<Hst.Checkbox title="Reverse" bind:value={pie_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
@@ -222,14 +108,91 @@
 			<Hst.Slider title="Height" min={0} max={100} bind:value={dna_height} />
 			<Hst.Slider title="Radius from" min={1} max={10} bind:value={dna_r} />
 			<Hst.Slider title="Radius to" min={1} max={10} bind:value={dna_r2} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dna_speed} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={dna_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Block Shuffle" icon="zondicons:view-tile">
+		<Loading.BlockShuffle
+			bind:speed={blockShuffle_speed}
+			bind:count={blockShuffle_count}
+			bind:border_radius={blockShuffle_br}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={1} max={3} bind:value={blockShuffle_count} />
+			<Hst.Slider title="Border Radius %" min={0} max={50} bind:value={blockShuffle_br} />
+			<Hst.Slider
+				title="Speed"
+				min={0.1}
+				max={10}
+				step={0.1}
+				bind:value={blockShuffle_speed}
+			/>
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Block Wave" icon="fe:tiled">
+		<Loading.BlockWave bind:speed={blockWave_speed} bind:count={blockWave_count} />
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={1} max={15} bind:value={blockWave_count} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={blockWave_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Clock" icon="ic:baseline-access-time">
+		<Loading.Clock bind:speed={clock_speed} />
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={clock_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Rotate 1" icon="ph:circle-dashed-bold">
+		<Loading.RotateOne
+			bind:speed={rotateOne_speed}
+			bind:count={rotateOne_count}
+			bind:width={rotateOne_width}
+			bind:length={rotateOne_length}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={1} max={25} bind:value={rotateOne_count} />
+			<Hst.Slider title="Width" min={1} max={50} bind:value={rotateOne_width} />
+			<Hst.Slider title="Length" min={1} max={50} bind:value={rotateOne_length} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={rotateOne_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Hourglass" icon="ic:round-hourglass-bottom">
+		<Loading.Hourglass bind:speed={hourglass_speed} />
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={hourglass_speed} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Heart Outline" icon="material-symbols:favorite">
+		<Loading.HeartOutline bind:speed={heartOutline_speed} bind:reverse={heartOutline_reverse} />
+		<svelte:fragment slot="controls">
+			<Hst.Slider
+				title="Speed"
+				min={0.1}
+				max={10}
+				step={0.1}
+				bind:value={heartOutline_speed}
+			/>
+			<Hst.Checkbox title="Reverse" bind:value={heartOutline_reverse} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Heart" icon="material-symbols:favorite">
+		<Loading.Heart bind:speed={heart_speed} />
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={heart_speed} />
 		</svelte:fragment>
 	</Hst.Variant>
 
 	<Hst.Variant title="DualBalls" icon="ic:baseline-circle">
 		<Loading.DualBalls bind:speed={dualBalls_speed} bind:reverse={dualBalls_reverse} />
 		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={dualBalls_speed} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={dualBalls_speed} />
 			<Hst.Checkbox title="Reverse" bind:value={dualBalls_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
@@ -242,7 +205,7 @@
 		/>
 		<svelte:fragment slot="controls">
 			<Hst.Slider title="Rotations" min={1} max={10} bind:value={spinGlass_rotations} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={spinGlass_speed} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={spinGlass_speed} />
 			<Hst.Checkbox title="Reverse" bind:value={spinGlass_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
@@ -260,8 +223,20 @@
 			<Hst.Slider title="Count" min={1} max={15} bind:value={spinCircles_count} />
 			<Hst.Slider title="Radius from" min={1} max={20} bind:value={spinCircles_r} />
 			<Hst.Slider title="Radius to" min={1} max={20} bind:value={spinCircles_r2} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={spinCircles_speed} />
-			<Range title="Merge Factor" min={0} max={1} step={0.1} bind:value={spinCircles_merge} />
+			<Hst.Slider
+				title="Speed"
+				min={0.1}
+				max={10}
+				step={0.1}
+				bind:value={spinCircles_speed}
+			/>
+			<Hst.Slider
+				title="Merge Factor"
+				min={0}
+				max={1}
+				step={0.1}
+				bind:value={spinCircles_merge}
+			/>
 			<Hst.Checkbox title="Reverse" bind:value={spinCircles_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
@@ -274,8 +249,8 @@
 			bind:bar_width={oscillate_bar_width}
 		/>
 		<svelte:fragment slot="controls">
-			<Range title="Count" min={1} max={21} step={2} bind:value={oscillate_count} />
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={oscillate_speed} />
+			<Hst.Slider title="Count" min={1} max={21} step={2} bind:value={oscillate_count} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={oscillate_speed} />
 			<Hst.Slider title="Width" min={1} max={100} bind:value={oscillate_width} />
 			<Hst.Slider title="Bar Width" min={2} max={12} bind:value={oscillate_bar_width} />
 		</svelte:fragment>
@@ -284,7 +259,7 @@
 	<Hst.Variant title="Slide" icon="teenyicons:layers-subtract-outline">
 		<Loading.Slide bind:speed={slide_speed} bind:reverse={slide_reverse} />
 		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={slide_speed} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={slide_speed} />
 			<Hst.Checkbox title="Reverse" bind:value={slide_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
@@ -292,7 +267,7 @@
 	<Hst.Variant title="Grow" icon="gg:extension">
 		<Loading.Grow bind:speed={grow_speed} bind:reverse={grow_reverse} />
 		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={grow_speed} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={grow_speed} />
 			<Hst.Checkbox title="Reverse" bind:value={grow_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
@@ -300,7 +275,7 @@
 	<Hst.Variant title="Shrink" icon="gg:extension">
 		<Loading.Shrink bind:speed={shrink_speed} bind:reverse={shrink_reverse} />
 		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={shrink_speed} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={shrink_speed} />
 			<Hst.Checkbox title="Reverse" bind:value={shrink_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
@@ -312,9 +287,37 @@
 			bind:border_width={spin_border_width}
 		/>
 		<svelte:fragment slot="controls">
-			<Range title="Speed" min={0.1} max={10} step={0.1} bind:value={spin_speed} />
-			<Range title="Scale" min={0.1} max={1} step={0.1} bind:value={spin_scale} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={spin_speed} />
+			<Hst.Slider title="Scale" min={0.1} max={1} step={0.1} bind:value={spin_scale} />
 			<Hst.Slider title="Border Width" min={0} max={10} bind:value={spin_border_width} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Dot Spin" icon="ion:more">
+		<Loading.DotSpin
+			bind:count={dotSpin_count}
+			bind:speed={dotSpin_speed}
+			bind:reverse={dotSpin_reverse}
+			bind:r={dotSpin_r}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={2} max={12} step={2} bind:value={dotSpin_count} />
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={dotSpin_speed} />
+			<Hst.Slider title="Radius" min={1} max={20} step={0.5} bind:value={dotSpin_r} />
+			<Hst.Checkbox title="Reverse" bind:value={dotSpin_reverse} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Dot Slide" icon="ion:more">
+		<Loading.DotSlide
+			bind:speed={dotSlide_speed}
+			bind:r={dotSlide_r}
+			bind:reverse={dotSlide_reverse}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Speed" min={0.1} max={10} step={0.1} bind:value={dotSlide_speed} />
+			<Hst.Slider title="Radius" min={1} max={20} step={0.5} bind:value={dotSlide_r} />
+			<Hst.Checkbox title="Reverse" bind:value={dotSlide_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 </Hst.Story>

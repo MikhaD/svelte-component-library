@@ -23,7 +23,7 @@
 		<Starfield bind:width bind:height bind:stars bind:speed />
 	{/key}
 	<svelte:fragment slot="controls">
-		<Button on:click={() => (key = !key)}>Reset</Button>
+		<Button on:click={changed}>Reset</Button>
 		<Hst.Number title="Width" bind:value={width} />
 		<Hst.Number title="Height" bind:value={height} />
 		<Hst.Number title="Stars" bind:value={stars} step={100} />

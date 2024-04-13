@@ -14,18 +14,25 @@
 
 <style lang="scss">
 	section {
-		width: 500px;
-		height: 500px;
+		width: 380px;
+		height: 380px;
+		display: grid;
+		place-items: center;
 	}
 	.rotate {
 		display: grid;
 		grid-template: 1fr / 1fr;
 		place-items: center;
-		width: 100%;
-		height: 100%;
+		width: 90%;
+		height: 90%;
+		border-radius: 50%;
+		background-color: #00808080;
 		animation: rotate 10s linear infinite;
 		&:hover {
 			animation-play-state: paused;
+			div::before {
+				animation-play-state: paused;
+			}
 		}
 	}
 	div {
@@ -34,14 +41,6 @@
 		border-radius: 50%;
 		position: relative;
 		transform-origin: center;
-		&::before {
-			content: "a";
-			position: absolute;
-			inset: 0;
-			display: grid;
-			place-items: center;
-			animation: rotate 10s linear reverse infinite;
-		}
 	}
 	.circle {
 		--offset: 150px;
@@ -52,6 +51,22 @@
 			calc(cos(var(--angle)) * var(--offset)),
 			calc(sin(var(--angle)) * var(--offset))
 		);
+		&::before {
+			content: "a";
+			position: absolute;
+			inset: 0;
+			display: grid;
+			border-radius: inherit;
+			background-color: inherit;
+			place-items: center;
+			transition: scale 0.3s;
+			animation: rotate 10s linear reverse infinite;
+		}
+		&:hover {
+			&::before {
+				scale: 1.5;
+			}
+		}
 	}
 	.center {
 		width: 100px;

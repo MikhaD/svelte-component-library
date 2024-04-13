@@ -3,9 +3,6 @@
 	import Experiment from "../../components/Experiment.svelte";
 
 	export let Hst: Hst;
-
-	let colorType: ColorType = "hex";
-	let value = "#000000";
 </script>
 
 <Hst.Story

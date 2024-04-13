@@ -17,7 +17,7 @@
 	</Hst.Variant>
 	<Hst.Variant title="Rotate Circle" icon="material-symbols:pause-circle">
 		<!-- svelte-ignore a11y-click-events-have-key-events -->
-		<div class:paused on:click|self={() => (paused = !paused)}>
+		<div role="button" tabindex="0" class:paused on:click|self={() => (paused = !paused)}>
 			<Rotate bind:paused />
 		</div>
 	</Hst.Variant>

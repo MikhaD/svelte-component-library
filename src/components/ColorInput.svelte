@@ -7,20 +7,24 @@
 	let element: HTMLSpanElement;
 
 	$: value = value.startsWith("#") ? value : `#${value}`;
+	function toggle() {
+		open = !open;
+	}
 </script>
 
 <span
+	role="button"
 	bind:this={element}
 	class="container"
 	style:--color={value}
 	tabindex="-1"
-	on:click|self={() => (open = !open)}
+	on:click|self={toggle}
 	on:keydown|self={(e) => e.key === "Escape" && (open = false)}
 	on:blur={() => (open = false)}
 >
 	{title}
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
-	<span class="input" on:click|self={() => (open = !open)}>
+	<span role="button" tabindex="-1" class="input" on:click|self={toggle}>
 		{#if open}
 			<div class="modal">
 				<ColorPicker bind:value />
