@@ -1,0 +1,4 @@
+const __resolved__virtual_storySource_srcStoriesSvgCommandStorySvelte = '<script lang="ts">\n	import type { Hst } from "@histoire/plugin-svelte";\n	import ColorInput from "../../components/ColorInput.svelte";\n\n	export let Hst: Hst;\n\n	let color = "#000";\n<\/script>\n\n<Hst.Story title="SVGs/Command" icon="ph:command">\n	<svg viewBox="0 0 19 19" fill-rule="evenodd" fill={color}>\n		<path\n			d="M8 6v-2a4 4 0 1 0-4 4h2v3h-2a4 4 0 1 0 4 4v-2h3v2a4 4 0 1 0 4-4h-2v-3h2a4 4 0 1 0-4-4v2zM6 6v-2a2 2 0 1 0-2 2zm7 0h2a2 2 0 1 0-2-2zm0 7v2a2 2 0 1 0 2-2zm-7 0h-2a2 2 0 1 0 2 2zm2-5h3v3h-3z"\n		/>\n	</svg>\n	<svelte:fragment slot="controls">\n		<ColorInput title="Color" bind:value={color} />\n	</svelte:fragment>\n</Hst.Story>\n';
+export {
+  __resolved__virtual_storySource_srcStoriesSvgCommandStorySvelte as default
+};

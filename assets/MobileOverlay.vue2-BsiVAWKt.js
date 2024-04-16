@@ -1,5 +1,4 @@
-import { d as defineComponent, l as resolveComponent, o as openBlock, q as createBlock, w as withCtx, g as createBaseVNode, n as normalizeClass, m as withKeys, aY as renderSlot, aQ as mergeProps, k as watch, bg as scrollIntoView, N as onMounted, i as defineStore, r as ref, c as computed, a_ as onUnmounted, e as createElementBlock, aX as withModifiers, L as normalizeStyle, a as unref, bh as useMediaQuery, t as toDisplayString, f as createVNode, I as Icon, h as createCommentVNode, T as Transition } from "./vendor-26cb3ca3.js";
-import { r as router } from "./GenericMountStory.vue2-e9273e88.js";
+import { d as defineComponent, l as resolveComponent, o as openBlock, q as createBlock, w as withCtx, f as createBaseVNode, n as normalizeClass, m as withKeys, aR as renderSlot, aP as mergeProps, k as watch, bf as scrollIntoView, N as onMounted, r as ref, c as computed, ba as onUnmounted, b as createElementBlock, aX as withModifiers, L as normalizeStyle, bg as useMediaQuery, t as toDisplayString, e as createVNode, g as unref, I as Icon, h as createCommentVNode, T as Transition } from "./vendor-Ja7Mn0EQ.js";
 const _sfc_main$2 = defineComponent({
   inheritAttrs: false,
   props: {
@@ -79,46 +78,8 @@ function useScrollOnActive(active, el) {
     autoScroll
   };
 }
-const useStoryStore = defineStore("story", () => {
-  const stories = ref([]);
-  function setStories(value) {
-    stories.value = value;
-  }
-  const currentStory = computed(() => stories.value.find((s) => s.id === router.currentRoute.value.params.storyId));
-  const currentVariant = computed(() => {
-    var _a;
-    return (_a = currentStory.value) == null ? void 0 : _a.variants.find((v) => v.id === router.currentRoute.value.query.variantId);
-  });
-  const maps = computed(() => {
-    const storyMap = /* @__PURE__ */ new Map();
-    const variantMap = /* @__PURE__ */ new Map();
-    for (const story of stories.value) {
-      storyMap.set(story.id, story);
-      for (const variant of story.variants) {
-        variantMap.set(`${story.id}:${variant.id}`, variant);
-      }
-    }
-    return {
-      stories: storyMap,
-      variants: variantMap
-    };
-  });
-  function getStoryById(id) {
-    return maps.value.stories.get(id);
-  }
-  function getVariantById(idWithStoryId) {
-    return maps.value.variants.get(idWithStoryId);
-  }
-  return {
-    stories,
-    setStories,
-    currentStory,
-    currentVariant,
-    getStoryById,
-    getVariantById
-  };
-});
 const _hoisted_1$1 = ["onMousedown"];
+const SAVE_PREFIX = "__histoire";
 const _sfc_main$1 = /* @__PURE__ */ defineComponent({
   __name: "BaseSplitPane",
   props: {
@@ -158,12 +119,11 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     }
   },
   emits: {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    "update:split": (value) => true
+    "update:split": (_value) => true
   },
-  setup(__props, { emit }) {
+  setup(__props, { emit: __emit }) {
     const props = __props;
-    const SAVE_PREFIX = "__histoire";
+    const emit = __emit;
     const currentSplit = ref(props.defaultSplit);
     watch(() => props.split, (value) => {
       if (value !== void 0) {
@@ -270,7 +230,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             "htw-border-r htw-border-gray-300/30 dark:htw-border-gray-800": __props.orientation === "landscape",
             "htw-flex-none": __props.fixed
           }]),
-          style: normalizeStyle(unref(leftStyle))
+          style: normalizeStyle(leftStyle.value)
         }, [
           renderSlot(_ctx.$slots, "first", {}, void 0, true),
           createBaseVNode("div", {
@@ -289,7 +249,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
             "htw-border-t htw-border-gray-300/30 dark:htw-border-gray-800": __props.orientation === "portrait",
             "htw-flex-1": __props.fixed
           }]),
-          style: normalizeStyle(unref(rightStyle))
+          style: normalizeStyle(rightStyle.value)
         }, [
           renderSlot(_ctx.$slots, "last", {}, void 0, true)
         ], 6)
@@ -297,7 +257,7 @@ const _sfc_main$1 = /* @__PURE__ */ defineComponent({
     };
   }
 });
-const BaseSplitPane = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-ed925107"]]);
+const BaseSplitPane = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-4f40a1bb"]]);
 const isMobile = useMediaQuery("(max-width: 640px)");
 const _hoisted_1 = {
   key: 0,
@@ -308,20 +268,21 @@ const _hoisted_3 = { class: "htw-text-gray-500" };
 const _sfc_main = /* @__PURE__ */ defineComponent({
   __name: "MobileOverlay",
   props: {
-    title: null,
+    title: {},
     opened: { type: Boolean }
   },
   emits: ["close"],
-  setup(__props, { emit: emits }) {
+  setup(__props, { emit: __emit }) {
+    const emit = __emit;
     return (_ctx, _cache) => {
       return openBlock(), createBlock(Transition, { name: "__histoire-fade-bottom" }, {
         default: withCtx(() => [
-          __props.opened ? (openBlock(), createElementBlock("div", _hoisted_1, [
+          _ctx.opened ? (openBlock(), createElementBlock("div", _hoisted_1, [
             createBaseVNode("div", _hoisted_2, [
-              createBaseVNode("span", _hoisted_3, toDisplayString(__props.title), 1),
+              createBaseVNode("span", _hoisted_3, toDisplayString(_ctx.title), 1),
               createBaseVNode("a", {
                 class: "htw-p-1 hover:htw-text-primary-500 dark:hover:htw-text-primary-400 htw-cursor-pointer",
-                onClick: _cache[0] || (_cache[0] = ($event) => emits("close"))
+                onClick: _cache[0] || (_cache[0] = ($event) => emit("close"))
               }, [
                 createVNode(unref(Icon), {
                   icon: "carbon:close",
@@ -340,9 +301,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
 export {
   BaseListItemLink as B,
   _export_sfc as _,
-  useStoryStore as a,
-  _sfc_main as b,
-  BaseSplitPane as c,
+  _sfc_main as a,
+  BaseSplitPane as b,
   isMobile as i,
   useScrollOnActive as u
 };
