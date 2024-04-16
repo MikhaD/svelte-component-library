@@ -14,6 +14,7 @@ dist
 dist-ssr
 *.local
 LoadersToMake.html
+TestPreprocessor.story.svelte
 
 # Editor directories and files
 .vscode/*

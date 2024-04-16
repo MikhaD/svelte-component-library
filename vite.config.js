@@ -1,7 +1,8 @@
 import { defineConfig } from 'vite';
 import { HstSvelte } from '@histoire/plugin-svelte';
 import { svelte, vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { defaultColors } from 'histoire';
+// import { defaultColors } from 'histoire';
+import ds from "./src/lib/preprocessors/dynamicSource.js";
 
 const dev = process.argv.includes("dev");
 
@@ -9,9 +10,9 @@ const dev = process.argv.includes("dev");
 export default defineConfig({
 	base: dev ? "" : "/svelte-component-library/",
 	plugins: [svelte({
-		preprocess: vitePreprocess(),
+		preprocess: [vitePreprocess(), ds()],
 		// Prevent vscode svelte plugin from showing warnings for using Hst.<component>
-		onwarn: (warning, handler) => {
+		onwarn: function(warning, handler) {
 			if (warning.code === "reactive-component") {
 				return;
 			};
@@ -29,7 +30,7 @@ export default defineConfig({
 				light: "/img/logo-black.svg",
 				dark: "/img/logo-white.svg",
 			},
-			favicon: "/img/favicon.svg",
+			favicon: "img/favicon.svg",
 			logoHref: "https://mikha.dev",
 			colors: {
 				primary: {
