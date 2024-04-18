@@ -1,0 +1,4 @@
+const __resolved__virtual_storySource_srcStoriesComponentsNumberinputStorySvelte = '<script lang="ts">\n	import type { Hst } from "@histoire/plugin-svelte";\n    import NumberInput from "../../components/NumberInput.svelte";\n\n	export let Hst: Hst;\n\n	let value = 0;\n	let min = 0;\n	let max = 100;\n	let increment = 1;\n<\/script>\n\n<Hst.Story\n	title="Components/NumberInput"\n	icon="iconoir:input-field"\n	layout={{ type: "grid" }}\n>\n	<NumberInput bind:value {min} {max} {increment}></NumberInput>\n	<svelte:fragment slot="controls">\n		<Hst.Number title="Min" bind:value={min} />\n		<Hst.Number title="Max" bind:value={max} />\n		<Hst.Number title="Increment" bind:value={increment} />\n	</svelte:fragment>\n</Hst.Story>';
+export {
+  __resolved__virtual_storySource_srcStoriesComponentsNumberinputStorySvelte as default
+};

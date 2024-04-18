@@ -8349,7 +8349,7 @@ function isPerformanceSupported() {
   }
   return supported;
 }
-function now() {
+function now$1() {
   return isPerformanceSupported() ? perf.now() : Date.now();
 }
 class ApiProxy {
@@ -8386,7 +8386,7 @@ class ApiProxy {
         currentSettings = value;
       },
       now() {
-        return now();
+        return now$1();
       }
     };
     if (hook) {
@@ -10067,12 +10067,12 @@ function getAlignmentSides(placement, rects) {
     cross: getOppositePlacement(mainAlignmentSide)
   };
 }
-const hash = {
+const hash$2 = {
   start: "end",
   end: "start"
 };
 function getOppositeAlignmentPlacement(placement) {
-  return placement.replace(/start|end/g, (matched) => hash[matched]);
+  return placement.replace(/start|end/g, (matched) => hash$2[matched]);
 }
 const basePlacements = ["top", "right", "bottom", "left"];
 const allPlacements = /* @__PURE__ */ basePlacements.reduce((acc, basePlacement) => acc.concat(basePlacement, basePlacement + "-start", basePlacement + "-end"), []);
@@ -12644,12 +12644,12 @@ const assetsURL = function(dep) {
 };
 const seen = {};
 const __vitePreload = function preload(baseModule, deps, importerUrl) {
-  let promise = Promise.resolve();
+  let promise2 = Promise.resolve();
   if (deps && deps.length > 0) {
     const links = document.getElementsByTagName("link");
     const cspNonceMeta = document.querySelector("meta[property=csp-nonce]");
     const cspNonce = (cspNonceMeta == null ? void 0 : cspNonceMeta.nonce) || (cspNonceMeta == null ? void 0 : cspNonceMeta.getAttribute("nonce"));
-    promise = Promise.all(deps.map((dep) => {
+    promise2 = Promise.all(deps.map((dep) => {
       dep = assetsURL(dep);
       if (dep in seen)
         return;
@@ -12686,7 +12686,7 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
       }
     }));
   }
-  return promise.then(() => baseModule()).catch((err) => {
+  return promise2.then(() => baseModule()).catch((err) => {
     const e2 = new Event("vite:preloadError", { cancelable: true });
     e2.payload = err;
     window.dispatchEvent(e2);
@@ -12697,6 +12697,7 @@ const __vitePreload = function preload(baseModule, deps, importerUrl) {
 };
 function noop$2() {
 }
+const identity$1 = (x2) => x2;
 function assign$1(tar, src) {
   for (const k2 in src)
     tar[k2] = src[k2];
@@ -12807,8 +12808,70 @@ function compute_slots(slots) {
 function null_to_empty(value) {
   return value == null ? "" : value;
 }
+function split_css_unit(value) {
+  const split = typeof value === "string" && value.match(/^\s*(-?[\d.]+)([^\s]*)\s*$/);
+  return split ? [parseFloat(split[1]), split[2] || "px"] : [
+    /** @type {number} */
+    value,
+    "px"
+  ];
+}
+const is_client = typeof window !== "undefined";
+let now = is_client ? () => window.performance.now() : () => Date.now();
+let raf = is_client ? (cb) => requestAnimationFrame(cb) : noop$2;
+const tasks = /* @__PURE__ */ new Set();
+function run_tasks(now2) {
+  tasks.forEach((task) => {
+    if (!task.c(now2)) {
+      tasks.delete(task);
+      task.f();
+    }
+  });
+  if (tasks.size !== 0)
+    raf(run_tasks);
+}
+function loop(callback) {
+  let task;
+  if (tasks.size === 0)
+    raf(run_tasks);
+  return {
+    promise: new Promise((fulfill) => {
+      tasks.add(task = { c: callback, f: fulfill });
+    }),
+    abort() {
+      tasks.delete(task);
+    }
+  };
+}
 function append(target, node) {
   target.appendChild(node);
+}
+function get_root_for_style(node) {
+  if (!node)
+    return document;
+  const root = node.getRootNode ? node.getRootNode() : node.ownerDocument;
+  if (root && /** @type {ShadowRoot} */
+  root.host) {
+    return (
+      /** @type {ShadowRoot} */
+      root
+    );
+  }
+  return node.ownerDocument;
+}
+function append_empty_stylesheet(node) {
+  const style_element = element("style");
+  style_element.textContent = "/* empty */";
+  append_stylesheet(get_root_for_style(node), style_element);
+  return style_element.sheet;
+}
+function append_stylesheet(node, style) {
+  append(
+    /** @type {Document} */
+    node.head || node,
+    style
+  );
+  return style.sheet;
 }
 function insert(target, node, anchor) {
   target.insertBefore(node, anchor || null);
@@ -12899,6 +12962,68 @@ function toggle_class(element2, name, toggle) {
 }
 function custom_event(type, detail, { bubbles = false, cancelable = false } = {}) {
   return new CustomEvent(type, { detail, bubbles, cancelable });
+}
+const managed_styles = /* @__PURE__ */ new Map();
+let active = 0;
+function hash(str) {
+  let hash2 = 5381;
+  let i2 = str.length;
+  while (i2--)
+    hash2 = (hash2 << 5) - hash2 ^ str.charCodeAt(i2);
+  return hash2 >>> 0;
+}
+function create_style_information(doc2, node) {
+  const info = { stylesheet: append_empty_stylesheet(node), rules: {} };
+  managed_styles.set(doc2, info);
+  return info;
+}
+function create_rule(node, a2, b3, duration, delay, ease, fn2, uid2 = 0) {
+  const step = 16.666 / duration;
+  let keyframes = "{\n";
+  for (let p2 = 0; p2 <= 1; p2 += step) {
+    const t2 = a2 + (b3 - a2) * ease(p2);
+    keyframes += p2 * 100 + `%{${fn2(t2, 1 - t2)}}
+`;
+  }
+  const rule = keyframes + `100% {${fn2(b3, 1 - b3)}}
+}`;
+  const name = `__svelte_${hash(rule)}_${uid2}`;
+  const doc2 = get_root_for_style(node);
+  const { stylesheet, rules } = managed_styles.get(doc2) || create_style_information(doc2, node);
+  if (!rules[name]) {
+    rules[name] = true;
+    stylesheet.insertRule(`@keyframes ${name} ${rule}`, stylesheet.cssRules.length);
+  }
+  const animation = node.style.animation || "";
+  node.style.animation = `${animation ? `${animation}, ` : ""}${name} ${duration}ms linear ${delay}ms 1 both`;
+  active += 1;
+  return name;
+}
+function delete_rule(node, name) {
+  const previous = (node.style.animation || "").split(", ");
+  const next = previous.filter(
+    name ? (anim) => anim.indexOf(name) < 0 : (anim) => anim.indexOf("__svelte") === -1
+    // remove all Svelte animations
+  );
+  const deleted = previous.length - next.length;
+  if (deleted) {
+    node.style.animation = next.join(", ");
+    active -= deleted;
+    if (!active)
+      clear_rules();
+  }
+}
+function clear_rules() {
+  raf(() => {
+    if (active)
+      return;
+    managed_styles.forEach((info) => {
+      const { ownerNode } = info.stylesheet;
+      if (ownerNode)
+        detach(ownerNode);
+    });
+    managed_styles.clear();
+  });
 }
 let current_component;
 function set_current_component(component) {
@@ -13023,6 +13148,19 @@ function flush_render_callbacks(fns) {
   targets.forEach((c2) => c2());
   render_callbacks = filtered;
 }
+let promise;
+function wait() {
+  if (!promise) {
+    promise = Promise.resolve();
+    promise.then(() => {
+      promise = null;
+    });
+  }
+  return promise;
+}
+function dispatch(node, direction, kind) {
+  node.dispatchEvent(custom_event(`${direction ? "intro" : "outro"}${kind}`));
+}
 const outroing = /* @__PURE__ */ new Set();
 let outros;
 function group_outros() {
@@ -13062,6 +13200,76 @@ function transition_out(block, local, detach2, callback) {
   } else if (callback) {
     callback();
   }
+}
+const null_transition = { duration: 0 };
+function create_in_transition(node, fn2, params) {
+  const options = { direction: "in" };
+  let config2 = fn2(node, params, options);
+  let running = false;
+  let animation_name;
+  let task;
+  let uid2 = 0;
+  function cleanup() {
+    if (animation_name)
+      delete_rule(node, animation_name);
+  }
+  function go2() {
+    const {
+      delay = 0,
+      duration = 300,
+      easing = identity$1,
+      tick = noop$2,
+      css
+    } = config2 || null_transition;
+    if (css)
+      animation_name = create_rule(node, 0, 1, duration, delay, easing, css, uid2++);
+    tick(0, 1);
+    const start_time = now() + delay;
+    const end_time = start_time + duration;
+    if (task)
+      task.abort();
+    running = true;
+    add_render_callback(() => dispatch(node, true, "start"));
+    task = loop((now2) => {
+      if (running) {
+        if (now2 >= end_time) {
+          tick(1, 0);
+          dispatch(node, true, "end");
+          cleanup();
+          return running = false;
+        }
+        if (now2 >= start_time) {
+          const t2 = easing((now2 - start_time) / duration);
+          tick(t2, 1 - t2);
+        }
+      }
+      return running;
+    });
+  }
+  let started = false;
+  return {
+    start() {
+      if (started)
+        return;
+      started = true;
+      delete_rule(node);
+      if (is_function(config2)) {
+        config2 = config2(options);
+        wait().then(go2);
+      } else {
+        go2();
+      }
+    },
+    invalidate() {
+      started = false;
+    },
+    end() {
+      if (running) {
+        cleanup();
+        running = false;
+      }
+    }
+  };
 }
 function ensure_array_like(array_like_or_iterator) {
   return (array_like_or_iterator == null ? void 0 : array_like_or_iterator.length) !== void 0 ? array_like_or_iterator : Array.from(array_like_or_iterator);
@@ -13364,6 +13572,26 @@ class SvelteComponentDev extends SvelteComponent {
 }
 if (typeof window !== "undefined")
   (window.__svelte || (window.__svelte = { v: /* @__PURE__ */ new Set() })).v.add(PUBLIC_VERSION);
+function cubicOut(t2) {
+  const f2 = t2 - 1;
+  return f2 * f2 * f2 + 1;
+}
+function fly(node, { delay = 0, duration = 400, easing = cubicOut, x: x2 = 0, y: y2 = 0, opacity = 0 } = {}) {
+  const style = getComputedStyle(node);
+  const target_opacity = +style.opacity;
+  const transform = style.transform === "none" ? "" : style.transform;
+  const od2 = target_opacity * (1 - opacity);
+  const [xValue, xUnit] = split_css_unit(x2);
+  const [yValue, yUnit] = split_css_unit(y2);
+  return {
+    delay,
+    duration,
+    easing,
+    css: (t2, u2) => `
+			transform: ${transform} translate(${(1 - t2) * xValue}${xUnit}, ${(1 - t2) * yValue}${yUnit});
+			opacity: ${target_opacity - od2 * u2}`
+  };
+}
 var _a$1;
 const isClient = typeof window !== "undefined";
 const isFunction = (val) => typeof val === "function";
@@ -17378,8 +17606,8 @@ function extractComponentsGuards(matched, guardType, to2, from) {
           throw new Error("Invalid route component");
         } else if ("then" in rawComponent) {
           warn(`Component "${name}" in record with path "${record.path}" is a Promise instead of a function that returns a Promise. Did you write "import('./MyPage.vue')" instead of "() => import('./MyPage.vue')" ? This will break in production if not fixed.`);
-          const promise = rawComponent;
-          rawComponent = () => promise;
+          const promise2 = rawComponent;
+          rawComponent = () => promise2;
         } else if (rawComponent.__asyncLoader && // warn only once per component
         !rawComponent.__warnedDefineAsync) {
           rawComponent.__warnedDefineAsync = true;
@@ -18577,7 +18805,7 @@ ${JSON.stringify(newTargetLocation, null, 2)}
     }
   };
   function runGuardQueue(guards) {
-    return guards.reduce((promise, guard) => promise.then(() => runWithContext(guard)), Promise.resolve());
+    return guards.reduce((promise2, guard) => promise2.then(() => runWithContext(guard)), Promise.resolve());
   }
   return router;
 }
@@ -40794,7 +41022,7 @@ export {
   init as Z,
   __vitePreload as _,
   useRoute as a,
-  gm as a$,
+  nextTick as a$,
   dispatch_dev as a0,
   validate_slots as a1,
   element as a2,
@@ -40812,26 +41040,26 @@ export {
   destroy_each as aE,
   createEventDispatcher as aF,
   null_to_empty as aG,
-  src_url_equal as aH,
-  xlink_attr as aI,
-  onMount as aJ,
-  createRouter as aK,
-  createWebHistory as aL,
-  createWebHashHistory as aM,
-  markRaw as aN,
-  watchEffect as aO,
-  mergeProps as aP,
-  resolveDynamicComponent as aQ,
-  renderSlot as aR,
-  Dropdown as aS,
-  clone as aT,
-  omit as aU,
-  useTimeoutFn as aV,
-  onClickOutside as aW,
-  withModifiers as aX,
-  vModelText as aY,
-  nextTick as aZ,
-  Mm as a_,
+  fly as aH,
+  create_in_transition as aI,
+  src_url_equal as aJ,
+  xlink_attr as aK,
+  onMount as aL,
+  createRouter as aM,
+  createWebHistory as aN,
+  createWebHashHistory as aO,
+  markRaw as aP,
+  watchEffect as aQ,
+  mergeProps as aR,
+  resolveDynamicComponent as aS,
+  renderSlot as aT,
+  Dropdown as aU,
+  clone as aV,
+  omit as aW,
+  useTimeoutFn as aX,
+  onClickOutside as aY,
+  withModifiers as aZ,
+  vModelText as a_,
   run_all as aa,
   text as ab,
   append_dev as ac,
@@ -40859,28 +41087,30 @@ export {
   update_slot_base as ay,
   get_all_dirty_from_scope as az,
   createElementBlock as b,
-  ym as b0,
-  wm as b1,
-  toRefs as b2,
-  useRouter as b3,
-  shallowRef as b4,
-  unindent as b5,
-  getHighlighter as b6,
-  Am as b7,
-  useResizeObserver as b8,
-  onBeforeUnmount as b9,
-  onUnmounted as ba,
-  VTooltip as bb,
-  createStaticVNode as bc,
-  EVENT_SEND as bd,
-  toRaw as be,
-  scrollIntoView as bf,
-  useMediaQuery as bg,
-  useFocus as bh,
-  refDebounced as bi,
-  flexsearch_bundleExports as bj,
-  client as bk,
-  index as bl,
+  Mm as b0,
+  gm as b1,
+  ym as b2,
+  wm as b3,
+  toRefs as b4,
+  useRouter as b5,
+  shallowRef as b6,
+  unindent as b7,
+  getHighlighter as b8,
+  Am as b9,
+  useResizeObserver as ba,
+  onBeforeUnmount as bb,
+  onUnmounted as bc,
+  VTooltip as bd,
+  createStaticVNode as be,
+  EVENT_SEND as bf,
+  toRaw as bg,
+  scrollIntoView as bh,
+  useMediaQuery as bi,
+  useFocus as bj,
+  refDebounced as bk,
+  flexsearch_bundleExports as bl,
+  client as bm,
+  index as bn,
   computed as c,
   defineComponent as d,
   createVNode as e,

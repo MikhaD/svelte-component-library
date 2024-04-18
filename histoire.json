@@ -501,6 +501,31 @@
       "markdownFile": null
     },
     {
+      "id": "src-stories-components-numberinput-story-svelte",
+      "title": "NumberInput",
+      "group": null,
+      "layout": {
+        "type": "grid"
+      },
+      "icon": "iconoir:input-field",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/components/NumberInput.story.svelte",
+      "supportPluginId": "svelte4",
+      "treePath": [
+        "Components",
+        "NumberInput"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-components-pause-story-svelte",
       "title": "Pause",
       "group": null,
