@@ -13,6 +13,7 @@ To use the pre processor it needs to be placed in the `preprocess` array after `
 - It does not recognize variables declared with the @const directive
 - It has not been tested with multiple stories in a file
 - The only multiline thing that indents correctly is text. Everything else is missing indentation
+- The whitelisted AST node types should come with processing functions that get used in formatSrc instead of if statements
 
 ## Components to add
 - Tabs

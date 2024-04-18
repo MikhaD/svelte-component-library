@@ -53,6 +53,33 @@ function splice(str, index, count, add) {
 }
 
 /**
+ * Return the start and end indices of the opening tag of a node. If it doesn't have children, the
+ * start and end indices of the node itself are returned.
+ * @param {TemplateNode} node
+ */
+function openTagLocation(node) {
+	if (node.children && node.children.length > 0) {
+		return { start: node.start, end: node.children[0].start - 1};
+	} else {
+		return { start: node.start, end: node.end };
+	}
+}
+
+/**
+ * Return the start and end indices of the closing tag of a node. If it doesn't have children, the
+ * start and end indices of the node itself are returned.
+ * @param {TemplateNode} node
+ */
+function closeTagLocation(node) {
+	if (node.children && node.children.length > 0) {
+		// @ts-ignore
+		return { start: node.children.at(-1).end + 1, end: node.end };
+	} else {
+		return { start: node.start, end: node.end };
+	}
+}
+
+/**
  * Format the given svelte code by standardizing the indentation and removing unnecessary elements.
  * @param {string} src
  * @param {InternalOptions} options
@@ -69,6 +96,7 @@ function formatSrc(src, options) {
 				changes.unshift({ start: child.start, end: child.end, replace: "" });
 			}
 			else if (child.type === "Text") {
+				// If there is a next node and that next node is being discarded, remove this text node.
 				if (i < node.children.length - 1 && !options.keepNode(node.children[i + 1])) {
 					changes.unshift({ start: child.start, end: child.end, replace: "" });
 					continue;
@@ -88,6 +116,13 @@ function formatSrc(src, options) {
 					}
 					changes.unshift({ start: child.start, end: child.end, replace: lines.join("\n") });
 				}
+			} else if (child.type === "KeyBlock") {
+				const open_tag = openTagLocation(child);
+				changes.unshift({ start: open_tag.start, end: open_tag.end, replace: "" });
+				processChildren(child, depth);
+				const close_tag = closeTagLocation(child);
+				changes.unshift({ start: close_tag.start, end: close_tag.end, replace: "" });
+				// changes
 			} else {
 				processChildren(child, depth + 1);
 			}
@@ -296,7 +331,7 @@ const /** @type {UserOptions} */ defaultOptions = {
 export default function preprocessor(options) {
 	options = defu(options, defaultOptions); // merge options with default options
 
-	const KeepComponents = new Set(["InlineComponent", "Element", "Text", "SlotTemplate"]);
+	const KeepComponents = new Set(["InlineComponent", "Element", "Text", "SlotTemplate", "KeyBlock"]);
 	if (!options.removeComments) KeepComponents.add("Comment");
 
 	/** @type {InternalOptions} */
