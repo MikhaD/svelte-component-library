@@ -12,6 +12,7 @@ export { default as Heart } from "./Heart.svelte";
 export { default as Hourglass } from "./Hourglass.svelte";
 export { default as HeartOutline } from "./HeartOutline.svelte";
 export { default as RotateOne } from "./RotateOne.svelte";
+export { default as RotateTwo } from "./RotateTwo.svelte";
 export { default as Clock } from "./Clock.svelte";
 export { default as BlockWave } from "./BlockWave.svelte";
 export { default as BlockShuffle } from "./BlockShuffle.svelte";

@@ -18,22 +18,7 @@
 	 * Min: 1
 	 * @default 10
 	 */
-	export let width = 10;
-	$: width = Math.max(1, width);
-	/**
-	 * The length of the bars.
-	 *
-	 * Min: 1
-	 * @default 25
-	 */
-	export let length = 25;
-	$: length = Math.max(1, length);
-
-	/**
-	 * Whether the line caps are rounded.
-	 * @default false
-	 */
-	export let round = false;
+	export let radius = 4;
 	/**
 	 * The offset from the center.
 	 * @default 25
@@ -41,12 +26,18 @@
 	export let offset = 25;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--width="{width}px">
-	<g stroke-linecap={round ? "round" : "butt"}>
-		{#key count + length + Number(round)}
+<svg
+	viewBox="0 0 100 100"
+	style:--speed="{speed}s"
+	style:--offset="{offset}px"
+	style:--r="{radius}px"
+>
+	<g>
+		{#key count + radius + speed}
 			{#each Array(count) as _, i}
-				<path
-					d="M50 {50 + offset}v{length}"
+				<circle
+					cx="50"
+					cy="50"
 					style:--angle="{(i * 360) / count}deg"
 					style:--delay="{(speed / count) * i}s"
 				/>
@@ -59,20 +50,19 @@
 	g {
 		transform-origin: center;
 	}
-	path {
-		stroke-width: var(--width);
-		stroke: currentcolor;
+	circle {
+		fill: currentcolor;
 		transform-origin: center;
-		transform: rotate(var(--angle));
+		transform: rotate(var(--angle)) translateX(var(--offset));
 		animation: fade var(--speed) var(--delay) linear infinite;
 	}
 	@keyframes fade {
 		0% {
-			opacity: 1;
+			r: var(--r);
 		}
 		75%,
 		100% {
-			opacity: 0;
+			r: 0;
 		}
 	}
 </style>
