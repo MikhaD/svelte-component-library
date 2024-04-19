@@ -755,78 +755,84 @@
         },
         {
           "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-6",
+          "title": "Rotate 2",
+          "icon": "ph:circle-dashed-bold",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-7",
           "title": "Hourglass",
           "icon": "ic:round-hourglass-bottom",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-7",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-8",
           "title": "Heart Outline",
           "icon": "material-symbols:favorite",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-8",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-9",
           "title": "Heart",
           "icon": "material-symbols:favorite",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-9",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-10",
           "title": "DualBalls",
           "icon": "ic:baseline-circle",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-10",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-11",
           "title": "Spin Glass",
           "icon": "ph:hourglass-fill",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-11",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-12",
           "title": "Spin Circles",
           "icon": "ic:baseline-circle",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-12",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-13",
           "title": "Oscillate",
           "icon": "cil:audio-spectrum",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-13",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-14",
           "title": "Slide",
           "icon": "teenyicons:layers-subtract-outline",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-14",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-15",
           "title": "Grow",
           "icon": "gg:extension",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-15",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-16",
           "title": "Shrink",
           "icon": "gg:extension",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-16",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-17",
           "title": "Spin",
           "icon": "mdi:square-circle",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-17",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-18",
           "title": "Dot Spin",
           "icon": "ion:more",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-18",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-19",
           "title": "Dot Slide",
           "icon": "ion:more",
           "iconColor": null

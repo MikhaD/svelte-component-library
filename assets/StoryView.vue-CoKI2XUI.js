@@ -1,9 +1,9 @@
 import { i as defineStore, K as reactive, r as ref, k as watch, d as defineComponent, c as computed, o as openBlock, q as createBlock, w as withCtx, f as createBaseVNode, b as createElementBlock, F as Fragment, p as renderList, aR as mergeProps, aT as renderSlot, D as createTextVNode, t as toDisplayString, e as createVNode, g as unref, I as Icon, aU as Dropdown, aV as clone, aW as omit, j as useStorage, N as onMounted, aX as useTimeoutFn, aY as onClickOutside, A as resolveDirective, B as withDirectives, aZ as withModifiers, a_ as vModelText, h as createCommentVNode, v as isRef, m as withKeys, n as normalizeClass, X as applyState, a$ as nextTick, b0 as Mm, b1 as gm, b2 as ym, b3 as wm, aS as resolveDynamicComponent, _ as __vitePreload, b4 as toRefs, b5 as useRouter, a as useRoute, aQ as watchEffect, y as histoireConfig, l as resolveComponent, aP as markRaw, b6 as shallowRef, b7 as unindent, b8 as getHighlighter, x as isDark, b9 as Am, E as pushScopeId, G as popScopeId, T as Transition, ba as useResizeObserver, V as h, bb as onBeforeUnmount, u as useCssVars, L as normalizeStyle, bc as onUnmounted, bd as VTooltip, be as createStaticVNode, s as useEventListener, W as SANDBOX_READY, bf as EVENT_SEND, S as STATE_SYNC, U as PREVIEW_SETTINGS_SYNC, bg as toRaw } from "./vendor-BdZlzQxY.js";
-import { u as useStoryStore } from "./story-uL5H_X0I.js";
+import { u as useStoryStore } from "./story-Bg8Gl4mv.js";
 import { _ as _export_sfc, b as BaseSplitPane, u as useScrollOnActive, B as BaseListItemLink, i as isMobile, a as _sfc_main$A } from "./MobileOverlay.vue2-DLktUxbn.js";
 import { B as BaseEmpty } from "./BaseEmpty.vue-qotunv4H.js";
-import { t as toRawDeep, _ as _sfc_main$z, g as getContrastColor } from "./state-DDVrJ_2p.js";
-import { c as clientSupportPlugins, b as base } from "./GenericMountStory.vue2-BNt-OzEh.js";
+import { t as toRawDeep, _ as _sfc_main$z, g as getContrastColor } from "./state-BWDc9HfZ.js";
+import { c as clientSupportPlugins, b as base } from "./GenericMountStory.vue2-wUUIfZzE.js";
 const useEventsStore = defineStore("events", () => {
   const storyStore = useStoryStore();
   const events = reactive([]);
