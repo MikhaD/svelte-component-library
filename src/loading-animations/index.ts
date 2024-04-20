@@ -18,3 +18,4 @@ export { default as BlockWave } from "./BlockWave.svelte";
 export { default as BlockShuffle } from "./BlockShuffle.svelte";
 export { default as DotSlide } from "./DotSlide.svelte";
 export { default as DotSpin } from "./DotSpin.svelte";
+export { default as Logo } from "./Logo.svelte";

@@ -2,6 +2,7 @@
 	import type { Hst } from "@histoire/plugin-svelte";
 
 	import * as Loading from "../../../loading-animations";
+	import Logo from "../../SVG/Logo.story.svelte";
 
 	export let Hst: Hst;
 
@@ -84,6 +85,8 @@
 	let dotSpin_duration = 1;
 	let dotSpin_reverse = false;
 	let dotSpin_r = 15;
+
+	let logo_duration = 4;
 </script>
 
 <Hst.Story title="Loading Animations" icon="mingcute:loading-fill" layout={{ type: "grid" }}>
@@ -152,19 +155,6 @@
 		</svelte:fragment>
 	</Hst.Variant>
 
-	<Hst.Variant title="Clock" icon="ic:baseline-access-time">
-		<Loading.Clock bind:duration={clock_duration} />
-		<svelte:fragment slot="controls">
-			<Hst.Slider
-				title="Duration"
-				min={0.1}
-				max={10}
-				step={0.1}
-				bind:value={clock_duration}
-			/>
-		</svelte:fragment>
-	</Hst.Variant>
-
 	<Hst.Variant title="Rotate 1" icon="ph:circle-dashed-bold">
 		<Loading.RotateOne
 			bind:duration={rotateOne_duration}
@@ -208,19 +198,6 @@
 			<Hst.Slider title="Count" min={1} max={25} bind:value={rotateTwo_count} />
 			<Hst.Slider title="Radius" min={1} max={15} bind:value={rotateTwo_radius} />
 			<Hst.Slider title="Offset" min={0} max={50} bind:value={rotateTwo_offset} />
-		</svelte:fragment>
-	</Hst.Variant>
-
-	<Hst.Variant title="Hourglass" icon="ic:round-hourglass-bottom">
-		<Loading.Hourglass bind:duration={hourglass_duration} />
-		<svelte:fragment slot="controls">
-			<Hst.Slider
-				title="Duration"
-				min={0.1}
-				max={10}
-				step={0.1}
-				bind:value={hourglass_duration}
-			/>
 		</svelte:fragment>
 	</Hst.Variant>
 
@@ -268,53 +245,38 @@
 		</svelte:fragment>
 	</Hst.Variant>
 
-	<Hst.Variant title="Spin Glass" icon="ph:hourglass-fill">
-		<Loading.SpinGlass
-			bind:rotations={spinGlass_rotations}
-			bind:duration={spinGlass_duration}
-			bind:reverse={spinGlass_reverse}
-		/>
+	<Hst.Variant title="Clock" icon="ic:baseline-access-time">
+		<Loading.Clock bind:duration={clock_duration} />
 		<svelte:fragment slot="controls">
-			<Hst.Slider title="Rotations" min={1} max={10} bind:value={spinGlass_rotations} />
 			<Hst.Slider
 				title="Duration"
 				min={0.1}
 				max={10}
 				step={0.1}
-				bind:value={spinGlass_duration}
+				bind:value={clock_duration}
 			/>
-			<Hst.Checkbox title="Reverse" bind:value={spinGlass_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 
-	<Hst.Variant title="Spin Circles" icon="ic:baseline-circle">
-		<Loading.SpinCircles
-			bind:duration={spinCircles_duration}
-			bind:count={spinCircles_count}
-			bind:merge={spinCircles_merge}
-			bind:r={spinCircles_r}
-			bind:r2={spinCircles_r2}
-			bind:reverse={spinCircles_reverse}
-		/>
+	<Hst.Variant title="Grow" icon="gg:extension">
+		<Loading.Grow bind:duration={grow_duration} bind:reverse={grow_reverse} />
 		<svelte:fragment slot="controls">
-			<Hst.Slider title="Count" min={1} max={15} bind:value={spinCircles_count} />
-			<Hst.Slider title="Radius from" min={1} max={20} bind:value={spinCircles_r} />
-			<Hst.Slider title="Radius to" min={1} max={20} bind:value={spinCircles_r2} />
+			<Hst.Slider title="Duration" min={0.1} max={10} step={0.1} bind:value={grow_duration} />
+			<Hst.Checkbox title="Reverse" bind:value={grow_reverse} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Shrink" icon="gg:extension">
+		<Loading.Shrink bind:duration={shrink_duration} bind:reverse={shrink_reverse} />
+		<svelte:fragment slot="controls">
 			<Hst.Slider
 				title="Duration"
 				min={0.1}
 				max={10}
 				step={0.1}
-				bind:value={spinCircles_duration}
+				bind:value={shrink_duration}
 			/>
-			<Hst.Slider
-				title="Merge Factor"
-				min={0}
-				max={1}
-				step={0.1}
-				bind:value={spinCircles_merge}
-			/>
-			<Hst.Checkbox title="Reverse" bind:value={spinCircles_reverse} />
+			<Hst.Checkbox title="Reverse" bind:value={shrink_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 
@@ -353,25 +315,42 @@
 		</svelte:fragment>
 	</Hst.Variant>
 
-	<Hst.Variant title="Grow" icon="gg:extension">
-		<Loading.Grow bind:duration={grow_duration} bind:reverse={grow_reverse} />
+	<Hst.Variant title="Logo" icon="mdi:cog">
+		<Loading.Logo bind:duration={logo_duration} />
 		<svelte:fragment slot="controls">
-			<Hst.Slider title="Duration" min={0.1} max={10} step={0.1} bind:value={grow_duration} />
-			<Hst.Checkbox title="Reverse" bind:value={grow_reverse} />
+			<Hst.Slider title="Duration" min={0.1} max={10} step={0.1} bind:value={logo_duration} />
 		</svelte:fragment>
 	</Hst.Variant>
 
-	<Hst.Variant title="Shrink" icon="gg:extension">
-		<Loading.Shrink bind:duration={shrink_duration} bind:reverse={shrink_reverse} />
+	<Hst.Variant title="Hourglass" icon="ic:round-hourglass-bottom">
+		<Loading.Hourglass bind:duration={hourglass_duration} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider
 				title="Duration"
 				min={0.1}
 				max={10}
 				step={0.1}
-				bind:value={shrink_duration}
+				bind:value={hourglass_duration}
 			/>
-			<Hst.Checkbox title="Reverse" bind:value={shrink_reverse} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Spin Glass" icon="ph:hourglass-fill">
+		<Loading.SpinGlass
+			bind:rotations={spinGlass_rotations}
+			bind:duration={spinGlass_duration}
+			bind:reverse={spinGlass_reverse}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Rotations" min={1} max={10} bind:value={spinGlass_rotations} />
+			<Hst.Slider
+				title="Duration"
+				min={0.1}
+				max={10}
+				step={0.1}
+				bind:value={spinGlass_duration}
+			/>
+			<Hst.Checkbox title="Reverse" bind:value={spinGlass_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 
@@ -385,6 +364,37 @@
 			<Hst.Slider title="Duration" min={0.1} max={10} step={0.1} bind:value={spin_duration} />
 			<Hst.Slider title="Scale" min={0.1} max={1} step={0.1} bind:value={spin_scale} />
 			<Hst.Slider title="Border Width" min={0} max={10} bind:value={spin_border_width} />
+		</svelte:fragment>
+	</Hst.Variant>
+
+	<Hst.Variant title="Spin Circles" icon="ic:baseline-circle">
+		<Loading.SpinCircles
+			bind:duration={spinCircles_duration}
+			bind:count={spinCircles_count}
+			bind:merge={spinCircles_merge}
+			bind:r={spinCircles_r}
+			bind:r2={spinCircles_r2}
+			bind:reverse={spinCircles_reverse}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Count" min={1} max={15} bind:value={spinCircles_count} />
+			<Hst.Slider title="Radius from" min={1} max={20} bind:value={spinCircles_r} />
+			<Hst.Slider title="Radius to" min={1} max={20} bind:value={spinCircles_r2} />
+			<Hst.Slider
+				title="Duration"
+				min={0.1}
+				max={10}
+				step={0.1}
+				bind:value={spinCircles_duration}
+			/>
+			<Hst.Slider
+				title="Merge Factor"
+				min={0}
+				max={1}
+				step={0.1}
+				bind:value={spinCircles_merge}
+			/>
+			<Hst.Checkbox title="Reverse" bind:value={spinCircles_reverse} />
 		</svelte:fragment>
 	</Hst.Variant>
 
