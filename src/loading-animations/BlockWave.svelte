@@ -1,9 +1,9 @@
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 2
 	 */
-	export let speed = 2;
+	export let duration = 2;
 	/**
 	 * The number of blocks in each row.
 	 *
@@ -15,7 +15,7 @@
 	$: frac = 100 / count;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s">
+<svg viewBox="0 0 100 100" style:--duration="{duration}s">
 	{#key count}
 		{#each Array(count) as _, i}
 			{#each Array(count) as _, j}
@@ -24,7 +24,7 @@
 					y={j * frac}
 					width={frac}
 					height={frac}
-					style:--delay="{(speed / (count * 5)) * (i + j)}s"
+					style:--delay="{(duration / (count * 5)) * (i + j)}s"
 					style="transform-origin: {i * frac + 50 / count}% {j * frac + 50 / count}%"
 				/>
 			{/each}
@@ -36,7 +36,7 @@
 	rect {
 		fill: currentcolor;
 		stroke-width: 0.5;
-		animation: scale var(--speed) var(--delay) ease-in-out infinite;
+		animation: scale var(--duration) var(--delay) ease-in-out infinite;
 	}
 	@keyframes scale {
 		0% {

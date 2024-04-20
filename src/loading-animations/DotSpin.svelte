@@ -8,10 +8,10 @@
 	export let count = 2;
 	$: count = Math.max(2, count) - (count % 2);
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 1;
+	export let duration = 1;
 	/**
 	 * Whether the animation should play in reverse.
 	 * @default false
@@ -24,7 +24,7 @@
 	export let r = 15;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" class:reverse style:--r="{r}px">
+<svg viewBox="0 0 100 100" style:--duration="{duration}s" class:reverse style:--r="{r}px">
 	<circle cx="50" cy="50" />
 	{#key count}
 		{#each new Array(count) as _, i}
@@ -45,7 +45,7 @@
 		);
 	}
 	.outer {
-		animation: spin var(--speed) infinite ease-out;
+		animation: spin var(--duration) infinite ease-out;
 	}
 	.reverse .outer {
 		animation-direction: reverse;

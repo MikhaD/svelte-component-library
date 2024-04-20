@@ -24,12 +24,12 @@
 	 */
 	export let height = 36;
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 1;
+	export let duration = 1;
 	$: count = Math.max(1, count);
-	$: delay = (2 * speed) / count;
+	$: delay = (2 * duration) / count;
 </script>
 
 <svg
@@ -38,7 +38,7 @@
 	style:--r2="{r2}px"
 	style:--top="{(100 - height) / 2}px"
 	style:--bottom="{100 - (100 - height) / 2}px"
-	style:--speed="{speed}s"
+	style:--duration="{duration}s"
 >
 	{#key count}
 		{#each new Array(count) as _, i}
@@ -54,13 +54,13 @@
 		r: var(--r);
 		cy: var(--top);
 		fill: var(--accent-00, teal);
-		animation: sink var(--speed) ease-in-out alternate infinite;
+		animation: sink var(--duration) ease-in-out alternate infinite;
 	}
 	.bottom {
 		r: var(--r2);
 		cy: var(--bottom);
 		fill: currentcolor;
-		animation: rise var(--speed) ease-in-out alternate infinite;
+		animation: rise var(--duration) ease-in-out alternate infinite;
 	}
 	@keyframes sink {
 		to {

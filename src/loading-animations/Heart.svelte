@@ -1,12 +1,12 @@
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 1;
+	export let duration = 1;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s">
+<svg viewBox="0 0 100 100" style:--duration="{duration}s">
 	<path d="M50 25C55 0 100 0 100 35C100 60 70 70 50 95C30 70 0 60 0 35C0 0 45 0 50 25" />
 </svg>
 
@@ -14,7 +14,7 @@
 	path {
 		fill: var(--accent-00, teal);
 		transform-origin: center;
-		animation: snap var(--speed) infinite linear;
+		animation: snap var(--duration) infinite linear;
 	}
 	@keyframes snap {
 		0% {

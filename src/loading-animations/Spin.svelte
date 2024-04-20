@@ -1,9 +1,9 @@
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 3
 	 */
-	export let speed = 3;
+	export let duration = 3;
 	/**
 	 * The value to scale down to when transforming into a circle.
 	 *
@@ -22,7 +22,7 @@
 
 <svg
 	viewBox="0 0 100 100"
-	style:--speed="{speed}s"
+	style:--duration="{duration}s"
 	style:--scale={scale}
 	style:--stroke="{border_width}px"
 >
@@ -38,10 +38,10 @@
 		stroke-width: var(--stroke);
 	}
 	.right {
-		animation: right var(--speed) ease-in-out infinite alternate;
+		animation: right var(--duration) ease-in-out infinite alternate;
 	}
 	.left {
-		animation: left var(--speed) ease-in-out infinite alternate;
+		animation: left var(--duration) ease-in-out infinite alternate;
 	}
 
 	@keyframes right {

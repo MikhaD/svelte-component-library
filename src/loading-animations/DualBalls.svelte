@@ -1,10 +1,10 @@
 <!-- Can't use SVG for this one because z-index doesn't work on svg elements -->
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 1;
+	export let duration = 1;
 	/**
 	 * Whether the animation should play in reverse.
 	 * @default false
@@ -12,7 +12,7 @@
 	export let reverse = false;
 </script>
 
-<div style:--speed="{speed}s" class:reverse>
+<div style:--duration="{duration}s" class:reverse>
 	<span class="right" />
 	<span class="left" />
 </div>
@@ -33,11 +33,11 @@
 	}
 	.left {
 		background-color: currentcolor;
-		animation: left-right var(--speed) infinite linear;
+		animation: left-right var(--duration) infinite linear;
 	}
 	.right {
 		background-color: var(--accent-00, teal);
-		animation: right-left var(--speed) infinite linear;
+		animation: right-left var(--duration) infinite linear;
 	}
 	.reverse span {
 		animation-direction: reverse;

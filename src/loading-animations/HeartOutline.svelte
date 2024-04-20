@@ -1,9 +1,9 @@
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 2;
+	export let duration = 2;
 	/**
 	 * Whether the animation should play in reverse.
 	 * @default false
@@ -11,7 +11,7 @@
 	export let reverse = false;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" class:reverse>
+<svg viewBox="0 0 100 100" style:--duration="{duration}s" class:reverse>
 	<path d="M50 25C55 0 100 0 100 35C100 60 70 70 50 95" />
 	<path d="M50 25C45 0 0 0 0 35C0 60 30 70 50 95z" />
 </svg>
@@ -26,7 +26,7 @@
 		stroke-linejoin: round;
 		stroke-dasharray: 0 300;
 		transform-origin: center;
-		animation: form var(--speed) infinite ease-out;
+		animation: form var(--duration) infinite ease-out;
 	}
 	.reverse path {
 		animation-direction: reverse;

@@ -8,10 +8,10 @@
 	export let count = 2;
 	$: count = Math.max(1, count);
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 2
 	 */
-	export let speed = 2;
+	export let duration = 2;
 	/**
 	 * The width of the bars.
 	 *
@@ -28,17 +28,17 @@
 
 <svg
 	viewBox="0 0 100 100"
-	style:--speed="{speed}s"
+	style:--duration="{duration}s"
 	style:--offset="{offset}px"
 	style:--r="{radius}px"
 >
-	{#key count + radius + speed}
+	{#key count + radius + duration}
 		{#each Array(count) as _, i}
 			<circle
 				cx="50"
 				cy="50"
 				style:--angle="{(i * 360) / count}deg"
-				style:--delay="{(speed / count) * i}s"
+				style:--delay="{(duration / count) * i}s"
 			/>
 		{/each}
 	{/key}
@@ -49,7 +49,7 @@
 		fill: currentcolor;
 		transform-origin: center;
 		transform: rotate(var(--angle)) translateX(var(--offset));
-		animation: fade var(--speed) var(--delay) linear infinite;
+		animation: fade var(--duration) var(--delay) linear infinite;
 	}
 	@keyframes fade {
 		0% {

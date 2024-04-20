@@ -23,10 +23,10 @@
 	 */
 	export let r2 = 10;
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 1;
+	export let duration = 1;
 	/**
 	 * Whether the animation should play in reverse.
 	 * @default false
@@ -37,7 +37,7 @@
 <svg
 	viewBox="0 0 100 100"
 	fill="currentcolor"
-	style:--speed="{speed}s"
+	style:--duration="{duration}s"
 	style:--merge={merge}
 	style:--r="{r}px"
 	style:--r2="{r2}px"
@@ -56,7 +56,7 @@
 	g {
 		--offset: calc(50px - var(--r));
 		transform-origin: center;
-		animation: rotate var(--speed) linear infinite;
+		animation: rotate var(--duration) linear infinite;
 	}
 	.reverse g {
 		animation-direction: reverse;
@@ -68,7 +68,7 @@
 			calc(cos(var(--angle)) * var(--offset)),
 			calc(sin(var(--angle)) * var(--offset))
 		);
-		animation: up-down calc(var(--speed) * 2) alternate infinite ease-in-out;
+		animation: up-down calc(var(--duration) * 2) alternate infinite ease-in-out;
 	}
 	@keyframes up-down {
 		to {

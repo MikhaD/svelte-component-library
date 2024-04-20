@@ -1,12 +1,12 @@
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 1;
+	export let duration = 1;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" fill="none">
+<svg viewBox="0 0 100 100" style:--duration="{duration}s" fill="none">
 	<circle cx="50" cy="50" r="45" />
 	<path class="minute" d="M50 50v-30" />
 	<path class="hour" d="M50 50v-20" />
@@ -22,10 +22,10 @@
 		stroke-linecap: round;
 	}
 	.minute {
-		animation: rotate var(--speed) linear infinite;
+		animation: rotate var(--duration) linear infinite;
 	}
 	.hour {
-		animation: rotate calc(var(--speed) * 12) linear infinite;
+		animation: rotate calc(var(--duration) * 12) linear infinite;
 	}
 	@keyframes rotate {
 		0% {

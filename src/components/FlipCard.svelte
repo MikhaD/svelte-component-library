@@ -3,11 +3,11 @@
 	export let flipped: boolean;
 	/** The axis to flip the card across. */
 	export let axis: "x" | "y" = "x";
-	/** The speed of the flip animation in seconds. */
-	export let speed = 2;
+	/** The duration of the flip animation in seconds. */
+	export let duration = 2;
 </script>
 
-<div class="flip-card" class:flipped data-axis={axis} style:--speed="{speed}s">
+<div class="flip-card" class:flipped data-axis={axis} style:--duration="{duration}s">
 	<section class="front">
 		<slot name="front" />
 	</section>
@@ -25,7 +25,7 @@
 		transform-style: preserve-3d;
 	}
 	section {
-		transition-duration: var(--speed);
+		transition-duration: var(--duration);
 		grid-row: 1 / 2;
 		grid-column: 1 / 2;
 		backface-visibility: hidden;

@@ -149,7 +149,7 @@
 
 <section class="{card_type} f-{focused_input}">
 	<div class="card">
-		<FlipCard flipped={focused_input == "cvv"} axis="y" speed={1}>
+		<FlipCard flipped={focused_input == "cvv"} axis="y" duration={1}>
 			<svelte:fragment slot="front">
 				<div class="front">
 					<img class="img-1" src={card_images[card_type]} alt={card_type} />

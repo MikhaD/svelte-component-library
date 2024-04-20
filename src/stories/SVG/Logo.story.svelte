@@ -5,7 +5,7 @@
 
 	export let Hst: Hst;
 
-	let rotation_speed = 8;
+	let rotation_duration = 8;
 	let key = true;
 	let color = "#000";
 </script>
@@ -110,11 +110,11 @@
 		</svelte:fragment>
 	</Hst.Variant>
 	<Hst.Variant title="Infinitely Animated" icon="mdi:cog">
-		<svg viewBox="0 0 100 100" style:--speed="{rotation_speed}s" fill={color}>
+		<svg viewBox="0 0 100 100" style:--duration="{rotation_duration}s" fill={color}>
 			<style>
 				#cog {
 					animation: cog linear infinite;
-					animation-duration: var(--speed);
+					animation-duration: var(--duration);
 					transform-origin: center;
 					transform-box: fill-box;
 				}
@@ -142,7 +142,7 @@
 			<path id="m" d="M7.5 24v52h7v-39l13 39l13 -39v39h7v-52h-10l-10 32l-10 -32z" />
 		</svg>
 		<svelte:fragment slot="controls">
-			<Hst.Slider bind:value={rotation_speed} min={1} max={20} title="Seconds per ⭮" />
+			<Hst.Slider bind:value={rotation_duration} min={1} max={20} title="Seconds per ⭮" />
 			<ColorInput title="Color" bind:value={color} />
 		</svelte:fragment>
 	</Hst.Variant>

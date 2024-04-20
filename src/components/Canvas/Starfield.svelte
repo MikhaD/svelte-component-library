@@ -4,7 +4,7 @@
 	export let width = 500;
 	export let height = 500;
 	export let stars = 500;
-	export let speed = 0.3;
+	export let duration = 0.3;
 
 	let canvas: HTMLCanvasElement;
 	let stars_array: Star[] = [];
@@ -49,7 +49,7 @@
 			return new Star(
 				Math.random() * (Star.MAX_X - Star.MIN_X) + Star.MIN_X,
 				Math.random() * (Star.MAX_Y - Star.MIN_Y) + Star.MIN_Y,
-				Math.random() * (Star.MAX_Z - Star.MIN_Z) + Star.MIN_Z
+				Math.random() * (Star.MAX_Z - Star.MIN_Z) + Star.MIN_Z,
 			);
 		}
 	}
@@ -73,7 +73,7 @@
 			clear(ctx);
 			const duration = time - previous_time;
 			for (const star of stars_array) {
-				star.move(duration * speed);
+				star.move(duration * duration);
 				star.draw(ctx);
 			}
 

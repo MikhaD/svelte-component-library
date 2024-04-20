@@ -1,9 +1,9 @@
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 1;
+	export let duration = 1;
 	/**
 	 * Whether the animation should play in reverse.
 	 * @default false
@@ -16,7 +16,7 @@
 	export let r = 15;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" class:reverse style:--r="{r}px">
+<svg viewBox="0 0 100 100" style:--duration="{duration}s" class:reverse style:--r="{r}px">
 	<circle cx={r} cy="50" />
 	<circle class="inner" cx={r} cy="50" />
 	<circle class="inner" cx="50" cy="50" />
@@ -27,7 +27,7 @@
 	circle {
 		r: var(--r);
 		fill: currentcolor;
-		animation: var(--speed) infinite ease-in-out;
+		animation: var(--duration) infinite ease-in-out;
 	}
 	.inner {
 		animation-name: slide;

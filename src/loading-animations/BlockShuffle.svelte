@@ -7,10 +7,10 @@
 	 */
 	export let border_radius = 10;
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 2
 	 */
-	export let speed = 2;
+	export let duration = 2;
 	/**
 	 * The number of blocks.
 	 *
@@ -22,10 +22,14 @@
 	$: offset = count == 3 ? 0.665 : 0.38;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--rx="{(border_radius / 100) * 45}px">
+<svg
+	viewBox="0 0 100 100"
+	style:--duration="{duration}s"
+	style:--rx="{(border_radius / 100) * 45}px"
+>
 	{#key count}
 		{#each Array(count) as _, i}
-			<rect style="animation-delay: -{i * offset * speed}s" />
+			<rect style="animation-delay: -{i * offset * duration}s" />
 		{/each}
 	{/key}
 </svg>
@@ -36,7 +40,7 @@
 		width: 45px;
 		height: 45px;
 		fill: currentcolor;
-		animation: slide var(--speed) linear infinite;
+		animation: slide var(--duration) linear infinite;
 	}
 	@keyframes slide {
 		0%,

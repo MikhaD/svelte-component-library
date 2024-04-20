@@ -1,9 +1,9 @@
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 2
 	 */
-	export let speed = 2;
+	export let duration = 2;
 	/**
 	 * The number of bars. Must be odd.
 	 *
@@ -27,19 +27,19 @@
 	$: delays = (count - 1) / 2;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--bar-width="{bar_width}px">
+<svg viewBox="0 0 100 100" style:--duration="{duration}s" style:--bar-width="{bar_width}px">
 	{#key count}
 		{#each Array(delays) as _, i}
 			<rect
 				x={gap - bar_width / 2 + (width / (count - 1)) * i}
-				style="animation-delay: {(speed / 2) * ((delays - i) / delays)}s"
+				style="animation-delay: {(duration / 2) * ((delays - i) / delays)}s"
 			/>
 		{/each}
 		<rect x={50 - bar_width / 2} />
 		{#each Array(delays) as _, i}
 			<rect
 				x={100 - gap - bar_width / 2 - (width / (count - 1)) * i}
-				style="animation-delay: {(speed / 2) * ((delays - i) / delays)}s"
+				style="animation-delay: {(duration / 2) * ((delays - i) / delays)}s"
 			/>
 		{/each}
 	{/key}
@@ -52,7 +52,7 @@
 		height: 10px;
 		fill: currentcolor;
 		transform: translateY(45px);
-		animation: oscillate var(--speed) ease-in-out infinite;
+		animation: oscillate var(--duration) ease-in-out infinite;
 	}
 	@keyframes oscillate {
 		0%,

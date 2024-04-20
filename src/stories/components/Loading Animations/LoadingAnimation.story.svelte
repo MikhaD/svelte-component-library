@@ -90,7 +90,7 @@
 	<Hst.Variant title="Pie" icon="game-icons:swirled-shell">
 		<Loading.Pie
 			bind:count={pie_count}
-			bind:speed={pie_duration}
+			bind:duration={pie_duration}
 			bind:scale={pie_scale}
 			bind:reverse={pie_reverse}
 		/>
@@ -108,7 +108,7 @@
 			bind:r={dna_r}
 			bind:r2={dna_r2}
 			bind:height={dna_height}
-			bind:speed={dna_duration}
+			bind:duration={dna_duration}
 		/>
 		<svelte:fragment slot="controls">
 			<Hst.Slider title="Count" min={1} max={50} bind:value={dna_count} />
@@ -121,7 +121,7 @@
 
 	<Hst.Variant title="Block Shuffle" icon="zondicons:view-tile">
 		<Loading.BlockShuffle
-			bind:speed={blockShuffle_duration}
+			bind:duration={blockShuffle_duration}
 			bind:count={blockShuffle_count}
 			bind:border_radius={blockShuffle_br}
 		/>
@@ -139,7 +139,7 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Block Wave" icon="fe:tiled">
-		<Loading.BlockWave bind:speed={blockWave_duration} bind:count={blockWave_count} />
+		<Loading.BlockWave bind:duration={blockWave_duration} bind:count={blockWave_count} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider title="Count" min={1} max={15} bind:value={blockWave_count} />
 			<Hst.Slider
@@ -153,7 +153,7 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Clock" icon="ic:baseline-access-time">
-		<Loading.Clock bind:speed={clock_duration} />
+		<Loading.Clock bind:duration={clock_duration} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider
 				title="Duration"
@@ -167,7 +167,7 @@
 
 	<Hst.Variant title="Rotate 1" icon="ph:circle-dashed-bold">
 		<Loading.RotateOne
-			bind:speed={rotateOne_duration}
+			bind:duration={rotateOne_duration}
 			bind:count={rotateOne_count}
 			bind:width={rotateOne_width}
 			bind:length={rotateOne_length}
@@ -192,7 +192,7 @@
 
 	<Hst.Variant title="Rotate 2" icon="ph:circle-dashed-bold">
 		<Loading.RotateTwo
-			bind:speed={rotateTwo_duration}
+			bind:duration={rotateTwo_duration}
 			bind:count={rotateTwo_count}
 			bind:radius={rotateTwo_radius}
 			bind:offset={rotateTwo_offset}
@@ -212,7 +212,7 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Hourglass" icon="ic:round-hourglass-bottom">
-		<Loading.Hourglass bind:speed={hourglass_duration} />
+		<Loading.Hourglass bind:duration={hourglass_duration} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider
 				title="Duration"
@@ -226,7 +226,7 @@
 
 	<Hst.Variant title="Heart Outline" icon="material-symbols:favorite">
 		<Loading.HeartOutline
-			bind:speed={heartOutline_duration}
+			bind:duration={heartOutline_duration}
 			bind:reverse={heartOutline_reverse}
 		/>
 		<svelte:fragment slot="controls">
@@ -242,7 +242,7 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Heart" icon="material-symbols:favorite">
-		<Loading.Heart bind:speed={heart_duration} />
+		<Loading.Heart bind:duration={heart_duration} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider
 				title="Duration"
@@ -255,7 +255,7 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="DualBalls" icon="ic:baseline-circle">
-		<Loading.DualBalls bind:speed={dualBalls_duration} bind:reverse={dualBalls_reverse} />
+		<Loading.DualBalls bind:duration={dualBalls_duration} bind:reverse={dualBalls_reverse} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider
 				title="Duration"
@@ -271,7 +271,7 @@
 	<Hst.Variant title="Spin Glass" icon="ph:hourglass-fill">
 		<Loading.SpinGlass
 			bind:rotations={spinGlass_rotations}
-			bind:speed={spinGlass_duration}
+			bind:duration={spinGlass_duration}
 			bind:reverse={spinGlass_reverse}
 		/>
 		<svelte:fragment slot="controls">
@@ -289,7 +289,7 @@
 
 	<Hst.Variant title="Spin Circles" icon="ic:baseline-circle">
 		<Loading.SpinCircles
-			bind:speed={spinCircles_duration}
+			bind:duration={spinCircles_duration}
 			bind:count={spinCircles_count}
 			bind:merge={spinCircles_merge}
 			bind:r={spinCircles_r}
@@ -320,7 +320,7 @@
 
 	<Hst.Variant title="Oscillate" icon="cil:audio-spectrum">
 		<Loading.Oscillate
-			bind:speed={oscillate_duration}
+			bind:duration={oscillate_duration}
 			bind:count={oscillate_count}
 			bind:width={oscillate_width}
 			bind:bar_width={oscillate_bar_width}
@@ -340,7 +340,7 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Slide" icon="teenyicons:layers-subtract-outline">
-		<Loading.Slide bind:speed={slide_duration} bind:reverse={slide_reverse} />
+		<Loading.Slide bind:duration={slide_duration} bind:reverse={slide_reverse} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider
 				title="Duration"
@@ -354,7 +354,7 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Grow" icon="gg:extension">
-		<Loading.Grow bind:speed={grow_duration} bind:reverse={grow_reverse} />
+		<Loading.Grow bind:duration={grow_duration} bind:reverse={grow_reverse} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider title="Duration" min={0.1} max={10} step={0.1} bind:value={grow_duration} />
 			<Hst.Checkbox title="Reverse" bind:value={grow_reverse} />
@@ -362,7 +362,7 @@
 	</Hst.Variant>
 
 	<Hst.Variant title="Shrink" icon="gg:extension">
-		<Loading.Shrink bind:speed={shrink_duration} bind:reverse={shrink_reverse} />
+		<Loading.Shrink bind:duration={shrink_duration} bind:reverse={shrink_reverse} />
 		<svelte:fragment slot="controls">
 			<Hst.Slider
 				title="Duration"
@@ -378,7 +378,7 @@
 	<Hst.Variant title="Spin" icon="mdi:square-circle">
 		<Loading.Spin
 			bind:scale={spin_scale}
-			bind:speed={spin_duration}
+			bind:duration={spin_duration}
 			bind:border_width={spin_border_width}
 		/>
 		<svelte:fragment slot="controls">
@@ -391,7 +391,7 @@
 	<Hst.Variant title="Dot Spin" icon="ion:more">
 		<Loading.DotSpin
 			bind:count={dotSpin_count}
-			bind:speed={dotSpin_duration}
+			bind:duration={dotSpin_duration}
 			bind:reverse={dotSpin_reverse}
 			bind:r={dotSpin_r}
 		/>
@@ -411,7 +411,7 @@
 
 	<Hst.Variant title="Dot Slide" icon="ion:more">
 		<Loading.DotSlide
-			bind:speed={dotSlide_duration}
+			bind:duration={dotSlide_duration}
 			bind:r={dotSlide_r}
 			bind:reverse={dotSlide_reverse}
 		/>

@@ -9,7 +9,7 @@
 
 <script lang="ts">
 	export let open = false;
-	export let speed = 0.5;
+	export let duration = 0.5;
 	export let direction = DIRECTION.LEFT;
 </script>
 
@@ -19,7 +19,7 @@
 	viewBox="0 0 100 100"
 	on:click={() => (open = !open)}
 	on:keypress={() => (open = !open)}
-	style:--speed="{speed}s"
+	style:--duration="{duration}s"
 	style:--direction="{direction}deg"
 >
 	<path class:open />
@@ -43,7 +43,7 @@
 	}
 	@media (prefers-reduced-motion: no-preference) {
 		path {
-			transition: var(--speed);
+			transition: var(--duration);
 		}
 	}
 </style>

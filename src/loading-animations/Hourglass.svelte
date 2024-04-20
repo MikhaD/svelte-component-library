@@ -1,12 +1,12 @@
 <script lang="ts">
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 1
 	 */
-	export let speed = 1;
+	export let duration = 1;
 </script>
 
-<svg viewBox="0 0 200 200" style:--speed="{speed}s">
+<svg viewBox="0 0 200 200" style:--duration="{duration}s">
 	<mask id="hg-mask">
 		<path
 			d="m50,7h100v33c0,40 -35,40 -35,60c0,20 35,20 35,60v33h-100v-33c0,-40 35,-40 35,-60c0,-20 -35,-20 -35,-60z"
@@ -36,13 +36,13 @@
 	g {
 		scale: 0.9;
 		transform-origin: center;
-		animation: spin var(--speed) ease-in-out infinite;
+		animation: spin var(--duration) ease-in-out infinite;
 	}
 	.top {
-		animation: empty var(--speed) linear infinite reverse;
+		animation: empty var(--duration) linear infinite reverse;
 	}
 	.bottom {
-		animation: empty var(--speed) linear infinite;
+		animation: empty var(--duration) linear infinite;
 	}
 	@keyframes spin {
 		0% {

@@ -1,6 +1,6 @@
 <script lang="ts">
 	export let open = false;
-	export let speed = 0.5;
+	export let duration = 0.5;
 </script>
 
 <svg
@@ -9,7 +9,7 @@
 	viewBox="0 0 100 100"
 	on:click={() => (open = !open)}
 	on:keypress={() => (open = !open)}
-	style:--speed="{speed / 2}s"
+	style:--duration="{duration / 2}s"
 	class:open
 >
 	<rect class="a" y="10" />
@@ -25,19 +25,19 @@
 		fill: currentcolor;
 		transform-origin: center;
 		transition:
-			y var(--speed) var(--speed),
-			rotate var(--speed);
+			y var(--duration) var(--duration),
+			rotate var(--duration);
 	}
 	.b {
-		transition: opacity 0s var(--speed);
+		transition: opacity 0s var(--duration);
 	}
 	@media (prefers-reduced-motion: no-preference) {
 		svg.open {
 			.a,
 			.c {
 				transition:
-					y var(--speed),
-					rotate var(--speed) var(--speed);
+					y var(--duration),
+					rotate var(--duration) var(--duration);
 				y: 42px;
 			}
 			.a {

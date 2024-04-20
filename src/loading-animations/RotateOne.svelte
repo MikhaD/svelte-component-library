@@ -8,10 +8,10 @@
 	export let count = 2;
 	$: count = Math.max(1, count);
 	/**
-	 * The speed of the animation in seconds.
+	 * The duration of the animation in seconds.
 	 * @default 2
 	 */
-	export let speed = 2;
+	export let duration = 2;
 	/**
 	 * The width of the bars.
 	 *
@@ -37,13 +37,13 @@
 	export let offset = 25;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--width="{width}px" class:round>
+<svg viewBox="0 0 100 100" style:--duration="{duration}s" style:--width="{width}px" class:round>
 	{#key count + length + Number(round)}
 		{#each Array(count) as _, i}
 			<path
 				d="M50 {50 + offset}v{length}"
 				style:--angle="{(i * 360) / count}deg"
-				style:--delay="{(speed / count) * i}s"
+				style:--delay="{(duration / count) * i}s"
 			/>
 		{/each}
 	{/key}
@@ -55,7 +55,7 @@
 		stroke: currentcolor;
 		transform-origin: center;
 		transform: rotate(var(--angle));
-		animation: fade var(--speed) var(--delay) linear infinite;
+		animation: fade var(--duration) var(--delay) linear infinite;
 	}
 	.round {
 		stroke-linecap: round;
