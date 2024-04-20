@@ -22,13 +22,9 @@
 	$: width = Math.max(1, width);
 	/**
 	 * The length of the bars.
-	 *
-	 * Min: 1
 	 * @default 25
 	 */
 	export let length = 25;
-	$: length = Math.max(1, length);
-
 	/**
 	 * Whether the line caps are rounded.
 	 * @default false
@@ -41,30 +37,28 @@
 	export let offset = 25;
 </script>
 
-<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--width="{width}px">
-	<g stroke-linecap={round ? "round" : "butt"}>
-		{#key count + length + Number(round)}
-			{#each Array(count) as _, i}
-				<path
-					d="M50 {50 + offset}v{length}"
-					style:--angle="{(i * 360) / count}deg"
-					style:--delay="{(speed / count) * i}s"
-				/>
-			{/each}
-		{/key}
-	</g>
+<svg viewBox="0 0 100 100" style:--speed="{speed}s" style:--width="{width}px" class:round>
+	{#key count + length + Number(round)}
+		{#each Array(count) as _, i}
+			<path
+				d="M50 {50 + offset}v{length}"
+				style:--angle="{(i * 360) / count}deg"
+				style:--delay="{(speed / count) * i}s"
+			/>
+		{/each}
+	{/key}
 </svg>
 
 <style lang="scss">
-	g {
-		transform-origin: center;
-	}
 	path {
 		stroke-width: var(--width);
 		stroke: currentcolor;
 		transform-origin: center;
 		transform: rotate(var(--angle));
 		animation: fade var(--speed) var(--delay) linear infinite;
+	}
+	.round {
+		stroke-linecap: round;
 	}
 	@keyframes fade {
 		0% {

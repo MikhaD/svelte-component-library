@@ -32,24 +32,19 @@
 	style:--offset="{offset}px"
 	style:--r="{radius}px"
 >
-	<g>
-		{#key count + radius + speed}
-			{#each Array(count) as _, i}
-				<circle
-					cx="50"
-					cy="50"
-					style:--angle="{(i * 360) / count}deg"
-					style:--delay="{(speed / count) * i}s"
-				/>
-			{/each}
-		{/key}
-	</g>
+	{#key count + radius + speed}
+		{#each Array(count) as _, i}
+			<circle
+				cx="50"
+				cy="50"
+				style:--angle="{(i * 360) / count}deg"
+				style:--delay="{(speed / count) * i}s"
+			/>
+		{/each}
+	{/key}
 </svg>
 
 <style lang="scss">
-	g {
-		transform-origin: center;
-	}
 	circle {
 		fill: currentcolor;
 		transform-origin: center;

@@ -177,7 +177,7 @@
 		<svelte:fragment slot="controls">
 			<Hst.Slider title="Count" min={1} max={25} bind:value={rotateOne_count} />
 			<Hst.Slider title="Width" min={1} max={50} bind:value={rotateOne_width} />
-			<Hst.Slider title="Length" min={1} max={50} bind:value={rotateOne_length} />
+			<Hst.Slider title="Length" min={0} max={50} bind:value={rotateOne_length} />
 			<Hst.Slider
 				title="Duration"
 				min={0.1}
