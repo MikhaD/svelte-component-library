@@ -2,7 +2,6 @@
 	import type { Hst } from "@histoire/plugin-svelte";
 
 	import * as Menu from "../../components/Burger Menus";
-	import { DIRECTION } from "../../components/Burger Menus/Cross.svelte";
 
 	export let Hst: Hst;
 
@@ -11,7 +10,7 @@
 
 	let cross_open = false;
 	let cross_duration = 0.5;
-	let str_cross_direction = String(DIRECTION.LEFT);
+	let str_cross_direction = String(Menu.DIRECTION.LEFT);
 	$: cross_direction = Number(str_cross_direction);
 
 	let foldIn_open = false;
@@ -22,6 +21,11 @@
 
 	let mergeCross_open = false;
 	let mergeCross_duration = 0.5;
+
+	let arrow_open = false;
+	let arrow_duration = 0.5;
+	let str_arrow_direction = String(Menu.DIRECTION.LEFT);
+	$: arrow_direction = Number(str_arrow_direction);
 </script>
 
 <Hst.Story title="Components/Burger Menus" icon="material-symbols:menu" layout={{ type: "grid" }}>
@@ -45,10 +49,10 @@
 			<Hst.ButtonGroup
 				title="Direction"
 				options={[
-					{ label: "Left", value: String(DIRECTION.LEFT) },
-					{ label: "Right", value: String(DIRECTION.RIGHT) },
-					{ label: "Up", value: String(DIRECTION.UP) },
-					{ label: "Down", value: String(DIRECTION.DOWN) },
+					{ label: "Left", value: String(Menu.DIRECTION.LEFT) },
+					{ label: "Right", value: String(Menu.DIRECTION.RIGHT) },
+					{ label: "Up", value: String(Menu.DIRECTION.UP) },
+					{ label: "Down", value: String(Menu.DIRECTION.DOWN) },
 				]}
 				bind:value={str_cross_direction}
 			/>
@@ -82,6 +86,27 @@
 				bind:value={mergeCross_duration}
 			/>
 			<Hst.Checkbox title="Open" bind:value={mergeCross_open} />
+		</svelte:fragment>
+	</Hst.Variant>
+	<Hst.Variant title="Arrow" icon="material-symbols:menu">
+		<Menu.Arrow
+			bind:open={arrow_open}
+			bind:duration={arrow_duration}
+			bind:direction={arrow_direction}
+		/>
+		<svelte:fragment slot="controls">
+			<Hst.Slider title="Duration" min={0} max={2} step={0.1} bind:value={arrow_duration} />
+			<Hst.Checkbox title="Open" bind:value={arrow_open} />
+			<Hst.ButtonGroup
+				title="Direction"
+				options={[
+					{ label: "Left", value: String(Menu.DIRECTION.LEFT) },
+					{ label: "Right", value: String(Menu.DIRECTION.RIGHT) },
+					{ label: "Up", value: String(Menu.DIRECTION.UP) },
+					{ label: "Down", value: String(Menu.DIRECTION.DOWN) },
+				]}
+				bind:value={str_arrow_direction}
+			/>
 		</svelte:fragment>
 	</Hst.Variant>
 </Hst.Story>

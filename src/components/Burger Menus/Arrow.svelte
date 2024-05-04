@@ -15,7 +15,9 @@
 	style:--duration="{duration}s"
 	style:--direction="{direction}deg"
 >
-	<path class:open />
+	<g class:open>
+		<path />
+	</g>
 </svg>
 
 <style lang="scss">
@@ -25,16 +27,23 @@
 		outline: transparent;
 		transform: rotate(var(--direction));
 	}
+	g {
+		transform-origin: center;
+	}
 	path {
 		stroke-linecap: round;
 		d: path("M8 18L92 18M8 50H92M8 82L92 82");
 		stroke: currentcolor;
 		stroke-width: 16;
-		&.open {
-			d: path("M8 8L92 92M-110 50h92M8 92L92 8");
+	}
+	.open {
+		transform: rotate(180deg);
+		path {
+			d: path("M60 18L92 50M8 50H92M60 82L92 50");
 		}
 	}
 	@media (prefers-reduced-motion: no-preference) {
+		g,
 		path {
 			transition: var(--duration);
 		}
