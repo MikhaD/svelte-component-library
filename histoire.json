@@ -325,6 +325,12 @@
           "title": "Merge Cross",
           "icon": "material-symbols:menu",
           "iconColor": null
+        },
+        {
+          "id": "src-stories-components-burgermenus-story-svelte-5",
+          "title": "Arrow",
+          "icon": "material-symbols:menu",
+          "iconColor": null
         }
       ],
       "relativePath": "src/stories/components/BurgerMenus.story.svelte",
@@ -743,80 +749,80 @@
         },
         {
           "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-4",
-          "title": "Clock",
-          "icon": "ic:baseline-access-time",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-5",
           "title": "Rotate 1",
           "icon": "ph:circle-dashed-bold",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-6",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-5",
           "title": "Rotate 2",
           "icon": "ph:circle-dashed-bold",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-7",
-          "title": "Hourglass",
-          "icon": "ic:round-hourglass-bottom",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-8",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-6",
           "title": "Heart Outline",
           "icon": "material-symbols:favorite",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-9",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-7",
           "title": "Heart",
           "icon": "material-symbols:favorite",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-10",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-8",
           "title": "DualBalls",
           "icon": "ic:baseline-circle",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-11",
-          "title": "Spin Glass",
-          "icon": "ph:hourglass-fill",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-9",
+          "title": "Clock",
+          "icon": "ic:baseline-access-time",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-12",
-          "title": "Spin Circles",
-          "icon": "ic:baseline-circle",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-13",
-          "title": "Oscillate",
-          "icon": "cil:audio-spectrum",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-14",
-          "title": "Slide",
-          "icon": "teenyicons:layers-subtract-outline",
-          "iconColor": null
-        },
-        {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-15",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-10",
           "title": "Grow",
           "icon": "gg:extension",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-16",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-11",
           "title": "Shrink",
           "icon": "gg:extension",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-12",
+          "title": "Oscillate",
+          "icon": "cil:audio-spectrum",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-13",
+          "title": "Slide",
+          "icon": "teenyicons:layers-subtract-outline",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-14",
+          "title": "Logo",
+          "icon": "mdi:cog",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-15",
+          "title": "Hourglass",
+          "icon": "ic:round-hourglass-bottom",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-16",
+          "title": "Spin Glass",
+          "icon": "ph:hourglass-fill",
           "iconColor": null
         },
         {
@@ -827,12 +833,18 @@
         },
         {
           "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-18",
+          "title": "Spin Circles",
+          "icon": "ic:baseline-circle",
+          "iconColor": null
+        },
+        {
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-19",
           "title": "Dot Spin",
           "icon": "ion:more",
           "iconColor": null
         },
         {
-          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-19",
+          "id": "src-stories-components-loading-animations-loadinganimation-story-svelte-20",
           "title": "Dot Slide",
           "icon": "ion:more",
           "iconColor": null
