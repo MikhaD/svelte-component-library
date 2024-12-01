@@ -1,0 +1,4 @@
+const __resolved__virtual_storySource_srcStoriesComponentsPaletteStorySvelte = '<script lang="ts">\n  import type { Hst } from "@histoire/plugin-svelte";\n  import Palette from "../../components/Palette.svelte";\n\n  export let Hst: Hst;\n\n  let colors = 8;\n  let saturation = 50;\n  let lightness = 70;\n<\/script>\n\n<!-- svelte-ignore reactive-component -->\n<Hst.Story\n  title="Components/Palette"\n  icon="ic:outline-palette"\n>\n  <Palette {colors} {saturation} {lightness}/>\n\n  <svelte:fragment slot="controls">\n	<Hst.Slider bind:value={colors} title="Colors" min={1} max={360} />\n	<Hst.Slider bind:value={saturation} title="Saturation" min={0} max={100} />\n	<Hst.Slider bind:value={lightness} title="Lightness" min={0} max={100} />\n</svelte:fragment>\n</Hst.Story>\n';
+export {
+  __resolved__virtual_storySource_srcStoriesComponentsPaletteStorySvelte as default
+};

@@ -1,6 +1,6 @@
-import { R as parseQuery, r as ref, O as createApp, P as createPinia, k as watch, c as computed, S as STATE_SYNC, U as PREVIEW_SETTINGS_SYNC, N as onMounted, V as h, W as SANDBOX_READY, X as applyState, y as histoireConfig, x as isDark } from "./vendor-BdZlzQxY.js";
-import { m as mapFile, f as files, _ as _sfc_main } from "./GenericMountStory.vue2-B5MeHnbK.js";
-import { a as applyPreviewSettings, _ as _sfc_main$1, t as toRawDeep } from "./state-D7i8FZ-T.js";
+import { R as parseQuery, r as ref, O as createApp, P as createPinia, k as watch, c as computed, S as STATE_SYNC, U as PREVIEW_SETTINGS_SYNC, N as onMounted, V as h, W as SANDBOX_READY, X as applyState, y as histoireConfig, x as isDark } from "./vendor-CTVEJpZf.js";
+import { m as mapFile, f as files, _ as _sfc_main } from "./GenericMountStory.vue2-D4oS2hR5.js";
+import { a as applyPreviewSettings, _ as _sfc_main$1, t as toRawDeep } from "./state-BA8vOI8k.js";
 const query = parseQuery(window.location.search);
 const file = ref(mapFile(files.find((f) => f.id === query.storyId)));
 const app = createApp({

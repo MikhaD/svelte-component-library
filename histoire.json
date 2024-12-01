@@ -532,6 +532,32 @@
       "markdownFile": null
     },
     {
+      "id": "src-stories-components-palette-story-svelte",
+      "title": "Palette",
+      "group": null,
+      "layout": {
+        "type": "single",
+        "iframe": true
+      },
+      "icon": "ic:outline-palette",
+      "iconColor": null,
+      "docsOnly": false,
+      "variants": [
+        {
+          "id": "_default",
+          "title": "default"
+        }
+      ],
+      "relativePath": "src/stories/components/Palette.story.svelte",
+      "supportPluginId": "svelte4",
+      "treePath": [
+        "Components",
+        "Palette"
+      ],
+      "virtual": false,
+      "markdownFile": null
+    },
+    {
       "id": "src-stories-components-pause-story-svelte",
       "title": "Pause",
       "group": null,
